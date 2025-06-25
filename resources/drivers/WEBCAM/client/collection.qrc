@@ -1,0 +1,40 @@
+<!DOCTYPE RCC>
+<RCC version="1.0">
+    <qresource>
+        <file>main.qml</file>
+
+        <file>languages/es/trans.qm</file>
+        <file>languages/fr/trans.qm</file>     
+        <file>languages/it/trans.qm</file>
+        <file>languages/nl/trans.qm</file>
+        <file>languages/de/trans.qm</file>
+
+        <file>themes/colors/delete.png</file>
+        <file>themes/colors/play.png</file>
+        <file>themes/colors/save.png</file>
+        <file>themes/colors/stop.png</file>
+        <file>themes/colors/shot.png</file>
+        <file>themes/colors/style.set</file>
+
+        <file>themes/dark/delete.png</file>
+        <file>themes/dark/play.png</file>
+        <file>themes/dark/save.png</file>
+        <file>themes/dark/stop.png</file>
+        <file>themes/dark/shot.png</file>
+        <file>themes/dark/style.set</file>
+
+        <file>themes/ocean/delete.png</file>
+        <file>themes/ocean/play.png</file>
+        <file>themes/ocean/save.png</file>
+        <file>themes/ocean/stop.png</file>
+        <file>themes/ocean/shot.png</file>
+        <file>themes/ocean/style.set</file>
+
+        <file>themes/steel/delete.png</file>
+        <file>themes/steel/play.png</file>
+        <file>themes/steel/save.png</file>
+        <file>themes/steel/stop.png</file>
+        <file>themes/steel/shot.png</file>
+        <file>themes/steel/style.set</file>
+    </qresource>
+</RCC>

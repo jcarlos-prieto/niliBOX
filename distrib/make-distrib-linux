@@ -1,0 +1,112 @@
+#!/bin/bash
+# Copyright (C) 2025 - Juan Carlos Prieto <nilibox@nilibox.com>
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program. If not, see <https://www.gnu.org/licenses>.
+
+# Path to the Qt location
+QTDIR=~/Qt/6.7.3/gcc_64
+
+# Path to the project directory
+PJDIR=~/niliBOX
+
+# Path to the generated release
+RLDIR=~/niliBOX/build/Desktop-Release
+
+if [ ! -d $QTDIR ]; then
+    echo Qt not found
+    exit 1
+fi
+if [ ! -d $PJDIR ]; then
+    echo Project ditectory not found
+    exit 1
+fi
+if [ ! -d $RLDIR ]; then
+    echo Release directory not found
+    exit 1
+fi
+if ! command -v patchelf &> /dev/null; then
+    echo "The command 'patchelf' is needed"
+    exit 1
+fi
+
+echo Generating linux distribution
+
+cd /tmp
+rm -rf niliBOX
+mkdir niliBOX
+mkdir niliBOX/QtQml
+mkdir niliBOX/QtQuick
+cp -r $PJDIR/platforms/linux/* niliBOX
+cp $PJDIR/resources/icon.png niliBOX
+cp $RLDIR/output/niliBOX niliBOX
+cp $QTDIR/bin/lrelease niliBOX
+cp $QTDIR/libexec/rcc niliBOX
+cp -r $QTDIR/plugins/egldeviceintegrations niliBOX
+cp -r $QTDIR/plugins/imageformats niliBOX
+cp -r $QTDIR/plugins/multimedia niliBOX
+cp -r $QTDIR/plugins/platforms niliBOX
+cp -r $QTDIR/plugins/tls niliBOX
+cp -r $QTDIR/plugins/wayland-decoration-client niliBOX
+cp -r $QTDIR/plugins/wayland-graphics-integration-client niliBOX
+cp -r $QTDIR/plugins/wayland-shell-integration niliBOX
+cp -r $QTDIR/plugins/xcbglintegrations niliBOX
+cp -r $QTDIR/qml/QtQml/* niliBOX/QtQml
+cp -r $QTDIR/qml/QtQuick/* niliBOX/QtQuick
+
+while true; do
+    LIBS=$(ldd niliBOX/niliBOX $(find niliBOX -name "lib*") 2> /dev/null | grep "=>" | awk '{print $1}' | sort | uniq)
+    NEW=false
+    for lib in $LIBS; do
+        if [[ -f $QTDIR/lib/$lib && ! -f niliBOX/$lib ]]; then
+            cp $QTDIR/lib/$lib niliBOX
+            NEW=true
+        fi
+    done
+    if ! $NEW; then
+        break
+    fi
+done
+
+chmod +x niliBOX/lib*
+
+patchelf --set-rpath '$ORIGIN' niliBOX/niliBOX > /dev/null
+patchelf --set-rpath '$ORIGIN' niliBOX/lrelease > /dev/null
+patchelf --set-rpath '$ORIGIN' niliBOX/rcc > /dev/null
+walkchrpath() {
+    for f in $(find $1 -mindepth 1 -maxdepth 1 -name *.so*); do patchelf --set-rpath "\$ORIGIN$2" "$f" > /dev/null; done
+    for f in $(find $1 -mindepth 1 -maxdepth 1 -type d -not -path $1/baklib); do walkchrpath "$f" "$2/.."; done
+}
+walkchrpath "niliBOX" ""
+
+cp -r $PJDIR/platforms/linux/* niliBOX
+
+chmod 755 niliBOX/niliBOX \
+      niliBOX/lrelease \
+      niliBOX/rcc
+      
+tar -czf niliBOX-linux.tar.gz niliBOX
+
+cd - > /dev/null
+mkdir -p _downloads
+rm -rf linux
+mkdir linux
+cp -r /tmp/niliBOX/* linux
+
+echo Generating _downloads/niliBOX-linux.tar.gz
+
+cp /tmp/niliBOX-linux.tar.gz _downloads
+rm -r /tmp/niliBOX
+rm /tmp/niliBOX-linux.tar.gz
+
+echo

@@ -1,0 +1,99 @@
+﻿DIGIMODES.author=Juan Carlos (JC) Prieto <a href=mailto:nilibox@nilibox.com>nilibox@nilibox.com</a>
+DIGIMODES.description=Driver to decode radio digital modes
+DIGIMODES.displayname=Digital modes
+DIGIMODES.family=Radio
+DIGIMODES.location=drivers/DIGIMODES.rcc
+DIGIMODES.minimumversion=1.2.0
+DIGIMODES.multiuser=true
+DIGIMODES.version=2025.06.22
+DIGIMODES.virtualdevice=true
+DRIVERTEST.author=Juan Carlos (JC) Prieto <a href=mailto:nilibox@nilibox.com>nilibox@nilibox.com</a>
+DRIVERTEST.description=Driver to test communications and graphics
+DRIVERTEST.displayname=Driver test
+DRIVERTEST.family=Test
+DRIVERTEST.location=drivers/DRIVERTEST.rcc
+DRIVERTEST.minimumversion=1.2.0
+DRIVERTEST.multiuser=true
+DRIVERTEST.version=2025.06.22
+DRIVERTEST.virtualdevice=false
+ICOM_IC-PCR100.author=Juan Carlos (JC) Prieto <a href=mailto:nilibox@nilibox.com>nilibox@nilibox.com</a>
+ICOM_IC-PCR100.description=Driver for the radio scanner <b>Icom IC-PCR100</b>
+ICOM_IC-PCR100.displayname=Icom IC-PCR100
+ICOM_IC-PCR100.family=Radio
+ICOM_IC-PCR100.location=drivers/ICOM_IC-PCR100.rcc
+ICOM_IC-PCR100.minimumversion=1.2.0
+ICOM_IC-PCR100.multiuser=false
+ICOM_IC-PCR100.version=2025.06.22
+ICOM_IC-PCR100.virtualdevice=true
+ICOM_IC-PCR1000.author=Juan Carlos (JC) Prieto <a href=mailto:nilibox@nilibox.com>nilibox@nilibox.com</a>
+ICOM_IC-PCR1000.description=Driver for the radio scanner <b>Icom IC-PCR1000</b>
+ICOM_IC-PCR1000.displayname=Icom IC-PCR1000
+ICOM_IC-PCR1000.family=Radio
+ICOM_IC-PCR1000.location=drivers/ICOM_IC-PCR1000.rcc
+ICOM_IC-PCR1000.minimumversion=1.2.0
+ICOM_IC-PCR1000.multiuser=false
+ICOM_IC-PCR1000.version=2025.06.22
+ICOM_IC-PCR1000.virtualdevice=true
+ICOM_IC-PCR1500.author=Juan Carlos (JC) Prieto <a href=mailto:nilibox@nilibox.com>nilibox@nilibox.com</a>
+ICOM_IC-PCR1500.description=Driver for the radio scanners <b>Icom IC-(PC)R1500</b>
+ICOM_IC-PCR1500.displayname=Icom IC-PCR1500
+ICOM_IC-PCR1500.family=Radio
+ICOM_IC-PCR1500.location=drivers/ICOM_IC-PCR1500.rcc
+ICOM_IC-PCR1500.minimumversion=1.2.0
+ICOM_IC-PCR1500.multiuser=false
+ICOM_IC-PCR1500.version=2025.06.22
+ICOM_IC-PCR1500.virtualdevice=true
+PLAYAUDIO.author=Juan Carlos (JC) Prieto <a href=mailto:nilibox@nilibox.com>nilibox@nilibox.com</a>
+PLAYAUDIO.description=Audio player
+PLAYAUDIO.displayname=Audio Player
+PLAYAUDIO.family=Audio
+PLAYAUDIO.location=drivers/PLAYAUDIO.rcc
+PLAYAUDIO.minimumversion=1.2.0
+PLAYAUDIO.multiuser=true
+PLAYAUDIO.version=2025.06.22
+PLAYAUDIO.virtualdevice=true
+RELAY.author=Juan Carlos (JC) Prieto <a href=mailto:nilibox@nilibox.com>nilibox@nilibox.com</a>
+RELAY.description=Control of relays connected by COM or USB port
+RELAY.displayname=Relay control
+RELAY.family=Automation
+RELAY.location=drivers/RELAY.rcc
+RELAY.minimumversion=1.2.0
+RELAY.multiuser=true
+RELAY.version=2025.06.22
+RELAY.virtualdevice=false
+REMOTEAUDIO.author=Juan Carlos (JC) Prieto <a href=mailto:nilibox@nilibox.com>nilibox@nilibox.com</a>
+REMOTEAUDIO.description=Audio transfer to/from remote station
+REMOTEAUDIO.displayname=Remote audio
+REMOTEAUDIO.family=Audio
+REMOTEAUDIO.location=drivers/REMOTEAUDIO.rcc
+REMOTEAUDIO.minimumversion=1.2.0
+REMOTEAUDIO.multiuser=true
+REMOTEAUDIO.version=2025.06.22
+REMOTEAUDIO.virtualdevice=true
+RTL2832U-SDR.author=Juan Carlos (JC) Prieto <a href=mailto:nilibox@nilibox.com>nilibox@nilibox.com</a>
+RTL2832U-SDR.description=Software defined radio based on the <b>RTL2832U</b> chip
+RTL2832U-SDR.displayname=RTL2832U SDR
+RTL2832U-SDR.family=Radio
+RTL2832U-SDR.location=drivers/RTL2832U-SDR.rcc
+RTL2832U-SDR.minimumversion=1.2.0
+RTL2832U-SDR.multiuser=false
+RTL2832U-SDR.version=2025.06.22
+RTL2832U-SDR.virtualdevice=true
+SDRPLAY-RSP1A.author=Juan Carlos (JC) Prieto <a href=mailto:nilibox@nilibox.com>nilibox@nilibox.com</a>
+SDRPLAY-RSP1A.description=Driver for the SDR radio receiver <b>SDRplay RSP1A</b>
+SDRPLAY-RSP1A.displayname=SDRplay RSP1A
+SDRPLAY-RSP1A.family=Radio
+SDRPLAY-RSP1A.location=drivers/SDRPLAY-RSP1A.rcc
+SDRPLAY-RSP1A.minimumversion=1.2.0
+SDRPLAY-RSP1A.multiuser=false
+SDRPLAY-RSP1A.version=2025.06.22
+SDRPLAY-RSP1A.virtualdevice=true
+WEBCAM.author=Juan Carlos (JC) Prieto <a href=mailto:nilibox@nilibox.com>nilibox@nilibox.com</a>
+WEBCAM.description=Driver to capture video from a webcam
+WEBCAM.displayname=Webcam
+WEBCAM.family=Video
+WEBCAM.location=drivers/WEBCAM.rcc
+WEBCAM.minimumversion=1.2.0
+WEBCAM.multiuser=false
+WEBCAM.version=2025.06.22
+WEBCAM.virtualdevice=false

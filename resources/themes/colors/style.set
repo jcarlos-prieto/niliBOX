@@ -1,0 +1,166 @@
+# COLORS
+
+TPane =                                     spacing:1.5
+
+TFrame =                                    border-color:#F00000; border-width:0.25; padding:1.5; spacing:1.5
+
+TLabel =                                    text-color:#000080; link-color:#008000; text-align:vcenter; padding:1.5
+
+TLineEdit =                                 foreground-color:#F0F000; text-color:#000080; text-align:vcenter; border-color:#0000F0; border-width:0.25; padding-left:1.5; padding-right:1.5
+TLineEdit:!enabled =                        foreground-color:#D0D000; border-color:#000080
+TLineEdit:enabled:hover =                   border-width:0.5
+
+TTextEdit =                                 foreground-color:#F0F000; text-color:#000080; border-color:#0000F0; border-width:0.25; padding-left:1.5; padding-right:1.5
+TTextEdit:!enabled =                        foreground-color:#D0D000; border-color:#000080
+TTextEdit:enabled:hover =                   border-width:0.5
+
+TButton =                                   text-color:#000080; border-color:#0000F0; border-width:0.25; text-align:center; cursor:pointer; padding:1.5
+TButton:!enabled =                          text-color:#8080A0; border-color:#8080A0; cursor:normal
+TButton:enabled:hover =                     border-width:0.5; padding:2
+TButton:enabled:pressed =                   foreground-color:#A0A0F0
+
+TCheck =                                    foreground-color:#F0F000; border-color:#0000F0; border-width:0.25; cursor:pointer; padding:1.5
+TCheck:!enabled =                           foreground-color:#D0D000; border-color:#0000F0
+TCheck:enabled:hover:!pressed =             image:none; border-width:0.5
+TCheck:enabled:!hover:pressed =             image:accept.png
+TCheck:enabled:hover:pressed =              image:accept.png; border-width:0.5
+
+TbButton =                                  foreground-color:#00A000; text-color:#F0F0F0; text-align:center; cursor:pointer
+TbButton:!enabled =                         foreground-color:transparent; border-color:#00A000; text-color:#00A000; border-width:0.25
+TbButton:active =                           text-weight:bold
+TbButton:enabled:hover =                    foreground-color:#00D000
+TbButton.blind1 =                           foreground-color:#008000; padding:2
+TbButton.blind2 =                           foreground-color:#00A000; padding:2
+
+TComboBox =                                 foreground-color:#F0F000; text-color:#000080; border-color:#0000F0; border-width:0.25; padding:1.5; cursor:pointer
+TComboBox:active =                          foreground-color:#00A000
+TComboBox:!enabled =                        foreground-color:#D0D000; border-color:#0000F0
+TComboBox:enabled:hover =                   border-width:0.5
+TComboBox.arrow =                           image:arrow.png; angle:90; padding:0.05
+
+TList =                                     foreground-color:#F0F000; text-color:#000080; border-color:#0000F0; border-width:0.25; padding:1.5
+TList:active =                              foreground-color:#00A000
+
+TcFrame =                                   spacing:0
+TcFrame.header =                            foreground-color:#A00000; cursor:pointer; padding:1.5
+TcFrame.header.title =                      text-color:#F0F0F0; text-align:vcenter
+TcFrame.header.arrow =                      image:arrow.png; angle:90
+TcFrame.body =                              border-color:#F00000; border-width:0.25; padding:1.5; margin-top:-0.5
+
+TPopup =                                    foreground-color:#80000000
+TPopup.box =                                foreground-color: #F0F000; padding:1.5
+TPopup.icon.info =                          image:msgbox-information.png; padding:1.5
+TPopup.icon.ques =                          image:msgbox-question.png; padding:1.5
+TPopup.icon.warn =                          image:msgbox-warning.png; padding:1.5
+TPopup.icon.crit =                          image:msgbox-critical.png; padding:1.5
+TPopup.text =                               margin-left:10
+
+TGraph =                                    background-color:#404040; axiscolor:#A0A0A0; signalfillcolor1:#A00000; signalfillcolor2:#00F000; signalfillcolor3:#0000F0
+
+###################################################################################################################################################
+
+main =                                      background-color:#F0F0F0
+main.logo =                                 image:logo.png
+main.loading =                              margin-bottom:5
+main.loading:active =                       image:loading.gif 
+left =                                      foreground-color:#F0F000; padding:1.5
+left.buttons =                              foreground-color:#F0F000
+left.button.blind1 =                        image:close.png
+left.options =                              foreground-color:#F0F000
+left.options.devices =                      image:devices.png
+left.options.devices:!hover =               border-color:transparent
+left.options.settings =                     image:config.png
+left.options.settings:!hover =              border-color:transparent
+left.options.info =                         image:info.png
+left.options.info:!hover =                  border-color:transparent
+slider =                                    foreground-color:#008000; cursor:pointer; padding:1
+slider.button =                             border-width:0
+slider.button:pressed =                     foreground-color:#008000
+slider.arrow =                              image:arrow.png; border-width:0; padding:0.25
+slider.arrow:pressed =                      foreground-color:#008000
+slider.pin =                                image:pin.png
+slider.pin:!hover =                         border-color:transparent
+slider.pin:pressed =                        foreground-color:#A0A0F0
+
+devices =                                   background-color:#F0F0F0; padding:1.5
+devices.header.refresh =                    image:refresh.png
+devices.header.refresh:!hover =             border-color:transparent
+devices.header.close =                      image:close.png
+devices.header.close:!hover =               border-color:transparent
+devices.iconfavorites =                     image:favorites.png
+devices.favorites.new.header =              image:add.png; foreground-color:transparent; border-color:#F00000; border-width:0.25
+devices.favorites.new.header.arrow =        image:none
+devices.favorites.new.body =                border-color:#F00000
+devices.favorites.new.info =                image:info.png
+devices.favorites.new.accept =              image:accept.png
+devices.favorites.new.cancel =              image:close.png
+devices.favorites.buttons =                 foreground-color:#F0F0F0
+devices.favorites.button.blind1 =           image:close.png
+devices.favorites.button.blind2 =           image:default.png
+devices.iconlocal =                         image:local.png
+devices.local.filter.header =               image:filter.png; foreground-color:transparent; border-color:#F00000; border-width:0.25
+devices.local.filter.header.arrow =         image:none
+devices.local.filter.body =                 border-color:#F00000
+devices.local.buttons =                     foreground-color:#F0F0F0
+devices.local.button.blind1 =               image:infodriver.png
+devices.local.button.blind2 =               image:favorites.png
+devices.iconglobal =                        image:global.png; border-width:0; foreground-color:transparent
+devices.global.filter.header =              image:filter.png; foreground-color:transparent; border-color:#F00000; border-width:0.25
+devices.global.filter.header.arrow =        image:none
+devices.global.filter.body =                border-color:#F00000
+devices.global.buttons =                    foreground-color:#F0F0F0
+devices.global.button.blind1 =              image:info.png
+devices.global.button.blind2 =              image:favorites.png
+
+settings =                                  background-color:#F0F0F0; padding:1.5
+settings.header.refresh =                   image:refresh.png
+settings.header.refresh:!hover =            border-color:transparent
+settings.header.save =                      image:save.png
+settings.header.save:!hover =               border-color:transparent
+settings.header.close =                     image:close.png
+settings.header.close:!hover =              border-color:transparent
+settings.body =                             foreground-color:#F0F0F0
+settings.body.site.datapath.button =        image:refresh.png
+settings.body.devices.device.blind1 =       image:close.png
+settings.body.devices.new.header =          image:add.png; foreground-color:transparent
+settings.body.devices.new.header.arrow =    image:none
+settings.body.devices.new.header:hover =    border-color:#0000F0; border-width:0.25
+settings.body.devices.new.body =            border-width:0
+settings.body.devices.new.accept =          image:accept.png
+settings.body.devices.new.cancel =          image:close.png
+settings.body.security.groups.label =       text-align:center
+settings.body.security.groups.add =         image:add.png
+settings.body.security.groups.delete =      image:remove.png
+settings.body.security.members.label =      text-align:center
+settings.body.security.members.add =        image:add.png
+settings.body.security.members.delete =     image:remove.png
+
+info =                                      background-color:#F0F0F0; padding:1.5
+info.header.refresh =                       image:refresh.png
+info.header.refresh:!hover =                border-color:transparent
+info.header.close =                         image:close.png
+info.header.close:!hover =                  border-color:transparent
+info.body.about.logo =                      image:logo.png; cursor:pointer
+info.body.about.version =                   text-align:vcenter
+info.body.debug.buttons.copy =              image:copy.png
+info.body.debug.buttons.verbose =           image:verbose.png
+info.body.debug.buttons.debug =             image:debug.png
+info.body.debug.log =                       foreground-color:#F0F0F0
+info.body.license.text =                    foreground-color:#F0F0F0
+
+deviceconf.container.header.delete =        image:remove.png
+deviceconf.container.header.delete:!hover = border-color:transparent
+deviceconf.container.conf =                 background-color:#F0F0F0; padding-top:1.5
+
+app =                                       background-color:#F0F0F0; padding:1.5
+app.header.caption2 =                       margin-right:2
+app.header.close =                          image:close.png
+app.header.close:!hover =                   border-color:transparent
+app.container =                             background-color:#F0F0F0
+
+config =                                    foreground-color:#D0D0D0; padding:1.5; border-color:#808080; border-width:0.25
+config.header.close =                       image:close.png
+config.header.close:!hover =                border-color:transparent
+config.container =                          background-color:#D0D0D0
+
+tooltip =                                   background-color:#FFFFDC; text-color:#000000; border-width:0.25; border-color:#000000; padding-bottom:0.8

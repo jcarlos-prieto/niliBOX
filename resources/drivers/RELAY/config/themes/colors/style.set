@@ -1,0 +1,5 @@
+RELAY - CONFIG - COLORS
+
+help =    image:help.png
+applogo = image:relay.png
+tooltip = foreground-color:#FFFFDC; text-color:#000000; border-width:0.25; border-color:#000000; padding:1

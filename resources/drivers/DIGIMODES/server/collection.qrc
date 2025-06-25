@@ -1,0 +1,7 @@
+<!DOCTYPE RCC>
+<RCC version="1.0">
+    <qresource>
+        <file>main.js</file>
+        <file>../dsdcc.mjs</file>
+    </qresource>
+</RCC>

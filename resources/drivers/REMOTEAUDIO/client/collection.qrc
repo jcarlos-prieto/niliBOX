@@ -1,0 +1,46 @@
+<!DOCTYPE RCC>
+<RCC version="1.0">
+    <qresource>
+        <file>main.qml</file>
+        <file>ButtonUpDown.qml</file>
+        <file>SetAudioSettings.qml</file>
+
+        <file>languages/es/trans.qm</file>
+        <file>languages/fr/trans.qm</file>
+        <file>languages/it/trans.qm</file>
+        <file>languages/nl/trans.qm</file>
+        <file>languages/de/trans.qm</file>
+
+        <file>themes/colors/freq.png</file>
+        <file>themes/colors/play.png</file>
+        <file>themes/colors/set.png</file>
+        <file>themes/colors/stop.png</file>
+        <file>themes/colors/style.set</file>
+        <file>themes/colors/time.png</file>
+        <file>themes/colors/updown.gif</file>
+      
+        <file>themes/dark/freq.png</file>
+        <file>themes/dark/play.png</file>
+        <file>themes/dark/set.png</file>
+        <file>themes/dark/stop.png</file>
+        <file>themes/dark/style.set</file>
+        <file>themes/dark/time.png</file>
+        <file>themes/dark/updown.gif</file>
+      
+        <file>themes/ocean/freq.png</file>
+        <file>themes/ocean/play.png</file>
+        <file>themes/ocean/set.png</file>
+        <file>themes/ocean/stop.png</file>
+        <file>themes/ocean/style.set</file>
+        <file>themes/ocean/time.png</file>
+        <file>themes/ocean/updown.gif</file>
+      
+        <file>themes/steel/freq.png</file>
+        <file>themes/steel/play.png</file>
+        <file>themes/steel/set.png</file>
+        <file>themes/steel/stop.png</file>
+        <file>themes/steel/style.set</file>
+        <file>themes/steel/time.png</file>
+        <file>themes/steel/updown.gif</file>
+    </qresource>
+</RCC>
