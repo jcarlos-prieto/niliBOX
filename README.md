@@ -23,5 +23,12 @@ There are three type of resources:
 - Languages: Files on type .qm containing the translation of the core application and odules into different languages
 - Themes: Files of propietary formt (.set) describing the appearence of the core application and modules.
 
+This is a general description of each file and directorydirectory:
+- *source:* The source code of the core application
+- *resources:* The source code of the resources (drivers, languages and themes), QML components used by the modules, resource configuration files (.set) and some additional files needed. The scripts contained in this directory are used for the precompilation of the resouces and they are explained in the 'Compilation' section.
+- *platforms:* Specific files for the distribution on the different platforms supported. The directories for Android and iOS also include some specific source files which are included in the man project.
+- *distrib:* Scripts to create distribution packages for each operating system.
+- *CMakeLists.txt:* The main project configuration file.
+- *release-notes.txt:* The release notes of this version.
 
 ## Compilation
