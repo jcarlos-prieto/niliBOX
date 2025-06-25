@@ -1,0 +1,19 @@
+# DRIVERTEST - CLIENT - COLORS
+
+wsine =            image:sine.png
+wsine:!hover =     border-width:0
+wsquare =          image:square.png
+wsquare:!hover =   border-width:0
+wtriangle =        image:triangle.png
+wtriangle:!hover = border-width:0
+wnoise =           image:noise.png
+wnoise:!hover =    border-width:0
+config =           image:set.png
+config:!hover =    border-width:0
+play =             padding:3.5
+play:!hover =      border-width:0; padding:3
+play:!pressed =    image:play.png
+play:pressed =     image:stop.png
+audiosettings =    foreground-color:#00D000; border-color:#00A000
+graph =            signalcolor:#00D000
+tooltip =          foreground-color:#FFFFDC; text-color:#000000; border-width:0.25; border-color:#000000; padding:1

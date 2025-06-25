@@ -1,0 +1,45 @@
+#!/bin/bash
+# Copyright (C) 2025 - Juan Carlos Prieto <nilibox@nilibox.com>
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program. If not, see <https://www.gnu.org/licenses>.
+
+# Path to the generated release
+RLDIR=~/niliBOX/build/Android-Release
+
+if [ ! -d $RLDIR ]; then
+    echo Release directory not found
+    exit 1
+fi
+if [ ! -f $RLDIR/android-build/build/outputs/apk/release/android-build-release-signed.apk ]; then
+    echo Signed release file not found at $RLDIR/android-build/build/outputs/apk/release
+    exit 1
+fi
+if [ ! -f $RLDIR/android-build/build/outputs/bundle/release/android-build-release.aab ]; then
+    echo Signed release buldled not found at $RLDIR/android-build/build/outputs/bundle/release
+    exit 1
+fi
+
+echo Generating Android distribution
+
+mkdir -p _downloads
+rm -rf android
+mkdir android
+cp -r $RLDIR/android-build/build/outputs/apk/release/android-build-release-signed.apk android/niliBOX.apk
+cp -r $RLDIR/android-build/build/outputs/bundle/release/android-build-release.aab android/niliBOX.aab
+
+echo Generating _downloads/niliBOX-android.apk
+
+cp android/niliBOX.apk _downloads/niliBOX-android.apk
+
+echo
