@@ -32,3 +32,31 @@ This is a general description of each file and directorydirectory:
 - *release-notes.txt:* The release notes of this version.
 
 ## Compilation
+The first step to compile the application is installing the Qt Framework (version 6.7.3 recommended). You can download the Open Source version from [here](https://www.qt.io/download-qt-installer-oss).  
+Always include the additional libraries 'Qt Multimedia' and 'Qt Serial Port' when installing the Qt Framework.  
+
+Depending on the operating system, different options can be chosen. This is a description of my compilation stack:
+
+### Windows => Windows distribution
+- Windows 11
+- MSYS2 for MinGW support. Available [here](https://www.msys2.org/).  
+- Qt Framework for MinGW 64-bit using the Qt Maintenance tool (plus the additional libraries mentioned above).
+- Build directory set up to niliBOX\build\Desktop-Release.
+
+### Linux => Linux, Linux headless and Android distributions
+- Linux centOS 8 (Why? the GLIBC library present in the Linux distribution is linked to the executable. centOS 8 uses GLIBC 2.28 which is forward compatible with many Linux distributions)
+- Commom developer tools (gcc, cmake, etc)
+- Qt Framework for Desktop and Android using the Qt Maintenance tool (plus the additional libraries mentioned above).
+- For Android: OpenJDK 17. The Android SDK and NDK can be installed from Qt Creator SDKs configuration screen.
+- To generate the Linux headless version, add the variable -DNOGUI:BOOL=TRUE in the CMake Configuration option in Qt Creator.
+- To generate the Android version, make sure that you sign your package with an application signature.
+- Build directories set up to niliBOX\build\Desktop-Release, niliBOX\build\Headless-Release and niliBOX\build\Android-Release respectively.
+
+### macOS => macOS and iOS distributions
+- macOS Ventura 13.7
+- Xcode 15.2
+- Qt Framework for Desktop and iOS using the Qt Maintenance tool (plus the additional libraries mentioned above).
+- Build directories set up to niliBOX\build\Desktop-Release, niliBOX\build\iOS-Release
+
+### Resources
+The current 
