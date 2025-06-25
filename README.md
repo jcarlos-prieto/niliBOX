@@ -14,5 +14,5 @@ In this repository you can find the source code of the entire application.
 - Android (ver sion 9, API 28 or higher)
 - iOS (version 16 or higher)
 
-The official distribution has been cmpiled using Qt 6.7.3. It can be compiled with any version from Qt 6.6.0. When using Qt 6.8.0 or higher, some issues with non standard audio modes may appear. This is the reason why I use Qt 6.7.3.
+The official distribution has been compiled using Qt 6.7.3. It can be compiled with any version from Qt 6.6.0. When using Qt 6.8.0 or higher, some issues with non standard audio modes may appear. This is the reason why I use Qt 6.7.3.
 
