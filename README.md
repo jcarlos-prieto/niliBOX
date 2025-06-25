@@ -1,10 +1,10 @@
 # niliBOX
-***niliBOX*** is a software to manage external devices connected locally or remotely, specially radio receivers  
+***niliBOX*** is a software to manage external devices connected locally or remotely, specially radio receivers.  
 ***niliBOX*** is the evolution of [PCR AnyWhere](https://www.nilibox.com/PCRAnyWhere), a well known software to control Icom radio scanners.  
 It has been enhanced with new devices, a brand new interface and support for mobiles devices.  
 
 In this repository you can find the source code of the entire application.  
-***niliBOX*** is mainly developed in C++ using the Qt framework but it also contains code in C, Java, Javascript, QML and a little in Objective C.  
+***niliBOX*** is mainly developed in C++ using the [Qt framework](https://www.qt.io/product/framework) but it also contains code in C, Java, Javascript, QML and a little in Objective C.  
 
 ## Compatibility
 ***niliBOX*** can be compiled for the following platforms:
@@ -24,7 +24,7 @@ There are three type of resources:
 - Themes: Files of propietary formt (.set) describing the appearence of the core application and modules.
 
 This is a general description of each file and directorydirectory:
-- *source:* The source code of the core application
+- *source:* The source code of the core application. This directory also contains the source code of the third party libraries used: libusb, Oboe and USB Serial for Android.
 - *resources:* The source code of the resources (drivers, languages and themes), QML components used by the modules, resource configuration files (.set) and some additional files needed. The scripts contained in this directory are used for the precompilation of the resouces and they are explained in the 'Compilation' section.
 - *platforms:* Specific files for the distribution on the different platforms supported. The directories for Android and iOS also include some specific source files which are included in the man project.
 - *distrib:* Scripts to create distribution packages for each operating system.
