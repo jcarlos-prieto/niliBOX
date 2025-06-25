@@ -64,10 +64,10 @@ If you have made any change to the source of any resource, then you must regener
 If you have made any change in labels that must be translated to all available languages (both in the core application or any driver), then you must regenerate the language files. For this purpose, the scripts ztranslate are provided, both for Windows and Linux. As before, edit the script before running at set the variables appropriately. After running the script, you must check the corresponding translation file under resources/languages/_TS and provide the translation of the new label for each language.
 
 In summary, the process to fully compile the application is the following:  
-1. Modify the source, either core application or drivers
-2. If you have made a change in a label, run ztranslate and add the translation to the corresponding file under _TS
-3. If you have modified anything on any resource (driver, laguage or theme), run zcompile
-4. Finally, compile the core application.
+1. Modify the source, either core application or drivers.
+2. If you have made a change in a label, run ztranslate and add the translation to the corresponding file under _TS.
+3. If you have modified anything on any resource (driver, laguage or theme), run zcompile.
+4. Open the project file (CMakeList.txt) with Qt Creator and compile the core application.
 
 ## Distribution
 
