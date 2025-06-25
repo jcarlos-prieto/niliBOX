@@ -19,8 +19,8 @@ The official distribution has been compiled using Qt 6.7.3. It can be compiled w
 ## Structure
 ***niliBOX*** is structured as a core application developed in C++ which handles the graphical interface and the communications together with a series of resources that are loaded in runtime. These resources are packed as Qt resource files (.rcc).  
 There are three type of resources:  
-- Modules: Executable resources developed in QML and Javascript which implement the different functional modules
-- Languages: Files on type .qm containing the translation of the core application and odules into different languages
+- Drivers: Executable resources developed in QML and Javascript which implement the different functional modules
+- Languages: Files of type .qm containing the translation of the core application and drivers into different languages
 - Themes: Files of propietary formt (.set) describing the appearence of the core application and modules.
 
 This is a general description of each file and directorydirectory:
@@ -59,4 +59,17 @@ Depending on the operating system, different options can be chosen. This is a de
 - Build directories set up to niliBOX\build\Desktop-Release, niliBOX\build\iOS-Release
 
 ### Resources
-The current 
+This repository contains precompiled versions of all resources under resources/drivers/*.rcc, resources/languages/*.rcc and resources/themes/*.rcc. These files are included in the compilation script.  
+If you have made any change to the source of any resource, then you must regenerate the resource files. For this purpose, the script zcompile is provided, both for Windows (zcompile.bat) and Linux (zcompile.sh). The resource files are cross platform, which means that a rcc file generated on one platform is valid for all platforms. Before running the script, open it in a text editor and make sure that the variables set up at the beginning of the script are pointing to the right directories.  
+If you have made any change in labels that must be translated to all available languages (both in the core application or any driver), then you must regenerate the language files. For this purpose, the scripts ztranslate are provided, both for Windows and Linux. As before, edit the script before running at set the variables appropriately. After running the script, you must check the corresponding translation file under resources/languages/_TS and provide the translation of the new label for each language.
+
+In summary, the process to fully compile the application is the following:  
+1. Modify the source, either core application or drivers
+2. If you have made a change in a label, run ztranslate and add the translation to the corresponding file under _TS
+3. If you have modified anything on any resource (driver, laguage or theme), run zcompile
+4. Finally, compile the core application.
+
+## Distribution
+
+
+
