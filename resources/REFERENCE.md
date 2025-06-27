@@ -106,4 +106,5 @@ mytheme.location=custom/themes/mytheme
 ```
 If you create a custom resource, make sure that the resource name is unique among standard and custom resources.
 
+## Structure of a driver
 
