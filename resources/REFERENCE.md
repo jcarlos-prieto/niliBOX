@@ -63,9 +63,13 @@ steel.location=themes/steel.rcc
 steel.version=2025.06.22
 ```
 ## Custom resources
-If you create a new resource in the same place than the resources included in the application, then you will need to compile the resources (using the ztranslate and zcompile scripts) and compile the core application each time that a change is made.  
-Another way to work while the resource is developed is using the *custom* type of resources. A *custom* resource can be used by niliBOX directly from source code and it is automatically compiled at the moment of using it. The *custom* resources are placed in a different loction and will be read and used by niliBOX.
+If you create a new resource in the same place than the resources included in the application, then you will need to compile the resources (using the ztranslate and zcompile scripts) and compile the core application each time that a change is made.
+
+Another way to work while the resource is being developed is using the *custom* type of resources. A *custom* resource can be used by niliBOX directly from source code and it is automatically compiled at the moment of using it. The *custom* resources are placed in a different loction and will be read and used by niliBOX.
+
 The *custom* resources are placed in the working directory of niliBOX. This directory is:
 - Windows: C:\Users\username\AppData\Roaming\nilibox\niliBOX
 - Linux: /home/username/.config/nilibox/niliBOX
-- macOS: /home/username/.config/
+- macOS: /home/username/.config/nilibox.com/niliBOX
+
+
