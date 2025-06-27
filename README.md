@@ -9,7 +9,7 @@ In this repository you can find the source code of the entire application.
 ## Compatibility
 ***niliBOX*** can be compiled for the following platforms:
 - Windows (Windows 10 1809 or higher)
-- Linux (In general, any distribution using glibc 2.28 or higher)
+- Linux (in general, any distribution using glibc 2.28 or higher)
 - macOS (version 12 or higher)
 - Android (version 9, API 28 or higher)
 - iOS (version 16 or higher)
