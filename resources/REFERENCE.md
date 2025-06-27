@@ -33,18 +33,18 @@ Depending on the type of resource, the properties are different. Here is the des
   - description: Brief description of the driver. Supports html code
   - displayname: Name that will appear in the application
   - family: Grouping of the driver. Any value among: 'Audio', 'Automation', 'Radio', 'Test', 'Video'
-  - location: Directory where the driver resource file is located
+  - location: Directory where the driver resource file is located, relative to the location of drivers.set
   - minimumversion: Minimum niliBOX version needed to use this driver
   - multiuser: 'true' or 'false' depending on wether a module using this driver can be used simultaneously more than once
   - version: Version number. I use the date in format YYYY.MM.DD
   - virtualdevice: 'true' or 'false' depending on wether a odule using this driver outputs audio that can be chained to another module as audio input
 - Language properties:
   - displayname: Name that will appear in the application
-  - location: Directory where the language resource file is located
+  - location: Directory where the language resource file is located, relative to the location of languages.set
   - version: Version number. I use the date in format YYYY.MM.DD
 - Theme properties:
   - displayname: Name that will appear in the application
-  - location: Directory where the language resource file is located
+  - location: Directory where the language resource file is located, relative to the location of themes.set
   - version: Version number. I use the date in format YYYY.MM.DD
  
 The different resources of each type are included in the same .set file. For instance, this is the contents of the file themes.set:
@@ -67,9 +67,41 @@ If you create a new resource in the same place than the resources included in th
 
 Another way to work while the resource is being developed is using the *custom* type of resources. A *custom* resource can be used by niliBOX directly from source code and it is automatically compiled at the moment of using it. The *custom* resources are placed in a different loction and will be read and used by niliBOX.
 
-The *custom* resources are placed in the working directory of niliBOX. This directory is:
+The *custom* resources are placed in the home directory of niliBOX. The location of the home directory depends on the operating system in this way:
 - Windows: C:\Users\username\AppData\Roaming\nilibox\niliBOX
 - Linux: /home/username/.config/nilibox/niliBOX
 - macOS: /home/username/.config/nilibox.com/niliBOX
+
+To create a location for the *custom* resources, you must create the following directory structure under the home directory (example for Windows):
+<pre>
+C:\Users\username\AppData\Roaming\nilibox\niliBOX\
+└──custom/
+   ├──drivers/
+   │  ├──CUSTOMDRIVER1/
+   │  ├──CUSTOMDRIVER2/
+   │  └──...
+   ├──languages/
+   │  ├──CUSTOMLANGUAGE1/
+   │  ├──CUSTOMLANGUAGE2/
+   │  └──...
+   ├──themes/
+   │  ├──CUSTOMTHEME1/
+   │  ├──CUSTOMTHEME2/
+   │  └──...
+   ├──drivers.set
+   ├──languages.set
+   └──themes.set
+</pre>
+The rest of rules are the same than the ones described above for standard resources except the property location. In the case of a custom resource, the location must point to the directory where the custom resource is located. For instance, in the case of a custom theme:
+
+For standard theme:
+```
+colors.location=themes/colors.rcc
+```
+For custom theme:
+```
+mytheme.location=custom/themes/mytheme
+```
+If you create a custom resource, make sure that the resource name is unique among standard and custom resources.
 
 
