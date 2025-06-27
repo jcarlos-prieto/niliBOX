@@ -107,4 +107,30 @@ mytheme.location=custom/themes/mytheme
 If you create a custom resource, make sure that the resource name is unique among standard and custom resources.
 
 ## Structure of a driver
+A driver is composed of 3 components:
+- Client: Provides the man user interface. Communicates with the server
+- Server: Provides the backend functionality and controls the external devices. Communicates with the client
+- Config: User interface for the configuration of the module. Works in standalone.
+
+Each of these components are compiled into a resource file (.rcc) and then the 3 of them are again compiled into a single resource file. To be able to compile a resource, a file of name collection.qrc must be provided describing the contents of the resource.
+
+The directory structure of a driver (either standard or custom) is the following:
+<pre>
+DRIVER/
+├──client/
+│  ├──DRIVER1/
+│  ├──DRIVER2/
+│  └──...
+├──config/
+│  ├──LANGUAGE1/
+│  ├──LANGUAGE2/
+│  └──...
+├──server/
+│  ├──THEME1/
+│  ├──THEME2/
+│  └──...
+├──collection.qrc
+└──...
+</pre>
+
 
