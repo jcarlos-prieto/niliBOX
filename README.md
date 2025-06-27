@@ -41,7 +41,6 @@ Depending on the operating system, different options can be chosen. This is a de
 - Windows 11
 - MSYS2 for MinGW support. Available [here](https://www.msys2.org/).  
 - Qt Framework for MinGW 64-bit using the Qt Maintenance tool (plus the additional libraries mentioned above).
-- Build directory set up to niliBOX\build\Desktop-Release.
 
 ### Linux => Linux, Linux headless and Android distributions
 - Linux centOS 8 (Why? the GLIBC library present in the Linux distribution is linked to the executable. centOS 8 uses GLIBC 2.28 which is forward compatible with many Linux distributions)
@@ -50,13 +49,11 @@ Depending on the operating system, different options can be chosen. This is a de
 - For Android: OpenJDK 17. The Android SDK and NDK can be installed from Qt Creator SDKs configuration screen.
 - To generate the Linux headless version, add the variable -DNOGUI:BOOL=TRUE in the CMake Configuration option in Qt Creator.
 - To generate the Android version, make sure that you sign your package with an application signature.
-- Build directories set up to niliBOX\build\Desktop-Release, niliBOX\build\Headless-Release and niliBOX\build\Android-Release respectively.
 
 ### macOS => macOS and iOS distributions
 - macOS Ventura 13.7
 - Xcode 15.2
 - Qt Framework for Desktop and iOS using the Qt Maintenance tool (plus the additional libraries mentioned above).
-- Build directories set up to niliBOX\build\Desktop-Release, niliBOX\build\iOS-Release
 
 ### Resources
 This repository contains precompiled versions of all resources under resources/drivers/*.rcc, resources/languages/*.rcc and resources/themes/*.rcc. These files are included in the compilation script.  
