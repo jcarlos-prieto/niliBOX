@@ -1,4 +1,5 @@
 # DEVELOPMENT REFERENCE
+
 ## Resources definition
 The general structure of the source code of the resources is the following:
 <pre>
@@ -62,6 +63,7 @@ steel.displayname=Steel
 steel.location=themes/steel.rcc
 steel.version=2025.06.22
 ```
+
 ## Custom resources
 If you create a new resource in the same place than the resources included in the application, then you will need to compile the resources (using the ztranslate and zcompile scripts) and compile the core application each time that a change is made.
 
