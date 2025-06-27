@@ -83,5 +83,5 @@ These scripts will generate a directory under distrib with the contents of the d
 ## Release notes
 [Release notes](./release-notes.txt)
 
-[## License](./LICENSE)
+## [License](./LICENSE)
 
