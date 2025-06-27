@@ -86,10 +86,10 @@ This software is mainly developed using the [Qt Framework](https://www.qt.io/pro
 To fulfill the requirements of LGPL v3, a re-linking mechanism must be provided. This mechanism is described [here](https://nilibox.com/RELINK).  
 
 This software contains embedded the following third party libraries:
-- [libusb](https://github.com/libusb/libusb): A library to handle USB devices<br>
-- [Oboe](https://github.com/google/oboe: A library to handle audio on Android<br>
-- [USB Serial for Android](https://github.com/mik3y/usb-serial-for-android: A java library to handle USB Serial devices on Android.<br><br>
+- [libusb](https://github.com/libusb/libusb): A library to handle USB devices
+- [Oboe](https://github.com/google/oboe): A library to handle audio on Android
+- [USB Serial for Android](https://github.com/mik3y/usb-serial-for-android): A java library to handle USB Serial devices on Android.
 
 [Privacy policy](https://nilibox.com/PRIVACY)
 
-## [Release notes](./release-notes.txt)
+[Release notes](./release-notes.txt)
