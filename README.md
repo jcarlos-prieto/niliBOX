@@ -21,7 +21,7 @@ The official distribution has been compiled using Qt 6.7.3. It can be compiled w
 There are three type of resources:  
 - Drivers: Executable resources developed in QML and Javascript which implement the different functional modules
 - Languages: Files of type .qm containing the translation of the core application and drivers into different languages
-- Themes: Files of propietary formt (.set) describing the appearence of the core application and modules.
+- Themes: Files of propietary format (.set) describing the appearence of the core application and modules.
 
 This is a general description of each file and directorydirectory:
 - *source:* The source code of the core application. This directory also contains the source code of the third party libraries used: libusb, Oboe and USB Serial for Android.
