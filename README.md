@@ -78,7 +78,10 @@ After the core application is compiled and an executable has been generated, you
 - distrib/make-distrib-ios to generate an iOS distribution from macOS
 
 Before running any of these scripts, you must modify the variables set at the beginning to customize them to your environment.  
-These scripts will generate a directory under distrib with the contents of the distribution. They will also generate a compressed version of the distribution under distrib/_downloads.  
+These scripts will generate a directory under distrib with the contents of the distribution. They will also generate a compressed version of the distribution under distrib/_downloads.
+
+## Custom resources
+Are you interested in developing your own drivers, languages or themes? Then please check the [REFERENCE.md](./resources/REFERENCE.md) file to get an overview of how to proceed. You may also check the source code of the current resources.
 
 ## Notice about licenses
 This software is mainly developed using the [Qt Framework](https://www.qt.io/product/framework) under the LGPL v3 license. You may check the details about this license model [here](https://www.qt.io/licensing/open-source-lgpl-obligations#lgpl).  
