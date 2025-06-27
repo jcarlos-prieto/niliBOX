@@ -80,7 +80,16 @@ After the core application is compiled and an executable has been generated, you
 Before running any of these scripts, you must modify the variables set at the beginning to customize them to your environment.  
 These scripts will generate a directory under distrib with the contents of the distribution. They will also generate a compressed version of the distribution under distrib/_downloads.  
 
+## Notice about licenses
+This software is mainly developed using the [Qt Framework](https://www.qt.io/product/framework) under the LGPL v3 license. You may check the details about this license model [here](https://www.qt.io/licensing/open-source-lgpl-obligations#lgpl).  
+
+To fulfill the requirements of LGPL v3, a re-linking mechanism must be provided. This mechanism is described [here](https://nilibox.com/RELINK).  
+
+This software contains embedded the following third party libraries:
+- [libusb](https://github.com/libusb/libusb): A library to handle USB devices<br>
+- [Oboe](https://github.com/google/oboe: A library to handle audio on Android<br>
+- [USB Serial for Android](https://github.com/mik3y/usb-serial-for-android: A java library to handle USB Serial devices on Android.<br><br>
+
+[Privacy policy](https://nilibox.com/PRIVACY)
+
 ## [Release notes](./release-notes.txt)
-
-## [License](./LICENSE)
-
