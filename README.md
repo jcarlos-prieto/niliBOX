@@ -80,8 +80,7 @@ After the core application is compiled and an executable has been generated, you
 Before running any of these scripts, you must modify the variables set at the beginning to customize them to your environment.  
 These scripts will generate a directory under distrib with the contents of the distribution. They will also generate a compressed version of the distribution under distrib/_downloads.  
 
-## Release notes
-[Release notes](./release-notes.txt)
+## [Release notes](./release-notes.txt)
 
 ## [License](./LICENSE)
 
