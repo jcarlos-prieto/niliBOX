@@ -81,7 +81,7 @@ Before running any of these scripts, you must modify the variables set at the be
 These scripts will generate a directory under distrib with the contents of the distribution. They will also generate a compressed version of the distribution under distrib/_downloads.  
 
 ## Release notes
-[Release notes](./release_notex.txt)
+[Release notes](./release-notes.txt)
 
-
+[## License](./LICENSE)
 
