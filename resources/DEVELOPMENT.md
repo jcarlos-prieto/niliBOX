@@ -302,12 +302,59 @@ Item {
 For a full description of the controls, functions and properties available on top of the standard ones provided by QML, please check the [API](./API.md#qml-controls) reference file.
 
 ### Server
-The server resource provides the communication with the hardware. It runs on a separate thread, optimizing in this way the performance. The main file and entry point for the resource is the file `main.js`. This file is written in pure Javascript and implements the core logics of the driver, ncluding the communications with the hardware. Typically, the server resource relies heavily on the low level, high performance API provided by the Box [API](./API.md#box-api).
+The server resource provides the communication with the hardware. It runs on a separate thread, optimizing in this way the performance. The main file and entry point for the resource is the file `main.js`. This file is written in pure Javascript and implements the core logics of the driver, including the communications with the hardware. Typically, the server resource relies heavily on the low level, high performance API provided by the Box [API](./API.md#box-api).
 
 In addition to `main.js` you might need to include other files. They must all be included in the `collection.qrc` file described above.
 
 *niliBOX* has enriched the Javascript syntax with a few additional functions and properties to facilitate the development.
 
 A basic example of a `main.js` file is this:
+```
+let myvar = 0; //<== your global variables
 
+    // This function is called when the file has been loaded    
+    function b_start(params)
+    {
+        ...your Javascript code...
+    }
+
+
+    // This function is called when the file is going to be unloaded    
+    function b_finish()
+    {
+        ...your Javascript code...
+    }
+
+
+    // This function is called when the client has sent data to the client
+    function b_receive(key, value)
+    {
+        // Basic example
+        if (key === "message")
+            myfunction(value);
+    }
+
+
+    // This function is called when the application state has changed from inactive to active
+    function b_active()
+    {
+        ...your Javascript code...
+    }
+
+
+    // This function is called when some hardware device has been plugged or unplugged
+    function b_hotplug()
+    {
+        ...your Javascript code...
+    }
+    
+    
+    // You may add your own functions
+    function myfunction(value)
+    {
+        b_send("message", "hello! " + value); //<== This function sends data to the client from the server
+    }
+}
+```
+For a full description of the functions and properties available on top of the standard ones provided by Javascript, please check the [API](./API.md#javascript-functions) reference file.
 
