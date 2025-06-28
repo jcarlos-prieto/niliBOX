@@ -306,7 +306,16 @@ For a full description of the functions and properties available beside the stan
 ## API Reference
 
 ### QML functions
-
+<table>
+<row>
+<tr>`b_getbox(p)`</tr>
+<tr>
+Returns an object of type Box. This object can be used to call native functionas that are executed at the C++ core application, hence running much faster.  
+Parameter p can be either "REMOTE" or nothing. If "REMOTE" is provided, then the Box object will access the hardware at the server side.  
+Example: `let box = b_getbox();`  
+</tr>
+</row>
+</table>
 ### QML properties
 
 ### Javascript functions
