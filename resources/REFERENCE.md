@@ -6,6 +6,11 @@
 - [Structure of a driver](#structure-of-a-driver)
   - [Resource collection](#resource-collection)
   - [Client & Config](#client--config)
+- [API Reference](#api-reference)
+  - [QML functions](#qml-functions)
+  - [QML properties](#qml-properties)
+  - [Javascript functions](#javascript-functions)
+  - [Javascript properties](#javascript-properties)
 
 ## Resources definition
 The general structure of the source code of the resources is the following:
@@ -296,8 +301,16 @@ Item {
 }
 
 ```
+For a full description of the functions and properties available beside the standard ones provided by QML, please check the [API reference](#api-reference).
 
+## API Reference
 
+### QML functions
 
+### QML properties
 
+### Javascript functions
 
+### Javascript properties
+
+### Box API
