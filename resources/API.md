@@ -2,7 +2,8 @@
 
 ## Table of Contents
 - [QML controls](#qml-controls)
-- [QML functions](#qml-functions)
+- [QML callable functions](#qml-callable-functions)
+- [QML overridable functions](#qml-overridable-functions)
 - [QML properties](#qml-properties)
 - [Javascript functions](#javascript-functions)
 - [Javascript properties](#javascript-properties)
@@ -10,7 +11,8 @@
 
 ## QML controls
 
-## QML functions
+## QML callable functions
+These functions can be called from your source code, both a QML action or a Javascript function.
 <table>
 <tr>
 <td>b_getbox(type)</td>
@@ -136,6 +138,9 @@ Example: <code>b_mouse(Qt.PointingHandCursor);</code><br>
 </td>
 </tr>
 </table>
+
+## QML overridable functions
+These functions can be implemented in the Javascript code and will be called by the core application when needed.
 
 ## QML properties
 <table>
