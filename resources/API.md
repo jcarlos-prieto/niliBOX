@@ -120,14 +120,36 @@ Example: <code>let connection = b_conn();</code><br>
 <td>b_mouse(type)</td>
 <td>
 Changes the shape of the mouse cursor.<br>
-The possible values for <code>type</code> are given by the Qt::CursorShape type as described [here](https://doc.qt.io/archives/qt-6.7/qml-qtquick-mousearea.html#cursorShape-prop)<br>
+The possible values for <code>type</code> are given by the Qt::CursorShape type as described <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-mousearea.html#cursorShape-prop>here</a><br>
 Example: <code>b_mouse(Qt.PointingHandCursor);</code><br>
 </td>
 </tr>
 </table>
 
 ## QML properties
-
+<table>
+<tr>
+<td>b_unit(type)</td>
+<td>Real value containing the size in pixels of a distance of approximately 1 cm in desktops at 8 mm in touch screens. This value is used as unit of measure in all sizes used in the application.</td>
+</tr>
+<tr>
+<td>b_space(type)</td>
+<td>Real value containing the size of a small separation between controls. <control>b_space = 0.1 * b_unit</control></td>
+</tr>
+<tr>
+<td>b_width(type)</td>
+<td>Available width in pixels.</td>
+</tr>
+<tr>
+<td>b_height(type)</td>
+<td>Available height in pixels.</td>
+</tr>
+<tr>
+<td>b_fontsize(type)</td>
+<td>Real value containing the font size in pixels. <control>b_fontsize = 0.45 * b_unit</control></td>
+</tr>
+<tr>
+</table>
 ## Javascript functions
 
 ## Javascript properties
