@@ -101,6 +101,29 @@ Parameter <code>var</code> is a string representing the theme parameter to be re
 Example: <code>color: b_theme("TButton", "mybutton", "foreground-color");</code><br>
 </td>
 </tr>
+<tr>
+<td>b_conn()</td>
+<td>
+Returns a string with the type of connection established between the client and the server. The possible values are:
+<ol>
+  <li>SELF: The client and the server are on the same computer</li>
+  <li>LOCAL: The client and the server are on different computers on the same local network</li>
+  <li>DIRECT: The client and the server are on different local networks but the client can access the server directly</li>
+  <li>CBACK: The client and the server are on different local networks but the server can contact the client directly. The client has used a call-back method to contact the server</li>
+  <li>TCP: The client and the server cannot communicate directly and the traffic if relayed by the niliBOX server</li>
+  <li>HTTP: The client and the server cannot communicate and there is no possible TCP connection with the niliBOX server. The traffic is encapsulated in HTTP</li>
+</ol>
+Example: <code>let connection = b_conn();</code><br>
+</td>
+</tr>
+<tr>
+<td>b_mouse(type)</td>
+<td>
+Changes the shape of the mouse cursor.<br>
+The possible values for <code>type</code> are given by the Qt::CursorShape type as described [here](https://doc.qt.io/archives/qt-6.7/qml-qtquick-mousearea.html#cursorShape-prop)<br>
+Example: <code>b_mouse(Qt.PointingHandCursor);</code><br>
+</td>
+</tr>
 </table>
 
 ## QML properties
