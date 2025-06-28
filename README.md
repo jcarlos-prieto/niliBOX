@@ -22,11 +22,11 @@ The official distribution has been compiled using Qt 6.7.3. It can be compiled w
 There are three type of resources:  
 - Drivers: Executable resources developed in QML and Javascript which implement the different functional modules
 - Languages: Files of type .qm containing the translation of the core application and drivers into different languages
-- Themes: Files of propietary format (.set) describing the appearence of the core application and modules.
+- Themes: Files of proprietary format (.set) describing the appearance of the core application and modules.
 
 This is a general description of each file and directory:
 - *source:* The source code of the core application. This directory also contains the source code of the third party libraries used: libusb, Oboe and USB Serial for Android.
-- *resources:* The source code of the resources (drivers, languages and themes), QML components used by the modules, resource configuration files (.set) and some additional files needed. The scripts contained in this directory are used for the precompilation of the resouces and they are explained in the 'Compilation' section.
+- *resources:* The source code of the resources (drivers, languages and themes), QML components used by the modules, resource configuration files (.set) and some additional files needed. The scripts contained in this directory are used for the precompilation of the resources and they are explained in the 'Compilation' section.
 - *platforms:* Specific files for the distribution on the different platforms supported. The directories for Android and iOS also include some specific source files which are included in the main project.
 - *distrib:* Scripts to create distribution packages for each operating system.
 - *CMakeLists.txt:* The main project configuration file.
@@ -45,10 +45,10 @@ Depending on the operating system, different options can be chosen. This is a de
 
 ### Linux => Linux, Linux headless and Android distributions
 - Linux centOS 8 (Why? the GLIBC library present in the Linux distribution is linked to the executable. centOS 8 uses GLIBC 2.28 which is forward compatible with many Linux distributions)
-- Commom developer tools (gcc, cmake, etc)
+- Common developer tools (gcc, cmake, etc)
 - Qt Framework for Desktop and Android using the Qt Maintenance tool (plus the additional libraries mentioned above).
 - For Android: OpenJDK 17. The Android SDK and NDK can be installed from Qt Creator SDKs configuration screen.
-- To generate the Linux headless version, add the variable -DNOGUI:BOOL=TRUE in the CMake Configuration option in Qt Creator.
+- To generate the Linux headless version, add the variable `-DNOGUI:BOOL=TRUE` in the CMake Configuration option in Qt Creator.
 - To generate the Android version, make sure that you sign your package with an application signature.
 
 ### macOS => macOS and iOS distributions
@@ -57,7 +57,12 @@ Depending on the operating system, different options can be chosen. This is a de
 - Qt Framework for Desktop and iOS using the Qt Maintenance tool (plus the additional libraries mentioned above).
 
 ### Resources
-This repository contains precompiled versions of all resources under resources/drivers/*.rcc, resources/languages/*.rcc and resources/themes/*.rcc. These files are included in the compilation script.
+This repository contains precompiled versions of all resources under these directories:
+- `resources/drivers/*.rcc`
+- `resources/languages/*.rcc`
+- `resources/themes/*.rcc`
+
+These files are included in the cmake compilation file.
 
 If you have made any change to the source of any resource, then you must regenerate the resource files. For this purpose, the script zcompile is provided, both for Windows (zcompile.bat) and Linux (zcompile.sh). The resource files are cross platform, which means that a rcc file generated on one platform is valid for all platforms. Before running the script, open it in a text editor and make sure that the variables set up at the beginning of the script are pointing to the right directories.
 
@@ -66,7 +71,7 @@ If you have made any change in labels that must be translated to all available l
 In summary, the process to fully compile the application is the following:  
 1. Modify the source, either core application or drivers.
 2. If you have made a change in a label, run ztranslate and add the translation to the corresponding file under _TS.
-3. If you have modified anything on any resource (driver, laguage or theme), run zcompile.
+3. If you have modified anything on any resource (driver, language or theme), run zcompile.
 4. Open the project file (CMakeList.txt) with Qt Creator and compile the core application.
 
 ## Distribution
