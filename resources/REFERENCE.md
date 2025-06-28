@@ -374,7 +374,16 @@ Example: <code>let theme = b_param("ui.theme");</code><br>
 Imports a Javascript module of type .mjs.<br>
 Parameter <code>name</code> is a string that will be used to reference the primitives available in the imported module.<br>
 Parameter <code>file</code> is a string containing the file name of the module to be imported. This file must be added to the resource collection file.<br>
-Example: <code>b_import("RTLSDR", "rtlsdr.mjs";</code><br>
+Example: <code>b_import("RTLSDR", "rtlsdr.mjs");</code><br>
+</td>
+</tr>
+<tr>
+<td>b_translate(text)</td>
+<td>
+Returns the text in English stored in <code>text</code> translated to the current language.<br>
+Parameter <code>text</code> is a string.<br>
+The value in <code>text</code> will be added to the corresponding language file to be manually translated before compilation.<br>
+Example: <code>text: b_translate("Name:");</code><br>
 </td>
 </tr>
 </table>
