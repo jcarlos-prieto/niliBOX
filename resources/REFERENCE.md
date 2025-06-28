@@ -30,23 +30,23 @@ DRIVERTEST.displayname=Driver test
 ```
 Depending on the type of resource, the properties are different. Here is the description of the properties for each type of resource:
 - Driver properties:
-  - author: Name of the author. Supports html code
-  - description: Brief description of the driver. Supports html code
-  - displayname: Name that will appear in the application
-  - family: Grouping of the driver. Any value among: 'Audio', 'Automation', 'Radio', 'Test', 'Video'
-  - location: Directory where the driver resource file is located, relative to the location of drivers.set
-  - minimumversion: Minimum niliBOX version needed to use this driver
-  - multiuser: 'true' or 'false' depending on wether a module using this driver can be used more than once simultaneously
-  - version: Version number. Any value. I use the date in format YYYY.MM.DD
-  - virtualdevice: 'true' or 'false' depending on wether a module using this driver outputs audio that can be chained to another module as audio input
+  - `author`: Name of the author. Supports html code
+  - `description`: Brief description of the driver. Supports html code
+  - `displayname`: Name that will appear in the application
+  - `family`: Grouping of the driver. Any value among: 'Audio', 'Automation', 'Radio', 'Test', 'Video'
+  - `location`: Directory where the driver resource file is located, relative to the location of drivers.set
+  - `minimumversion`: Minimum niliBOX version needed to use this driver
+  - `multiuser`: 'true' or 'false' depending on wether a module using this driver can be used more than once simultaneously
+  - `version`: Version number. Any value. I use the date in format YYYY.MM.DD
+  - `virtualdevice`: 'true' or 'false' depending on wether a module using this driver outputs audio that can be chained to another module as audio input
 - Language properties:
-  - displayname: Name that will appear in the application
-  - location: Directory where the language resource file is located, relative to the location of languages.set
-  - version: Version number. Any value. I use the date in format YYYY.MM.DD
+  - `displayname`: Name that will appear in the application
+  - `location`: Directory where the language resource file is located, relative to the location of languages.set
+  - `version`: Version number. Any value. I use the date in format YYYY.MM.DD
 - Theme properties:
-  - displayname: Name that will appear in the application
-  - location: Directory where the language resource file is located, relative to the location of themes.set
-  - version: Version number. Any value. I use the date in format YYYY.MM.DD
+  - `displayname`: Name that will appear in the application
+  - `location`: Directory where the language resource file is located, relative to the location of themes.set
+  - `version`: Version number. Any value. I use the date in format YYYY.MM.DD
  
 The different resources of each type are included in the same .set file. For instance, this is the contents of the file themes.set:
 ```
@@ -70,9 +70,9 @@ If you create a new resource in the same place than the resources included in th
 Another way to work while the resource is being developed is using the *custom* type of resources. A *custom* resource can be used by niliBOX directly from source code and it is automatically compiled at the moment of using it. The *custom* resources are placed in a different location and will be read and used by niliBOX.
 
 The *custom* resources are placed in the home directory of niliBOX (not where the application is located). The location of the home directory depends on the operating system in this way:
-- Windows: C:\Users\username\AppData\Roaming\nilibox\niliBOX
-- Linux: /home/username/.config/nilibox/niliBOX
-- macOS: /home/username/.config/nilibox.com/niliBOX
+- Windows: `C:\Users\username\AppData\Roaming\nilibox\niliBOX`
+- Linux: `/home/username/.config/nilibox/niliBOX`
+- macOS: `/home/username/.config/nilibox.com/niliBOX`
 
 To create a location for the *custom* resources, you must create the following directory structure under the home directory (example for Windows):
 <pre>
