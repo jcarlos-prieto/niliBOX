@@ -146,14 +146,28 @@ These functions can be implemented in the Javascript code and will be called by 
 <td>b_start(params)</td>
 <td>
 Called when the client starts.<br>
-Parameter <code>params</code>: Data structure - The object *params* contains one property for each parameter defined in the Config resource.<br>
+Parameter <code>params</code>: Data structure - The object params contains one property for each parameter defined in the Config resource.<br>
 Return value: None<br>
-Example:<br>
+Example:
 <code>
 let factor = 0;
 function b_start(params)
 {
     factor = params.factor;
+}
+</code>
+</td>
+</tr>
+<tr>
+<td>b_finish()</td>
+<td>
+Called when the client is going to finish.<br>
+Return value: None<br>
+Example:
+<code>
+function b_finish()
+{
+    closeAudio();
 }
 </code>
 </td>
