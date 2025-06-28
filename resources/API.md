@@ -6,6 +6,7 @@
 - [QML properties](#qml-properties)
 - [Javascript functions](#javascript-functions)
 - [Javascript properties](#javascript-properties)
+- [Box API](#box-api)
 
 ## QML controls
 
