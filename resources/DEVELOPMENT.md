@@ -299,13 +299,15 @@ Item {
 }
 
 ```
-For a full description of the controls, functions and properties available on top of the standard ones provided by QML, please check the [API](./API.md) reference file.
+For a full description of the controls, functions and properties available on top of the standard ones provided by QML, please check the [API](./API.md#qml-controls) reference file.
 
 ### Server
 The server resource provides the communication with the hardware. It runs on a separate thread, optimizing in this way the performance. The main file and entry point for the resource is the file `main.js`. This file is written in pure Javascript and implements the core logics of the driver, ncluding the communications with the hardware. Typically, the server resource relies heavily on the low level, high performance API provided by the Box [API](./API.md#box-api).
 
-In addition to `main.qml` you might need to include other QML files to create custom controls or additional resouces such as pictures, icons, etc. They must all be included in the `collection.qrc` file described above.
+In addition to `main.js` you might need to include other files. They must all be included in the `collection.qrc` file described above.
 
 *niliBOX* has enriched the Javascript syntax with a few additional functions and properties to facilitate the development.
+
+A basic example of a `main.js` file is this:
 
 
