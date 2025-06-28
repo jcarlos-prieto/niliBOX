@@ -141,8 +141,27 @@ Example: <code>b_mouse(Qt.PointingHandCursor);</code><br>
 
 ## QML overridable functions
 These functions can be implemented in the Javascript code and will be called by the core application when needed.
+<table>
+<tr>
+<td>b_start(params)</td>
+<td>
+Called when the client starts.<br>
+Parameter <code>params</code>: Data structure - The object *params* contains one property for each parameter defined in the Config resource.<br>
+Return value: None<br>
+Example:<br>
+<code>
+let factor = 0;
+function b_start(params)
+{
+    factor = params.factor;
+}
+</code>
+</td>
+</tr>
+</table>
 
 ## QML properties
+These properties are available both for QML and Javascript code.
 <table>
 <tr>
 <td>b_unit</td>
