@@ -20,7 +20,7 @@ resources/
 ├──languages.set
 └──themes.set
 </pre>
-The files of extension .set contain information about each type of resource. These file are plain text file containing lines with this structure:
+The files of extension .set contain information about each type of resource. These files are plain text file containing lines with this structure:
 ```
 resource.property=value
 ```
@@ -36,17 +36,17 @@ Depending on the type of resource, the properties are different. Here is the des
   - family: Grouping of the driver. Any value among: 'Audio', 'Automation', 'Radio', 'Test', 'Video'
   - location: Directory where the driver resource file is located, relative to the location of drivers.set
   - minimumversion: Minimum niliBOX version needed to use this driver
-  - multiuser: 'true' or 'false' depending on wether a module using this driver can be used simultaneously more than once
-  - version: Version number. I use the date in format YYYY.MM.DD
-  - virtualdevice: 'true' or 'false' depending on wether a odule using this driver outputs audio that can be chained to another module as audio input
+  - multiuser: 'true' or 'false' depending on wether a module using this driver can be used more than once simultaneously
+  - version: Version number. Any value. I use the date in format YYYY.MM.DD
+  - virtualdevice: 'true' or 'false' depending on wether a module using this driver outputs audio that can be chained to another module as audio input
 - Language properties:
   - displayname: Name that will appear in the application
   - location: Directory where the language resource file is located, relative to the location of languages.set
-  - version: Version number. I use the date in format YYYY.MM.DD
+  - version: Version number. Any value. I use the date in format YYYY.MM.DD
 - Theme properties:
   - displayname: Name that will appear in the application
   - location: Directory where the language resource file is located, relative to the location of themes.set
-  - version: Version number. I use the date in format YYYY.MM.DD
+  - version: Version number. Any value. I use the date in format YYYY.MM.DD
  
 The different resources of each type are included in the same .set file. For instance, this is the contents of the file themes.set:
 ```
@@ -67,9 +67,9 @@ steel.version=2025.06.22
 ## Custom resources
 If you create a new resource in the same place than the resources included in the application, then you will need to compile the resources (using the ztranslate and zcompile scripts) and compile the core application each time that a change is made.
 
-Another way to work while the resource is being developed is using the *custom* type of resources. A *custom* resource can be used by niliBOX directly from source code and it is automatically compiled at the moment of using it. The *custom* resources are placed in a different loction and will be read and used by niliBOX.
+Another way to work while the resource is being developed is using the *custom* type of resources. A *custom* resource can be used by niliBOX directly from source code and it is automatically compiled at the moment of using it. The *custom* resources are placed in a different location and will be read and used by niliBOX.
 
-The *custom* resources are placed in the home directory of niliBOX. The location of the home directory depends on the operating system in this way:
+The *custom* resources are placed in the home directory of niliBOX (not where the application is located). The location of the home directory depends on the operating system in this way:
 - Windows: C:\Users\username\AppData\Roaming\nilibox\niliBOX
 - Linux: /home/username/.config/nilibox/niliBOX
 - macOS: /home/username/.config/nilibox.com/niliBOX
@@ -108,29 +108,36 @@ If you create a custom resource, make sure that the resource name is unique amon
 
 ## Structure of a driver
 A driver is composed of 3 components:
-- Client: Provides the man user interface. Communicates with the server
+- Client: Provides the main user interface. Communicates with the server
 - Server: Provides the backend functionality and controls the external devices. Communicates with the client
 - Config: User interface for the configuration of the module. Works in standalone.
 
-Each of these components are compiled into a resource file (.rcc) and then the 3 of them are again compiled into a single resource file. To be able to compile a resource, a file of name collection.qrc must be provided describing the contents of the resource.
+Each of these components are compiled into a resource file (.rcc) and then the 3 of them are compiled again into a single resource file. To be able to compile a resource, a file of name collection.qrc must be provided describing the contents of the resource.
 
 The directory structure of a driver (either standard or custom) is the following:
 <pre>
 DRIVER/
 ├──client/
-│  ├──DRIVER1/
-│  ├──DRIVER2/
+│  ├──languages/
+│  ├──themes/
+│  ├──collection.qrc
+│  ├──main.qml
 │  └──...
 ├──config/
-│  ├──LANGUAGE1/
-│  ├──LANGUAGE2/
+│  ├──languages/
+│  ├──themes/
+│  ├──collection.qrc
+│  ├──main.qml
 │  └──...
 ├──server/
-│  ├──THEME1/
-│  ├──THEME2/
+│  ├──main.js
+│  ├──collection.qrc
 │  └──...
 ├──collection.qrc
 └──...
 </pre>
+You can notice that both the client and the config resources contain subdirectories for languages and themes. These 2 subdirectories contain the specific customizetion of the user interafce for the driver. We will mention this in the section dedicated to languages and themes.
+
+But by now, let's focus on the main files needed to build a driver.
 
 
