@@ -6,6 +6,14 @@ It has been enhanced with new devices, a brand new interface and support for mob
 In this repository you can find the source code of the entire application.  
 ***niliBOX*** is mainly developed in C++ using the [Qt framework](https://www.qt.io/product/framework) but it also contains code in C, Java, Javascript, QML and a little in Objective C.  
 
+## Table of Contents
+- [Compatibility](#compatibility)
+- [Structure](#structure)
+- [Compilation](#compilation)
+- [Distribution](#distribution)
+- [Custom Resources](#custom-resources)
+- [Licenses](#notice-about-licenses)
+
 ## Compatibility
 ***niliBOX*** can be compiled for the following platforms:
 - Windows (Windows 10 1809 or higher)
