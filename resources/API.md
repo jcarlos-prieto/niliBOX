@@ -161,14 +161,16 @@ This value can change when the core application is resized, as well as <code>b_s
 </tr>
 <tr>
 <td>b_os</td>
-<td>String value containing the operating system in use. The possible values are:</td>
+<td>
+String value containing the operating system in use. The possible values are:
 <ul>
   <li>windows</li>
   <li>linux</li>
   <li>macos</li>
   <li>android</li>
   <li>ios</li>
-</ol>
+</ul>
+</td>
 </tr>
 </table>
 
