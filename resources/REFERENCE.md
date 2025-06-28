@@ -386,6 +386,17 @@ The value in <code>text</code> will be added to the corresponding language file 
 Example: <code>text: b_translate("Name:");</code><br>
 </td>
 </tr>
+<tr>
+<td>b_theme(type,name,var)</td>
+<td>
+Returns the value of a parameter from the current them. This could be a color, a size, etc.<br>
+Usually, this function is not needed. It is used by the QML components included in the code.<br>
+Parameter <code>type</code> is a string representing the control type.<br>
+Parameter <code>name</code> is a string representing the control name.<br>
+Parameter <code>var</code> is a string representing the theme parameter to be retrieved.<br>
+Example: <code>color: b_theme("TButton", "mybutton", "foreground-color");</code><br>
+</td>
+</tr>
 </table>
 
 ### QML properties
