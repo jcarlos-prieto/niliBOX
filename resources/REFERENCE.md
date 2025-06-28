@@ -368,6 +368,15 @@ Parameter <code>key</code> is a string.<br>
 Example: <code>let theme = b_param("ui.theme");</code><br>
 </td>
 </tr>
+<tr>
+<td>b_import(name,file)</td>
+<td>
+Imports a Javascript module of type .mjs.<br>
+Parameter <code>name</code> is a string that will be used to reference the primitives available in the imported module.<br>
+Parameter <code>file</code> is a string containing the file name of the module to be imported. This file must be added to the resource collection file.<br>
+Example: <code>b_import("RTLSDR", "rtlsdr.mjs";</code><br>
+</td>
+</tr>
 </table>
 
 ### QML properties
