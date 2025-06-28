@@ -307,15 +307,53 @@ For a full description of the functions and properties available beside the stan
 
 ### QML functions
 <table>
-<row>
-<tr>`b_getbox(p)`</tr>
 <tr>
-Returns an object of type Box. This object can be used to call native functionas that are executed at the C++ core application, hence running much faster.  
-Parameter p can be either "REMOTE" or nothing. If "REMOTE" is provided, then the Box object will access the hardware at the server side.  
-Example: `let box = b_getbox();`  
+<td>b_getbox(type)</td>
+<td>
+Returns an object of type Box. This object can be used to call native functionas that are executed at the C++ core application, hence running much faster.<br>
+Parameter <code>type</code> is a string which can be either "REMOTE" or nothing. If "REMOTE" is provided, then the Box object will access the hardware at the server side.<br>
+Example: <code>let box = b_getbox();</code><br>
+Example: <code>let box = b_getbox("REMOTE");</code><br>
+</td>
 </tr>
-</row>
+<tr>
+<td>b_send(key,value)</td>
+<td>
+Sends data to the server side.<br>
+Parameters <code>key</code> and <code>value</code> are strings.<br>
+Example: <code>b_send("init");</code><br>
+Example: <code>b_send("gain", "15");</code><br>
+</td>
+</tr>
+<tr>
+<td>b_sendbin(key,value)</td>
+<td>
+Sends binary data to the server side.<br>
+Parameter <code>key</code> is a string.<br>
+Parameter <code>value</code> is a binary array of type QByteArrayView. Check in the Box API section for an explanation of this data type.<br>
+Example: <code>b_send("audio", data);</code><br>
+</td>
+</tr>
+<tr>
+<td>b_setvar(key,value)</td>
+<td>
+Sets the configuration parameter <code>key</code> to the value <code>value</code><br>
+The configuration parameters are used to save values that are permanent among several runs of the module.
+Parameters <code>key</code> and <code>value</code> are strings.<br>
+Example: <code>b_setvar("height", "100");</code><br>
+</td>
+</tr>
+<tr>
+<td>b_getvar(key,default)</td>
+<td>
+Gets the configuration parameter <code>key</code>. If the parameter doesn't exist, then returns the value <code>default</code><br>
+The configuration parameters are used to save values that are permanent among several runs of the module.
+Parameters <code>key</code> and <code>default</code> are strings.<br>
+Example: <code>let h = b_setvar("height", "100");</code><br>
+</td>
+</tr>
 </table>
+
 ### QML properties
 
 ### Javascript functions
