@@ -352,6 +352,22 @@ Parameters <code>key</code> and <code>default</code> are strings.<br>
 Example: <code>let h = b_setvar("height", "100");</code><br>
 </td>
 </tr>
+<tr>
+<td>b_debug(value)</td>
+<td>
+Shows the value stored in <code>vaue</code> in the log file and the console if any.<br>
+Parameter <code>value</code> can be of any native Javascript type.<br>
+Example: <code>b_debug("height=" + h);</code><br>
+</td>
+</tr>
+<tr>
+<td>b_param(key)</td>
+<td>
+Retrieves the configuration parameter with name <code>key</code> from the main configuration file of the application stored in the file config.set<br>
+Parameter <code>key</code> is a string.<br>
+Example: <code>let theme = b_param("ui.theme");</code><br>
+</td>
+</tr>
 </table>
 
 ### QML properties
