@@ -10,9 +10,13 @@ In this repository you can find the source code of the entire application.
 - [Compatibility](#compatibility)
 - [Structure](#structure)
 - [Compilation](#compilation)
+  - [Windows](#windows--windows-distribution)
+  - [Linux](#linux--linux-linux-headless-and-android-distributions)
+  - [macOS](#macos--macos-and-ios-distributions)
+  - [Resources](#resources)
 - [Distribution](#distribution)
 - [Custom Resources](#custom-resources)
-- [Licenses](#notice-about-licenses)
+- [Notice about licenses](#notice-about-licenses)
 
 ## Compatibility
 ***niliBOX*** can be compiled for the following platforms:
