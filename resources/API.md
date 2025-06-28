@@ -1,7 +1,7 @@
 # API REFERENCE
 
 ## Table of Contents
-- [QML controls](#qmo-controls)
+- [QML controls](#qml-controls)
 - [QML functions](#qml-functions)
 - [QML properties](#qml-properties)
 - [Javascript functions](#javascript-functions)
