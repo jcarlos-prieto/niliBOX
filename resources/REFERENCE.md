@@ -1,5 +1,12 @@
 # DEVELOPMENT REFERENCE
 
+## Table of Contents
+- [Resources definition](#resources-definition)
+- [Custom resources](#custom-resources)
+- [Structure of a driver](#structure-of-a-driver)
+  - [Resource collection](#resource-collection)
+  - [Client](#client)
+
 ## Resources definition
 The general structure of the source code of the resources is the following:
 <pre>
@@ -140,8 +147,8 @@ You will notice that both the client and the config resources contain subdirecto
 
 But by now, let's focus on the main files needed to build a driver.
 
-### collection.qrc
-This is a Qt Resource Collection file. The description of its syntax can be found [here](https://doc.qt.io/archives/qt-6.7/resources.html). It contains the location of each file that must be included in the resource file when it is compiled.
+### Resource collection
+The files `collection.qrc` are Qt Resource Collection files. The description of its syntax can be found [here](https://doc.qt.io/archives/qt-6.7/resources.html). It contains the location of each file that must be included in the resource file when it is compiled.
 
 A minimal example of a collection file for the server rersource is this:
 ```xml
@@ -152,7 +159,7 @@ A minimal example of a collection file for the server rersource is this:
     </qresource>
 </RCC>
 ```
-If the resource contains additional files, then the collection file may become bigger. This is an example of the collection file for the client resource of the test driver. You can see that you just need the location of each file needed to run the resource relative to the location of the collection.qrc file.
+If the resource contains additional files, then the collection file may become bigger. This is an example of the collection file for the client resource of the test driver. You can see that you just need to include the location of each file needed to run the resource relative to the location of the collection.qrc file.
 ```xml
 <!DOCTYPE RCC>
 <RCC version="1.0">
@@ -215,4 +222,6 @@ Finally, the collection.qrc file located in the main directory of the driver mus
     </qresource>
 </RCC>
 ```
+
+### Client
 
