@@ -136,8 +136,83 @@ DRIVER/
 ├──collection.qrc
 └──...
 </pre>
-You can notice that both the client and the config resources contain subdirectories for languages and themes. These 2 subdirectories contain the specific customizetion of the user interafce for the driver. We will mention this in the section dedicated to languages and themes.
+You will notice that both the client and the config resources contain subdirectories for languages and themes. These 2 subdirectories contain the specific customization of the user interafce for the driver. We will describe this in the section dedicated to languages and themes.
 
 But by now, let's focus on the main files needed to build a driver.
 
+### collection.qrc
+This is a Qt Resource Collection file. The description of its syntax can be found [here](https://doc.qt.io/archives/qt-6.7/resources.html). It contains the location of each file that must be included in the resource file when it is compiled.
+
+A minimal example of a collection file for the server rersource is this:
+```xml
+<!DOCTYPE RCC>
+<RCC version="1.0">
+    <qresource>
+        <file>main.js</file>
+    </qresource>
+</RCC>
+```
+If the resource contains additional files, then the collection file may become bigger. This is an example of the collection file for the client resource of the test driver. You can see that you just need the location of each file needed to run the resource relative to the location of the collection.qrc file.
+```xml
+<!DOCTYPE RCC>
+<RCC version="1.0">
+    <qresource>
+        <file>main.qml</file>
+        <file>SetAudioSettings.qml</file>
+
+        <file>languages/es/trans.qm</file>
+        <file>languages/fr/trans.qm</file>
+        <file>languages/it/trans.qm</file>
+        <file>languages/nl/trans.qm</file>
+        <file>languages/de/trans.qm</file>
+
+        <file>themes/colors/noise.png</file>
+        <file>themes/colors/play.png</file>
+        <file>themes/colors/set.png</file>
+        <file>themes/colors/sine.png</file>
+        <file>themes/colors/square.png</file>
+        <file>themes/colors/stop.png</file>
+        <file>themes/colors/style.set</file>
+        <file>themes/colors/triangle.png</file>
+      
+        <file>themes/dark/noise.png</file>
+        <file>themes/dark/play.png</file>
+        <file>themes/dark/set.png</file>
+        <file>themes/dark/sine.png</file>
+        <file>themes/dark/square.png</file>
+        <file>themes/dark/stop.png</file>
+        <file>themes/dark/style.set</file>
+        <file>themes/dark/triangle.png</file>
+      
+        <file>themes/ocean/noise.png</file>
+        <file>themes/ocean/play.png</file>
+        <file>themes/ocean/set.png</file>
+        <file>themes/ocean/sine.png</file>
+        <file>themes/ocean/square.png</file>
+        <file>themes/ocean/stop.png</file>
+        <file>themes/ocean/style.set</file>
+        <file>themes/ocean/triangle.png</file>
+      
+        <file>themes/steel/noise.png</file>
+        <file>themes/steel/play.png</file>
+        <file>themes/steel/set.png</file>
+        <file>themes/steel/sine.png</file>
+        <file>themes/steel/square.png</file>
+        <file>themes/steel/stop.png</file>
+        <file>themes/steel/style.set</file>
+        <file>themes/steel/triangle.png</file>
+    </qresource>
+</RCC>
+```
+Finally, the collection.qrc file located in the main directory of the driver must always have this content:
+```xml
+<!DOCTYPE RCC>
+<RCC version="1.0">
+    <qresource>
+        <file>config.rcc</file>
+        <file>server.rcc</file>
+        <file>client.rcc</file>
+    </qresource>
+</RCC>
+```
 
