@@ -105,7 +105,7 @@ Example: <code>color: b_theme("TButton", "mybutton", "foreground-color");</code>
 <td>b_conn()</td>
 <td>
 Returns a string with the type of connection established between the client and the server. The possible values are:
-<ol>
+<ul>
   <li>SELF: The client and the server are on the same computer</li>
   <li>LOCAL: The client and the server are on different computers on the same local network</li>
   <li>DIRECT: The client and the server are on different local networks but the client can access the server directly</li>
@@ -129,29 +129,49 @@ Example: <code>b_mouse(Qt.PointingHandCursor);</code><br>
 ## QML properties
 <table>
 <tr>
-<td>b_unit(type)</td>
+<td>b_unit</td>
 <td>
 Real value containing the size in pixels of a distance of approximately 1 cm in desktops at 8 mm in touch screens. This value is used as unit of measure in all sizes used in the application.<br>
-This value can change when the core application is resized, as well as <control>b_space</control> and <control>b_fontsize</control>.
+This value can change when the core application is resized, as well as <code>b_space</code> and <code>b_fontsize</code>.
 </td>
 </tr>
 <tr>
-<td>b_space(type)</td>
-<td>Real value containing the size of a small separation between controls. <control>b_space = 0.1 * b_unit</control></td>
+<td>b_space</td>
+<td>Real value containing the size of a small separation between controls. <code>b_space = 0.1 * b_unit</code></td>
 </tr>
 <tr>
-<td>b_width(type)</td>
+<td>b_width</td>
 <td>Available width in pixels.</td>
 </tr>
 <tr>
-<td>b_height(type)</td>
+<td>b_height</td>
 <td>Available height in pixels.</td>
 </tr>
 <tr>
-<td>b_fontsize(type)</td>
-<td>Real value containing the font size in pixels used by the rest of the application. <control>b_fontsize = 0.45 * b_unit</control></td>
+<td>b_fontsize</td>
+<td>Real value containing the font size in pixels used by the rest of the application. <code>b_fontsize = 0.45 * b_unit</code></td>
+</tr>
+<tr>
+<td>b_fontfamily</td>
+<td>String value containing the name of the font used by the rest of the application.</td>
+</tr>
+<tr>
+<td>b_appname</td>
+<td>String value containing the name of the module that is running. This name is given by the user when creating a module.</td>
+</tr>
+<tr>
+<td>b_os</td>
+<td>String value containing the operating system in use. The possible values are:</td>
+<ul>
+  <li>windows</li>
+  <li>linux</li>
+  <li>macos</li>
+  <li>android</li>
+  <li>ios</li>
+</ol>
 </tr>
 </table>
+
 ## Javascript functions
 
 ## Javascript properties
