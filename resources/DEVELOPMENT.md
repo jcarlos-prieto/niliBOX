@@ -296,5 +296,5 @@ Item {
 }
 
 ```
-For a full description of the functions and properties available on top of the standard ones provided by QML, please check the [API reference](#api-reference).
+For a full description of the functions and properties available on top of the standard ones provided by QML, please check the [API](./API.md) reference file.
 
