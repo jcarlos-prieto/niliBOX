@@ -15,7 +15,7 @@
 <tr>
 <td>b_getbox(type)</td>
 <td>
-Creates a new Box object to interact with the C++ Box API.
+Creates a new Box object to interact with the C++ Box API.<br>
 <code>type</code>: String. It can be either "REMOTE" or nothing. If "REMOTE" is provided, then the Box object will access the hardware at the server side.<br>
 Return value: An object of type Box.<br>
 Example: <code>let box = b_getbox();</code><br>
