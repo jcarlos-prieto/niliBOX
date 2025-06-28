@@ -146,6 +146,8 @@ DRIVER/
 </pre>
 You will notice that both the client and the config resources contain subdirectories for languages and themes. These 2 subdirectories contain the specific customization of the user interafce for the driver. We will describe this in the section dedicated to languages and themes.
 
+The server and client resources may run on different computers. The core *nliBOX* application facilitates the communication between both of them. It is recommended that the client side only handles the user interface and events while the server runs the communication with the external devices and the heavy and time consuming operations.
+
 But by now, let's focus on the main files needed to build a driver.
 
 ### Resource collection
@@ -225,7 +227,7 @@ Finally, the collection.qrc file located in the main directory of the driver mus
 ```
 
 ### Client & Config
-The structure of a client and config resources are identical. They both provide the user interface of the application of the configuration screen. The main file and entry point for the resource is the file `main.qml`. This file is written in QML language and Javascript and describes the user interface and its behaviour.
+The structure of a client and config resources are identical. They both provide the user interface of the application and the configuration screen. The main file and entry point for the resource is the file `main.qml`. This file is written in QML language and Javascript and describes the user interface and its behaviour.
 
 You can find a QML language reference [here](https://doc.qt.io/archives/qt-6.7/qmlreference.html). The Javascript sections support ECMAScript6 standard. It is not the purpose of this file to provide a tutorial about QML or Javascript and it will be assumed that you are familiar with both languages. You may check the source code of the drivers included in *niliBOX* to get familiar with the ways of working.
 
@@ -275,7 +277,7 @@ Item {
     }
 
 
-    // This function is called when the application has changed from active to inactive or viceversa
+    // This function is called when the application state has changed from inactive to active
     function b_active()
     {
         ...your Javascript code...
@@ -297,7 +299,13 @@ Item {
 }
 
 ```
-For a full description of the functions and properties available on top of the standard ones provided by QML, please check the [API](./API.md) reference file.
+For a full description of the controls, functions and properties available on top of the standard ones provided by QML, please check the [API](./API.md) reference file.
 
 ### Server
+The server resource provides the communication with the hardware. It runs on a separate thread, optimizing in this way the performance. The main file and entry point for the resource is the file `main.js`. This file is written in pure Javascript and implements the core logics of the driver, ncluding the communications with the hardware. Typically, the server resource relies heavily on the low level, high performance API provided by the Box [API](./API.md#box-api).
+
+In addition to `main.qml` you might need to include other QML files to create custom controls or additional resouces such as pictures, icons, etc. They must all be included in the `collection.qrc` file described above.
+
+*niliBOX* has enriched the Javascript syntax with a few additional functions and properties to facilitate the development.
+
 
