@@ -6,6 +6,7 @@
 - [Structure of a driver](#structure-of-a-driver)
   - [Resource collection](#resource-collection)
   - [Client & Config](#client--config)
+  - [Server](#server)
 
 ## Resources definition
 The general structure of the source code of the resources is the following:
@@ -297,4 +298,6 @@ Item {
 
 ```
 For a full description of the functions and properties available on top of the standard ones provided by QML, please check the [API](./API.md) reference file.
+
+### Server
 
