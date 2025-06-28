@@ -130,7 +130,10 @@ Example: <code>b_mouse(Qt.PointingHandCursor);</code><br>
 <table>
 <tr>
 <td>b_unit(type)</td>
-<td>Real value containing the size in pixels of a distance of approximately 1 cm in desktops at 8 mm in touch screens. This value is used as unit of measure in all sizes used in the application.</td>
+<td>
+Real value containing the size in pixels of a distance of approximately 1 cm in desktops at 8 mm in touch screens. This value is used as unit of measure in all sizes used in the application.<br>
+This value can change when the core application is resized, as well as <control>b_space</control> and <control>b_fontsize</control>.
+</td>
 </tr>
 <tr>
 <td>b_space(type)</td>
@@ -146,9 +149,8 @@ Example: <code>b_mouse(Qt.PointingHandCursor);</code><br>
 </tr>
 <tr>
 <td>b_fontsize(type)</td>
-<td>Real value containing the font size in pixels. <control>b_fontsize = 0.45 * b_unit</control></td>
+<td>Real value containing the font size in pixels used by the rest of the application. <control>b_fontsize = 0.45 * b_unit</control></td>
 </tr>
-<tr>
 </table>
 ## Javascript functions
 
