@@ -16,7 +16,7 @@
 <td>b_getbox(type)</td>
 <td>
 Creates a new Box object to interact with the C++ Box API.<br>
-<code>type</code>: String - It can be either "REMOTE" or nothing. If "REMOTE" is provided, then the Box object will access the hardware at the server side.<br>
+Parameter <code>type</code>: String - It can be either "REMOTE" or nothing. If "REMOTE" is provided, then the Box object will access the hardware at the server side.<br>
 Return value: An object of type Box.<br>
 Example: <code>let box = b_getbox();</code><br>
 Example: <code>let box = b_getbox("REMOTE");</code><br>
@@ -26,8 +26,8 @@ Example: <code>let box = b_getbox("REMOTE");</code><br>
 <td>b_send(key,value)</td>
 <td>
 Sends data to the server side.<br>
-<code>key</code>: String<br>
-<code>value</code>: Any basic Javascript type<br>
+Parameter <code>key</code>: String<br>
+Parameter <code>value</code>: Any basic Javascript type<br>
 Return value: None<br>
 Example: <code>b_send("init");</code><br>
 Example: <code>b_send("gain", "15");</code><br>
@@ -37,8 +37,8 @@ Example: <code>b_send("gain", "15");</code><br>
 <td>b_sendbin(key,value)</td>
 <td>
 Sends binary data to the server side.<br>
-<code>key</code>: String<br>
-<code>value</code>: Binary - The binary type is a mirror of the Qt type QByteArrayView. Check in the Box API section for an explanation of this data type.<br>
+Parameter <code>key</code>: String<br>
+Parameter <code>value</code>: Binary - The binary type is a mirror of the Qt type QByteArrayView. Check in the Box API section for an explanation of this data type.<br>
 Return value: None<br>
 Example: <code>b_send("audio", data);</code><br>
 </td>
@@ -47,8 +47,8 @@ Example: <code>b_send("audio", data);</code><br>
 <td>b_setvar(key,value)</td>
 <td>
 Sets a configuration parameter. The configuration parameters are used to save values that are permanent among several runs of the module.<br>
-<code>key</code>: String - Setting name.<br>
-<code>value</code>: Any basic Javascript data type - Setting value.<br>
+Parameter <code>key</code>: String - Setting name.<br>
+Parameter <code>value</code>: Any basic Javascript data type - Setting value.<br>
 Return value: None<br>
 Example: <code>b_setvar("height", "100");</code><br>
 </td>
@@ -57,8 +57,8 @@ Example: <code>b_setvar("height", "100");</code><br>
 <td>b_getvar(key,default)</td>
 <td>
 Gets a configuration parameter. The configuration parameters are used to save values that are permanent among several runs of the module.<br>
-<code>key</code>: String - Setting name.<br>
-<code>default</code>: Any basic Javascript data type - Default value if the setting doesn't exist.<br>
+Parameter <code>key</code>: String - Setting name.<br>
+Parameter <code>default</code>: Any basic Javascript data type - Default value if the setting doesn't exist.<br>
 Return value: String<br>
 Example: <code>let h = b_setvar("height", "100");</code><br>
 </td>
@@ -67,7 +67,7 @@ Example: <code>let h = b_setvar("height", "100");</code><br>
 <td>b_debug(value)</td>
 <td>
 Adds a message to the log file and the console if any.<br>
-<code>value</code>: Any native Javascript type<br>
+Parameter <code>value</code>: Any native Javascript type<br>
 Return value: None<br>
 Example: <code>b_debug("height=" + h);</code><br>
 </td>
@@ -76,7 +76,7 @@ Example: <code>b_debug("height=" + h);</code><br>
 <td>b_param(key)</td>
 <td>
 Retrieves a configuration parameter from the main configuration file of the application stored in the file config.set<br>
-<code>key</code>: String<br>
+Parameter <code>key</code>: String<br>
 Return value: String<br>
 Example: <code>let theme = b_param("ui.theme");</code><br>
 </td>
@@ -85,8 +85,8 @@ Example: <code>let theme = b_param("ui.theme");</code><br>
 <td>b_import(name,file)</td>
 <td>
 Imports a Javascript module of type .mjs.<br>
-<code>name</code>: String - This value will be used to reference the primitives available in the imported module.<br>
-<code>file</code>: String - File name of the module to be imported. This file must be added to the resource collection file.<br>
+Parameter <code>name</code>: String - This value will be used to reference the primitives available in the imported module.<br>
+Parameter <code>file</code>: String - File name of the module to be imported. This file must be added to the resource collection file.<br>
 Return value: None<br>
 Example: <code>b_import("RTLSDR", "rtlsdr.mjs");</code><br>
 </td>
@@ -95,7 +95,7 @@ Example: <code>b_import("RTLSDR", "rtlsdr.mjs");</code><br>
 <td>b_translate(text)</td>
 <td>
 Returns the translation into the current language of the text (in English) provided.<br>
-<code>text</code>: String - This value will be added to the corresponding language file to be manually translated before compilation.<br>
+Parameter <code>text</code>: String - This value will be added to the corresponding language file to be manually translated before compilation.<br>
 Return value: String<br>
 Example: <code>text: b_translate("Name:");</code><br>
 </td>
@@ -104,9 +104,9 @@ Example: <code>text: b_translate("Name:");</code><br>
 <td>b_theme(type,name,var)</td>
 <td>
 Returns the value of a parameter from the current theme. This could be a color, a size, etc. Usually, this function is not needed. It is used by the QML components included in the code.<br>
-<code>type</code>: String - Control type.<br>
-<code>name</code>: String - Control name.<br>
-<code>var</code>: String - Theme parameter to be retrieved.<br>
+Parameter <code>type</code>: String - Control type.<br>
+Parameter <code>name</code>: String - Control name.<br>
+Parameter <code>var</code>: String - Theme parameter to be retrieved.<br>
 Return value: String<br>
 Example: <code>color: b_theme("TButton", "mybutton", "foreground-color");</code><br>
 </td>
@@ -130,7 +130,7 @@ Example: <code>let connection = b_conn();</code><br>
 <td>b_mouse(type)</td>
 <td>
 Changes the shape of the mouse cursor.<br>
-<code>type</code>:  Qt::CursorShape type - This type is described <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-mousearea.html#cursorShape-prop>here</a><br>
+Parameter <code>type</code>:  Qt::CursorShape type - This type is described <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-mousearea.html#cursorShape-prop>here</a><br>
 Return value: None<br>
 Example: <code>b_mouse(Qt.PointingHandCursor);</code><br>
 </td>
