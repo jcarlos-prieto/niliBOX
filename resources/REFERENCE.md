@@ -5,7 +5,7 @@
 - [Custom resources](#custom-resources)
 - [Structure of a driver](#structure-of-a-driver)
   - [Resource collection](#resource-collection)
-  - [Client](#client)
+  - [Client & Config](#client--config)
 
 ## Resources definition
 The general structure of the source code of the resources is the following:
@@ -223,5 +223,81 @@ Finally, the collection.qrc file located in the main directory of the driver mus
 </RCC>
 ```
 
-### Client
+### Client & Config
+The structure of a client and config resources are identical. They both provide the user interface of the application of the configuration screen. The main file and entry point for the resource is the file `main.qml`. This file is written in QML language and Javascript and describes the user interface and its behaviour.
+
+You can find a QML language reference [here](https://doc.qt.io/archives/qt-6.7/qmlreference.html). The Javascript sections support ECMAScript6 standard. It is not the purpose of this file to provide a tutorial about QML or Javascript and it will be assumed that you are familiar with both languages. You may check the source code of the drivers included in *niliBOX* to get familiar with the ways of working.
+
+In addition to `main.qml` you might need to include other QML files to create custom controls or additional resouces such as pictures, icons, etc. They must all be included in the `collection.qrc` file described above.
+
+*niliBOX* has enriched the QML syntax with a few additional functions and properties to facilitate the development. Also, there are additional controls (user interface objects) to adapt to the themes system.
+
+A basic example of a `main.qml` file is this:
+```qml
+import QtQuick
+import QtQuick.Controls
+import niliBOX.Controls //<== Needed to use custom themed controls like TLabel (instead of Label)
+
+
+Item {
+    property int x //<== your global variables
+
+    // Start of the user interface
+    TLabel {
+        id: label
+        font.pixelSize: 0.4 * b_unit //<== b_unit is a property provided by niliBOX
+        text: b_translate("Hello world") //<== b_translate is a function provided by niliBOX
+    }
+
+    // Start of functions
+
+    // This function is called when the file has been loaded    
+    function b_start(params)
+    {
+        ...your Javascript code...
+    }
+
+
+    // This function is called when the file is going to be unloaded    
+    function b_finish()
+    {
+        ...your Javascript code...
+    }
+
+
+    // This function is called when the server has sent data to the client
+    function b_receive(key, value)
+    {
+        // Basic example
+        if (key === "message")
+            myfunction(value);
+    }
+
+
+    // This function is called when the application has changed from active to inactive or viceversa
+    function b_active()
+    {
+        ...your Javascript code...
+    }
+
+
+    // This function is called when some hardware device has been plugged or unplugged
+    function b_hotplug()
+    {
+        ...your Javascript code...
+    }
+    
+    
+    // You may add your own functions
+    function myfunction(value)
+    {
+        b_send("message", "hello! " + value); //<== This function sends data to the server from the client
+    }
+}
+
+```
+
+
+
+
 
