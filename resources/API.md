@@ -15,8 +15,9 @@
 <tr>
 <td>b_getbox(type)</td>
 <td>
-Returns an object of type Box. This object can be used to call native functionas that are executed at the C++ core application, hence running much faster.<br>
-Parameter <code>type</code> is a string which can be either "REMOTE" or nothing. If "REMOTE" is provided, then the Box object will access the hardware at the server side.<br>
+Creates a new Box object to interact with the C++ Box API.
+<code>type</code>: String. It can be either "REMOTE" or nothing. If "REMOTE" is provided, then the Box object will access the hardware at the server side.<br>
+Return value: An object of type Box.<br>
 Example: <code>let box = b_getbox();</code><br>
 Example: <code>let box = b_getbox("REMOTE");</code><br>
 </td>
@@ -25,7 +26,9 @@ Example: <code>let box = b_getbox("REMOTE");</code><br>
 <td>b_send(key,value)</td>
 <td>
 Sends data to the server side.<br>
-Parameters <code>key</code> and <code>value</code> are strings.<br>
+<code>key</code>: String.<br>
+<code>value</code>: Any basic Javascript type.<br>
+Return value: None<br>
 Example: <code>b_send("init");</code><br>
 Example: <code>b_send("gain", "15");</code><br>
 </td>
@@ -34,42 +37,45 @@ Example: <code>b_send("gain", "15");</code><br>
 <td>b_sendbin(key,value)</td>
 <td>
 Sends binary data to the server side.<br>
-Parameter <code>key</code> is a string.<br>
-Parameter <code>value</code> is a binary array of type QByteArrayView. Check in the Box API section for an explanation of this data type.<br>
+<code>key</code>: String.<br>
+<code>value</code>: Binary. The binary type is a mirror of the Qt type QByteArrayView. Check in the Box API section for an explanation of this data type.<br>
+Return value: None<br>
 Example: <code>b_send("audio", data);</code><br>
 </td>
 </tr>
 <tr>
 <td>b_setvar(key,value)</td>
 <td>
-Sets the configuration parameter <code>key</code> to the value <code>value</code><br>
-The configuration parameters are used to save values that are permanent among several runs of the module.
-Parameters <code>key</code> and <code>value</code> are strings.<br>
+Sets a configuration parameter. The configuration parameters are used to save values that are permanent among several runs of the module.<br>
+<code>key</code>: String. Setting name.<br>
+<code>value</code>: Any basic Javascript data type. Setting value.<br>
+Return value: None<br>
 Example: <code>b_setvar("height", "100");</code><br>
 </td>
 </tr>
 <tr>
 <td>b_getvar(key,default)</td>
 <td>
-Gets the configuration parameter <code>key</code>. If the parameter doesn't exist, then returns the value <code>default</code><br>
-The configuration parameters are used to save values that are permanent among several runs of the module.
-Parameters <code>key</code> and <code>default</code> are strings.<br>
+Gets a configuration parameter. The configuration parameters are used to save values that are permanent among several runs of the module.<br>
+<code>key</code>: String. Setting name.
+<code>default</code>: Any basic Javascript data type. Default value if the setting doesn't exist.<br>
+Return value: String.<br>
 Example: <code>let h = b_setvar("height", "100");</code><br>
 </td>
 </tr>
 <tr>
 <td>b_debug(value)</td>
 <td>
-Shows the value stored in <code>vaue</code> in the log file and the console if any.<br>
-Parameter <code>value</code> can be of any native Javascript type.<br>
+Adds a message to the log file and the console if any.<br>
+<code>value</code>: Any native Javascript type.<br>
 Example: <code>b_debug("height=" + h);</code><br>
 </td>
 </tr>
 <tr>
 <td>b_param(key)</td>
 <td>
-Retrieves the configuration parameter with name <code>key</code> from the main configuration file of the application stored in the file config.set<br>
-Parameter <code>key</code> is a string.<br>
+Retrieves a configuration parameter from the main configuration file of the application stored in the file config.set<br>
+<code>key</code>: String.<br>
 Example: <code>let theme = b_param("ui.theme");</code><br>
 </td>
 </tr>
