@@ -375,3 +375,86 @@ function myfunction(value)
 ```
 For a full description of the functions and properties available on top of the standard ones provided by Javascript, please check the [API](./API.md#javascript-functions) reference file.
 
+## Structure of a language
+The language translation files are created by the script ztranslate (in its Windows or Linux versions) located in the resources directory. This script analyzes the entire code of the core application and all drivers looking for text that must be translated. The way how a text is identified as translatable is this:
+- In C++ files, the text will be considered for translation if it is enclosed in the function `tr()`. For instance: `mylabel.setText(tr("Name:"));`.
+- In QML files, the text will be considered for translation is it is enclosed in the function `b_translate()`. For instance: `text: b_translate("Name:")`.
+
+The directory structure of a language is different for the core application and for a driver. If a new language is created, these directory structures must be created for the core and for all drivers.
+
+Structure of the *languages* folder under the *resources* directory:
+<pre>
+languages/
+├──_TS/
+│  ├──...
+│  ├──...
+│  └──...
+├──de/
+│  ├──collection.qrc
+│  ├──flag.png
+│  └──trans.qm
+├──en/
+│  ├──collection.qrc
+│  └──flag.png
+├──es/
+│  ├──collection.qrc
+│  ├──flag.png
+│  └──trans.qm
+├──fr/
+│  ├──collection.qrc
+│  ├──flag.png
+│  └──trans.qm
+├──it/
+│  ├──collection.qrc
+│  ├──flag.png
+│  └──trans.qm
+└──nl/
+   ├──collection.qrc
+   ├──flag.png
+   └──trans.qm
+</pre>
+
+The _TS directory contains one file of type .ts for each piece of code that needs to be translated. Specifically, it contains two type of files:
+- One file per language for the core application. For instance `es.ts` for the translation of the core application into Spanish
+- One file per driver resource and language. For instance `DIGIMODES_client_de.ts` for the translation of the client resource of the driver DIGIMODES into German.
+
+The .ts files are created by the script ztranslate except for the English language which is considered the source language. These files must be opened and translated manually. The .ts files contain a xml structure. It is needed to go through all the section of type *message* and provide a translation for the message. Here is an example:
+```xml
+    <message>
+        <source>Audio settings</source>
+        <translation>Configuración de audio</translation>
+    </message>
+```
+
+The same happens for the language definition for the drivers. In this case, the language directory is inside the driver directory, both for the client and config resources. Here is an extract on these directories for one driver:
+<pre>
+DRIVER/
+├──client/
+│  ├──languages/
+│  │  ├──de/
+│  │  │  └──trans.qm
+│  │  ├──es/
+│  │  │  └──trans.qm
+│  │  ├──fr/
+│  │  │  └──trans.qm
+│  │  ├──it/
+│  │  │  └──trans.qm
+│  │  └──nl/
+│  │     └──trans.qm
+│  └──...
+├──config/
+│  ├──languages/
+│  │  ├──de/
+│  │  │  └──trans.qm
+│  │  ├──es/
+│  │  │  └──trans.qm
+│  │  ├──fr/
+│  │  │  └──trans.qm
+│  │  ├──it/
+│  │  │  └──trans.qm
+│  │  └──nl/
+│  │     └──trans.qm
+└──...
+</pre>
+
+The files `trans.qm` are generated for each language by the script zcompile before the resources files are created. This means that you don't need to provide the .qm files but they need to be included in the collection.qrc file.
