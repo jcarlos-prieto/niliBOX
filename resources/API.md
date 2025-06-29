@@ -5,7 +5,8 @@
 - [QML callable functions](#qml-callable-functions)
 - [QML overridable functions](#qml-overridable-functions)
 - [QML properties](#qml-properties)
-- [Javascript functions](#javascript-functions)
+- [Javascript callable functions](#javascript-callable-functions)
+- [Javascript overridable functions](#javascript-overridable-functions)
 - [Javascript properties](#javascript-properties)
 - [Box API](#box-api)
 
@@ -491,9 +492,184 @@ String value containing the operating system in use. The possible values are:
 </tr>
 </table>
 
-## Javascript functions
+## Javascript callable functions
+These functions can be called from your source Javascript code.
+<table>
+<tr>
+<td>b_getbox(type)</td>
+<td>
+Creates a new Box object to interact with the C++ Box API.
+<ul>
+<li>Parameter <code>type</code>: String - It can be either "REMOTE" or nothing. If "REMOTE" is provided, then the Box object will access the hardware at the server side</li>
+<li>Return value: An object of type Box</li>
+</ul>
+Example: <code>let box = b_getbox();</code><br>
+Example: <code>let box = b_getbox("REMOTE");</code><br>
+</td>
+</tr>
+<tr>
+<td>b_send(key,value)</td>
+<td>
+Sends data to the client side.
+<ul>
+<li>Parameter <code>key</code>: String</li>
+<li>Parameter <code>value</code>: Any basic Javascript type</li>
+<li>Return value: None</li>
+</ul>
+Example: <code>b_send("init");</code><br>
+Example: <code>b_send("gain", "15");</code><br>
+</td>
+</tr>
+<tr>
+<td>b_sendbin(key,value)</td>
+<td>
+Sends binary data to the client side.
+<ul>
+<li>Parameter <code>key</code>: String</li>
+<li>Parameter <code>value</code>: Binary - The binary type is a mirror of the Qt type QByteArrayView. Check in the <a href=./API.md#box-api>Box API</a> section for an explanation of this data type.</li>
+<li>Return value: None</li>
+</ul>
+Example: <code>b_send("audio", data);</code><br>
+</td>
+</tr>
+<tr>
+<td>b_setvar(key,value)</td>
+<td>
+Sets a configuration parameter. The configuration parameters are used to save values that are permanent among several runs of the module.
+<ul>
+<li>Parameter <code>key</code>: String - Setting name.</li>
+<li>Parameter <code>value</code>: Any basic Javascript data type - Setting value</li>
+<li>Return value: None</li>
+</ul>
+Example: <code>b_setvar("height", "100");</code><br>
+</td>
+</tr>
+<tr>
+<td>b_getvar(key,default)</td>
+<td>
+Gets a configuration parameter. The configuration parameters are used to save values that are permanent among several runs of the module.
+<ul>
+<li>Parameter <code>key</code>: String - Setting name.</li>
+<li>Parameter <code>default</code>: Any basic Javascript data type - Default value if the setting doesn't exist</li>
+<li>Return value: String</li>
+</ul>
+Example: <code>let h = b_setvar("height", "100");</code><br>
+</td>
+</tr>
+<tr>
+<td>b_debug(value)</td>
+<td>
+Adds a message to the log file and the console if any.
+<ul>
+<li>Parameter <code>value</code>: Any native Javascript type</li>
+<li>Return value: None</li>
+</ul>
+Example: <code>b_debug("height=" + h);</code><br>
+</td>
+</tr>
+<tr>
+<td>b_param(key)</td>
+<td>
+Retrieves a configuration parameter from the main configuration file of the application stored in the file config.set.
+<ul>
+<li>Parameter <code>key</code>: String</li>
+<li>Return value: String</li>
+</ul>
+Example: <code>let theme = b_param("ui.theme");</code><br>
+</td>
+</tr>
+<tr>
+<td>b_import(name,file)</td>
+<td>
+Imports a Javascript module of type .mjs.
+<ul>
+<li>Parameter <code>name</code>: String - This value will be used to reference the primitives available in the imported module</li>
+<li>Parameter <code>file</code>: String - File name of the module to be imported. This file must be added to the resource collection file</li>
+<li>Return value: None</li>
+</ul>
+Example: <code>b_import("RTLSDR", "rtlsdr.mjs");</code><br>
+</td>
+</tr>
+</table>
 
-## Javascript properties
+## QML overridable functions
+These functions can be implemented in the Javascript code and will be called by the core application when needed.
+<table>
+<tr>
+<td>b_start(params)</td>
+<td>
+Called when the client starts.
+<ul>
+<li>Parameter <code>params</code>: Data structure - The object params contains one property for each parameter defined in the Config resource</li>
+<li>Return value: None</li>
+</ul>
+Example:
+<code>
+let factor = 0;
+function b_start(params)
+{
+    factor = params.factor;
+}
+</code>
+</td>
+</tr>
+<tr>
+<td>b_finish()</td>
+<td>
+Called when the client is going to finish.
+<ul>
+<li>Parameters: None</li>
+<li>Return value: None</li>
+</ul>
+Example:
+<code>
+function b_finish()
+{
+    closeAudio();
+}
+</code>
+</td>
+</tr>
+<tr>
+<td>b_hotplug()</td>
+<td>
+Called when a hardware device has been plugged or unplugged.
+<ul>
+<li>Parameters: None</li>
+<li>Return value: None</li>
+</ul>
+Example:
+<code>
+function b_hotplug()
+{
+    myAction();
+}
+</code>
+</td>
+</tr>
+</table>
+
+## QML properties
+These properties are available for the Javascript code.
+<table>
+<tr>
+<td>b_appname</td>
+<td>String value containing the name of the module that is running. This name is given by the user when creating a module.</td>
+</tr>
+<tr>
+<td>b_os</td>
+<td>
+String value containing the operating system in use. The possible values are:
+<ul>
+  <li>windows</li>
+  <li>linux</li>
+  <li>macos</li>
+  <li>android</li>
+  <li>ios</li>
+</ul>
+</td>
+</tr>
+</table>
 
 ## Box API
 
