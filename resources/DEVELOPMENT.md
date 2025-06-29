@@ -5,7 +5,8 @@
 - [Custom resources](#custom-resources)
 - [Structure of a driver](#structure-of-a-driver)
   - [Resource collection](#resource-collection)
-  - [Client & Config](#client--config)
+  - [Client](#client)
+  - [Config](#config)
   - [Server](#server)
 
 ## Resources definition
@@ -226,8 +227,8 @@ Finally, the collection.qrc file located in the main directory of the driver mus
 </RCC>
 ```
 
-### Client & Config
-The structure of a client and config resources are identical. They both provide the user interface of the application and the configuration screen. The main file and entry point for the resource is the file `main.qml`. This file is written in QML language and Javascript and describes the user interface and its behaviour.
+### Client
+The client provides the user interface of the application and the configuration screen. The main file and entry point for the resource is the file `main.qml`. This file is written in QML language and Javascript and describes the user interface and its behaviour.
 
 You can find a QML language reference [here](https://doc.qt.io/archives/qt-6.7/qmlreference.html). The Javascript sections support ECMAScript6 standard. It is not the purpose of this file to provide a tutorial about QML or Javascript and it will be assumed that you are familiar with both languages. You may check the source code of the drivers included in *niliBOX* to get familiar with the ways of working.
 
@@ -300,6 +301,23 @@ Item {
 
 ```
 For a full description of the controls, functions and properties available on top of the standard ones provided by QML, please check the [API](./API.md#qml-controls) reference file.
+
+### Config
+The structure and functionality of the Config resource is almost identical to the Client. The only difference is that the Config does not communicate with a Server. The main purpose of a Config resource is to set up the configuration parameters that will be used later on by the Client.
+
+The way how the Config can set up the configuration parameters and the Client get access to those is by using some of the functions explained at the API reference file, specifically, the [QML overridable functions](./API.md#qml-overridable-functions). Let's look at an example:
+
+Imagine that your driver has a configuration parameter called *volume* that is established by Config and needs to be known by Client later.
+1. At the Config, use the function `b_send("volume", volume);`. This will add a parameter *volume* to the module configuration file assigning the value of the variable *volume* to it.
+2. At the Client, the system will call the function `b_start(params)`. The parameter *params* is a structure containing all the settings established at the Config. The way to retrieve the value for *volume* is like this:
+   ```
+   let volume = 0;
+   b_start(params)
+   {
+       volume = params.volume;
+   }
+   ```
+3. Now you can use *volume* at the Client side. Please note that changing the value of *volume* at the Client will not change the configuration parameter established at Config.
 
 ### Server
 The server resource provides the communication with the hardware. It runs on a separate thread, optimizing in this way the performance. The main file and entry point for the resource is the file `main.js`. This file is written in pure Javascript and implements the core logics of the driver, including the communications with the hardware. Typically, the server resource relies heavily on the low level, high performance API provided by the Box [API](./API.md#box-api).
