@@ -17,35 +17,44 @@ The appearence of these controls is modified by theme attributes which are liste
 <tr>
 <td>TButton</td>
 <td>
-Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-controls-abstractbutton.html>AbstractButton</a>.<br>
-Additional property: <code>name</code>: String<br>
-Additional property: <code>tooltiptext</code>: String - Text for tooltip box<br>
+Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-controls-abstractbutton.html>AbstractButton</a><br>
+Additional property <code>name</code>: String<br>
+Additional property <code>tooltiptext</code>: String - Text for tooltip box<br>
 Theme attributes: margin margin-top margin-bottom margin-left margin-right padding padding-top padding-bottom padding-left padding-right border-width radius angle foreground-color border-color text-color text-weight image
 </td>
 </tr>
 <tr>
 <td>TCheck</td>
 <td>
-Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-controls-abstractbutton.html>AbstractButton</a>.<br>
-Additional property: <code>name</code>: String<br>
+Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-controls-abstractbutton.html>AbstractButton</a><br>
+Additional property <code>name</code>: String<br>
 Theme attributes: margin margin-top margin-bottom margin-left margin-right padding padding-top padding-bottom padding-left padding-right border-width radius angle foreground-color border-color text-color text-weight image
 </td>
 </tr>
 <tr>
 <td>TColumn</td>
 <td>
-Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-column.html>Column</a>.<br>
-Additional property: <code>name</code>: String<br>
+Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-column.html>Column</a><br>
+Additional property <code>name</code>: String<br>
 Theme attributes: margin margin-top margin-bottom margin-left margin-right padding padding-top padding-bottom padding-left padding-right border-width spacing
 </td>
 </tr>
 <tr>
 <td>TComboBox</td>
 <td>
-Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-controls-combobox.html>Column</a>.<br>
-Additional property: <code>name</code>: String<br>
+Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-controls-combobox.html>ComboBox</a><br>
+Additional property <code>name</code>: String<br>
 Theme attributes: margin margin-top margin-bottom margin-left margin-right padding padding-top padding-bottom padding-left padding-right border-width radius foreground-color border-color text-color text-weight image
 Subcomponent .arrow attributes: angle foregrouund-color image
+</td>
+</tr>
+<tr>
+<td>TGraph</td>
+<td>
+This is a native control, not inheriting any standard QML control. It provides a high quality graph panel for time series signals.
+Property <code>name</code>: String<br>
+property <code>data</code>: 
+Theme attributes: background-color signalcolor signalfillcolor1 signalfillcolor2 signalfillcolor3
 </td>
 </tr>
 </table>
