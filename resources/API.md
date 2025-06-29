@@ -630,7 +630,7 @@ Example: <code>b_import("RTLSDR", "rtlsdr.mjs");</code><br>
 </tr>
 </table>
 
-## QML overridable functions
+## Javascript overridable functions
 These functions can be implemented in the Javascript code and will be called by the core application when needed.
 <table>
 <tr>
@@ -725,7 +725,7 @@ function b_hotplug()
 </tr>
 </table>
 
-## QML properties
+## Javascript properties
 These properties are available for the Javascript code.
 <table>
 <tr>
