@@ -330,48 +330,47 @@ A basic example of a `main.js` file is this:
 ```
 let myvar = 0; //<== your global variables
 
-    // This function is called when the file has been loaded    
-    function b_start(params)
-    {
-        ...your Javascript code...
-    }
+// This function is called when the file has been loaded    
+function b_start(params)
+{
+    ...your Javascript code...
+}
 
 
-    // This function is called when the file is going to be unloaded    
-    function b_finish()
-    {
-        ...your Javascript code...
-    }
+// This function is called when the file is going to be unloaded    
+function b_finish()
+{
+    ...your Javascript code...
+}
 
 
-    // This function is called when the client has sent data to the client
-    function b_receive(key, value)
-    {
-        // Basic example
-        if (key === "message")
-            myfunction(value);
-    }
+// This function is called when the client has sent data to the client
+function b_receive(key, value)
+{
+    // Basic example
+    if (key === "message")
+        myfunction(value);
+}
 
 
-    // This function is called when the application state has changed from inactive to active
-    function b_active()
-    {
-        ...your Javascript code...
-    }
+// This function is called when the application state has changed from inactive to active
+function b_active()
+{
+    ...your Javascript code...
+}
 
 
-    // This function is called when some hardware device has been plugged or unplugged
-    function b_hotplug()
-    {
-        ...your Javascript code...
-    }
+// This function is called when some hardware device has been plugged or unplugged
+function b_hotplug()
+{
+    ...your Javascript code...
+}
     
     
-    // You may add your own functions
-    function myfunction(value)
-    {
-        b_send("message", "hello! " + value); //<== This function sends data to the client from the server
-    }
+// You may add your own functions
+function myfunction(value)
+{
+    b_send("message", "hello! " + value); //<== This function sends data to the client from the server
 }
 ```
 For a full description of the functions and properties available on top of the standard ones provided by Javascript, please check the [API](./API.md#javascript-functions) reference file.
