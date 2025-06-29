@@ -11,14 +11,41 @@
 
 ## QML controls
 These controls extend the functionality of the standard QtQuick controls to make them adjust to the theme selected in the core application. The purpose is to provide a consistent look and feel between the core application and the modules.<br>
-All these controls add a new property called `name` which connectes with the theme definitions. For instance, if a control is given `name: mybutton` and the theme definition file contains `mybutton.icon = myicon.png`, then mybutton will show the icon myicon.
+All these controls add a new property called `name` which connects with the theme definitions. For instance, if a control is given `name: mybutton` and the theme definition file contains `mybutton.image = myicon.png`, then mybutton will show the icon myicon.<br>
+The appearence of these controls is modified by theme attributes which are listed here for each control.
 <table>
 <tr>
 <td>TButton</td>
 <td>
-Extends AbstractButton.<br>
+Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-controls-abstractbutton.html>AbstractButton</a>.<br>
 Additional property: <code>name</code>: String<br>
 Additional property: <code>tooltiptext</code>: String - Text for tooltip box<br>
+Theme attributes: margin margin-top margin-bottom margin-left margin-right padding padding-top padding-bottom padding-left padding-right border-width radius angle foreground-color border-color text-color text-weight image
+</td>
+</tr>
+<tr>
+<td>TCheck</td>
+<td>
+Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-controls-abstractbutton.html>AbstractButton</a>.<br>
+Additional property: <code>name</code>: String<br>
+Theme attributes: margin margin-top margin-bottom margin-left margin-right padding padding-top padding-bottom padding-left padding-right border-width radius angle foreground-color border-color text-color text-weight image
+</td>
+</tr>
+<tr>
+<td>TColumn</td>
+<td>
+Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-column.html>Column</a>.<br>
+Additional property: <code>name</code>: String<br>
+Theme attributes: margin margin-top margin-bottom margin-left margin-right padding padding-top padding-bottom padding-left padding-right border-width spacing
+</td>
+</tr>
+<tr>
+<td>TComboBox</td>
+<td>
+Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-controls-combobox.html>Column</a>.<br>
+Additional property: <code>name</code>: String<br>
+Theme attributes: margin margin-top margin-bottom margin-left margin-right padding padding-top padding-bottom padding-left padding-right border-width radius foreground-color border-color text-color text-weight image
+Subcomponent .arrow attributes: angle foregrouund-color image
 </td>
 </tr>
 </table>
