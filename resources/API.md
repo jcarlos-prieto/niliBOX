@@ -18,9 +18,10 @@ The appearence of these controls is modified by theme attributes which are liste
 <td>TButton</td>
 <td>
 Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-controls-abstractbutton.html>AbstractButton</a><br>
-Additional property <code>name</code>: String<br>
-Additional property <code>tooltiptext</code>: String - Text for tooltip box<br>
-Theme attributes: margin margin-top margin-bottom margin-left margin-right padding padding-top padding-bottom padding-left padding-right border-width radius angle foreground-color border-color text-color text-weight image
+<ul>
+<li>Additional property <code>name</code>: String</li>
+<li>Additional property <code>tooltiptext</code>: String - Text for tooltip box</li>
+<li>Theme attributes: margin margin-top margin-bottom margin-left margin-right padding padding-top padding-bottom padding-left padding-right border-width radius angle foreground-color border-color text-color text-weight image</li>
 </td>
 </tr>
 <tr>
@@ -173,7 +174,7 @@ Return value: String - Type of connection established between the client and the
   <li>CBACK: The client and the server are on different local networks but the server can contact the client directly. The client has used a call-back method to contact the server</li>
   <li>TCP: The client and the server cannot communicate directly and the traffic if relayed by the niliBOX server</li>
   <li>HTTP: The client and the server cannot communicate and there is no possible TCP connection with the niliBOX server. The traffic is encapsulated in HTTP</li>
-</ol>
+</ul>
 Example: <code>let connection = b_conn();</code><br>
 </td>
 </tr>
