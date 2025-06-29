@@ -69,10 +69,14 @@ When we refer to a color adta type, it means a String value representing a color
 <li>Property <code>signalfillcolor1</code>: Color - When the signal graph is filled, this is the color of the upper part of the filling gradient. Function setter: setSignalFillColor1(color)</li>
 <li>Property <code>signalfillcolor2</code>: Color - When the signal graph is filled, this is the color of the lower part of the filling gradient. Function setter: setSignalFillColor2(color)</li>
 <li>Property <code>signalfillcolor3</code>: Color - When the signal graph is of type spectrogram, the colors used is a gradient between signalfillcolor1, signalfillcolor2 and signalfillcolor3. Function setter: setSignalFillColor1(color)</li>
-<li>Property <code>filled</code>: Boolean - If true, the area below the signal is filled with a gradient composed by signalfillcolor1 and signalfillcolor2. Function setter: setFilled(bool);</li>
-<li>Property <code>logarithmic</code>: Boolean - If true, the signal is represented in logarithmic scale. Function setter: setLogarithmic(bool);</li>
-<li>Property <code>spectrogram</code>: Boolean - If true, the signal is represented as spectrogram. Function setter: setSpectrogram(bool);</li>
-<li>Property <code>average</code>: Boolean - If true, the values represented are thr average of the last 2 values. This avoids peaks in the signal. Function setter: setAverage(bool);</li>
+<li>Property <code>filled</code>: Boolean - If true, the area below the signal is filled with a gradient composed by signalfillcolor1 and signalfillcolor2. Function setter: setFilled(bool)</li>
+<li>Property <code>logarithmic</code>: Boolean - If true, the signal is represented in logarithmic scale. Function setter: setLogarithmic(bool)</li>
+<li>Property <code>spectrogram</code>: Boolean - If true, the signal is represented as spectrogram. Function setter: setSpectrogram(bool)</li>
+<li>Property <code>average</code>: Boolean - If true, the values represented are the average of the last 2 values. This avoids peaks in the signal. Function setter: setAverage(bool)</li>
+<li>Property <code>logmax</code>: Real - Value in dB of the maximum value in logarithmic scale. Default is 0. Function setter: setLogmax(real)</li>
+<li>Property <code>logmin</code>: Real - Value in dB of the minimum value in logarithmic scale. Default is 100, representing -100 dB. Function setter: setLogmin(real)</li>
+<li>Property <code>delay</code>: Integer - Speed of the spectrogram waterfall. The waterfall will add one line every number of signal updates given by this value. Function setter: setDelay(integer)</li>
+<li>Property <code>maintain</code>: Integer - Value between 0 and 9 defining the speed of the signal peaks to decay. The higher this value, the slower will be the decay. Function setter: setMaintain(integer)</li>
 <li>Theme attributes: background-color signalcolor signalfillcolor1 signalfillcolor2 signalfillcolor3</li>
 </ul>
 </td>
