@@ -669,6 +669,44 @@ function b_finish()
 </td>
 </tr>
 <tr>
+<td>b_receive(key,value)</td>
+<td>
+Receives data from the client side.<br>
+<ul>
+<li>Parameter <code>key</code>: String</li>
+<li>Parameter <code>value</code>: Any basic Javascript type</li>
+<li>Return value: None</li>
+</ul>
+Example:
+<code>
+function b_receive(key, value)
+{
+    if (key === "device")
+        setDevice(value);
+}
+</code>
+</td>
+</tr>
+<tr>
+<td>b_receivebin(key,value)</td>
+<td>
+Receives binary data from the client side.
+<ul>
+<li>Parameter <code>key</code>: String</li>
+<li>Parameter <code>value</code>: Binary - The binary type is a mirror of the Qt type QByteArrayView. Check in the <a href=./API.md#box-api>Box API</a> section for an explanation of this data type.</li>
+<li>Return value: None</li>
+</ul>
+Example:
+<code>
+function b_receivebin(key, value)
+{
+    if (key === "audio")
+        processAudio(value);
+}
+</code>
+</td>
+</tr>
+<tr>
 <td>b_hotplug()</td>
 <td>
 Called when a hardware device has been plugged or unplugged.
