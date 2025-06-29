@@ -155,7 +155,7 @@ But by now, let's focus on the main files needed to build a driver.
 ### Resource collection
 The files `collection.qrc` are Qt Resource Collection files. The description of its syntax can be found [here](https://doc.qt.io/archives/qt-6.7/resources.html). It contains the location of each file that must be included in the resource file when it is compiled.
 
-A minimal example of a collection file for the server rersource is this:
+A minimal example of a collection file for the server resource is this:
 ```xml
 <!DOCTYPE RCC>
 <RCC version="1.0">
