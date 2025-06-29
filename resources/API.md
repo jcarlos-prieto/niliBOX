@@ -60,7 +60,7 @@ Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-controls-combobox.
 <td>TGraph</td>
 <td>
 This is a native control, not inheriting any standard QML control. It provides a high quality graph panel for time series signals.<br>
-When we refer to a color adta type, it means a String value representing a color, either in <a href=https://doc.qt.io/archives/qt-6.7/qml-color.html#svg-color-reference>SVG color</a> or in #RRGGBB hexadecimal format.
+When we refer to a color data type, it means a String value representing a color, either in <a href=https://doc.qt.io/archives/qt-6.7/qml-color.html#svg-color-reference>SVG color</a> or in #RRGGBB hexadecimal format.
 <ul>
 <li>Property <code>name</code>: String</li>
 <li>Property <code>data</code>: QByteArrayView containing an array of 32-bit floatint point values. Check <a href=./API.md#box-api>Box API</a> for an explanation of this data type</li>
@@ -105,7 +105,6 @@ Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-controls-groupbox.
 <td>TKnob</td>
 <td>
 This is a native control, not inheriting any standard QML control. It provides a knob.<br>
-When we refer to a color adta type, it means a String value representing a color, either in <a href=https://doc.qt.io/archives/qt-6.7/qml-color.html#svg-color-reference>SVG color</a> or in #RRGGBB hexadecimal format.
 <ul>
 <li>Property <code>name</code>: String</li>
 <li>Property <code>text</code>: String - Text to appear inside the knob</li>
@@ -123,6 +122,59 @@ When we refer to a color adta type, it means a String value representing a color
 <li>Property <code>tooltiptext</code>: String - Text of the tooltip box</li>
 <li>Theme attributes:  margin margin-top margin-bottom margin-left margin-right border-width foreground-color border-color text-color</li>
 <li>Subcomponent .arrow attributes: image</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>TLabel</td>
+<td>
+Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-controls-label.html>Label</a>
+<ul>
+<li>Additional property <code>name</code>: String</li>
+<li>Additional property <code>pressed</code>: Boolean - True if the label is pressed</li>
+<li>Theme attributes: padding padding-top padding-bottom padding-left padding-right border-width radius angle foreground-color border-color text-color text-weight image</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>TLineEdit</td>
+<td>
+Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-controls-textfield.html>TextField</a>
+<ul>
+<li>Additional property <code>name</code>: String</li>
+<li>Theme attributes: padding padding-top padding-bottom padding-left padding-right border-width radius foreground-color border-color text-color</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>TRow</td>
+<td>
+Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-row.html>Row</a>
+<ul>
+<li>Additional property <code>name</code>: String</li>
+<li>Theme attributes: margin margin-top margin-bottom margin-left margin-right padding padding-top padding-bottom padding-left padding-right spacing</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>TSlider</td>
+<td>
+Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-controls-slider.html>Slider</a>
+<ul>
+<li>Additional property <code>name</code>: String</li>
+<li>Theme attributes: margin margin-top margin-bottom margin-left margin-rightradiusforeground-color border-color</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>TVideoFrame</td>
+<td>
+This is a native control, not inheriting any standard QML control. It provides a panel to show live video.<br>
+When we refer to a color data type, it means a String value representing a color, either in <a href=https://doc.qt.io/archives/qt-6.7/qml-color.html#svg-color-reference>SVG color</a> or in #RRGGBB hexadecimal format.
+<ul>
+<li>Property <code>data</code>: QByteArrayView containing an image captured by the Video subsystem in the <a href=./API.md#box-api>Box API</a>.</li>
+<li>Property <code>mirror</code>: Boolean - If true, the image is shown upside down</li>
+<li>Theme attributes: background-color signalcolor signalfillcolor1 signalfillcolor2 signalfillcolor3</li>
 </ul>
 </td>
 </tr>
