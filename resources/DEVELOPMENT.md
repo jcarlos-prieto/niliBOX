@@ -327,7 +327,7 @@ In addition to `main.js` you might need to include other files. They must all be
 *niliBOX* has enriched the Javascript syntax with a few additional functions and properties to facilitate the development.
 
 A basic example of a `main.js` file is this:
-```
+```js
 let myvar = 0; //<== your global variables
 
 // This function is called when the file has been loaded    
