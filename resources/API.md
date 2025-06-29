@@ -172,6 +172,66 @@ function b_finish()
 </code>
 </td>
 </tr>
+<tr>
+<td>b_active()</td>
+<td>
+Called when the client state changes from inactive to active (Android and iOS).<br>
+Return value: None<br>
+Example:
+<code>
+function b_active()
+{
+    myAction();
+}
+</code>
+</td>
+</tr>
+<tr>
+<td>b_inactive()</td>
+<td>
+Called when the client state changes from active to inactive (Android and iOS).<br>
+Return value: None<br>
+Example:
+<code>
+function b_inactive()
+{
+    myAction();
+}
+</code>
+</td>
+</tr>
+<tr>
+<td>b_hotplug()</td>
+<td>
+Called when a hardware device has been plugged or unplugged.<br>
+Return value: None<br>
+Example:
+<code>
+function b_hotplug()
+{
+    myAction();
+}
+</code>
+</td>
+</tr>
+<tr>
+<td>b_change(type)</td>
+<td>
+Called when the theme or the language has changed.<br>
+<code>type</code>: String - value can be either "theme" or "language".<br>
+Return value: None<br>
+Example:
+<code>
+function b_change(type)
+{
+    if (type === "theme")
+        handleTheme();
+    else if ("type === "language")
+       handleLang();
+}
+</code>
+</td>
+</tr>
 </table>
 
 ## QML properties
