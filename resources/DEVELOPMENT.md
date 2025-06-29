@@ -9,6 +9,7 @@
   - [Config](#config)
   - [Server](#server)
 - [Structure of a language](#structure-of-a-language)
+- [Structure of a theme](#structure-of-a-theme)
 
 ## Resources definition
 The general structure of the source code of the resources is the following:
@@ -377,3 +378,5 @@ function myfunction(value)
 For a full description of the functions and properties available on top of the standard ones provided by Javascript, please check the [API](./API.md#javascript-functions) reference file.
 
 ## Structure of a language
+
+## Structure of a theme
