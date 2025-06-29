@@ -104,7 +104,7 @@ Example: <code>b_send("gain", "15");</code><br>
 Sends binary data to the server side.
 <ul>
 <li>Parameter <code>key</code>: String</li>
-<li>Parameter <code>value</code>: Binary - The binary type is a mirror of the Qt type QByteArrayView. Check in the Box API section for an explanation of this data type.</li>
+<li>Parameter <code>value</code>: Binary - The binary type is a mirror of the Qt type QByteArrayView. Check in the <a href=./API.md#box-api>Box API</a> section for an explanation of this data type.</li>
 <li>Return value: None</li>
 </ul>
 Example: <code>b_send("audio", data);</code><br>
