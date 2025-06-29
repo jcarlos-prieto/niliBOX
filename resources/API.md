@@ -174,7 +174,7 @@ When we refer to a color data type, it means a String value representing a color
 <ul>
 <li>Property <code>data</code>: QByteArrayView containing an image captured by the Video subsystem in the <a href=./API.md#box-api>Box API</a>.</li>
 <li>Property <code>mirror</code>: Boolean - If true, the image is shown upside down</li>
-<li>Theme attributes: background-color signalcolor signalfillcolor1 signalfillcolor2 signalfillcolor3</li>
+<li>Theme attributes: None</li>
 </ul>
 </td>
 </tr>
