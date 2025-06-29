@@ -75,7 +75,8 @@ Example: <code>let box = b_getbox("REMOTE");</code><br>
 <tr>
 <td>b_send(key,value)</td>
 <td>
-Sends data to the server side.<br>
+Client: Sends data to the server side.<br>
+Config: Adds the module configuration file a parameter <code>key</code> with value <code>value</code><br>
 Parameter <code>key</code>: String<br>
 Parameter <code>value</code>: Any basic Javascript type<br>
 Return value: None<br>
