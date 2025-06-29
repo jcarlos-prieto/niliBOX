@@ -172,7 +172,7 @@ Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-controls-slider.ht
 This is a native control, not inheriting any standard QML control. It provides a panel to show live video.<br>
 When we refer to a color data type, it means a String value representing a color, either in <a href=https://doc.qt.io/archives/qt-6.7/qml-color.html#svg-color-reference>SVG color</a> or in #RRGGBB hexadecimal format.
 <ul>
-<li>Property <code>data</code>: QByteArrayView containing an image captured by the Video subsystem in the <a href=./API.md#box-api>Box API</a>.</li>
+<li>Property <code>data</code>: QByteArrayView containing an image captured by the Video subsystem in the <a href=./API.md#box-api>Box API</a></li>
 <li>Property <code>mirror</code>: Boolean - If true, the image is shown upside down</li>
 <li>Theme attributes: None</li>
 </ul>
