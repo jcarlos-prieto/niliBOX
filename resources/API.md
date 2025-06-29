@@ -75,9 +75,11 @@ These functions can be called from your source code, both a QML action or a Java
 <tr>
 <td>b_getbox(type)</td>
 <td>
-Creates a new Box object to interact with the C++ Box API.<br>
-Parameter <code>type</code>: String - It can be either "REMOTE" or nothing. If "REMOTE" is provided, then the Box object will access the hardware at the server side.<br>
-Return value: An object of type Box.<br>
+Creates a new Box object to interact with the C++ Box API.
+<ul>
+<li>Parameter <code>type</code>: String - It can be either "REMOTE" or nothing. If "REMOTE" is provided, then the Box object will access the hardware at the server side</li>
+<li>Return value: An object of type Box</li>
+</ul>
 Example: <code>let box = b_getbox();</code><br>
 Example: <code>let box = b_getbox("REMOTE");</code><br>
 </td>
@@ -86,10 +88,12 @@ Example: <code>let box = b_getbox("REMOTE");</code><br>
 <td>b_send(key,value)</td>
 <td>
 Client: Sends data to the server side.<br>
-Config: Adds the module configuration file a parameter <code>key</code> with value <code>value</code><br>
-Parameter <code>key</code>: String<br>
-Parameter <code>value</code>: Any basic Javascript type<br>
-Return value: None<br>
+Config: Adds the module configuration file a parameter <code>key</code> with value <code>value</code>
+<ul>
+<li>Parameter <code>key</code>: String</li>
+<li>Parameter <code>value</code>: Any basic Javascript type</li>
+<li>Return value: None</li>
+</ul>
 Example: <code>b_send("init");</code><br>
 Example: <code>b_send("gain", "15");</code><br>
 </td>
@@ -97,92 +101,108 @@ Example: <code>b_send("gain", "15");</code><br>
 <tr>
 <td>b_sendbin(key,value)</td>
 <td>
-Sends binary data to the server side.<br>
-Parameter <code>key</code>: String<br>
-Parameter <code>value</code>: Binary - The binary type is a mirror of the Qt type QByteArrayView. Check in the Box API section for an explanation of this data type.<br>
-Return value: None<br>
+Sends binary data to the server side.
+<ul>
+<li>Parameter <code>key</code>: String</li>
+<li>Parameter <code>value</code>: Binary - The binary type is a mirror of the Qt type QByteArrayView. Check in the Box API section for an explanation of this data type.</li>
+<li>Return value: None</li>
+</ul>
 Example: <code>b_send("audio", data);</code><br>
 </td>
 </tr>
 <tr>
 <td>b_setvar(key,value)</td>
 <td>
-Sets a configuration parameter. The configuration parameters are used to save values that are permanent among several runs of the module.<br>
-Parameter <code>key</code>: String - Setting name.<br>
-Parameter <code>value</code>: Any basic Javascript data type - Setting value.<br>
-Return value: None<br>
+Sets a configuration parameter. The configuration parameters are used to save values that are permanent among several runs of the module.
+<ul>
+<li>Parameter <code>key</code>: String - Setting name.</li>
+<li>Parameter <code>value</code>: Any basic Javascript data type - Setting value</li>
+<li>Return value: None</li>
+</ul>
 Example: <code>b_setvar("height", "100");</code><br>
 </td>
 </tr>
 <tr>
 <td>b_getvar(key,default)</td>
 <td>
-Gets a configuration parameter. The configuration parameters are used to save values that are permanent among several runs of the module.<br>
-Parameter <code>key</code>: String - Setting name.<br>
-Parameter <code>default</code>: Any basic Javascript data type - Default value if the setting doesn't exist.<br>
-Return value: String<br>
+Gets a configuration parameter. The configuration parameters are used to save values that are permanent among several runs of the module.
+<ul>
+<li>Parameter <code>key</code>: String - Setting name.</li>
+<li>Parameter <code>default</code>: Any basic Javascript data type - Default value if the setting doesn't exist</li>
+<li>Return value: String</li>
+</ul>
 Example: <code>let h = b_setvar("height", "100");</code><br>
 </td>
 </tr>
 <tr>
 <td>b_debug(value)</td>
 <td>
-Adds a message to the log file and the console if any.<br>
-Parameter <code>value</code>: Any native Javascript type<br>
-Return value: None<br>
+Adds a message to the log file and the console if any.
+<ul>
+<li>Parameter <code>value</code>: Any native Javascript type</li>
+<li>Return value: None</li>
+</ul>
 Example: <code>b_debug("height=" + h);</code><br>
 </td>
 </tr>
 <tr>
 <td>b_param(key)</td>
 <td>
-Retrieves a configuration parameter from the main configuration file of the application stored in the file config.set<br>
-Parameter <code>key</code>: String<br>
-Return value: String<br>
+Retrieves a configuration parameter from the main configuration file of the application stored in the file config.set.
+<ul>
+<li>Parameter <code>key</code>: String</li>
+<li>Return value: String</li>
+</ul>
 Example: <code>let theme = b_param("ui.theme");</code><br>
 </td>
 </tr>
 <tr>
 <td>b_import(name,file)</td>
 <td>
-Imports a Javascript module of type .mjs.<br>
-Parameter <code>name</code>: String - This value will be used to reference the primitives available in the imported module.<br>
-Parameter <code>file</code>: String - File name of the module to be imported. This file must be added to the resource collection file.<br>
-Return value: None<br>
+Imports a Javascript module of type .mjs.
+<ul>
+<li>Parameter <code>name</code>: String - This value will be used to reference the primitives available in the imported module</li>
+<li>Parameter <code>file</code>: String - File name of the module to be imported. This file must be added to the resource collection file</li>
+<li>Return value: None</li>
+</ul>
 Example: <code>b_import("RTLSDR", "rtlsdr.mjs");</code><br>
 </td>
 </tr>
 <tr>
 <td>b_translate(text)</td>
 <td>
-Returns the translation into the current language of the text (in English) provided.<br>
-Parameter <code>text</code>: String - This value will be added to the corresponding language file to be manually translated before compilation.<br>
-Return value: String<br>
+Returns the translation into the current language of the text (in English) provided.
+<ul>
+<li>Parameter <code>text</code>: String - This value will be added to the corresponding language file to be manually translated before compilation</li>
+<li>Return value: String</li>
+</ul>
 Example: <code>text: b_translate("Name:");</code><br>
 </td>
 </tr>
 <tr>
 <td>b_theme(type,name,var)</td>
 <td>
-Returns the value of a parameter from the current theme. This could be a color, a size, etc. Usually, this function is not needed. It is used by the QML components included in the code.<br>
-Parameter <code>type</code>: String - Control type.<br>
-Parameter <code>name</code>: String - Control name.<br>
-Parameter <code>var</code>: String - Theme parameter to be retrieved.<br>
-Return value: String<br>
+Returns the value of a parameter from the current theme. This could be a color, a size, etc. Usually, this function is not needed. It is used by the QML components included in the code.
+<ul>
+<li>Parameter <code>type</code>: String - Control type</li>
+<li>Parameter <code>name</code>: String - Control name.</li>
+<li>Parameter <code>var</code>: String - Theme parameter to be retrieved</li>
+<li>Return value: String</li>
+</ul>
 Example: <code>color: b_theme("TButton", "mybutton", "foreground-color");</code><br>
 </td>
 </tr>
 <tr>
 <td>b_conn()</td>
 <td>
-Return value: String - Type of connection established between the client and the server. The possible values are:
+Returns the type of connection established between the client and the server. The possible values are:
 <ul>
-  <li>SELF: The client and the server are on the same computer</li>
-  <li>LOCAL: The client and the server are on different computers on the same local network</li>
-  <li>DIRECT: The client and the server are on different local networks but the client can access the server directly</li>
-  <li>CBACK: The client and the server are on different local networks but the server can contact the client directly. The client has used a call-back method to contact the server</li>
-  <li>TCP: The client and the server cannot communicate directly and the traffic if relayed by the niliBOX server</li>
-  <li>HTTP: The client and the server cannot communicate and there is no possible TCP connection with the niliBOX server. The traffic is encapsulated in HTTP</li>
+<li>SELF: The client and the server are on the same computer</li>
+<li>LOCAL: The client and the server are on different computers on the same local network</li>
+<li>DIRECT: The client and the server are on different local networks but the client can access the server directly</li>
+<li>CBACK: The client and the server are on different local networks but the server can contact the client directly. The client has used a call-back method to contact the server</li>
+<li>TCP: The client and the server cannot communicate directly and the traffic if relayed by the niliBOX server</li>
+<li>HTTP: The client and the server cannot communicate and there is no possible TCP connection with the niliBOX server. The traffic is encapsulated in HTTP</li>
 </ul>
 Example: <code>let connection = b_conn();</code><br>
 </td>
@@ -190,9 +210,11 @@ Example: <code>let connection = b_conn();</code><br>
 <tr>
 <td>b_mouse(type)</td>
 <td>
-Changes the shape of the mouse cursor.<br>
-Parameter <code>type</code>:  Qt::CursorShape type - This type is described <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-mousearea.html#cursorShape-prop>here</a><br>
-Return value: None<br>
+Changes the shape of the mouse cursor.
+<ul>
+<li>Parameter <code>type</code>:  Qt::CursorShape type - This type is described <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-mousearea.html#cursorShape-prop>here</a></li>
+<li>Return value: None</li>
+</ul>
 Example: <code>b_mouse(Qt.PointingHandCursor);</code><br>
 </td>
 </tr>
@@ -204,9 +226,11 @@ These functions can be implemented in the Javascript code and will be called by 
 <tr>
 <td>b_start(params)</td>
 <td>
-Called when the client starts.<br>
-Parameter <code>params</code>: Data structure - The object params contains one property for each parameter defined in the Config resource.<br>
-Return value: None<br>
+Called when the client starts.
+<ul>
+<li>Parameter <code>params</code>: Data structure - The object params contains one property for each parameter defined in the Config resource</li>
+<li>Return value: None</li>
+</ul>
 Example:
 <code>
 let factor = 0;
@@ -220,8 +244,11 @@ function b_start(params)
 <tr>
 <td>b_finish()</td>
 <td>
-Called when the client is going to finish.<br>
-Return value: None<br>
+Called when the client is going to finish.
+<ul>
+<li>Parameters: None</li>
+<li>Return value: None</li>
+</ul>
 Example:
 <code>
 function b_finish()
