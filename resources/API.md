@@ -261,8 +261,11 @@ function b_finish()
 <tr>
 <td>b_active()</td>
 <td>
-Called when the client state changes from inactive to active (Android and iOS).<br>
-Return value: None<br>
+Called when the client state changes from inactive to active (Android and iOS).
+<ul>
+<li>Parameters: None</li>
+<li>Return value: None</li>
+</ul>
 Example:
 <code>
 function b_active()
@@ -275,8 +278,11 @@ function b_active()
 <tr>
 <td>b_inactive()</td>
 <td>
-Called when the client state changes from active to inactive (Android and iOS).<br>
-Return value: None<br>
+Called when the client state changes from active to inactive (Android and iOS).
+<ul>
+<li>Parameters: None</li>
+<li>Return value: None</li>
+</ul>
 Example:
 <code>
 function b_inactive()
@@ -289,8 +295,11 @@ function b_inactive()
 <tr>
 <td>b_hotplug()</td>
 <td>
-Called when a hardware device has been plugged or unplugged.<br>
-Return value: None<br>
+Called when a hardware device has been plugged or unplugged.
+<ul>
+<li>Parameters: None</li>
+<li>Return value: None</li>
+</ul>
 Example:
 <code>
 function b_hotplug()
@@ -303,9 +312,11 @@ function b_hotplug()
 <tr>
 <td>b_change(type)</td>
 <td>
-Called when the theme or the language has changed.<br>
-<code>type</code>: String - value can be either "theme" or "language".<br>
-Return value: None<br>
+Called when the theme or the language has changed.
+<ul>
+<li>Parameter <code>type</code>: String - value can be either "theme" or "language"</li>
+<li>Return value: None</li>
+</ul>
 Example:
 <code>
 function b_change(type)
