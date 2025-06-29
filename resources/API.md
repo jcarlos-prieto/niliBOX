@@ -41,7 +41,7 @@ Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-controls-abstractb
 Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-column.html>Column</a>
 <ul>
 <li>Additional property <code>name</code>: String</li>
-<li>Theme attributes: margin margin-top margin-bottom margin-left margin-right padding padding-top padding-bottom padding-left padding-right border-width spacing</li>
+<li>Theme attributes: margin margin-top margin-bottom margin-left margin-right padding padding-top padding-bottom padding-left padding-right spacing</li>
 </ul>
 </td>
 </tr>
@@ -63,21 +63,66 @@ This is a native control, not inheriting any standard QML control. It provides a
 When we refer to a color adta type, it means a String value representing a color, either in <a href=https://doc.qt.io/archives/qt-6.7/qml-color.html#svg-color-reference>SVG color</a> or in #RRGGBB hexadecimal format.
 <ul>
 <li>Property <code>name</code>: String</li>
-<li>Property <code>data</code>: QByteArrayView containing an array of 32-bit floatint point values. Check <a href=./API.md#box-api>Box API</a> for an explanation of this data type. Function setter: setData(data)</li>
-<li>Property <code>backgroundcolor</code>: Color - Color of the background panel. Function setter: setBackgroundColor(color)</li>
-<li>Property <code>signalcolor</code>: Color - Color of the curve representing the signal. Function setter: setSignalColor(color)</li>
-<li>Property <code>signalfillcolor1</code>: Color - When the signal graph is filled, this is the color of the upper part of the filling gradient. Function setter: setSignalFillColor1(color)</li>
-<li>Property <code>signalfillcolor2</code>: Color - When the signal graph is filled, this is the color of the lower part of the filling gradient. Function setter: setSignalFillColor2(color)</li>
-<li>Property <code>signalfillcolor3</code>: Color - When the signal graph is of type spectrogram, the colors used is a gradient between signalfillcolor1, signalfillcolor2 and signalfillcolor3. Function setter: setSignalFillColor1(color)</li>
-<li>Property <code>filled</code>: Boolean - If true, the area below the signal is filled with a gradient composed by signalfillcolor1 and signalfillcolor2. Function setter: setFilled(bool)</li>
-<li>Property <code>logarithmic</code>: Boolean - If true, the signal is represented in logarithmic scale. Function setter: setLogarithmic(bool)</li>
-<li>Property <code>spectrogram</code>: Boolean - If true, the signal is represented as spectrogram. Function setter: setSpectrogram(bool)</li>
-<li>Property <code>average</code>: Boolean - If true, the values represented are the average of the last 2 values. This avoids peaks in the signal. Function setter: setAverage(bool)</li>
-<li>Property <code>logmax</code>: Real - Value in dB of the maximum value in logarithmic scale. Default is 0. Function setter: setLogmax(real)</li>
-<li>Property <code>logmin</code>: Real - Value in dB of the minimum value in logarithmic scale. Default is 100, representing -100 dB. Function setter: setLogmin(real)</li>
-<li>Property <code>delay</code>: Integer - Speed of the spectrogram waterfall. The waterfall will add one line every number of signal updates given by this value. Function setter: setDelay(integer)</li>
-<li>Property <code>maintain</code>: Integer - Value between 0 and 9 defining the speed of the signal peaks to decay. The higher this value, the slower will be the decay. Function setter: setMaintain(integer)</li>
+<li>Property <code>data</code>: QByteArrayView containing an array of 32-bit floatint point values. Check <a href=./API.md#box-api>Box API</a> for an explanation of this data type</li>
+<li>Property <code>backgroundcolor</code>: Color - Color of the background panel</li>
+<li>Property <code>signalcolor</code>: Color - Color of the curve representing the signal</li>
+<li>Property <code>signalfillcolor1</code>: Color - When the signal graph is filled, this is the color of the upper part of the filling gradient</li>
+<li>Property <code>signalfillcolor2</code>: Color - When the signal graph is filled, this is the color of the lower part of the filling gradient</li>
+<li>Property <code>signalfillcolor3</code>: Color - When the signal graph is of type spectrogram, the colors used is a gradient between signalfillcolor1, signalfillcolor2 and signalfillcolor3</li>
+<li>Property <code>filled</code>: Boolean - If true, the area below the signal is filled with a gradient composed by signalfillcolor1 and signalfillcolor2</li>
+<li>Property <code>logarithmic</code>: Boolean - If true, the signal is represented in logarithmic scale</li>
+<li>Property <code>spectrogram</code>: Boolean - If true, the signal is represented as spectrogram</li>
+<li>Property <code>average</code>: Boolean - If true, the values represented are the average of the last 2 values. This avoids peaks in the signal</li>
+<li>Property <code>logmax</code>: Real - Value in dB of the maximum value in logarithmic scale. Default is 0</li>
+<li>Property <code>logmin</code>: Real - Value in dB of the minimum value in logarithmic scale. Default is 100, representing -100 dB</li>
+<li>Property <code>delay</code>: Integer - Speed of the spectrogram waterfall. The waterfall will add one line every number of signal updates given by this value</li>
+<li>Property <code>maintain</code>: Integer - Value between 0 and 9 defining the speed of the signal peaks to decay. The higher this value, the slower will be the decay</li>
 <li>Theme attributes: background-color signalcolor signalfillcolor1 signalfillcolor2 signalfillcolor3</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>TGrid</td>
+<td>
+Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-grid.html>Grid</a>
+<ul>
+<li>Additional property <code>name</code>: String</li>
+<li>Theme attributes: margin margin-top margin-bottom margin-left margin-right padding padding-top padding-bottom padding-left padding-right spacing</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>TGroupBox</td>
+<td>
+Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-controls-groupbox.html>GroupBox</a>
+<ul>
+<li>Additional property <code>name</code>: String</li>
+<li>Theme attributes: margin margin-top margin-bottom margin-left margin-right padding padding-top padding-bottom padding-left padding-right border-width radius foreground-color border-color</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>TKnob</td>
+<td>
+This is a native control, not inheriting any standard QML control. It provides a knob.<br>
+When we refer to a color adta type, it means a String value representing a color, either in <a href=https://doc.qt.io/archives/qt-6.7/qml-color.html#svg-color-reference>SVG color</a> or in #RRGGBB hexadecimal format.
+<ul>
+<li>Property <code>name</code>: String</li>
+<li>Property <code>text</code>: String - Text to appear inside the knob</li>
+<li>Property <code>textsize</code>: Real - Font size of the text</li>
+<li>Property <code>max</code>: Real - Maximum value. Default is 1</li>
+<li>Property <code>min</code>: Real - Minimum value. Default is 0</li>
+<li>Property <code>step</code>: Real - Value increase or decrease for minimum rotation. Default is 0.1</li>
+<li>Property <code>anglestep</code>: Real - Angle in degrees to rotate for minimum rotation. Default is 20</li>
+<li>Property <code>rounddial</code>: Boolean - If true, the dial sign is a circle instead of a cursor line. Default is false</li>
+<li>Property <code>angle</code>: Real - Current angle in degrees</li>
+<li>Property <code>value</code>: Real - Current value</li>
+<li>Property <code>pressed</code>: Boolean - True if the knob is pressed</li>
+<li>Property <code>hovered</code>: Boolean - True if the knob is hovered</li>
+<li>Property <code>fast</code>: Boolean - If true, it provides the functionality of changes values by clicking and moving the mouse to right and left</li>
+<li>Property <code>tooltiptext</code>: String - Text of the tooltip box</li>
+<li>Theme attributes:  margin margin-top margin-bottom margin-left margin-right border-width foreground-color border-color text-color</li>
+<li>Subcomponent .arrow attributes: image</li>
 </ul>
 </td>
 </tr>
