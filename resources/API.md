@@ -51,9 +51,9 @@ Subcomponent .arrow attributes: angle foregrouund-color image
 <tr>
 <td>TGraph</td>
 <td>
-This is a native control, not inheriting any standard QML control. It provides a high quality graph panel for time series signals.
+This is a native control, not inheriting any standard QML control. It provides a high quality graph panel for time series signals.<br>
 Property <code>name</code>: String<br>
-property <code>data</code>: 
+property <code>data</code>: <br>
 Theme attributes: background-color signalcolor signalfillcolor1 signalfillcolor2 signalfillcolor3
 </td>
 </tr>
