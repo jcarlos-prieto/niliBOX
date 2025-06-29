@@ -59,10 +59,20 @@ Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-controls-combobox.
 <tr>
 <td>TGraph</td>
 <td>
-This is a native control, not inheriting any standard QML control. It provides a high quality graph panel for time series signals.
+This is a native control, not inheriting any standard QML control. It provides a high quality graph panel for time series signals.<br>
+When we refer to a color adta type, it means a String value representing a color, either in <a href=https://doc.qt.io/archives/qt-6.7/qml-color.html#svg-color-reference>SVG color</a> or in #RRGGBB hexadecimal format.
 <ul>
 <li>Property <code>name</code>: String</li>
-<li>Property <code>data</code>: </li>
+<li>Property <code>data</code>: QByteArrayView containing an array of 32-bit floatint point values. Check <a href=./API.md#box-api>Box API</a> for an explanation of this data type. Function setter: setData(data)</li>
+<li>Property <code>backgroundcolor</code>: Color - Color of the background panel. Function setter: setBackgroundColor(color)</li>
+<li>Property <code>signalcolor</code>: Color - Color of the curve representing the signal. Function setter: setSignalColor(color)</li>
+<li>Property <code>signalfillcolor1</code>: Color - When the signal graph is filled, this is the color of the upper part of the filling gradient. Function setter: setSignalFillColor1(color)</li>
+<li>Property <code>signalfillcolor2</code>: Color - When the signal graph is filled, this is the color of the lower part of the filling gradient. Function setter: setSignalFillColor2(color)</li>
+<li>Property <code>signalfillcolor3</code>: Color - When the signal graph is of type spectrogram, the colors used is a gradient between signalfillcolor1, signalfillcolor2 and signalfillcolor3. Function setter: setSignalFillColor1(color)</li>
+<li>Property <code>filled</code>: Boolean - If true, the area below the signal is filled with a gradient composed by signalfillcolor1 and signalfillcolor2. Function setter: setFilled(bool);</li>
+<li>Property <code>logarithmic</code>: Boolean - If true, the signal is represented in logarithmic scale. Function setter: setLogarithmic(bool);</li>
+<li>Property <code>spectrogram</code>: Boolean - If true, the signal is represented as spectrogram. Function setter: setSpectrogram(bool);</li>
+<li>Property <code>average</code>: Boolean - If true, the values represented are thr average of the last 2 values. This avoids peaks in the signal. Function setter: setAverage(bool);</li>
 <li>Theme attributes: background-color signalcolor signalfillcolor1 signalfillcolor2 signalfillcolor3</li>
 </ul>
 </td>
