@@ -10,6 +10,18 @@
 - [Box API](#box-api)
 
 ## QML controls
+These controls extend the functionality of the standard QtQuick controls to make them adjust to the theme selected in the core application. The purpose is to provide a consistent look and feel between the core application and the modules.<br>
+All these controls add a new property called `name` which connectes with the theme definitions. For instance, if a control is given `name: mybutton` and the theme definition file contains `mybutton.icon = myicon.png`, then mybutton will show the icon myicon.
+<table>
+<tr>
+<td>TButton</td>
+<td>
+Extends AbstractButton.<br>
+Additional property: <code>name</code>: String<br>
+Additional property: <code>tooltiptext</code>: String - Text for tooltip box<br>
+</td>
+</tr>
+</table>
 
 ## QML callable functions
 These functions can be called from your source code, both a QML action or a Javascript function.
@@ -226,7 +238,7 @@ function b_change(type)
 {
     if (type === "theme")
         handleTheme();
-    else if ("type === "language")
+    else if (type === "language")
        handleLang();
 }
 </code>
