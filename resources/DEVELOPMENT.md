@@ -9,6 +9,7 @@
   - [Config](#config)
   - [Server](#server)
 - [Structure of a language](#structure-of-a-language)
+  - [Source translation file (TS)](#source-translation-file-ts)
 - [Structure of a theme](#structure-of-a-theme)
 
 ## Resources definition
@@ -412,4 +413,36 @@ The process to create a new language is as follows:
 The source translation files are extracted from the code of the application, both the core and the drivers. This extraction is performed by the script *ztranslate.bat* or *ztranslate.sh* under the directory *resources*.
 
 Before running this script, it must be edited to add the new language. Find the definition of the variable *LANGS* and the code of the new language.
+
+When this script is executed, it will search for all labels marked to be translated. The way how the script identify those labels is different in the C++ core application than in the QML/Javascript drivers.
+- In the core application: surround the label with the function *tr*. For example: `mylabel.setText(tr("Name:"));`.
+- In driver client and config, surround the label with the function *b_translate*. For example: `text: b_translate("Name:")`.
+
+The result of the extraction of labels to be translated is stored in the directory *resources/language/_TS*. The script will create one .ts file for the core application and one for each component of each driver. Following with the example of Danish language, the files created would look like this:
+<pre>
+resources/languages/_TS/
+├──da.ts  
+├──DRIVER1_client_da.ts
+├──DRIVER1_config_da.ts
+├──DRIVER2_client_da.ts
+├──DRIVER2_config_da.ts
+└──...
+</pre>
+
+The .ts files are a Qt standard file type for translation sources. An example of a very basic translation file (DRIVERTEST_config_es.ts) is this:
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="es">
+<context>
+    <name>main</name>
+    <message>
+        <source>Nothing to configure here</source>
+        <translation>Nada que configurar aquí</translation>
+    </message>
+</context>
+</TS>
+```
+
+
 ## Structure of a theme
