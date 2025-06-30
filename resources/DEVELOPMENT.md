@@ -396,7 +396,7 @@ The languages need to be defined both for the core application and for each driv
      ```
    - *flag.png*: Image of the flag of the country with fixed size of 68 x 40 pixels
    - The file *trans.qm* contains the actual translation but it will be generated automatically later.
-   - 
+
 2. For each driver, create directories for the new language under *client/language*s and *config/languages*. For instance, for Danish language, create the following:
    - *resources/drivers/DRIVERNAME/client/languages/da*
    - *resources/drivers/DRIVERNAME/config/languages/da*
@@ -472,7 +472,7 @@ The themes need to be defined both for the core application and for each driver.
      ```
    - *flag.png*: Image of the flag of the country with fixed size of 68 x 40 pixels
    - The file *trans.qm* contains the actual translation but it will be generated automatically later.
-   - 
+
 2. For each driver, create directories for the new language under *client/language*s and *config/languages*. For instance, for Danish language, create the following:
    - *resources/drivers/DRIVERNAME/client/languages/da*
    - *resources/drivers/DRIVERNAME/config/languages/da*
