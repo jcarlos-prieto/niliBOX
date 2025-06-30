@@ -380,9 +380,7 @@ function myfunction(value)
 For a full description of the functions and properties available on top of the standard ones provided by Javascript, please check the [API](./API.md#javascript-functions) reference file.
 
 ## Structure of a language
-The languages need to be defined both for the core application and for each driver. This is a somehow tedious process depending on the number of lablels to be translated.
-
-The process to create a new language is as follows:
+The languages need to be defined both for the core application and for each driver. The process to create a new language is as follows:
 
 1. Create a directoy for the new language under *resources/languages*. For instance *resources/languages/da* for Danish.
    The contents of this directory is the following:
@@ -458,3 +456,32 @@ This script will generate the compiled language files *trans.qm* for each langua
 If you have chosen to work on the *custom* directory (see [Custom Resources](#custom-resources)), you will not need to run the *zcompile* script. You will need to run the *ztranslate* script only onec in order to create the new .ts files. After that, you can make your changes directly in the .ts files and run the core application to test.
 
 ## Structure of a theme
+The themes need to be defined both for the core application and for each driver. The process to create a new theme is as follows:
+
+1. Create a directoy for the new theme under *resources/themes*. For instance *resources/languages/mytheme*.
+   The contents of this directory is the following:
+   - *collection.qrc*: It must be always like this:
+     ```xml
+     <!DOCTYPE RCC>
+     <RCC version="1.0">
+        <qresource>
+           <file>trans.qm</file>
+           <file>flag.png</file>
+       </qresource>
+     </RCC>
+     ```
+   - *flag.png*: Image of the flag of the country with fixed size of 68 x 40 pixels
+   - The file *trans.qm* contains the actual translation but it will be generated automatically later.
+   - 
+2. For each driver, create directories for the new language under *client/language*s and *config/languages*. For instance, for Danish language, create the following:
+   - *resources/drivers/DRIVERNAME/client/languages/da*
+   - *resources/drivers/DRIVERNAME/config/languages/da*
+   It is not needed to add any file to these directories. Later on, a file *trans.qm* will be added automatically.
+
+3. Modify the language file definition *resources/languages.set*. Add the following lines (also for Danish):
+   ```
+   DA.displayname=Dansk
+   DA.location=languages/da.rcc
+   DA.version=YYYY.MM.DD
+   ```
+
