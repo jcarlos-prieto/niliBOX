@@ -378,5 +378,38 @@ function myfunction(value)
 For a full description of the functions and properties available on top of the standard ones provided by Javascript, please check the [API](./API.md#javascript-functions) reference file.
 
 ## Structure of a language
+The languages need to be defined both for the core application and for each driver. This is a somehow tedious process depending on the number of lablels to be translated.
 
+The process to create a new language is as follows:
+
+1. Create a directoy for the new language under *resources/languages*. For instance *resources/languages/da* for Danish.
+   The contents of this directory is the following:
+   - *collection.qrc*: It must be always like this:
+     ```xml
+     <!DOCTYPE RCC>
+     <RCC version="1.0">
+        <qresource>
+           <file>trans.qm</file>
+           <file>flag.png</file>
+       </qresource>
+     </RCC>
+     ```
+   - *flag.png*: Image of the flag of the country with fixed size of 68 x 40 pixels
+   - The file *trans.qm* contains the actual translation but it will be generated automatically later.
+   - 
+2. For each driver, create directories for the new language under *client/language*s and *config/languages*. For instance, for Danish language, create the following:
+   - *resources/drivers/DRIVERNAME/client/languages/da*
+   - *resources/drivers/DRIVERNAME/config/languages/da*
+   It is not needed to add any file to these directories. Later on, a file *trans.qm* will be added automatically.
+
+3. Modify the language file definition *resources/languages.set*. Add the following lines (also for Danish):
+   ```
+   DA.displayname=Dansk
+   DA.location=languages/da.rcc
+   DA.version=YYYY.MM.DD
+   ```
+### Source translation file (TS)
+The source translation files are extracted from the code of the application, both the core and the drivers. This extraction is performed by the script *ztranslate.bat* or *ztranslate.sh* under the directory *resources*.
+
+Before running this script, it must be edited to add the new language. Find the definition of the variable *LANGS* and the code of the new language.
 ## Structure of a theme
