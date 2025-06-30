@@ -455,6 +455,6 @@ Once the translation of each label is completed, it is time to compile the resou
 
 This script will generate the compiled language files *trans.qm* for each language for the core application and for each driver from the .ts files in the *_TS* directory , will place the files in the right place and will compile the language and driver resources (also the themes). After this, you are ready to recompile the core application and test your new language.
 
-If you have chosen to work on the *custom* directory (see explanation in ), you will not need to run the *zcompile* script. You will need to run the *ztranslate* script only onec in order to create the new .ts files. After that, you can make your changes directly in the .ts files and run the core application to test.
+If you have chosen to work on the *custom* directory (see [Custom Resources](#custom-resources)), you will not need to run the *zcompile* script. You will need to run the *ztranslate* script only onec in order to create the new .ts files. After that, you can make your changes directly in the .ts files and run the core application to test.
 
 ## Structure of a theme
