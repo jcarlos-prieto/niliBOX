@@ -10,6 +10,7 @@
   - [Server](#server)
 - [Structure of a language](#structure-of-a-language)
   - [Translation source file (TS)](#translation-source-file-ts)
+  - [Qt message file (QM)](#qt-message-file-qm)
 - [Structure of a theme](#structure-of-a-theme)
 
 ## Resources definition
