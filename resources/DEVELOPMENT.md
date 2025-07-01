@@ -577,4 +577,16 @@ The object names from the core application are predefined (unless you modify the
 
 In the case of a theme for a driver resource, the process is similar except that the class names are different and also the way to assign a name to an instance of a class.
 
-The QML class names available in a driver resource (client or config) are listed in [QML objects](./API.md#qml-objects)
+The QML class names available in a driver resource (client or config) are listed in [QML controls](./API.md#qml-controls) together with the properties available for each one.
+
+To assign a name to a QML control, you must assign the property `name` to the control. For instance:
+```
+TButton {
+    id: button1
+    name: "mybutton"
+    width: 50
+    height: 25
+    text: "My Button"
+}
+```
+
