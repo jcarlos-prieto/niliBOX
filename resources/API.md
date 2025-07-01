@@ -13,7 +13,7 @@
 
 ## QML controls
 These controls extend the functionality of the standard QtQuick controls to make them adjust to the theme selected in the core application. The purpose is to provide a consistent look and feel between the core application and the modules.<br>
-All these controls add a new property called `name` which connects with the theme definitions. For instance, if a control is given `name: mybutton` and the theme definition file contains `mybutton.image = myicon.png`, then mybutton will show the icon myicon.<br>
+All these controls add a new property called `name` which connects with the theme definitions. For instance, if a control is given `name: "mybutton"` and the theme definition file contains `mybutton.image = myicon.png`, then mybutton will show the icon myicon.<br>
 The appearence of these controls is modified by theme attributes which are listed here for each control.
 <table>
 <tr>
