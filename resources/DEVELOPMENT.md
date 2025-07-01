@@ -397,10 +397,13 @@ The languages need to be defined both for the core application and for each driv
    - *flag.png*: Image of the flag of the country with fixed size of 68 x 40 pixels
    - The file *trans.qm* contains the actual translation but it will be generated automatically later.
 
-2. For each driver, create directories for the new language under *client/language*s and *config/languages*. For instance, for Danish language, create the following:
+2. For each driver, create directories for the new language under *client/languages* and *config/languages*. For instance, for Danish language, create the following:
    - *resources/drivers/DRIVERNAME/client/languages/da*
    - *resources/drivers/DRIVERNAME/config/languages/da*
+     
    It is not needed to add any file to these directories. Later on, a file *trans.qm* will be added automatically.
+
+   There is no *collection.qrc* for each individual theme folder under *drivers* but all the files needed must be declared in the *collection.qrc* file for the driver. Look at the example provided in [Structure of a driver](#structure-of-a-driver).
 
 3. Modify the language file definition *resources/languages.set*. Add the following lines (also for Danish):
    ```
@@ -472,18 +475,21 @@ The themes need to be defined both for the core application and for each driver.
        </qresource>
      </RCC>
      ```
-   - *flag.png*: Image of the flag of the country with fixed size of 68 x 40 pixels
-   - The file *trans.qm* contains the actual translation but it will be generated automatically later.
+   - File *style.set*. This is described below
+   - Additional files referenced by the theme. Usually pictures in png format.
 
-2. For each driver, create directories for the new language under *client/language*s and *config/languages*. For instance, for Danish language, create the following:
-   - *resources/drivers/DRIVERNAME/client/languages/da*
-   - *resources/drivers/DRIVERNAME/config/languages/da*
-   It is not needed to add any file to these directories. Later on, a file *trans.qm* will be added automatically.
+2. For each driver, create directories for the new theme under *client/themes* and *config/themes*. For instance, for the theme *mytheme*, create the following:
+   - *resources/drivers/DRIVERNAME/client/themes/mytheme*
+   - *resources/drivers/DRIVERNAME/config/themes/mytheme*
+     
+   In these directories, include the files needed by the theme (usually pictures in png format) plus a file named *style.set* described below.
 
-3. Modify the language file definition *resources/languages.set*. Add the following lines (also for Danish):
+   There is no *collection.qrc* for each individual theme folder under *drivers* but all the files needed must be declared in the *collection.qrc* file for the driver. Look at the example provided in [Structure of a driver](#structure-of-a-driver).
+
+3. Modify the theme file definition *resources/themes.set*. Add the following lines (also for *mytheme*):
    ```
-   DA.displayname=Dansk
-   DA.location=languages/da.rcc
-   DA.version=YYYY.MM.DD
+   mytheme.displayname=My Theme
+   mytheme.location=themes/mytheme.rcc
+   mytheme.version=YYYY.MM.DD
    ```
 
