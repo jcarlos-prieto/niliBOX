@@ -13,6 +13,7 @@
   - [Qt message file (QM)](#qt-message-file-qm)
 - [Structure of a theme](#structure-of-a-theme)
   - [The file *style.set*](#the-file-styleset)
+  - [Classes and objects](#classes-and-objects)
 
 ## Resources definition
 The general structure of the source code of the resources is the following:
@@ -521,7 +522,7 @@ The properties depend on each object type and describe an aspect of the graphica
 
 The possible values depend on the property.
 
-### Classes and object
+### Classes and objects
 The possible values for the classes and objects depend on weather the file *style.set* correspond to the core application or to a driver.
 
 In the case of the core application, the possible class names are:
@@ -571,3 +572,9 @@ deviceconf.container.header.delete = image:remove.png
 deviceconf.container.header.delete:!hover = border-color:transparent
 ```
 The properties for the state `:hover` (second line) will be merged with the properties for no state (first line). These two properties will also be merged with the general properties for the class `TButton`.
+
+The object names from the core application are predefined (unless you modify the core application). These object names are listed in [Theme object names](./API.md#theme-object-names).
+
+In the case of a theme for a driver resource, the process is similar except that the class names are different and also the way to assign a name to an instance of a class.
+
+The 
