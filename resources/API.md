@@ -14,9 +14,9 @@
 - [Box API](#box-api)
 
 ## QML controls
-These controls extend the functionality of the standard QtQuick controls to make them adjust to the theme selected in the core application. The purpose is to provide a consistent look and feel between the core application and the modules.<br>
-All these controls add a new property called `name` which connects with the theme definitions. For instance, if a control is given `name: "mybutton"` and the theme definition file contains `mybutton.image = myicon.png`, then mybutton will show the icon myicon.<br>
-The appearence of these controls is modified by theme attributes which are listed here for each control.
+These controls extend the functionality of the standard QtQuick controls to make them adjust to the theme selected in the core application. The purpose is to provide a consistent look and feel between the core application and the modules.  
+All these controls add a new property called `name` which connects with the theme definitions. For instance, if a control is given `name: "mybutton"` and the theme definition file contains `mybutton.image = myicon.png`, then mybutton will show the icon myicon.  
+The appearence of these controls is modified by theme properties which are listed for each class type in the section [Theme properties](#theme-properties).
 <table>
 <tr>
 <td>TButton</td>
@@ -25,7 +25,6 @@ Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-controls-abstractb
 <ul>
 <li>Additional property <code>name</code>: String</li>
 <li>Additional property <code>tooltiptext</code>: String - Text for tooltip box</li>
-<li>Theme attributes: margin margin-top margin-bottom margin-left margin-right padding padding-top padding-bottom padding-left padding-right border-width radius angle foreground-color border-color text-color text-weight image</li>
 </ul>
 </td>
 </tr>
@@ -35,7 +34,6 @@ Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-controls-abstractb
 Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-controls-abstractbutton.html>AbstractButton</a>
 <ul>
 <li>Additional property <code>name</code>: String</li>
-<li>Theme attributes: margin margin-top margin-bottom margin-left margin-right padding padding-top padding-bottom padding-left padding-right border-width radius angle foreground-color border-color text-color text-weight image</li>
 </ul>
 </td>
 </tr>
@@ -45,7 +43,6 @@ Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-controls-abstractb
 Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-column.html>Column</a>
 <ul>
 <li>Additional property <code>name</code>: String</li>
-<li>Theme attributes: margin margin-top margin-bottom margin-left margin-right padding padding-top padding-bottom padding-left padding-right spacing</li>
 </ul>
 </td>
 </tr>
@@ -55,7 +52,6 @@ Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-column.html>Column
 Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-controls-combobox.html>ComboBox</a>
 <ul>
 <li>Additional property <code>name</code>: String</li>
-<li>Theme attributes: margin margin-top margin-bottom margin-left margin-right padding padding-top padding-bottom padding-left padding-right border-width radius foreground-color border-color text-color text-weight image</li>
 <li>Subcomponent .arrow attributes: angle foregrouund-color image</li>
 </ul>
 </td>
@@ -81,7 +77,6 @@ When we refer to a color data type, it means a String value representing a color
 <li>Property <code>logmin</code>: Real - Value in dB of the minimum value in logarithmic scale. Default is 100, representing -100 dB</li>
 <li>Property <code>delay</code>: Integer - Speed of the spectrogram waterfall. The waterfall will add one line every number of signal updates given by this value</li>
 <li>Property <code>maintain</code>: Integer - Value between 0 and 9 defining the speed of the signal peaks to decay. The higher this value, the slower will be the decay</li>
-<li>Theme attributes: background-color signalcolor signalfillcolor1 signalfillcolor2 signalfillcolor3</li>
 </ul>
 </td>
 </tr>
@@ -91,7 +86,6 @@ When we refer to a color data type, it means a String value representing a color
 Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-grid.html>Grid</a>
 <ul>
 <li>Additional property <code>name</code>: String</li>
-<li>Theme attributes: margin margin-top margin-bottom margin-left margin-right padding padding-top padding-bottom padding-left padding-right spacing</li>
 </ul>
 </td>
 </tr>
@@ -101,7 +95,6 @@ Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-grid.html>Grid</a>
 Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-controls-groupbox.html>GroupBox</a>
 <ul>
 <li>Additional property <code>name</code>: String</li>
-<li>Theme attributes: margin margin-top margin-bottom margin-left margin-right padding padding-top padding-bottom padding-left padding-right border-width radius foreground-color border-color</li>
 </ul>
 </td>
 </tr>
@@ -124,7 +117,6 @@ This is a native control, not inheriting any standard QML control. It provides a
 <li>Property <code>hovered</code>: Boolean - True if the knob is hovered</li>
 <li>Property <code>fast</code>: Boolean - If true, it provides the functionality of changes values by clicking and moving the mouse to right and left</li>
 <li>Property <code>tooltiptext</code>: String - Text of the tooltip box</li>
-<li>Theme attributes:  margin margin-top margin-bottom margin-left margin-right border-width foreground-color border-color text-color</li>
 <li>Subcomponent .arrow attributes: image</li>
 </ul>
 </td>
@@ -136,7 +128,6 @@ Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-controls-label.htm
 <ul>
 <li>Additional property <code>name</code>: String</li>
 <li>Additional property <code>pressed</code>: Boolean - True if the label is pressed</li>
-<li>Theme attributes: padding padding-top padding-bottom padding-left padding-right border-width radius angle foreground-color border-color text-color text-weight image</li>
 </ul>
 </td>
 </tr>
@@ -146,7 +137,6 @@ Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-controls-label.htm
 Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-controls-textfield.html>TextField</a>
 <ul>
 <li>Additional property <code>name</code>: String</li>
-<li>Theme attributes: padding padding-top padding-bottom padding-left padding-right border-width radius foreground-color border-color text-color</li>
 </ul>
 </td>
 </tr>
@@ -156,7 +146,6 @@ Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-controls-textfield
 Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-row.html>Row</a>
 <ul>
 <li>Additional property <code>name</code>: String</li>
-<li>Theme attributes: margin margin-top margin-bottom margin-left margin-right padding padding-top padding-bottom padding-left padding-right spacing</li>
 </ul>
 </td>
 </tr>
@@ -166,7 +155,6 @@ Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-row.html>Row</a>
 Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-controls-slider.html>Slider</a>
 <ul>
 <li>Additional property <code>name</code>: String</li>
-<li>Theme attributes: margin margin-top margin-bottom margin-left margin-rightradiusforeground-color border-color</li>
 </ul>
 </td>
 </tr>
@@ -178,7 +166,6 @@ When we refer to a color data type, it means a String value representing a color
 <ul>
 <li>Property <code>data</code>: QByteArrayView containing an image captured by the Video subsystem in the <a href=./API.md#box-api>Box API</a></li>
 <li>Property <code>mirror</code>: Boolean - If true, the image is shown upside down</li>
-<li>Theme attributes: None</li>
 </ul>
 </td>
 </tr>
@@ -751,6 +738,35 @@ String value containing the operating system in use. The possible values are:
 </table>
 
 ## Core class name names
+These C++ graphical classes inherit the class QWidget and extend the standard functionality to make them adjust to the theme selected. The purpose is to provide a consistent look and feel between the core application and the modules.  
+When these classes are used in the core application to create a new object, they are always given a name. These names are fixed in the application (unless if it is modified). The possible object name are listed in the next section [Core object names](#core-object-names).  
+The appearence of these controls is modified by theme properties which are listed for each class type in the section [Theme properties](#theme-properties).
+- TbButton
+- TbButton.blind1 (type TButton)
+- TbButton.blind2 (type TButton)
+- TButton
+- TcFrame
+- TcFrame.header (type TButton)
+- TcFRame.header.title (type TLabel)
+- TcFrame.header.arrow (type TPane)
+- TcFRame.body (type TPane)
+- TCheck
+- TComboBox
+- TComboBox.arrow (type TPane)
+- TFrame
+- TLabel
+- TLineEdit
+- TList
+- TPane
+- TPopup
+- TPopup.box (type TPane)
+- TPopup.text (type TLabel)
+- TPopup.buttons (type TPane)
+- TPopup.icon.info (type TPane)
+- TPopup.icon.ques (type TPane)
+- TPopup.icon.warn (type TPane)
+- TPopup.icon.crit (type TPane)
+- TTextEdit
 
 ## Core object name names
 
