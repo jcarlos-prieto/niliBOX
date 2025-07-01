@@ -1,7 +1,6 @@
 # API REFERENCE
 
 ## Table of Contents
-- [Custom QWidgets](#custom-qwidgets)
 - [QML controls](#qml-controls)
 - [QML callable functions](#qml-callable-functions)
 - [QML overridable functions](#qml-overridable-functions)
@@ -10,8 +9,6 @@
 - [Javascript overridable functions](#javascript-overridable-functions)
 - [Javascript properties](#javascript-properties)
 - [Box API](#box-api)
-
-## Custom QWidgets
 
 ## QML controls
 These controls extend the functionality of the standard QtQuick controls to make them adjust to the theme selected in the core application. The purpose is to provide a consistent look and feel between the core application and the modules.<br>
