@@ -507,4 +507,18 @@ TLineEdit:!enabled = foreground-color:#D0D000; border-color:#000080
 
 The `<object>` can be either a class type or the name of an instance of a class. The appeareance of a certain graphical object is obtained from the merge of the properties for the class and the properties for the object where the properties for the object take precedence.
 
+The `<state>` can be one of the following:
+- enabled
+- !enabled
+- pressed
+- !pressed
+- hover
+- !hover
+
+The states can be concatenated, for instance `:enabled:!pressed`.
+
+The properties depend on each object type and describe an aspect of the graphical appearence of the object. For instance `foreground-color`or `image`
+
+The possible values depend on the property.
+
 
