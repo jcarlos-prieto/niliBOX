@@ -521,4 +521,53 @@ The properties depend on each object type and describe an aspect of the graphica
 
 The possible values depend on the property.
 
+### Classes and object
+The possible values for the classes and objects depend on weather the file *style.set* correspond to the core application or to a driver.
 
+In the case of the core application, the possible class names are:
+- TbButton
+- TbButton.blind1 (type TButton)
+- TbButton.blind2 (type TButton)
+- TButton
+- TcFrame
+- TcFrame.header (type TButton)
+- TcFRame.header.title (type TLabel)
+- TcFrame.header.arrow (type TPane)
+- TcFRame.body (type TPane)
+- TCheck
+- TComboBox
+- TComboBox.arrow (type TPane)
+- TFrame
+- TLabel
+- TLineEdit
+- TList
+- TPane
+- TPopup
+- TPopup.box (type TPane)
+- TPopup.text (type TLabel)
+- TPopup.buttons (type TPane)
+- TPopup.icon.info (type TPane)
+- TPopup.icon.ques (type TPane)
+- TPopup.icon.warn (type TPane)
+- TPopup.icon.crit (type TPane)
+- TTextEdit
+
+So, it is possible to assign an appearence to all instances of a class by defining the properties of the class. For example:
+
+```
+TcFrame.header = foreground-color:#A00000; cursor:pointer; padding:1.5
+```
+
+It is also possible assign properties to an instance of a class assigning properties to its name. The name of the object is provided when it is created.
+
+For instance, if the object is created like this:
+```
+m_deletebutton = new TButton("deviceconf.container.header.delete", this);
+```
+
+Then, you can assign graphical properties to this object adding the following line to the corresponding *stye.set* file:
+```
+deviceconf.container.header.delete = image:remove.png
+deviceconf.container.header.delete:!hover = border-color:transparent
+```
+This property for the state `:hover` will be merged with the properties for no state. These two properties will also be merged with the general properties for the class `TButton`.
