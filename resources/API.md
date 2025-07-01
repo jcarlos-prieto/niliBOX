@@ -8,7 +8,7 @@
 - [Javascript callable functions](#javascript-callable-functions)
 - [Javascript overridable functions](#javascript-overridable-functions)
 - [Javascript properties](#javascript-properties)
-- [Theme object names](#theme-object-names")
+- [Theme object names](#theme-object-names)
 - [Box API](#box-api)
 
 ## QML controls
