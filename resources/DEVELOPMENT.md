@@ -12,6 +12,7 @@
   - [Translation source file (TS)](#translation-source-file-ts)
   - [Qt message file (QM)](#qt-message-file-qm)
 - [Structure of a theme](#structure-of-a-theme)
+  - [The file *style.set*](#the-file-styleset)
 
 ## Resources definition
 The general structure of the source code of the resources is the following:
@@ -492,4 +493,11 @@ The themes need to be defined both for the core application and for each driver.
    mytheme.location=themes/mytheme.rcc
    mytheme.version=YYYY.MM.DD
    ```
+### The file *style.set*
+The file *style.set* defines the appearance of a graphical object. There is a *style.set* file for each theme that applies to the core applications and one for each theme for the driver client and driver config resources. The syntax of both is the same.
+
+This file is composed by a number of lines with this structure:
+```
+<object>:[<state>] = property1:value1; property2:value2;...
+```
 
