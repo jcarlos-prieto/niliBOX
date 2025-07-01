@@ -836,13 +836,13 @@ Theme properties: <br>
 <td>TPopup</td>
 <td>
 A full screen modal window with a box to select opetions.<br>
-Subtype: TPopup.box (type TPane)
-Subtype: TPopup.text (type TLabel)
-Subtype: TPopup.buttons (type TPane)
-Subtype: TPopup.icon.info (type TPane)
-Subtype: TPopup.icon.ques (type TPane)
-Subtype: TPopup.icon.warn (type TPane)
-Subtype: TPopup.icon.crit (type TPane)
+Subtype: TPopup.box (type TPane)<br>
+Subtype: TPopup.text (type TLabel)<br>
+Subtype: TPopup.buttons (type TPane)<br>
+Subtype: TPopup.icon.info (type TPane)<br>
+Subtype: TPopup.icon.ques (type TPane)<br>
+Subtype: TPopup.icon.warn (type TPane)<br>
+Subtype: TPopup.icon.crit (type TPane)<br>
 Theme properties: <br>
 </td>
 </tr>
