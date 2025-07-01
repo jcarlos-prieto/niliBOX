@@ -752,34 +752,109 @@ String value containing the operating system in use. The possible values are:
 
 ## Core class name names
 These C++ graphical classes inherit the class QWidget and extend the standard functionality to make them adjust to the theme selected. The purpose is to provide a consistent look and feel between the core application and the modules.  
-When these classes are used in the core application to create a new object, they are always given a name. These names are fixed in the application (unless it is modified). The possible object name are listed in the next section [Core object names](#core-object-names).  
+When these classes are used in the core application to create a new object, they are always given a name. These names are fixed in the application (unless it is modified). The possible object name are listed in the next section [Core object names](#core-object-names). 
 The appearence of these controls is modified by theme properties which are listed for each class type in the section [Theme properties](#theme-properties).
-- TbButton
-- TbButton.blind1 (type TButton)
-- TbButton.blind2 (type TButton)
-- TButton
-- TcFrame
-- TcFrame.header (type TButton)
-- TcFRame.header.title (type TLabel)
-- TcFrame.header.arrow (type TPane)
-- TcFRame.body (type TPane)
-- TCheck
-- TComboBox
-- TComboBox.arrow (type TPane)
-- TFrame
-- TLabel
-- TLineEdit
-- TList
-- TPane
-- TPopup
-- TPopup.box (type TPane)
-- TPopup.text (type TLabel)
-- TPopup.buttons (type TPane)
-- TPopup.icon.info (type TPane)
-- TPopup.icon.ques (type TPane)
-- TPopup.icon.warn (type TPane)
-- TPopup.icon.crit (type TPane)
-- TTextEdit
+<table>
+<tr>
+<td>TbButton</td>
+<td>
+Blinds button. A button that can contain 2 subbuttons accessible sliding the main button to the left.<br>
+Subtype: TbButton.blind1 (type TButton)<br>
+Subtype: TbButton.blind2 (type TButton)<br>
+Theme properties: <br>
+</td>
+</tr>
+<tr>
+<td>TButton</td>
+<td>
+Standard button.<br>
+Theme properties: <br>
+</td>
+</tr>
+<tr>
+<td>TcFrame</td>
+<td>
+Collapsable frame. A frame with a title that can be expanded or collapsed clicking on the title.<br>
+Subtype: TcFrame.header (type TButton)<br>
+Subtype: TcFrame.header.title (type TLabel)<br>
+Subtype: TcFrame.header.arrow (type TPane)<br>
+Subtype: TcFRame.body (type TPane)<br>
+Theme properties: <br>
+</td>
+</tr>
+<tr>
+<td>TCheck</td>
+<td>
+Standard check box.<br>
+Theme properties: <br>
+</td>
+</tr>
+<tr>
+<td>TComboBox</td>
+<td>
+Standard combo box<br>
+Subtype: TComboBox.arrow (type TPane)<br>
+Theme properties: <br>
+</td>
+</tr>
+<tr>
+<td>TFrame</td>
+<td>
+A basic panel with a border.<br>
+Theme properties: <br>
+</td>
+</tr>
+<tr>
+<td>TLabel</td>
+<td>
+A basic label.<br>
+Theme properties: <br>
+</td>
+</tr>
+<tr>
+<td>TLineEdit</td>
+<td>
+A basic box to enter text.<br>
+Theme properties: <br>
+</td>
+</tr>
+<tr>
+<td>TList</td>
+<td>
+A list of selectable items.<br>
+Theme properties: <br>
+</td>
+</tr>
+<tr>
+<td>TPane</td>
+<td>
+The most basic object. A rectangular panel.<br>
+Theme properties: <br>
+</td>
+</tr>
+<tr>
+<td>TPopup</td>
+<td>
+A full screen modal window with a box to select opetions.<br>
+Subtype: TPopup.box (type TPane)
+Subtype: TPopup.text (type TLabel)
+Subtype: TPopup.buttons (type TPane)
+Subtype: TPopup.icon.info (type TPane)
+Subtype: TPopup.icon.ques (type TPane)
+Subtype: TPopup.icon.warn (type TPane)
+Subtype: TPopup.icon.crit (type TPane)
+Theme properties: <br>
+</td>
+</tr>
+<tr>
+<td>TTextEdit</td>
+<td>
+A multiline entry field.<br>
+Theme properties: <br>
+</td>
+</tr>
+<tr>
+</table>
 
 ## Core object name names
 
