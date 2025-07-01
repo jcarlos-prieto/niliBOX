@@ -577,4 +577,4 @@ The object names from the core application are predefined (unless you modify the
 
 In the case of a theme for a driver resource, the process is similar except that the class names are different and also the way to assign a name to an instance of a class.
 
-The 
+The QML class names available in a driver resource (client or config) are listed in [QML objects](./API.md#qml-objects)
