@@ -853,7 +853,6 @@ A multiline entry field.<br>
 Theme properties: <br>
 </td>
 </tr>
-<tr>
 </table>
 
 ## Core object name names
