@@ -570,4 +570,4 @@ Then, you can assign graphical properties to this object adding the following li
 deviceconf.container.header.delete = image:remove.png
 deviceconf.container.header.delete:!hover = border-color:transparent
 ```
-This property for the state `:hover` will be merged with the properties for no state. These two properties will also be merged with the general properties for the class `TButton`.
+The properties for the state `:hover` (second line) will be merged with the properties for no state (first line). These two properties will also be merged with the general properties for the class `TButton`.
