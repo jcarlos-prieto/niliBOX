@@ -498,6 +498,13 @@ The file *style.set* defines the appearance of a graphical object. There is a *s
 
 This file is composed by a number of lines with this structure:
 ```
-<object>:[<state>] = property1:value1; property2:value2;...
+<object>:[<state>] = property1:value1; property2:value2; ...
 ```
+for example:
+```
+TLineEdit:!enabled = foreground-color:#D0D000; border-color:#000080
+```
+
+The `<object>` can be either a class type or the name of an instance of a class. The appeareance of a certain graphical object is obtained from the merge of the properties for the class and the properties for the object where the properties for the object take precedence.
+
 
