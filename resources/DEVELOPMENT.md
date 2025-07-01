@@ -460,13 +460,15 @@ The themes need to be defined both for the core application and for each driver.
 
 1. Create a directoy for the new theme under *resources/themes*. For instance *resources/languages/mytheme*.
    The contents of this directory is the following:
-   - *collection.qrc*: It must be always like this:
+   - *collection.qrc*: It might be similar to this:
      ```xml
      <!DOCTYPE RCC>
      <RCC version="1.0">
         <qresource>
-           <file>trans.qm</file>
-           <file>flag.png</file>
+           <file>style.set</file>
+           <file>picture1.png</file>
+           <file>picture2.png</file>
+           <file>...</file>
        </qresource>
      </RCC>
      ```
