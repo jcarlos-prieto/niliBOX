@@ -8,7 +8,9 @@
 - [Javascript callable functions](#javascript-callable-functions)
 - [Javascript overridable functions](#javascript-overridable-functions)
 - [Javascript properties](#javascript-properties)
-- [Theme object names](#theme-object-names)
+- [Core class name names](#core-class-names)
+- [Core object name names](#core-object-names)
+- [Theme properties](#theme-properties)
 - [Box API](#box-api)
 
 ## QML controls
@@ -748,7 +750,11 @@ String value containing the operating system in use. The possible values are:
 </tr>
 </table>
 
-## Theme object names
+## Core class name names
+
+## Core object name names
+
+## Theme properties
 
 ## Box API
 
