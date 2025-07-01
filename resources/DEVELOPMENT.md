@@ -525,35 +525,9 @@ The possible values depend on the property.
 ### Classes and objects
 The possible values for the classes and objects depend on weather the file *style.set* correspond to the core application or to a driver.
 
-In the case of the core application, the possible class names are:
-- TbButton
-- TbButton.blind1 (type TButton)
-- TbButton.blind2 (type TButton)
-- TButton
-- TcFrame
-- TcFrame.header (type TButton)
-- TcFRame.header.title (type TLabel)
-- TcFrame.header.arrow (type TPane)
-- TcFRame.body (type TPane)
-- TCheck
-- TComboBox
-- TComboBox.arrow (type TPane)
-- TFrame
-- TLabel
-- TLineEdit
-- TList
-- TPane
-- TPopup
-- TPopup.box (type TPane)
-- TPopup.text (type TLabel)
-- TPopup.buttons (type TPane)
-- TPopup.icon.info (type TPane)
-- TPopup.icon.ques (type TPane)
-- TPopup.icon.warn (type TPane)
-- TPopup.icon.crit (type TPane)
-- TTextEdit
+In the case of the core application, the possible class names are listed in [Core class names](./API.md#core-class-names)
 
-So, it is possible to assign an appearence to all instances of a class by defining the properties of the class. For example:
+So, it is possible to assign a certain appearence to all instances of a class by defining the properties of the class. For example:
 
 ```
 TcFrame.header = foreground-color:#A00000; cursor:pointer; padding:1.5
