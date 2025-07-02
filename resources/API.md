@@ -21,10 +21,12 @@ The appearence of these controls is modified by theme properties which are liste
 <tr>
 <td>TButton</td>
 <td>
-<bold>Extends:</bold> <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-controls-abstractbutton.html>AbstractButton</a><br>
-<bold>Additional property:</bold> <code>name</code>: String<br>
-<bold>Additional property:</bold> <code>tooltiptext</code>: String - Text for tooltip box<br>
-<bold>Theme properties: </bold>
+Extends:</bold> <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-controls-abstractbutton.html>AbstractButton</a>
+<ul>
+<li>Additional property: <code>name</code>: String</li>
+<li>Additional property: <code>tooltiptext</code>: String - Text for tooltip box</li>
+<li>Theme properties: </li>
+</ul>
 </td>
 </tr>
 <tr>
