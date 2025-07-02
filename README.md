@@ -17,7 +17,7 @@ In this repository you can find the source code of the entire application.
 - [Distribution](#distribution)
 - [Custom Resources](#custom-resources)
 - [Notice about licenses](#notice-about-licenses)
-- [Development reference](./resources/DEVELOPMENT.md#)
+- [Development reference](./resources/DEVELOPMENT.md)
 
 ## Compatibility
 ***niliBOX*** can be compiled for the following platforms:
