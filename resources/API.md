@@ -8,8 +8,8 @@
 - [Javascript callable functions](#javascript-callable-functions)
 - [Javascript overridable functions](#javascript-overridable-functions)
 - [Javascript properties](#javascript-properties)
-- [Core class name names](#core-class-names)
-- [Core object name names](#core-object-names)
+- [Core class names](#core-class-names)
+- [Core object names](#core-object-names)
 - [Theme properties](#theme-properties)
 - [Box API](#box-api)
 
@@ -750,7 +750,7 @@ String value containing the operating system in use. The possible values are:
 </tr>
 </table>
 
-## Core class name names
+## Core class name
 These C++ graphical classes inherit the class QWidget and extend the standard functionality to make them adjust to the theme selected. The purpose is to provide a consistent look and feel between the core application and the modules.  
 When these classes are used in the core application to create a new object, they are always given a name. These names are fixed in the application (unless it is modified). The possible object name are listed in the next section [Core object names](#core-object-names). 
 The appearence of these controls is modified by theme properties which are listed for each class type in the section [Theme properties](#theme-properties).
@@ -879,7 +879,7 @@ A multiline entry field.
 </tr>
 </table>
 
-## Core object name names
+## Core object names
 
 ## Theme properties
 
