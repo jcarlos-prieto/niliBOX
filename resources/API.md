@@ -180,7 +180,6 @@ Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-controls-slider.ht
 <td>TVideoFrame</td>
 <td>
 This is a native control, not inheriting any standard QML control. It provides a panel to show live video.<br>
-When we refer to a color data type, it means a String value representing a color, either in <a href=https://doc.qt.io/archives/qt-6.7/qml-color.html#svg-color-reference>SVG color</a> or in #RRGGBB hexadecimal format.
 <ul>
 <li>Property <code>data</code>: QByteArrayView containing an image captured by the Video subsystem in the <a href=./API.md#box-api>Box API</a></li>
 <li>Property <code>mirror</code>: Boolean - If true, the image is shown upside down</li>
@@ -832,7 +831,7 @@ Collapsable frame. A frame with a title that can be expanded or collapsed clicki
 <li>Subtype: TcFrame.header.title (type TLabel)</li>
 <li>Subtype: TcFrame.header.arrow (type TPane)</li>
 <li>Subtype: TcFRame.body (type TPane)</li>
-<li>Theme properties:</li>
+<li>Theme properties: background-color border-color foreground-color border-width radius radius-topleft radius-topright radius-bottomright radois-bottomleft margin margin-left margin-top margin-right margn-bottom padding padding-left padding-top padding-right padding-bottom spacing image angle cursor</li>
 </ul>
 </td>
 </tr>
@@ -860,7 +859,7 @@ Standard combo box.
 <td>
 A basic panel with a border.
 <ul>
-<li>Theme properties:</li>
+<li>Theme properties: background-color border-color foreground-color border-width radius radius-topleft radius-topright radius-bottomright radois-bottomleft margin margin-left margin-top margin-right margn-bottom padding padding-left padding-top padding-right padding-bottom spacing image angle cursor</li>
 </ul>
 </td>
 </tr>
@@ -896,7 +895,7 @@ A list of selectable items.
 <td>
 The most basic object. A rectangular panel.
 <ul>
-<li>Theme properties:</li>
+<li>Theme properties: background-color border-color foreground-color border-width radius radius-topleft radius-topright radius-bottomright radois-bottomleft margin margin-left margin-top margin-right margn-bottom padding padding-left padding-top padding-right padding-bottom spacing image angle cursor</li>
 </ul>
 </td>
 </tr>
@@ -939,6 +938,7 @@ This are the names of the graphical objects implemented in the core application.
 </table>
 
 ## Theme properties
+When we refer to a color data type, it means a String value representing a color, either in <a href=https://doc.qt.io/archives/qt-6.7/qml-color.html#svg-color-reference>SVG color</a> or in #RRGGBB hexadecimal format.
 
 ## Box API
 
