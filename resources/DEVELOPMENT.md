@@ -50,7 +50,7 @@ Depending on the type of resource, the properties are different. Here is the des
   - `displayname`: Name that will appear in the application
   - `family`: Grouping of the driver. Any value among: 'Audio', 'Automation', 'Radio', 'Test', 'Video'
   - `location`: Directory where the driver resource file is located, relative to the location of drivers.set
-  - `minimumversion`: Minimum niliBOX version needed to use this driver
+  - `minimumversion`: Minimum ***niliBOX*** version needed to use this driver
   - `multiuser`: 'true' or 'false' depending on wether a module using this driver can be used more than once simultaneously
   - `version`: Version number. Any value. I use the date in format YYYY.MM.DD
   - `virtualdevice`: 'true' or 'false' depending on wether a module using this driver outputs audio that can be chained to another module as audio input
@@ -82,9 +82,9 @@ steel.version=2025.06.22
 ## Custom resources
 If you create a new resource in the same place than the resources included in the application, then you will need to compile the resources (using the ztranslate and zcompile scripts) and compile the core application each time that a change is made.
 
-Another way of working while the resource is being developed is using the *custom* type of resources. A *custom* resource can be used by niliBOX directly from source code and is automatically compiled at the moment of using it. The *custom* resources are placed in a different location and will be read and used by niliBOX.
+Another way of working while the resource is being developed is using the *custom* type of resources. A *custom* resource can be used by ***niliBOX*** directly from source code and is automatically compiled at the moment of using it. The *custom* resources are placed in a different location and will be read and used by ***niliBOX***.
 
-The *custom* resources are placed in the home directory of niliBOX (not where the application is located). The location of the home directory depends on the operating system in this way:
+The *custom* resources are placed in the home directory of ***niliBOX*** (not where the application is located). The location of the home directory depends on the operating system in this way:
 - Windows: `C:\Users\username\AppData\Roaming\nilibox\niliBOX`
 - Linux: `/home/username/.config/nilibox/niliBOX`
 - macOS: `/home/username/.config/nilibox.com/niliBOX`
@@ -236,7 +236,7 @@ Finally, the collection.qrc file located in the main directory of the driver mus
 ### Client
 The client provides the user interface of the application and the configuration screen. The main file and entry point for the resource is the file *main.qml*. This file is written in QML language and Javascript and describes the user interface and its behaviour.
 
-You can find a QML language reference [here](https://doc.qt.io/archives/qt-6.7/qmlreference.html). The Javascript sections support ECMAScript6 standard. It is not the purpose of this file to provide a tutorial about QML or Javascript and it will be assumed that you are familiar with both languages. You may check the source code of the drivers included in *niliBOX* to get familiar with the ways of working.
+You can find a QML language reference [here](https://doc.qt.io/archives/qt-6.7/qmlreference.html). The Javascript sections support ECMAScript6 standard. It is not the purpose of this file to provide a tutorial about QML or Javascript and it will be assumed that you are familiar with both languages. You may check the source code of the drivers included in ***niliBOX*** to get familiar with the ways of working.
 
 In addition to *main.qml* you might need to include other QML files to create custom controls or additional resouces such as pictures, icons, etc. They must all be included in the *collection.qrc* file described above.
 
