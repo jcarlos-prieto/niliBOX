@@ -504,13 +504,13 @@ function b_change(type)
 
 ## QML properties
 These properties are available both for QML and Javascript code.
+<table>
 <thead>
 <tr>
 <th>Property</th>
 <th>Description</th>
 </tr>
 </thead>
-<table>
 <tr>
 <td>b_unit</td>
 <td>
@@ -559,13 +559,13 @@ String value containing the operating system in use. The possible values are:
 
 ## Javascript callable functions
 These functions can be called from your source Javascript code.
+<table>
 <thead>
 <tr>
 <th>Function</th>
 <th>Description</th>
 </tr>
 </thead>
-<table>
 <tr>
 <td>b_getbox(type)</td>
 <td>
