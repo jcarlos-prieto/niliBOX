@@ -1,3 +1,4 @@
+<a name="top"></a>
 # DEVELOPMENT REFERENCE
 
 This file contains basic and non-exhaustive instructions to develop resources (drivers, languages and themes). For more detailed information you can investigate in the source code provided.
