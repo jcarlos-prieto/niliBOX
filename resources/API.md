@@ -795,7 +795,7 @@ String value containing the operating system in use. The possible values are:
 ## Core class names
 These C++ graphical classes inherit the class QWidget and extend the standard functionality to make them adjust to the theme selected. The purpose is to provide a consistent look and feel between the core application and the modules.  
 When these classes are used in the core application to create a new object, they are always given a name. These names are fixed in the application (unless it is modified). The possible object name are listed in the next section [Core object names](#core-object-names). 
-The appearence of these controls is modified by theme properties which are listed for each class type in the section [Theme properties](#theme-properties).
+The appearence of these controls is modified by the theme properties also listed here. For a full list of the available theme properties, check the section [Theme properties](#theme-properties).
 <table>
 <thead>
 <tr>
