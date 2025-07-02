@@ -758,99 +758,123 @@ The appearence of these controls is modified by theme properties which are liste
 <tr>
 <td>TbButton</td>
 <td>
-Blinds button. A button that can contain 2 subbuttons accessible sliding the main button to the left.<br>
-Subtype: TbButton.blind1 (type TButton)<br>
-Subtype: TbButton.blind2 (type TButton)<br>
-Theme properties: <br>
+Blinds button. A button that can contain 2 subbuttons accessible sliding the main button to the left.
+<ul>
+<li>Subtype: TbButton.blind1 (type TButton)</li>
+<li>Subtype: TbButton.blind2 (type TButton)</li>
+<li>Theme properties:</li>
+</ul>
 </td>
 </tr>
 <tr>
 <td>TButton</td>
 <td>
-Standard button.<br>
-Theme properties: <br>
+Standard button.
+<ul>
+<li>Theme properties:</li>
+</ul>
 </td>
 </tr>
 <tr>
 <td>TcFrame</td>
 <td>
-Collapsable frame. A frame with a title that can be expanded or collapsed clicking on the title.<br>
-Subtype: TcFrame.header (type TButton)<br>
-Subtype: TcFrame.header.title (type TLabel)<br>
-Subtype: TcFrame.header.arrow (type TPane)<br>
-Subtype: TcFRame.body (type TPane)<br>
-Theme properties: <br>
+Collapsable frame. A frame with a title that can be expanded or collapsed clicking on the title.
+<ul>
+<li>Subtype: TcFrame.header (type TButton)</li>
+<li>Subtype: TcFrame.header.title (type TLabel)</li>
+<li>Subtype: TcFrame.header.arrow (type TPane)</li>
+<li>Subtype: TcFRame.body (type TPane)</li>
+<li>Theme properties:</li>
+</ul>
 </td>
 </tr>
 <tr>
 <td>TCheck</td>
 <td>
-Standard check box.<br>
-Theme properties: <br>
+Standard check box.
+<ul>
+<li>Theme properties:</li>
+</ul>
 </td>
 </tr>
 <tr>
 <td>TComboBox</td>
 <td>
-Standard combo box<br>
-Subtype: TComboBox.arrow (type TPane)<br>
-Theme properties: <br>
+Standard combo box.
+<ul>
+<li>Subtype: TComboBox.arrow (type TPane)</li>
+<li>Theme properties:</li>
+</ul>
 </td>
 </tr>
 <tr>
 <td>TFrame</td>
 <td>
-A basic panel with a border.<br>
-Theme properties: <br>
+A basic panel with a border.
+<ul>
+<li>Theme properties:</li>
+</ul>
 </td>
 </tr>
 <tr>
 <td>TLabel</td>
 <td>
-A basic label.<br>
-Theme properties: <br>
+A basic label.
+<ul>
+<li>Theme properties:</li>
+</ul>
 </td>
 </tr>
 <tr>
 <td>TLineEdit</td>
 <td>
-A basic box to enter text.<br>
-Theme properties: <br>
+A basic box to enter text.
+<ul>
+<li>Theme properties:</li>
+</ul>
 </td>
 </tr>
 <tr>
 <td>TList</td>
 <td>
-A list of selectable items.<br>
-Theme properties: <br>
+A list of selectable items.
+<ul>
+<li>Theme properties:</li>
+</ul>
 </td>
 </tr>
 <tr>
 <td>TPane</td>
 <td>
-The most basic object. A rectangular panel.<br>
-Theme properties: <br>
+The most basic object. A rectangular panel.
+<ul>
+<li>Theme properties:</li>
+</ul>
 </td>
 </tr>
 <tr>
 <td>TPopup</td>
 <td>
-A full screen modal window with a box to select opetions.<br>
-Subtype: TPopup.box (type TPane)<br>
-Subtype: TPopup.text (type TLabel)<br>
-Subtype: TPopup.buttons (type TPane)<br>
-Subtype: TPopup.icon.info (type TPane)<br>
-Subtype: TPopup.icon.ques (type TPane)<br>
-Subtype: TPopup.icon.warn (type TPane)<br>
-Subtype: TPopup.icon.crit (type TPane)<br>
-Theme properties: <br>
+A full screen modal window with a box to select options.
+<ul>
+<li>Subtype: TPopup.box (type TPane)</li>
+<li>Subtype: TPopup.text (type TLabel)</li>
+<li>Subtype: TPopup.buttons (type TPane)</li>
+<li>Subtype: TPopup.icon.info (type TPane)</li>
+<li>Subtype: TPopup.icon.ques (type TPane)</li>
+<li>Subtype: TPopup.icon.warn (type TPane)</li>
+<li>Subtype: TPopup.icon.crit (type TPane)</li>
+<li>Theme properties:</li>
+</ul>
 </td>
 </tr>
 <tr>
 <td>TTextEdit</td>
 <td>
-A multiline entry field.<br>
-Theme properties: <br>
+A multiline entry field.
+<ul>
+<li>Theme properties:</li>
+</ul>
 </td>
 </tr>
 </table>
