@@ -514,7 +514,7 @@ These properties are available both for QML and Javascript code.
 <tr>
 <td>b_unit</td>
 <td>
-Real value containing the size in pixels of a distance of approximately 1 cm in desktops at 8 mm in touch screens. This value is used as unit of measure in all sizes used in the application.<br>
+Real value containing the size in pixels of a distance of approximately 1 cm in desktops and 8 mm in touch screens. This value is used as unit of measure in all sizes used in the application.<br>
 This value can change when the core application is resized, as well as <code>b_space</code> and <code>b_fontsize</code>.
 </td>
 </tr>
