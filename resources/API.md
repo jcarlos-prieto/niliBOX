@@ -18,6 +18,12 @@ These controls extend the functionality of the standard QtQuick controls to make
 All these controls add a new property called `name` which connects with the theme definitions. For instance, if a control is given `name: "mybutton"` and the theme definition file contains `mybutton.image = myicon.png`, then mybutton will show the icon myicon.  
 The appearence of these controls is modified by theme properties which are listed for each class type in the section [Theme properties](#theme-properties).
 <table>
+<thead>
+<tr>
+<th>Control</th>
+<th>Description</th>
+</tr>
+</thead>
 <tr>
 <td>TButton</td>
 <td>
@@ -187,6 +193,12 @@ When we refer to a color data type, it means a String value representing a color
 ## QML callable functions
 These functions can be called from your source code, both a QML action or a Javascript function.
 <table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead>
 <tr>
 <td>b_getbox(type)</td>
 <td>
@@ -338,6 +350,12 @@ Example: <code>b_mouse(Qt.PointingHandCursor);</code><br>
 ## QML overridable functions
 These functions can be implemented in the Javascript code and will be called by the core application when needed.
 <table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead>
 <tr>
 <td>b_start(params)</td>
 <td>
@@ -486,6 +504,12 @@ function b_change(type)
 
 ## QML properties
 These properties are available both for QML and Javascript code.
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
 <table>
 <tr>
 <td>b_unit</td>
@@ -535,6 +559,12 @@ String value containing the operating system in use. The possible values are:
 
 ## Javascript callable functions
 These functions can be called from your source Javascript code.
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead>
 <table>
 <tr>
 <td>b_getbox(type)</td>
@@ -636,6 +666,12 @@ Example: <code>b_import("RTLSDR", "rtlsdr.mjs");</code><br>
 ## Javascript overridable functions
 These functions can be implemented in the Javascript code and will be called by the core application when needed.
 <table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead>
 <tr>
 <td>b_start(params)</td>
 <td>
@@ -731,6 +767,12 @@ function b_hotplug()
 ## Javascript properties
 These properties are available for the Javascript code.
 <table>
+<thead>
+<tr>
+<th>Properties</th>
+<th>Description</th>
+</tr>
+</thead>
 <tr>
 <td>b_appname</td>
 <td>String value containing the name of the module that is running. This name is given by the user when creating a module.</td>
@@ -755,6 +797,12 @@ These C++ graphical classes inherit the class QWidget and extend the standard fu
 When these classes are used in the core application to create a new object, they are always given a name. These names are fixed in the application (unless it is modified). The possible object name are listed in the next section [Core object names](#core-object-names). 
 The appearence of these controls is modified by theme properties which are listed for each class type in the section [Theme properties](#theme-properties).
 <table>
+<thead>
+<tr>
+<th>Class name</th>
+<th>Description</th>
+</tr>
+</thead>
 <tr>
 <td>TbButton</td>
 <td>
