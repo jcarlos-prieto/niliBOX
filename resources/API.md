@@ -108,7 +108,7 @@ Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-grid.html>Grid</a>
 Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-controls-groupbox.html>GroupBox</a>
 <ul>
 <li>Additional property <code>name</code>: String</li>
-<li>Theme properties: margin margin-top margin-bottom margin-left margin-right padding padding-top padding-botton padding-left padding-right border-width radius foreground-color brder-color</li>
+<li>Theme properties: margin margin-top margin-bottom margin-left margin-right padding padding-top padding-botton padding-left padding-right border-width radius foreground-color border-color</li>
 </ul>
 </td>
 </tr>
