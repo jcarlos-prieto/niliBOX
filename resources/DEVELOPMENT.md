@@ -35,7 +35,7 @@ resources/
 ├──languages.set
 └──themes.set
 </pre>
-The files of extension .set contain information about each type of resource. These files are plain text file containing lines with this structure:
+The files of extension .set contain information about each type of resource. These files are plain text files containing lines with this structure:
 ```
 resource.property=value
 ```
@@ -60,7 +60,7 @@ Depending on the type of resource, the properties are different. Here is the des
   - `version`: Version number. Any value. I use the date in format YYYY.MM.DD
 - Theme properties:
   - `displayname`: Name that will appear in the application
-  - `location`: Directory where the language resource file is located, relative to the location of themes.set
+  - `location`: Directory where the theme resource file is located, relative to the location of themes.set
   - `version`: Version number. Any value. I use the date in format YYYY.MM.DD
  
 The different resources of each type are included in the same .set file. For instance, this is the contents of the file themes.set:
@@ -82,7 +82,7 @@ steel.version=2025.06.22
 ## Custom resources
 If you create a new resource in the same place than the resources included in the application, then you will need to compile the resources (using the ztranslate and zcompile scripts) and compile the core application each time that a change is made.
 
-Another way to work while the resource is being developed is using the *custom* type of resources. A *custom* resource can be used by niliBOX directly from source code and it is automatically compiled at the moment of using it. The *custom* resources are placed in a different location and will be read and used by niliBOX.
+Another way of working while the resource is being developed is using the *custom* type of resources. A *custom* resource can be used by niliBOX directly from source code and is automatically compiled at the moment of using it. The *custom* resources are placed in a different location and will be read and used by niliBOX.
 
 The *custom* resources are placed in the home directory of niliBOX (not where the application is located). The location of the home directory depends on the operating system in this way:
 - Windows: `C:\Users\username\AppData\Roaming\nilibox\niliBOX`
@@ -127,7 +127,7 @@ A driver is composed of 3 components:
 - Server: Provides the backend functionality and controls the external devices. Communicates with the client
 - Config: User interface for the configuration of the module. Works in standalone.
 
-Each of these components are compiled into a resource file (.rcc) and then the 3 of them are compiled again into a single resource file. To be able to compile a resource, a file of name collection.qrc must be provided describing the contents of the resource.
+Each of these components are compiled into a resource file (.rcc) and then the 3 of them are compiled again into a single resource file. To be able to compile a resource, a file of name *collection.qrc* must be provided describing the contents of the resource.
 
 The directory structure of a driver (either standard or custom) is the following:
 <pre>
@@ -151,14 +151,14 @@ DRIVER/
 ├──collection.qrc
 └──...
 </pre>
-You will notice that both the client and the config resources contain subdirectories for languages and themes. These 2 subdirectories contain the specific customization of the user interafce for the driver. We will describe this in the section dedicated to languages and themes.
+You will notice that both the client and the config resources contain subdirectories for languages and themes. These 2 subdirectories contain the specific customization of the user interafce for the driver. We will describe this in the section dedicated to [languages](#structure-of-a-language) and [themes](#structure-of-a-theme).
 
 The server and client resources may run on different computers. The core *nliBOX* application facilitates the communication between both of them. It is recommended that the client side only handles the user interface and events while the server runs the communication with the external devices and the heavy and time consuming operations.
 
 But by now, let's focus on the main files needed to build a driver.
 
 ### Resource collection
-The files `collection.qrc` are Qt Resource Collection files. The description of its syntax can be found [here](https://doc.qt.io/archives/qt-6.7/resources.html). It contains the location of each file that must be included in the resource file when it is compiled.
+The files *collection.qrc* are Qt Resource Collection files. The description of its syntax can be found [here](https://doc.qt.io/archives/qt-6.7/resources.html). It contains the location of each file that must be included in the resource file when it is compiled.
 
 A minimal example of a collection file for the server resource is this:
 ```xml
@@ -169,7 +169,7 @@ A minimal example of a collection file for the server resource is this:
     </qresource>
 </RCC>
 ```
-If the resource contains additional files, then the collection file may become bigger. This is an example of the collection file for the client resource of the test driver. You can see that you just need to include the location of each file needed to run the resource relative to the location of the collection.qrc file.
+If the resource contains additional files, then the collection file may become bigger. This is an example of the collection file for the client resource of the test driver. You can see that you just need to include the location of each file needed to run the resource relative to the location of the *collection.qrc* file.
 ```xml
 <!DOCTYPE RCC>
 <RCC version="1.0">
@@ -234,13 +234,13 @@ Finally, the collection.qrc file located in the main directory of the driver mus
 ```
 
 ### Client
-The client provides the user interface of the application and the configuration screen. The main file and entry point for the resource is the file `main.qml`. This file is written in QML language and Javascript and describes the user interface and its behaviour.
+The client provides the user interface of the application and the configuration screen. The main file and entry point for the resource is the file *main.qml*. This file is written in QML language and Javascript and describes the user interface and its behaviour.
 
 You can find a QML language reference [here](https://doc.qt.io/archives/qt-6.7/qmlreference.html). The Javascript sections support ECMAScript6 standard. It is not the purpose of this file to provide a tutorial about QML or Javascript and it will be assumed that you are familiar with both languages. You may check the source code of the drivers included in *niliBOX* to get familiar with the ways of working.
 
-In addition to `main.qml` you might need to include other QML files to create custom controls or additional resouces such as pictures, icons, etc. They must all be included in the `collection.qrc` file described above.
+In addition to *main.qml* you might need to include other QML files to create custom controls or additional resouces such as pictures, icons, etc. They must all be included in the *collection.qrc* file described above.
 
-*niliBOX* has enriched the QML syntax with a few additional functions and properties to facilitate the development. Also, there are additional controls (user interface objects) to adapt to the themes system.
+***niliBOX*** has enriched the QML syntax with a few additional functions and properties to facilitate the development. Also, there are additional controls (user interface objects) to adapt to the themes system.
 
 A basic example of a `main.qml` file is this:
 ```qml
@@ -253,6 +253,7 @@ Item {
     property int x //<== your global variables
 
     // Start of the user interface
+
     TLabel {
         id: label
         font.pixelSize: 0.4 * b_unit //<== b_unit is a property provided by niliBOX
@@ -309,13 +310,13 @@ Item {
 For a full description of the controls, functions and properties available on top of the standard ones provided by QML, please check the [API](./API.md#qml-controls) reference file.
 
 ### Config
-The structure and functionality of the Config resource is almost identical to the Client. The only difference is that the Config does not communicate with a Server. The main purpose of a Config resource is to set up the configuration parameters that will be used later on by the Client.
+The structure and functionality of the *Config* resource is almost identical to the *Client*. The only difference is that the *Config* does not communicate with a *Server*. The main purpose of a *Config* resource is to set up the configuration parameters that will be used later on by the *Client*.
 
-The way how the Config can set up the configuration parameters and the Client get access to those is by using some of the functions explained at the API reference file, specifically, the [QML overridable functions](./API.md#qml-overridable-functions). Let's look at an example:
+The way how the *Config* can set up the configuration parameters and the *Client* get access to those is by using some of the functions explained at the API reference file, specifically, the [QML overridable functions](./API.md#qml-overridable-functions). Let's look at an example:
 
-Imagine that your driver has a configuration parameter called *volume* that is established by Config and needs to be known by Client later.
-1. At the Config, use the function `b_send("volume", volume);`. This will add a parameter *volume* to the module configuration file assigning the value of the variable *volume* to it.
-2. At the Client, the system will call the function `b_start(params)`. The parameter *params* is a structure containing all the settings established at the Config. The way to retrieve the value for *volume* is like this:
+Imagine that your driver has a configuration parameter called *volume* that is established by *Config* and needs to be known by *Client* later.
+1. At the *Config*, use the function `b_send("volume", volume);`. This will add a parameter *volume* to the module configuration file assigning the value of the variable *volume* to it.
+2. At the *Client*, the system will call the function `b_start(params)`. The parameter *params* is a structure containing all the settings established at the *Config*. The way to retrieve the value for *volume* is like this:
    ```
    let volume = 0;
    b_start(params)
@@ -323,16 +324,16 @@ Imagine that your driver has a configuration parameter called *volume* that is e
        volume = params.volume;
    }
    ```
-3. Now you can use *volume* at the Client side. Please note that changing the value of *volume* at the Client will not change the configuration parameter established at Config.
+3. Now you can use *volume* at the *Client* side. Please note that changing the value of *volume* at the *Client* will not change the configuration parameter established at *Config*.
 
 ### Server
-The server resource provides the communication with the hardware. It runs on a separate thread, optimizing in this way the performance. The main file and entry point for the resource is the file `main.js`. This file is written in pure Javascript and implements the core logics of the driver, including the communications with the hardware. Typically, the server resource relies heavily on the low level, high performance API provided by the Box [API](./API.md#box-api).
+The *Server* resource provides the communication with the hardware. It runs on a separate thread, optimizing in this way the performance. The main file and entry point for the resource is the file *main.js*. This file is written in pure Javascript and implements the core logics of the driver, including the communications with the hardware. Typically, the *Server* resource relies heavily on the low level, high performance API provided by the Box [API](./API.md#box-api).
 
-In addition to `main.js` you might need to include other files. They must all be included in the `collection.qrc` file described above.
+In addition to *main.js* you might need to include other files. They must all be included in the *collection.qrc* file described above.
 
-*niliBOX* has enriched the Javascript syntax with a few additional functions and properties to facilitate the development.
+***niliBOX*** has enriched the Javascript syntax with a few additional functions and properties to facilitate the development.
 
-A basic example of a `main.js` file is this:
+A basic example of a *main.js* file is this:
 ```js
 let myvar = 0; //<== your global variables
 
@@ -379,7 +380,7 @@ function myfunction(value)
     b_send("message", "hello! " + value); //<== This function sends data to the client from the server
 }
 ```
-For a full description of the functions and properties available on top of the standard ones provided by Javascript, please check the [API](./API.md#javascript-functions) reference file.
+For a full description of the functions and properties available on top of the standard ones provided by Javascript, please check the [API](./API.md#javascript-callable-functions) reference file.
 
 ## Structure of a language
 The languages need to be defined both for the core application and for each driver. The process to create a new language is as follows:
