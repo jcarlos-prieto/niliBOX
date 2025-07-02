@@ -16,7 +16,7 @@ This file contains basic and non-exhaustive instructions to develop resources (d
 - [Structure of a theme](#structure-of-a-theme)
   - [The file *style.set*](#the-file-styleset)
   - [Classes and objects](#classes-and-objects)
-- [API reference](./API.md)
+- [API reference](./API.md#top)
 
 ## Resources definition
 The general structure of the source code of the resources is the following:
