@@ -928,7 +928,7 @@ A multiline entry field.
 </table>
 
 ## Core object names
-This are the names of the graphical objects implemented in the core application. The purpose of listinh them here is to allow the customization of their appearence via themes.
+These are the names of the graphical objects implemented in the core application. The purpose of listing them here is to allow the customization of their appearence via themes.
 
 <table>
 <thead>
