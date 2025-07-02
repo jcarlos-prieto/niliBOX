@@ -38,17 +38,16 @@ There are three type of resources:
 - Languages: Files of type .qm containing the translation of the core application and drivers into different languages
 - Themes: Files of proprietary format (.set) describing the appearance of the core application and modules.
 
-This is a general description of each file and directory:
+This is a general description of each file and directory n the source code provided:
 - *source:* The source code of the core application. This directory also contains the source code of the third party libraries used: libusb, Oboe and USB Serial for Android.
-- *resources:* The source code of the resources (drivers, languages and themes), QML components used by the modules, resource configuration files (.set) and some additional files needed. The scripts contained in this directory are used for the precompilation of the resources and they are explained in the 'Compilation' section.
+- *resources:* The source code of the resources (drivers, languages and themes), QML components used by the modules, resource configuration files (.set) and some additional files needed. The scripts contained in this directory are used for the precompilation of the resources and they are explained in the [Compilation](#compilation) section.
 - *platforms:* Specific files for the distribution on the different platforms supported. The directories for Android and iOS also include some specific source files which are included in the main project.
 - *distrib:* Scripts to create distribution packages for each operating system.
 - *CMakeLists.txt:* The main project configuration file.
 - *release-notes.txt:* The release notes of this version.
 
 ## Compilation
-The first step to compile the application is installing the Qt Framework (version 6.7.3 recommended). You can download the Open Source version from [here](https://www.qt.io/download-qt-installer-oss).  
-Always include the additional libraries 'Qt Multimedia' and 'Qt Serial Port' when installing the Qt Framework.  
+The first step to compile the application is installing the Qt Framework (version 6.7.3 recommended). You can download the Open Source version from [here](https://www.qt.io/download-qt-installer-oss). Always include the additional libraries 'Qt Multimedia' and 'Qt Serial Port' when installing the Qt Framework.  
 
 Depending on the operating system, different options can be chosen. This is a description of my compilation stack:
 
