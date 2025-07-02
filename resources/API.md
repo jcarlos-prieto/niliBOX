@@ -1,3 +1,4 @@
+<a name="top"></a>
 # API REFERENCE
 
 ## Table of Contents
