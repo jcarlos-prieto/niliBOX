@@ -808,9 +808,9 @@ The appearence of these controls is modified by the theme properties also listed
 <td>
 Blinds button. A button that can contain 2 subbuttons accessible sliding the main button to the left.
 <ul>
-<li>Subtype: TbButton.blind1 (type TButton)</li>
-<li>Subtype: TbButton.blind2 (type TButton)</li>
-<li>Theme properties: background-color foreground-color border-width border-color radius radius-topleft radius-topright radius-bottomleft radius-bottomright margin-top margin-bottom margin-left margin-right spacing image angle text-color link-color text-weight text-align text-font</li>
+<li>Subtype: <i><b>TbButton.blind1</b></i> (type <i>TButton</i>)</li>
+<li>Subtype: <i><b>TbButton.blind2</b></i> (type <i>TButton</i>)</li>
+<li>Theme properties: <i><b>background-color foreground-color border-width border-color radius radius-topleft radius-topright radius-bottomleft radius-bottomright margin-top margin-bottom margin-left margin-right spacing image angle text-color link-color text-weight text-align text-font</b></i></li>
 </ul>
 </td>
 </tr>
@@ -819,7 +819,7 @@ Blinds button. A button that can contain 2 subbuttons accessible sliding the mai
 <td>
 Standard button.
 <ul>
-<li>Theme properties: background-color foreground-color border-width border-color radius radius-topleft radius-topright radius-bottomleft radius-bottomright margin-top margin-bottom margin-left margin-right spacing image angle text-color link-color text-weight text-align text-font</li>
+<li>Theme properties: <i><b>background-color foreground-color border-width border-color radius radius-topleft radius-topright radius-bottomleft radius-bottomright margin-top margin-bottom margin-left margin-right spacing image angle text-color link-color text-weight text-align text-font</b></i></li>
 </ul>
 </td>
 </tr>
@@ -828,11 +828,11 @@ Standard button.
 <td>
 Collapsable frame. A frame with a title that can be expanded or collapsed clicking on the title.
 <ul>
-<li>Subtype: TcFrame.header (type TButton)</li>
-<li>Subtype: TcFrame.header.title (type TLabel)</li>
-<li>Subtype: TcFrame.header.arrow (type TPane)</li>
-<li>Subtype: TcFRame.body (type TPane)</li>
-<li>Theme properties: background-color foreground-color border-width border-color radius radius-topleft radius-topright radius-bottomleft radius-bottomright margin-top margin-bottom margin-left margin-right spacing image angle</li>
+<li>Subtype: <i><b>TcFrame.header</b></i> (type <i>TButton</i>)</li>
+<li>Subtype: <i><b>TcFrame.header.title</b></i> (type <i>TLabel</i>)</li>
+<li>Subtype: <i><b>TcFrame.header.arrow</b></i> (type <i>TPane</i>)</li>
+<li>Subtype: <i><b>TcFRame.body</b></i> (type <i>TPane</i>)</li>
+<li>Theme properties: <i><b>background-color foreground-color border-width border-color radius radius-topleft radius-topright radius-bottomleft radius-bottomright margin-top margin-bottom margin-left margin-right spacing image angle</li>
 </ul>
 </td>
 </tr>
@@ -841,7 +841,7 @@ Collapsable frame. A frame with a title that can be expanded or collapsed clicki
 <td>
 Standard check box.
 <ul>
-<li>Theme properties: background-color foreground-color border-width border-color radius radius-topleft radius-topright radius-bottomleft radius-bottomright margin-top margin-bottom margin-left margin-right spacing image angle text-color link-color text-weight text-align text-font</li>
+<li>Theme properties: <i><b>background-color foreground-color border-width border-color radius radius-topleft radius-topright radius-bottomleft radius-bottomright margin-top margin-bottom margin-left margin-right spacing image angle text-color link-color text-weight text-align text-font</b></i></li>
 </ul>
 </td>
 </tr>
@@ -850,8 +850,8 @@ Standard check box.
 <td>
 Standard combo box.
 <ul>
-<li>Subtype: TComboBox.arrow (type TPane)</li>
-<li>Theme properties: background-color foreground-color border-width border-color radius radius-topleft radius-topright radius-bottomleft radius-bottomright margin-top margin-bottom margin-left margin-right spacing image angle text-color link-color text-weight text-align text-font</li>
+<li>Subtype: <i><b>TComboBox.arrow</b></i> (type <i>TPane</i>)</li>
+<li>Theme properties: <i><b>background-color foreground-color border-width border-color radius radius-topleft radius-topright radius-bottomleft radius-bottomright margin-top margin-bottom margin-left margin-right spacing image angle text-color link-color text-weight text-align text-font</b></i></li>
 </ul>
 </td>
 </tr>
@@ -860,7 +860,7 @@ Standard combo box.
 <td>
 A basic panel with a border. Equivalent to TPane. To be removed in future versions.
 <ul>
-<li>Theme properties: background-color foreground-color border-width border-color radius radius-topleft radius-topright radius-bottomleft radius-bottomright margin-top margin-bottom margin-left margin-right spacing image angle</li>
+<li>Theme properties: <i><b>background-color foreground-color border-width border-color radius radius-topleft radius-topright radius-bottomleft radius-bottomright margin-top margin-bottom margin-left margin-right spacing image angle</b></i></li>
 </ul>
 </td>
 </tr>
@@ -869,7 +869,7 @@ A basic panel with a border. Equivalent to TPane. To be removed in future versio
 <td>
 A basic label.
 <ul>
-<li>Theme properties: background-color foreground-color border-width border-color radius radius-topleft radius-topright radius-bottomleft radius-bottomright margin-top margin-bottom margin-left margin-right spacing image angle text-color link-color text-weight text-align text-font</li>
+<li>Theme properties: <i><b>background-color foreground-color border-width border-color radius radius-topleft radius-topright radius-bottomleft radius-bottomright margin-top margin-bottom margin-left margin-right spacing image angle text-color link-color text-weight text-align text-font</b></i></li>
 </ul>
 </td>
 </tr>
@@ -878,7 +878,7 @@ A basic label.
 <td>
 A basic box to enter text.
 <ul>
-<li>Theme properties: background-color foreground-color border-width border-color radius radius-topleft radius-topright radius-bottomleft radius-bottomright margin-top margin-bottom margin-left margin-right spacing image angle</li>
+<li>Theme properties: <i><b>background-color foreground-color border-width border-color radius radius-topleft radius-topright radius-bottomleft radius-bottomright margin-top margin-bottom margin-left margin-right spacing image angle</b></i></li>
 </ul>
 </td>
 </tr>
@@ -887,7 +887,7 @@ A basic box to enter text.
 <td>
 A list of selectable items.
 <ul>
-<li>Theme properties: background-color foreground-color border-width border-color radius radius-topleft radius-topright radius-bottomleft radius-bottomright margin-top margin-bottom margin-left margin-right spacing image angle</li>
+<li>Theme properties: <i><b>background-color foreground-color border-width border-color radius radius-topleft radius-topright radius-bottomleft radius-bottomright margin-top margin-bottom margin-left margin-right spacing image angle</b></i></li>
 </ul>
 </td>
 </tr>
@@ -896,7 +896,7 @@ A list of selectable items.
 <td>
 The most basic object. A rectangular panel with a border
 <ul>
-<li>Theme properties: background-color foreground-color border-width border-color radius radius-topleft radius-topright radius-bottomleft radius-bottomright margin-top margin-bottom margin-left margin-right spacing image angle</li>
+<li>Theme properties: <i><b>background-color foreground-color border-width border-color radius radius-topleft radius-topright radius-bottomleft radius-bottomright margin-top margin-bottom margin-left margin-right spacing image angle</b></i></li>
 </ul>
 </td>
 </tr>
@@ -905,14 +905,14 @@ The most basic object. A rectangular panel with a border
 <td>
 A full screen modal window with a box to select options.
 <ul>
-<li>Subtype: TPopup.box (type TPane)</li>
-<li>Subtype: TPopup.text (type TLabel)</li>
-<li>Subtype: TPopup.buttons (type TPane)</li>
-<li>Subtype: TPopup.icon.info (type TPane)</li>
-<li>Subtype: TPopup.icon.ques (type TPane)</li>
-<li>Subtype: TPopup.icon.warn (type TPane)</li>
-<li>Subtype: TPopup.icon.crit (type TPane)</li>
-<li>Theme properties: background-color foreground-color border-width border-color radius radius-topleft radius-topright radius-bottomleft radius-bottomright margin-top margin-bottom margin-left margin-right spacing image angle</li>
+<li>Subtype: <i><b>TPopup.box</b></i> (type <i>TPane</i>)</li>
+<li>Subtype: <i><b>TPopup.text</b></i> (type <i>TLabel</i>)</li>
+<li>Subtype: <i><b>TPopup.buttons</b></i> (type <i>TPane</i>)</li>
+<li>Subtype: <i><b>TPopup.icon.info</b></i> (type <i>TPane</i>)</li>
+<li>Subtype: <i><b>TPopup.icon.ques</b></i> (type <i>TPane</i>)</li>
+<li>Subtype: <i><b>TPopup.icon.warn</b></i> (type <i>TPane</i>)</li>
+<li>Subtype: <i><b>TPopup.icon.crit</b></i> (type <i>TPane</i>)</li>
+<li>Theme properties: <i><b>background-color foreground-color border-width border-color radius radius-topleft radius-topright radius-bottomleft radius-bottomright margin-top margin-bottom margin-left margin-right spacing image angle</b></i></li>
 </ul>
 </td>
 </tr>
@@ -921,7 +921,7 @@ A full screen modal window with a box to select options.
 <td>
 A multiline entry field.
 <ul>
-<li>Theme properties: background-color foreground-color border-width border-color radius radius-topleft radius-topright radius-bottomleft radius-bottomright margin-top margin-bottom margin-left margin-right spacing image angle</li>
+<li>Theme properties: <i><b>background-color foreground-color border-width border-color radius radius-topleft radius-topright radius-bottomleft radius-bottomright margin-top margin-bottom margin-left margin-right spacing image angle</b></i></li>
 </ul>
 </td>
 </tr>
