@@ -1114,37 +1114,37 @@ When we refer to a color data type, it means a String value representing a color
 <th>Description</th>
 </tr>
 </thead>
-<tr><td>angle</td><td></td><td></td></tr>
-<tr><td>background-color</td><td></td><td></td></tr>
-<tr><td>border-color</td><td></td><td></td></tr>
-<tr><td>border-width</td><td></td><td></td></tr>
-<tr><td>foreground-color</td><td></td><td></td></tr>
-<tr><td>image</td><td></td><td></td></tr>
-<tr><td>link-color</td><td></td><td></td></tr>
-<tr><td>margin</td><td></td><td></td></tr>
-<tr><td>margin-bottom</td><td></td><td></td></tr>
-<tr><td>margin-left</td><td></td><td></td></tr>
-<tr><td>margin-right</td><td></td><td></td></tr>
-<tr><td>margin-top</td><td></td><td></td></tr>
-<tr><td>padding</td><td></td><td></td></tr>
-<tr><td>padding-botton</td><td></td><td></td></tr>
-<tr><td>padding-left</td><td></td><td></td></tr>
-<tr><td>padding-right</td><td></td><td></td></tr>
-<tr><td>padding-top</td><td></td><td></td></tr>
-<tr><td>radius</td><td></td><td></td></tr>
-<tr><td>radius-bottomleft</td><td></td><td></td></tr>
-<tr><td>radius-bottomright</td><td></td><td></td></tr>
-<tr><td>radius-topleft</td><td></td><td></td></tr>
-<tr><td>radius-topright</td><td></td><td></td></tr>
-<tr><td>signal-color</td><td></td><td></td></tr>
-<tr><td>signalfillcolor1</td><td></td><td></td></tr>
-<tr><td>signalfillcolor2</td><td></td><td></td></tr>
-<tr><td>signalfillcolor3</td><td></td><td></td></tr>
-<tr><td>spacing</td><td></td><td></td></tr>
-<tr><td>text-align</td><td></td><td></td></tr>
-<tr><td>text-color</td><td></td><td></td></tr>
-<tr><td>text-font</td><td></td><td></td></tr>
-<tr><td>text-weight</td><td></td><td></td></tr>
+<tr><td>angle</td><td>Real number</td><td></td></tr>
+<tr><td>background-color</td><td>Color</td><td></td></tr>
+<tr><td>border-color</td><td>Color</td><td></td></tr>
+<tr><td>border-width</td><td>Number</td><td></td></tr>
+<tr><td>foreground-color</td><td>Color</td><td></td></tr>
+<tr><td>image</td><td>String</td><td></td></tr>
+<tr><td>link-color</td><td>Color</td><td></td></tr>
+<tr><td>margin</td><td>Number</td><td></td></tr>
+<tr><td>margin-bottom</td><td>Number</td><td></td></tr>
+<tr><td>margin-left</td><td>Number</td><td></td></tr>
+<tr><td>margin-right</td><td>Number</td><td></td></tr>
+<tr><td>margin-top</td><td>Number</td><td></td></tr>
+<tr><td>padding</td><td>Number</td><td></td></tr>
+<tr><td>padding-botton</td><td>Number</td><td></td></tr>
+<tr><td>padding-left</td><td>Number</td><td></td></tr>
+<tr><td>padding-right</td><td>Number</td><td></td></tr>
+<tr><td>padding-top</td><td>Number</td><td></td></tr>
+<tr><td>radius</td><td>Number or round</td><td></td></tr>
+<tr><td>radius-bottomleft</td><td>Number or round</td><td></td></tr>
+<tr><td>radius-bottomright</td><td>Number or round</td><td></td></tr>
+<tr><td>radius-topleft</td><td>Number or round</td><td></td></tr>
+<tr><td>radius-topright</td><td>Number or round</td><td></td></tr>
+<tr><td>signal-color</td><td>Color</td><td></td></tr>
+<tr><td>signalfillcolor1</td><td>Color</td><td></td></tr>
+<tr><td>signalfillcolor2</td><td>Color</td><td></td></tr>
+<tr><td>signalfillcolor3</td><td>Color</td><td></td></tr>
+<tr><td>spacing</td><td>Number</td><td></td></tr>
+<tr><td>text-align</td><td>Alignment</td><td></td></tr>
+<tr><td>text-color</td><td>Color</td><td></td></tr>
+<tr><td>text-font</td><td>Color</td><td></td></tr>
+<tr><td>text-weight</td><td>BOLD</td><td></td></tr>
 </table>
 ## Box API
 
