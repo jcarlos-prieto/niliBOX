@@ -1121,37 +1121,37 @@ The different type of values are the following:
 <th>Description</th>
 </tr>
 </thead>
-<tr><td>angle</td><td>Real number</td><td></td></tr>
-<tr><td>background-color</td><td>Color</td><td></td></tr>
-<tr><td>border-color</td><td>Color</td><td></td></tr>
-<tr><td>border-width</td><td>Number</td><td></td></tr>
-<tr><td>foreground-color</td><td>Color</td><td></td></tr>
-<tr><td>image</td><td>String</td><td></td></tr>
-<tr><td>link-color</td><td>Color</td><td></td></tr>
-<tr><td>margin</td><td>Number</td><td></td></tr>
-<tr><td>margin-bottom</td><td>Number</td><td></td></tr>
-<tr><td>margin-left</td><td>Number</td><td></td></tr>
-<tr><td>margin-right</td><td>Number</td><td></td></tr>
-<tr><td>margin-top</td><td>Number</td><td></td></tr>
-<tr><td>padding</td><td>Number</td><td></td></tr>
-<tr><td>padding-botton</td><td>Number</td><td></td></tr>
-<tr><td>padding-left</td><td>Number</td><td></td></tr>
-<tr><td>padding-right</td><td>Number</td><td></td></tr>
-<tr><td>padding-top</td><td>Number</td><td></td></tr>
-<tr><td>radius</td><td>Number or round</td><td></td></tr>
-<tr><td>radius-bottomleft</td><td>Number or round</td><td></td></tr>
-<tr><td>radius-bottomright</td><td>Number or round</td><td></td></tr>
-<tr><td>radius-topleft</td><td>Number or round</td><td></td></tr>
-<tr><td>radius-topright</td><td>Number or round</td><td></td></tr>
-<tr><td>signal-color</td><td>Color</td><td></td></tr>
-<tr><td>signalfillcolor1</td><td>Color</td><td></td></tr>
-<tr><td>signalfillcolor2</td><td>Color</td><td></td></tr>
-<tr><td>signalfillcolor3</td><td>Color</td><td></td></tr>
-<tr><td>spacing</td><td>Number</td><td></td></tr>
-<tr><td>text-align</td><td>Alignment</td><td></td></tr>
-<tr><td>text-color</td><td>Color</td><td></td></tr>
-<tr><td>text-font</td><td>Number</td><td></td></tr>
-<tr><td>text-weight</td><td>BOLD</td><td></td></tr>
+<tr><td>angle</td><td>Real number</td><td>Angle of rotation in degrees of an image</td></tr>
+<tr><td>background-color</td><td>Color</td><td>Background color</td></tr>
+<tr><td>border-color</td><td>Color</td><td>Border color</td></tr>
+<tr><td>border-width</td><td>Number</td><td>Border width. Default is 0 which represent no border</td></tr>
+<tr><td>foreground-color</td><td>Color</td><td>Foreground color</td></tr>
+<tr><td>image</td><td>String</td><td>File name of an image, including extension</td></tr>
+<tr><td>link-color</td><td>Color</td><td>Color for the hyperlinks in a text</td></tr>
+<tr><td>margin</td><td>Number</td><td>Distance between the border and the external limit of the object. Applies to top, bottom, left and right</td></tr>
+<tr><td>margin-bottom</td><td>Number</td><td>Bottom margin</td></tr>
+<tr><td>margin-left</td><td>Number</td><td>Left margin</td></tr>
+<tr><td>margin-right</td><td>Number</td><td>Right margin</td></tr>
+<tr><td>margin-top</td><td>Number</td><td>Top margin</td></tr>
+<tr><td>padding</td><td>Number</td><td>Distance between the border and the contents of the object. Applies to top, bottom, left and right</td></tr>
+<tr><td>padding-botton</td><td>Number</td><td>Bottom padding</td></tr>
+<tr><td>padding-left</td><td>Number</td><td>Left padding</td></tr>
+<tr><td>padding-right</td><td>Number</td><td>Right padding</td></tr>
+<tr><td>padding-top</td><td>Number</td><td>Top padding</td></tr>
+<tr><td>radius</td><td>Number or round</td><td>Radius of the corners of the object. Applies to the 4 corners</td></tr>
+<tr><td>radius-bottomleft</td><td>Number or round</td><td>Bottom-left radius</td></tr>
+<tr><td>radius-bottomright</td><td>Number or round</td><td>Bottom-right radius</td></tr>
+<tr><td>radius-topleft</td><td>Number or round</td><td>Top-left radius</td></tr>
+<tr><td>radius-topright</td><td>Number or round</td><td>Top-right radius</td></tr>
+<tr><td>signal-color</td><td>Color</td><td>Color of the line representing the signal in a Graph object</td></tr>
+<tr><td>signalfillcolor1</td><td>Color</td><td>Bottom color of the gradient used to fill a signal in a Graph object</td></tr>
+<tr><td>signalfillcolor2</td><td>Color</td><td>>Upper color of the gradient used to fill a signal in a Graph object</td></tr>
+<tr><td>signalfillcolor3</td><td>Color</td><td>Third color in the gradient used to represent a signal in spectrogram mode in a Graph object</td></tr>
+<tr><td>spacing</td><td>Number</td><td>Spacing between objects in a row, column or grid</td></tr>
+<tr><td>text-align</td><td>Alignment</td><td>Alignment of the text inside an object. By default, the text is centered</td></tr>
+<tr><td>text-color</td><td>Color</td><td>Color of the text</td></tr>
+<tr><td>text-font</td><td>Number</td><td>Factor applied to the standard font size. By default, it is 1</td></tr>
+<tr><td>text-weight</td><td>BOLD</td><td>Weight of the text font. Only accepts the value BOLD. If not specified, then it is normal weight</td></tr>
 </table>
 
 ## Box API
