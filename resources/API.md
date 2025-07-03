@@ -1105,7 +1105,14 @@ These are the names of the graphical objects implemented in the core application
 
 ## Theme properties
 This is the list of theme properties that can used in the definition of themes for the core application and the drivers. You can check what properties apply to each graphical object in the sections [QML controls](#qml-controls) and [Core class names](#core-class-names).
-When we refer to a color data type, it means a String value representing a color, either in <a href=https://doc.qt.io/archives/qt-6.7/qml-color.html#svg-color-reference>SVG color</a> or in #RRGGBB hexadecimal format.
+
+The different type of values are the following:
+- *Number*: A number representing a size in milimeters. IN mobile devices, the total size is multipled by 0,8.
+- *Number of round*: In the special case of raius of a border, it can be specificed by a *Number* or the word 'round' to specify a complete rounded border.
+- *Real number*: An absolute number. Used for angles.
+- *String*: Used to specify a file location.
+- *Color*: A String value representing a color, either in <a href=https://doc.qt.io/archives/qt-6.7/qml-color.html#svg-color-reference>SVG color</a> or in #RRGGBB hexadecimal format.
+- *Alignment*: One of these values: LEFT RIGHT HCENTER JUSTIFY TOP BOTTOM VCENTER CENTER BASELINE
 <table>
 <thead>
 <tr>
@@ -1143,8 +1150,9 @@ When we refer to a color data type, it means a String value representing a color
 <tr><td>spacing</td><td>Number</td><td></td></tr>
 <tr><td>text-align</td><td>Alignment</td><td></td></tr>
 <tr><td>text-color</td><td>Color</td><td></td></tr>
-<tr><td>text-font</td><td>Color</td><td></td></tr>
+<tr><td>text-font</td><td>Number</td><td></td></tr>
 <tr><td>text-weight</td><td>BOLD</td><td></td></tr>
 </table>
+
 ## Box API
 
