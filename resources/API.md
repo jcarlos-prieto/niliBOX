@@ -30,9 +30,9 @@ The appearence of these controls is modified by the theme properties also listed
 <td>
 Extends:</bold> <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-controls-abstractbutton.html>AbstractButton</a>
 <ul>
-<li>Additional property: <code>name</code>: String</li>
-<li>Additional property: <code>tooltiptext</code>: String - Text for tooltip box</li>
-<li>Theme properties: margin margin-top margin-bottom margin-left margin-right padding padding-top padding-botton padding-left padding-right border-width radius angle foreground-color border-color text-color text-weight image</li>
+<li>Additional property: <i><b>name</b></i>: String</li>
+<li>Additional property: <i><b>tooltiptext</b></i>: String - Text for tooltip box</li>
+<li>Theme properties: <i><b>margin margin-top margin-bottom margin-left margin-right padding padding-top padding-botton padding-left padding-right border-width radius angle foreground-color border-color text-color text-weight image</b></i></li>
 </ul>
 </td>
 </tr>
@@ -41,8 +41,8 @@ Extends:</bold> <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-controls-a
 <td>
 Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-controls-abstractbutton.html>AbstractButton</a>
 <ul>
-<li>Additional property <code>name</code>: String</li>
-<li>Theme properties: margin margin-top margin-bottom margin-left margin-right padding padding-top padding-botton padding-left padding-right border-width radius angle foreground-color border-color text-color text-weight image</li>
+<li>Additional property <i><b>name</b></i>: String</li>
+<li>Theme properties: <i><b>margin margin-top margin-bottom margin-left margin-right padding padding-top padding-botton padding-left padding-right border-width radius angle foreground-color border-color text-color text-weight image</b></i></li>
 </ul>
 </td>
 </tr>
@@ -51,8 +51,8 @@ Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-controls-abstractb
 <td>
 Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-column.html>Column</a>
 <ul>
-<li>Additional property <code>name</code>: String</li>
-<li>Theme properties: margin margin-top margin-bottom margin-left margin-right padding padding-top padding-botton padding-left padding-right spacing</li>
+<li>Additional property <i><b>name</b></i>: String</li>
+<li>Theme properties: <i><b>margin margin-top margin-bottom margin-left margin-right padding padding-top padding-botton padding-left padding-right spacing</b></i></li>
 </ul>
 </td>
 </tr>
@@ -61,9 +61,9 @@ Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-column.html>Column
 <td>
 Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-controls-combobox.html>ComboBox</a>
 <ul>
-<li>Additional property <code>name</code>: String</li>
-<li>Subcomponent .arrow:  Theme properties: angle foregrouund-color image</li>
-<li>Theme properties: margin margin-top margin-bottom margin-left margin-right padding padding-top padding-botton padding-left padding-right border-width radius foreground-color border-color text-color</li>
+<li>Additional property <i><b>name</b></i>: String</li>
+<li>Subcomponent <i><b>.arrow</b></i>:  Theme properties: angle foregrouund-color image</li>
+<li>Theme properties: <i><b>margin margin-top margin-bottom margin-left margin-right padding padding-top padding-botton padding-left padding-right border-width radius foreground-color border-color text-color</b></i></li>
 </ul>
 </td>
 </tr>
@@ -73,22 +73,22 @@ Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-controls-combobox.
 This is a native control, not inheriting any standard QML control. It provides a high quality graph panel for time series signals.<br>
 When we refer to a color data type, it means a String value representing a color, either in <a href=https://doc.qt.io/archives/qt-6.7/qml-color.html#svg-color-reference>SVG color</a> or in #RRGGBB hexadecimal format.
 <ul>
-<li>Property <code>name</code>: String</li>
-<li>Property <code>data</code>: QByteArrayView containing an array of 32-bit floatint point values. Check <a href=./API.md#box-api>Box API</a> for an explanation of this data type</li>
-<li>Property <code>backgroundcolor</code>: Color - Color of the background panel</li>
-<li>Property <code>signalcolor</code>: Color - Color of the curve representing the signal</li>
-<li>Property <code>signalfillcolor1</code>: Color - When the signal graph is filled, this is the color of the upper part of the filling gradient</li>
-<li>Property <code>signalfillcolor2</code>: Color - When the signal graph is filled, this is the color of the lower part of the filling gradient</li>
-<li>Property <code>signalfillcolor3</code>: Color - When the signal graph is of type spectrogram, the colors used is a gradient between signalfillcolor1, signalfillcolor2 and signalfillcolor3</li>
-<li>Property <code>filled</code>: Boolean - If true, the area below the signal is filled with a gradient composed by signalfillcolor1 and signalfillcolor2</li>
-<li>Property <code>logarithmic</code>: Boolean - If true, the signal is represented in logarithmic scale</li>
-<li>Property <code>spectrogram</code>: Boolean - If true, the signal is represented as spectrogram</li>
-<li>Property <code>average</code>: Boolean - If true, the values represented are the average of the last 2 values. This avoids peaks in the signal</li>
-<li>Property <code>logmax</code>: Real - Value in dB of the maximum value in logarithmic scale. Default is 0</li>
-<li>Property <code>logmin</code>: Real - Value in dB of the minimum value in logarithmic scale. Default is 100, representing -100 dB</li>
-<li>Property <code>delay</code>: Integer - Speed of the spectrogram waterfall. The waterfall will add one line every number of signal updates given by this value</li>
-<li>Property <code>maintain</code>: Integer - Value between 0 and 9 defining the speed of the signal peaks to decay. The higher this value, the slower will be the decay</li>
-<li>Theme properties: background-color signal-color signalfillcolor1 signalfillcolor2 signalfillcolor3</li>
+<li>Property <i><b>name</b></i>: String</li>
+<li>Property <i><b>data</b></i>: QByteArrayView containing an array of 32-bit floatint point values. Check <a href=./API.md#box-api>Box API</a> for an explanation of this data type</li>
+<li>Property <i><b>backgroundcolor</b></i>: Color - Color of the background panel</li>
+<li>Property <i><b>signalcolor</b></i>: Color - Color of the curve representing the signal</li>
+<li>Property <i><b>signalfillcolor1</b></i>: Color - When the signal graph is filled, this is the color of the upper part of the filling gradient</li>
+<li>Property <i><b>signalfillcolor2</b></i>: Color - When the signal graph is filled, this is the color of the lower part of the filling gradient</li>
+<li>Property <i><b>signalfillcolor3</b></i>: Color - When the signal graph is of type spectrogram, the colors used is a gradient between signalfillcolor1, signalfillcolor2 and signalfillcolor3</li>
+<li>Property <i><b>filled</b></i>: Boolean - If true, the area below the signal is filled with a gradient composed by signalfillcolor1 and signalfillcolor2</li>
+<li>Property <i><b>logarithmic</b></i>: Boolean - If true, the signal is represented in logarithmic scale</li>
+<li>Property <i><b>spectrogram</b></i>: Boolean - If true, the signal is represented as spectrogram</li>
+<li>Property <i><b>average</b></i>: Boolean - If true, the values represented are the average of the last 2 values. This avoids peaks in the signal</li>
+<li>Property <i><b>logmax</b></i>: Real - Value in dB of the maximum value in logarithmic scale. Default is 0</li>
+<li>Property <i><b>logmin</b></i>: Real - Value in dB of the minimum value in logarithmic scale. Default is 100, representing -100 dB</li>
+<li>Property <i><b>delay</b></i>: Integer - Speed of the spectrogram waterfall. The waterfall will add one line every number of signal updates given by this value</li>
+<li>Property <i><b>maintain</b></i>: Integer - Value between 0 and 9 defining the speed of the signal peaks to decay. The higher this value, the slower will be the decay</li>
+<li>Theme properties: <i><b>background-color signal-color signalfillcolor1 signalfillcolor2 signalfillcolor3</b></i></li>
 </ul>
 </td>
 </tr>
@@ -97,8 +97,8 @@ When we refer to a color data type, it means a String value representing a color
 <td>
 Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-grid.html>Grid</a>
 <ul>
-<li>Additional property <code>name</code>: String</li>
-<li>Theme properties: margin margin-top margin-bottom margin-left margin-right padding padding-top padding-botton padding-left padding-right spacing</li>
+<li>Additional property <i><b>name</b></i>: String</li>
+<li>Theme properties: <i<b>>margin margin-top margin-bottom margin-left margin-right padding padding-top padding-botton padding-left padding-right spacing</i></i></li>
 </ul>
 </td>
 </tr>
@@ -107,8 +107,8 @@ Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-grid.html>Grid</a>
 <td>
 Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-controls-groupbox.html>GroupBox</a>
 <ul>
-<li>Additional property <code>name</code>: String</li>
-<li>Theme properties: margin margin-top margin-bottom margin-left margin-right padding padding-top padding-botton padding-left padding-right border-width radius foreground-color border-color</li>
+<li>Additional property <i><b>name</b></i>: String</li>
+<li>Theme properties: <i><b>margin margin-top margin-bottom margin-left margin-right padding padding-top padding-botton padding-left padding-right border-width radius foreground-color border-color</b></i></li>
 </ul>
 </td>
 </tr>
@@ -117,22 +117,22 @@ Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-controls-groupbox.
 <td>
 This is a native control, not inheriting any standard QML control. It provides a knob.<br>
 <ul>
-<li>Property <code>name</code>: String</li>
-<li>Property <code>text</code>: String - Text to appear inside the knob</li>
-<li>Property <code>textsize</code>: Real - Font size of the text</li>
-<li>Property <code>max</code>: Real - Maximum value. Default is 1</li>
-<li>Property <code>min</code>: Real - Minimum value. Default is 0</li>
-<li>Property <code>step</code>: Real - Value increase or decrease for minimum rotation. Default is 0.1</li>
-<li>Property <code>anglestep</code>: Real - Angle in degrees to rotate for minimum rotation. Default is 20</li>
-<li>Property <code>rounddial</code>: Boolean - If true, the dial sign is a circle instead of a cursor line. Default is false</li>
-<li>Property <code>angle</code>: Real - Current angle in degrees</li>
-<li>Property <code>value</code>: Real - Current value</li>
-<li>Property <code>pressed</code>: Boolean - True if the knob is pressed</li>
-<li>Property <code>hovered</code>: Boolean - True if the knob is hovered</li>
-<li>Property <code>fast</code>: Boolean - If true, it provides the functionality of changes values by clicking and moving the mouse to right and left</li>
-<li>Property <code>tooltiptext</code>: String - Text of the tooltip box</li>
-<li>Subcomponent .arrow: Theme properties: image</li>
-<li>Theme properties: margin margin-top margin-bottom margin-left margin-right border-width foreground-color border-color text-color</li>
+<li>Property <i><b>name</b></i>: String</li>
+<li>Property <i><b>text</b></i>: String - Text to appear inside the knob</li>
+<li>Property <i><b>textsize</b></i>: Real - Font size of the text</li>
+<li>Property <i><b>max</b></i>: Real - Maximum value. Default is 1</li>
+<li>Property <i><b>min</b></i>: Real - Minimum value. Default is 0</li>
+<li>Property <i><b>step</b></i>: Real - Value increase or decrease for minimum rotation. Default is 0.1</li>
+<li>Property <i><b>anglestep</b></i>: Real - Angle in degrees to rotate for minimum rotation. Default is 20</li>
+<li>Property <i><b>rounddial</b></i>: Boolean - If true, the dial sign is a circle instead of a cursor line. Default is false</li>
+<li>Property <i><b>angle</b></i>: Real - Current angle in degrees</li>
+<li>Property <i><b>value</b></i>: Real - Current value</li>
+<li>Property <i><b>pressed</b></i>: Boolean - True if the knob is pressed</li>
+<li>Property <i><b>hovered</b></i>: Boolean - True if the knob is hovered</li>
+<li>Property <i><b>fast</b></i>: Boolean - If true, it provides the functionality of changes values by clicking and moving the mouse to right and left</li>
+<li>Property <i><b>tooltiptext</b></i>: String - Text of the tooltip box</li>
+<li>Subcomponent <i><b>.arrow</b></i>: Theme properties: image</li>
+<li>Theme properties: <i><b>margin margin-top margin-bottom margin-left margin-right border-width foreground-color border-color text-color</b></i></li>
 </ul>
 </td>
 </tr>
@@ -141,9 +141,9 @@ This is a native control, not inheriting any standard QML control. It provides a
 <td>
 Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-controls-label.html>Label</a>
 <ul>
-<li>Additional property <code>name</code>: String</li>
-<li>Additional property <code>pressed</code>: Boolean - True if the label is pressed</li>
-<li>Theme properties: padding padding-top padding-botton padding-left padding-right border-width radius angle foreground-color border-color text-color text-weight image</li>
+<li>Additional property <i><b>name</b></i>: String</li>
+<li>Additional property <i><b>pressed</b></i>: Boolean - True if the label is pressed</li>
+<li>Theme properties: <i><b>padding padding-top padding-botton padding-left padding-right border-width radius angle foreground-color border-color text-color text-weight image</b></i></li>
 </ul>
 </td>
 </tr>
@@ -152,8 +152,8 @@ Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-controls-label.htm
 <td>
 Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-controls-textfield.html>TextField</a>
 <ul>
-<li>Additional property <code>name</code>: String</li>
-<li>Theme properties: padding padding-top padding-botton padding-left padding-right border-width radius foreground-color border-color text-color</li>
+<li>Additional property <i><b>name</b></i>: String</li>
+<li>Theme properties: <i><b>padding padding-top padding-botton padding-left padding-right border-width radius foreground-color border-color text-color</b></i></li>
 </ul>
 </td>
 </tr>
@@ -162,8 +162,8 @@ Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-controls-textfield
 <td>
 Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-row.html>Row</a>
 <ul>
-<li>Additional property <code>name</code>: String</li>
-<li>Theme properties: margin margin-top margin-bottom margin-left margin-right padding padding-top padding-botton padding-left padding-right spacing</li>
+<li>Additional property <i><b>name</b></i>: String</li>
+<li>Theme properties: <i><b>margin margin-top margin-bottom margin-left margin-right padding padding-top padding-botton padding-left padding-right spacing</b></i></li>
 </ul>
 </td>
 </tr>
@@ -172,8 +172,8 @@ Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-row.html>Row</a>
 <td>
 Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-controls-slider.html>Slider</a>
 <ul>
-<li>Additional property <code>name</code>: String</li>
-<li>Theme properties: margin margin-top margin-bottom margin-left margin-right radius foreground-color border-color</li>
+<li>Additional property <i><b>name</b></i>: String</li>
+<li>Theme properties: <i><b>margin margin-top margin-bottom margin-left margin-right radius foreground-color border-color</b></i></li>
 </ul>
 </td>
 </tr>
@@ -182,8 +182,8 @@ Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-controls-slider.ht
 <td>
 This is a native control, not inheriting any standard QML control. It provides a panel to show live video.<br>
 <ul>
-<li>Property <code>data</code>: QByteArrayView containing an image captured by the Video subsystem in the <a href=./API.md#box-api>Box API</a></li>
-<li>Property <code>mirror</code>: Boolean - If true, the image is shown upside down</li>
+<li>Property <i><b>data</b></i>: QByteArrayView containing an image captured by the Video subsystem in the <a href=./API.md#box-api>Box API</a></li>
+<li>Property <i><b>mirror</b></i>: Boolean - If true, the image is shown upside down</li>
 <li>Theme properties: None</li>
 </ul>
 </td>
@@ -1156,3 +1156,79 @@ The different type of values are the following:
 
 ## Box API
 
+<table>
+<tr><td><h3>Audio</h3></td></tr>
+<tr><td>
+<h4>void audioDevice_close(const int deviceid);</h4>
+Closes an audio device.<br>
+Parameter: <code>deviceid</code>: Integer - Id of the audio device<br>
+Returns: Nothing
+</td></tr>
+<tr><td>QString audioDevice_defaultInput();</td></tr>
+<tr><td></td></tr>
+<tr><td>QString audioDevice_defaultOutput();</td></tr>
+<tr><td></td></tr>
+<tr><td>QString audioDevice_description(const QString &id);</td></tr>
+<tr><td></td></tr>
+<tr><td>bool audioDevice_isOpen();</td></tr>
+<tr><td></td></tr>
+<tr><td>bool audioDevice_isOpen(const QString &id);</td></tr>
+<tr><td></td></tr>
+<tr><td>QList<QString> audioDevice_list(const QString &mode = "ALL", bool raw = false);</td></tr>
+<tr><td></td></tr>
+<tr><td>QString audioDevice_mode(const QString &id);</td></tr>
+<tr><td></td></tr>
+<tr><td>void audioDevice_mute(const int deviceid, const bool mute);</td></tr>
+<tr><td></td></tr>
+<tr><td>int audioDevice_open(const QString &devname, const QString &mode, const bool direct = false);</td></tr>
+<tr><td></td></tr>
+<tr><td>void audioDevice_recordPause(const int deviceid, const bool pause);</td></tr>
+<tr><td></td></tr>
+<tr><td>void audioDevice_recordStart(const int deviceid, const QString filename, const int rawsamplerate = 0);</td></tr>
+<tr><td></td></tr>
+<tr><td>void audioDevice_recordStop(const int deviceid);</td></tr>
+<tr><td></td></tr>
+<tr><td>void audioDevice_recordWrite(const int deviceid, QByteArrayView data);</td></tr>
+<tr><td></td></tr>
+<tr><td>void audioDevice_reset(const int deviceid);</td></tr>
+<tr><td></td></tr>
+<tr><td>void audioDevice_setBusy(const int deviceid, const bool busy);</td></tr>
+<tr><td></td></tr>
+<tr><td>void audioDevice_setVolume(const int deviceid, const float volume);</td></tr>
+<tr><td></td></tr>
+<tr><td>void audioDevice_write(const int deviceid, QByteArrayView data);</td></tr>
+<tr><td></td></tr>
+<tr><td><h3>Video</h3></td></tr>
+<tr><td>void videoDevice_close(const int deviceid);</td></tr>
+<tr><td></td></tr>
+<tr><td>QList<QString> videoDevice_configurations(const QString &id);</td></tr>
+<tr><td></td></tr>
+<tr><td>QString videoDevice_default();</td></tr>
+<tr><td></td></tr>
+<tr><td>QString videoDevice_description(const QString &id);</td></tr>
+<tr><td></td></tr>
+<tr><td>QList<int> videoDevice_frameRates(const QString &id);</td></tr>
+<tr><td></td></tr>
+<tr><td>bool videoDevice_isOpen();</td></tr>
+<tr><td></td></tr>
+<tr><td>bool videoDevice_isOpen(const QString &id);</td></tr>
+<tr><td></td></tr>
+<tr><td>QList<QString> videoDevice_list();</td></tr>
+<tr><td></td></tr>
+<tr><td>int videoDevice_open(const QString &devname, const QString &mode);</td></tr>
+<tr><td></td></tr>
+<tr><td>QString videoDevice_orientation(const QString &id);</td></tr>
+<tr><td></td></tr>
+<tr><td>QString videoDevice_position(const QString &id);</td></tr>
+<tr><td></td></tr>
+<tr><td>QList<QString> videoDevice_resolutions(const QString &id);</td></tr>
+<tr><td></td></tr>
+<tr><td>bool videoDevice_setConfiguration(const int deviceid, const QString &mode);</td></tr>
+<tr><td></td></tr>
+<tr><td>void videoDevice_setQuality(const int deviceid, const int quality);</td></tr>
+<tr><td></td></tr>
+<tr><td>QByteArrayView videoDevice_takeShot(const int deviceid);</td></tr>
+<tr><td></td></tr>
+<tr><td>QList<int> videoDevice_videoFormats(const QString &id);</td></tr>
+<tr><td></td></tr>
+</table>
