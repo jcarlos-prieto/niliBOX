@@ -1159,7 +1159,7 @@ The different type of values are the following:
 <table>
 <tr><td><h3>Audio</h3></td></tr>
 <tr><td>
-<h4>void audioDevice_close(const int deviceid);</h4>
+<b>void audioDevice_close(const int deviceid);</b><br><br>
 Closes an audio device.<br>
 Parameter: <i><b>deviceid</b></i>: Integer - Id of the audio device<br>
 Return value: None
