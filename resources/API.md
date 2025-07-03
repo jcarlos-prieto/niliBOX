@@ -1128,12 +1128,12 @@ The different type of values are the following:
 <tr><td>foreground-color</td><td>Color</td><td>Foreground color</td></tr>
 <tr><td>image</td><td>String</td><td>File name of an image, including extension</td></tr>
 <tr><td>link-color</td><td>Color</td><td>Color for the hyperlinks in a text</td></tr>
-<tr><td>margin</td><td>Number</td><td>Distance between the border and the external limit of the object. Applies to top, bottom, left and right</td></tr>
+<tr><td>margin</td><td>Number</td><td>Distance between the border and the external limit of the object. Applies to the 4 sides</td></tr>
 <tr><td>margin-bottom</td><td>Number</td><td>Bottom margin</td></tr>
 <tr><td>margin-left</td><td>Number</td><td>Left margin</td></tr>
 <tr><td>margin-right</td><td>Number</td><td>Right margin</td></tr>
 <tr><td>margin-top</td><td>Number</td><td>Top margin</td></tr>
-<tr><td>padding</td><td>Number</td><td>Distance between the border and the contents of the object. Applies to top, bottom, left and right</td></tr>
+<tr><td>padding</td><td>Number</td><td>Distance between the border and the contents of the object. Applies to the 4 sides</td></tr>
 <tr><td>padding-botton</td><td>Number</td><td>Bottom padding</td></tr>
 <tr><td>padding-left</td><td>Number</td><td>Left padding</td></tr>
 <tr><td>padding-right</td><td>Number</td><td>Right padding</td></tr>
