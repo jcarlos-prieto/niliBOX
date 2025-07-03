@@ -1161,8 +1161,8 @@ The different type of values are the following:
 <tr><td>
 <h4>void audioDevice_close(const int deviceid);</h4>
 Closes an audio device.<br>
-Parameter: <code>deviceid</code>: Integer - Id of the audio device<br>
-Returns: Nothing
+Parameter: <i><b>deviceid</b></i>: Integer - Id of the audio device<br>
+Return value: None
 </td></tr>
 <tr><td>QString audioDevice_defaultInput();</td></tr>
 <tr><td></td></tr>
