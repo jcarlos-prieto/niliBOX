@@ -30,8 +30,8 @@ The appearence of these controls is modified by the theme properties also listed
 <td>
 Extends:</bold> <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-controls-abstractbutton.html>AbstractButton</a>
 <ul>
-<li>Additional property: <i><b>name</b></i>: String</li>
-<li>Additional property: <i><b>tooltiptext</b></i>: String - Text for tooltip box</li>
+<li>Property: <i><b>name</b></i>: String</li>
+<li>Property: <i><b>tooltiptext</b></i>: String - Text for tooltip box</li>
 <li>Theme properties: <i><b>margin margin-top margin-bottom margin-left margin-right padding padding-top padding-botton padding-left padding-right border-width radius angle foreground-color border-color text-color text-weight image</b></i></li>
 </ul>
 </td>
@@ -41,7 +41,7 @@ Extends:</bold> <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-controls-a
 <td>
 Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-controls-abstractbutton.html>AbstractButton</a>
 <ul>
-<li>Additional property <i><b>name</b></i>: String</li>
+<li>Property <i><b>name</b></i>: String</li>
 <li>Theme properties: <i><b>margin margin-top margin-bottom margin-left margin-right padding padding-top padding-botton padding-left padding-right border-width radius angle foreground-color border-color text-color text-weight image</b></i></li>
 </ul>
 </td>
@@ -51,7 +51,7 @@ Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-controls-abstractb
 <td>
 Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-column.html>Column</a>
 <ul>
-<li>Additional property <i><b>name</b></i>: String</li>
+<li>Property <i><b>name</b></i>: String</li>
 <li>Theme properties: <i><b>margin margin-top margin-bottom margin-left margin-right padding padding-top padding-botton padding-left padding-right spacing</b></i></li>
 </ul>
 </td>
@@ -61,7 +61,7 @@ Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-column.html>Column
 <td>
 Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-controls-combobox.html>ComboBox</a>
 <ul>
-<li>Additional property <i><b>name</b></i>: String</li>
+<li>Property <i><b>name</b></i>: String</li>
 <li>Subcomponent <i><b>.arrow</b></i>:  Theme properties: angle foregrouund-color image</li>
 <li>Theme properties: <i><b>margin margin-top margin-bottom margin-left margin-right padding padding-top padding-botton padding-left padding-right border-width radius foreground-color border-color text-color</b></i></li>
 </ul>
@@ -97,7 +97,7 @@ When we refer to a color data type, it means a String value representing a color
 <td>
 Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-grid.html>Grid</a>
 <ul>
-<li>Additional property <i><b>name</b></i>: String</li>
+<li>Property <i><b>name</b></i>: String</li>
 <li>Theme properties: <i<b>>margin margin-top margin-bottom margin-left margin-right padding padding-top padding-botton padding-left padding-right spacing</i></i></li>
 </ul>
 </td>
@@ -107,7 +107,7 @@ Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-grid.html>Grid</a>
 <td>
 Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-controls-groupbox.html>GroupBox</a>
 <ul>
-<li>Additional property <i><b>name</b></i>: String</li>
+<li>Property <i><b>name</b></i>: String</li>
 <li>Theme properties: <i><b>margin margin-top margin-bottom margin-left margin-right padding padding-top padding-botton padding-left padding-right border-width radius foreground-color border-color</b></i></li>
 </ul>
 </td>
@@ -152,7 +152,7 @@ Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-controls-label.htm
 <td>
 Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-controls-textfield.html>TextField</a>
 <ul>
-<li>Additional property <i><b>name</b></i>: String</li>
+<li>Property <i><b>name</b></i>: String</li>
 <li>Theme properties: <i><b>padding padding-top padding-botton padding-left padding-right border-width radius foreground-color border-color text-color</b></i></li>
 </ul>
 </td>
@@ -162,7 +162,7 @@ Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-controls-textfield
 <td>
 Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-row.html>Row</a>
 <ul>
-<li>Additional property <i><b>name</b></i>: String</li>
+<li>Property <i><b>name</b></i>: String</li>
 <li>Theme properties: <i><b>margin margin-top margin-bottom margin-left margin-right padding padding-top padding-botton padding-left padding-right spacing</b></i></li>
 </ul>
 </td>
@@ -172,7 +172,7 @@ Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-row.html>Row</a>
 <td>
 Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-controls-slider.html>Slider</a>
 <ul>
-<li>Additional property <i><b>name</b></i>: String</li>
+<li>Property <i><b>name</b></i>: String</li>
 <li>Theme properties: <i><b>margin margin-top margin-bottom margin-left margin-right radius foreground-color border-color</b></i></li>
 </ul>
 </td>
