@@ -1198,10 +1198,12 @@ Return value: Boolean - True if the audio device is open, false otherwise
 <tr><td>
 <b>QList<QString> audioDevice_list(const QString &mode = "ALL", bool raw = false);</b><br><br>
 Returns a list of unique ids of audio devices.<br>
-Parameter: <i><b>mode</b></i>: String - Can take 3 different values:<br>
-- <i>"ALL"</i> (default): Returns all audio devices, input and output
-- <i>"INPUT"</i> (default): Returns a list of input audio devices
-- <i>"OUTPUT"</i> (default): Returns a list of output audio devices
+Parameter: <i><b>mode</b></i>: String - Can take 3 different values:
+<ul>
+<li><i>"ALL"</i> (default): Returns all audio devices, input and output</li>
+<li><i>"INPUT"</i> (default): Returns a list of input audio devices</li>
+<li><i>"OUTPUT"</i> (default): Returns a list of output audio devices</li>
+</ul>
 Parameter: <i><b>raw</b></i>: Boolean - If true, it will not include the virtual audio devices<br>
 Return value: List - A list of String containing the unique ids of the audio devices requested
 </td></tr>
