@@ -1155,8 +1155,7 @@ The different type of values are the following:
 </table>
 
 ## Box API
-Integer
-String
+Integer String Boolean List
 <table>
 <tr><td><h3>Audio</h3></td></tr>
 <tr><td>
@@ -1191,7 +1190,7 @@ Return value: Boolean - True if there is any audio device open, false otherwise
 </td></tr>
 <tr><td>
 <b>bool audioDevice_isOpen(const QString &id);</b><br><br>
-Returns wether a specific audio device open.<br>
+Returns wether a specific audio device is open.<br>
 Parameter: <i><b>id</b></i>: String - Unique id of the audio device<br>
 Return value: Boolean - True if the audio device is open, false otherwise
 </td></tr>
@@ -1206,5 +1205,11 @@ Parameter: <i><b>mode</b></i>: String - Can take 3 different values:
 </ul>
 Parameter: <i><b>raw</b></i>: Boolean - If true, it will not include the virtual audio devices<br>
 Return value: List - A list of String containing the unique ids of the audio devices requested
+</td></tr>
+<tr><td>
+<b>QString audioDevice_mode(const QString &id);</b><br><br>
+Returns the audio mode used to open a specific audio device by its unique id. If the device is not open, then returns an empty String.<br>
+Parameter: <i><b>id</b></i>: String - Unique id of the audio device<br>
+Return value: String - Audio mode of the device. It composed by a list of values separated by commas in the format <i>"samplerate,samplingbits,compressedbits"</i>
 </td></tr>
 </table>
