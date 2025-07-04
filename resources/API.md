@@ -1210,6 +1210,21 @@ Return value: List - A list of String containing the unique ids of the audio dev
 <b>QString audioDevice_mode(const QString &id);</b><br><br>
 Returns the audio mode used to open a specific audio device by its unique id. If the device is not open, then returns an empty String.<br>
 Parameter: <i><b>id</b></i>: String - Unique id of the audio device<br>
-Return value: String - Audio mode of the device. It composed by a list of values separated by commas in the format <i>"samplerate,samplingbits,compressedbits"</i>
+Return value: String - Audio mode of the device. It is composed by a list of values separated by commas in the format <i>"samplerate,samplingbits,compressedbits"</i>
 </td></tr>
+<tr><td>
+<b>void audioDevice_mute(const int deviceid, const bool mute);</b><br><br>
+Mutes an output audio device that is open.<br>
+Parameter: <i><b>deviceid</b></i>: Integer - Device handler of the audio device<br>
+Return value: None
+</td></tr>
+<tr><td>
+<b>int audioDevice_open(const QString &id, const QString &mode, const bool direct = false);</b><br><br>
+Opens an audio device and returns a device handler.<br>
+Parameter: <i><b>id</b></i>: String - Unique id of the audio device<br>
+Parameter: <i><b>mode</b></i>: String - Audio mode to be used to open. It is composed by a list of values separated by commas in the format <i>"samplerate,samplingbits,compressedbits"</i><br>
+Parameter: <i><b>direct</b></i>: Boolean - If true, the audio device will be open in <i>direct</i> mode: low latency, no buffering, no vietual input device created<br>
+Return value: Integer - Device handler of the audio device. If the audio device could nt be open, this value is -1<br>
+</td></tr>
+
 </table>
