@@ -1223,8 +1223,8 @@ Return value: None
 Opens an audio device and returns a device handler.<br>
 Parameter: <i><b>id</b></i>: String - Unique id of the audio device<br>
 Parameter: <i><b>mode</b></i>: String - Audio mode to be used to open. It is composed by a list of values separated by commas in the format <i>"samplerate,samplingbits,compressedbits"</i><br>
-Parameter: <i><b>direct</b></i>: Boolean - If true, the audio device will be open in <i>direct</i> mode: low latency, no buffering, no vietual input device created<br>
-Return value: Integer - Device handler of the audio device. If the audio device could nt be open, this value is -1<br>
+Parameter: <i><b>direct</b></i>: Boolean - If true, the audio device will be open in <i>direct</i> mode: low latency, no buffering, no virtual input device created<br>
+Return value: Integer - Device handler of the audio device. If the audio device could not be open, this value is -1<br>
 </td></tr>
 
 </table>
