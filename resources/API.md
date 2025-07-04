@@ -1155,7 +1155,8 @@ The different type of values are the following:
 </table>
 
 ## Box API
-
+Integer
+String
 <table>
 <tr><td><h3>Audio</h3></td></tr>
 <tr><td>
@@ -1163,5 +1164,45 @@ The different type of values are the following:
 Closes an audio device.<br>
 Parameter: <i><b>deviceid</b></i>: Integer - Id of the audio device<br>
 Return value: None
+</td></tr>
+<tr><td>
+<b>QString audioDevice_defaultInput();</b><br><br>
+Retrieves the unique id of the default audio input device.<br>
+Parameter: None<br>
+Return value: String - Name of the default input audio device
+</td></tr>
+<tr><td>
+<b>QString audioDevice_defaultOutput();</b><br><br>
+Retrieves the unique id of the default audio output device.<br>
+Parameter: None<br>
+Return value: String - Name of the default output audio device
+</td></tr>
+<tr><td>
+<b>QString audioDevice_description(const QString &id);</b><br><br>
+Retrieves the readable description of an audio device.<br>
+Parameter: <i><b>id</b></i>: String - Unique id of the audio device<br>
+Return value: String - Readable description of the audio device
+</td></tr>
+<tr><td>
+<b>bool audioDevice_isOpen();</b><br><br>
+Returns wether there is any audio device open.<br>
+Parameter: None<br>
+Return value: Boolean - True if there is any audio device open, false otherwise
+</td></tr>
+<tr><td>
+<b>bool audioDevice_isOpen(const QString &id);</b><br><br>
+Returns wether a specific audio device open.<br>
+Parameter: <i><b>id</b></i>: String - Unique id of the audio device<br>
+Return value: Boolean - True if the audio device is open, false otherwise
+</td></tr>
+<tr><td>
+<b>QList<QString> audioDevice_list(const QString &mode = "ALL", bool raw = false);</b><br><br>
+Returns a list of unique ids of audio devices.<br>
+Parameter: <i><b>mode</b></i>: String - Can take 3 different values:<br>
+- <i>"ALL"</i> (default): Returns all audio devices, input and output
+- <i>"INPUT"</i> (default): Returns a list of input audio devices
+- <i>"OUTPUT"</i> (default): Returns a list of output audio devices
+Parameter: <i><b>raw</b></i>: Boolean - If true, it will not include the virtual audio devices<br>
+Return value: List - A list of String containing the unique ids of the audio devices requested
 </td></tr>
 </table>
