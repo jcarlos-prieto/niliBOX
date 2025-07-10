@@ -1155,7 +1155,22 @@ The different type of values are the following:
 </table>
 
 ## Box API
-Integer String Boolean List
+The ***BOX API*** is a set of functions, constants and signals that can be invoked from QML or Javascript code. This API implement the most common functionalities to handle hardware and signal processing. These functions are implemented in the C++ core application and are usually much more efficient than implementing the same functionalities directly in JAvascript. The API is divided in subsystems.
+
+All these functions, constants and signals are decribed below for each subsystem. The syntax used to descrbe each one is the exact definition in C++. To be used from QML and Javascript, the C++ types are converted to Javascript types. This is a list of the different types used in C++ and how they can be used from Javascript:
+
+<table>
+<thead>
+<tr>
+<th>C++</th>
+<th>Javascript</th>
+</tr>
+</thead>
+<tr><td>int</td><td>Number</td></tr>
+<tr><td>bool</td><td>Boolean</td></tr>
+<tr><td>QString</td><td>String</td></tr>
+<tr><td>QList</td><td>List</td></tr>
+</table>
 
 ### Audio subsystem
 The audio subsystem handles the audio devices.<br>
