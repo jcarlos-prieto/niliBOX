@@ -1063,7 +1063,7 @@ These are the names of the graphical objects implemented in the core application
 <tr><td>settings.body.security.members.add</td><td>TButton</td></tr>
 <tr><td>settings.body.security.members.delete</td><td>TButton</td></tr>
 <tr><td>settings.body.security.members.list</td><td>TList</td></tr>
-<tr><td colspan=2>Device configuration window</td></tr>
+<tr><td colspan=2><h3>Device configuration window</h3></td></tr>
 <tr><td>deviceconf.container</td><td>TPane</td></tr>
 <tr><td>deviceconf.container.header</td><td>TPane</td></tr>
 <tr><td>deviceconf.container.header.delete</td><td>TButton</td></tr>
@@ -1175,43 +1175,43 @@ When an audio device is open, a parameter <i>mode</i> must be provided. The <i>m
 An audio device can be a physical device but also a virtual input audio device. The vitual input devices are created when a module has audio output capabilities. In this way, the output of a module can be used as input for anoher module.<br>
 </td></tr>
 <tr><td>
-<b>void audioDevice_close(const int deviceid);</b><br><br>
+<b>void audioDevice_close(const int deviceid)</b><br><br>
 Closes an audio device.<br>
 Parameter: <i><b>deviceid</b></i>: Integer - Handler id of the audio device<br>
 Return value: None
 </td></tr>
 <tr><td>
-<b>QString audioDevice_defaultInput();</b><br><br>
+<b>QString audioDevice_defaultInput()</b><br><br>
 Retrieves the unique id of the default audio input device.<br>
 Parameter: None<br>
 Return value: String - Unique id of the default input audio device
 </td></tr>
 <tr><td>
-<b>QString audioDevice_defaultOutput();</b><br><br>
+<b>QString audioDevice_defaultOutput()</b><br><br>
 Retrieves the unique id of the default audio output device.<br>
 Parameter: None<br>
 Return value: String - Unique id of the default output audio device
 </td></tr>
 <tr><td>
-<b>QString audioDevice_description(const QString &id);</b><br><br>
+<b>QString audioDevice_description(const QString &id)</b><br><br>
 Retrieves the readable description of an audio device.<br>
 Parameter: <i><b>id</b></i>: String - Unique id of the audio device<br>
 Return value: String - Readable description of the audio device
 </td></tr>
 <tr><td>
-<b>bool audioDevice_isOpen();</b><br><br>
+<b>bool audioDevice_isOpen()</b><br><br>
 Returns wether there is any audio device open.<br>
 Parameter: None<br>
 Return value: Boolean - True if there is any audio device open, false otherwise
 </td></tr>
 <tr><td>
-<b>bool audioDevice_isOpen(const QString &id);</b><br><br>
+<b>bool audioDevice_isOpen(const QString &id)</b><br><br>
 Returns wether a specific audio device is open.<br>
 Parameter: <i><b>id</b></i>: String - Unique id of the audio device<br>
 Return value: Boolean - True if the audio device is open, false otherwise
 </td></tr>
 <tr><td>
-<b>QList<QString> audioDevice_list(const QString &mode = "ALL", bool raw = false);</b><br><br>
+<b>QList<QString> audioDevice_list(const QString &mode = "ALL", bool raw = false)</b><br><br>
 Returns a list of unique ids of audio devices.<br>
 Parameter: <i><b>mode</b></i>: String - Can take 3 different values:
 <ul>
@@ -1223,7 +1223,7 @@ Parameter: <i><b>raw</b></i>: Boolean - If true, it will not include the virtual
 Return value: List - A list of String containing the unique ids of the audio devices requested
 </td></tr>
 <tr><td>
-<b>QString audioDevice_mode(const QString &id);</b><br><br>
+<b>QString audioDevice_mode(const QString &id)</b><br><br>
 Returns the audio mode used to open a specific audio device by its unique id. If the device is not open, then returns an empty String.<br>
 Parameter: <i><b>id</b></i>: String - Unique id of the audio device<br>
 Return value: String - Audio mode of the device. It is composed by a list of values separated by commas in the format <i>"samplerate,samplingbits,compressedbits"</i>
@@ -1235,7 +1235,7 @@ Parameter: <i><b>deviceid</b></i>: Integer - Device handler of the audio device<
 Return value: None
 </td></tr>
 <tr><td>
-<b>int audioDevice_open(const QString &id, const QString &mode, const bool direct = false);</b><br><br>
+<b>int audioDevice_open(const QString &id, const QString &mode, const bool direct = false)</b><br><br>
 Opens an audio device and returns a device handler.<br>
 Parameter: <i><b>id</b></i>: String - Unique id of the audio device<br>
 Parameter: <i><b>mode</b></i>: String - Audio mode to be used to open. It is composed by a list of values separated by commas in the format <i>"samplerate,samplingbits,compressedbits"</i><br>
