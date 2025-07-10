@@ -1168,9 +1168,9 @@ Every audio device can be identified in 3 different ways:
 </ul>
 When an audio device is open, a parameter <i>mode</i> must be provided. The <i>mode</i> is composed by a list of values separated by commas in the format <i>"samplerate,samplingbits,compressedbits"</i>. This is the meaning of each value:
 <ul>
-<li><i>samplerate</i>: Integer - Audio rate in samples per second. THe standard values are 8000, 11020, 16000, 22040, 32000, 44080 and 48000</li>
+<li><i>samplerate</i>: Integer - Audio rate in samples per second. The standard values are 8000, 11020, 16000, 22040, 32000, 44080 and 48000</li>
 <li><i>samplingbits</i>: Integer - Number of bits per sample. It can be 8 (unsigned), 16 (signed) or 32 (float)</li>
-<li><i>compressedbits</i>: Integer - The audio can be open in compressed mode. In this case, the audio will be compressed before sending it from server to client and viceersa and uncompressed at destination. The possible values are 8 and 16 bits</li>
+<li><i>compressedbits</i>: Integer - The audio can be open in compressed mode. In this case, the audio will be compressed before sending it from server to client and viceversa and uncompressed at destination. The possible values are 8 and 16 bits</li>
 </ul>
 An audio device can be a physical device but also a virtual input audio device. The vitual input devices are created when a module has audio output capabilities. In this way, the output of a module can be used as input for anoher module.<br>
 </td></tr>
