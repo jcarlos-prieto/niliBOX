@@ -1211,7 +1211,7 @@ Parameter: <i><b>id</b></i>: String - Unique id of the audio device<br>
 Return value: Boolean - True if the audio device is open, false otherwise
 </td></tr>
 <tr><td>
-<b>QList<QString> audioDevice_list(const QString &mode = "ALL", bool raw = false)</b><br><br>
+<b>QList&lt;QString&gt; audioDevice_list(const QString &mode = "ALL", bool raw = false)</b><br><br>
 Returns a list of unique ids of audio devices.<br>
 Parameter: <i><b>mode</b></i>: String - Can take 3 different values:
 <ul>
