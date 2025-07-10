@@ -1167,10 +1167,14 @@ All these functions, constants and signals are decribed below for each subsystem
 </tr>
 </thead>
 <tr><td>int</td><td>Number</td></tr>
+<tr><td>float</td><td>Number</td></tr>
 <tr><td>bool</td><td>Boolean</td></tr>
 <tr><td>QString</td><td>String</td></tr>
 <tr><td>QList</td><td>List</td></tr>
+<tr><td>QByteArrayView</td><td>Binary</td></tr>
 </table>
+
+The *Binary* Javascript type is an opaque type used to represent an array of bytes. This type is not a Javascript *Array buffer* but a reference to an array of bytes in the C++ context. The *Box API* provides functions to convert this type to an actual *Array buffer* and also to make some basic handling. The reson to use this opaque type instead of a standard *Array buffer* is to minimize the transfer of data between the C++ and JAvascript contexts.
 
 ### Audio subsystem
 The audio subsystem handles the audio devices.<br>
