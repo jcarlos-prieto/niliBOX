@@ -1166,8 +1166,8 @@ All these functions, constants and signals are decribed below for each subsystem
 <th>Javascript</th>
 </tr>
 </thead>
-<tr><td>int</td><td>Number</td></tr>
-<tr><td>float</td><td>Number</td></tr>
+<tr><td>int</td><td>Integer</td></tr>
+<tr><td>float</td><td>Real</td></tr>
 <tr><td>bool</td><td>Boolean</td></tr>
 <tr><td>QString</td><td>String</td></tr>
 <tr><td>QList</td><td>List</td></tr>
@@ -1261,8 +1261,57 @@ Return value: Integer - Device id for the audio device. If the audio device coul
 </td></tr>
 <tr><td>
 <b>audioDevice_recordPause(const int devid, const bool pause)</b><br><br>
-Pauses the process to record the output audio to a file.<br>
+Pauses or resumes the process to record the output audio to a file.<br>
 Parameter: <i><b>devid</b></i>: Integer - Device id of the audio device<br>
+Parameter: <i><b>pause</b></i>: Boolean - If true, then pauses recording. If false, resumes recording<br>
+Return value: None
+</td></tr>
+<tr><td>
+<b>audioDevice_recordStart(const int devid, const QString filename, const int rawsamplerate = 0)</b><br><br>
+Starts the process to record the output audio to a file. Opens and initializes the output file.<br>
+Parameter: <i><b>devid</b></i>: Integer - Device id of the audio device<br>
+Parameter: <i><b>filename</b></i>: String - Name of the output file. The extension must be provided. The format of the file is a WAV<br>
+Parameter: <i><b>rawsamplerate</b></i>: Integer - If this value is zero, then the output file will be an mono audio file at the sample rate that the audio device was open. If this value is greater than zero, then the data to be written will be assumed to be a I/Q data stream written in stereo at the sample rate specified. This second format is used to gerenetae raw I/Q files from SDR receivers<br>
+Return value: None
+</td></tr>
+<tr><td>
+<b>audioDevice_recordStop(const int devid)</b><br><br>
+Finalizes the recording process. Closes the output file.<br>
+Parameter: <i><b>devid</b></i>: Integer - Device id of the audio device<br>
+Return value: None
+</td></tr>
+<tr><td>
+<b>audioDevice_recordWrite(const int devid, QByteArrayView data)</b><br><br>
+Writes data to the output file.<br>
+Parameter: <i><b>devid</b></i>: Integer - Device id of the audio device<br>
+Parameter: <i><b>data</b></i>: Binary - Data to be written<br>
+Return value: None
+</td></tr>
+<tr><td>
+<b>audioDevice_reset(const int devid)</b><br><br>
+Resets the audio device. Reinitializes the underlaying hardware and clear all buffers.<br>
+Parameter: <i><b>devid</b></i>: Integer - Device id of the audio device<br>
+Return value: None
+</td></tr>
+<tr><td>
+<b>audioDevice_setBusy(const int devid, const bool busy)</b><br><br>
+Sets or undets the device to busy state. If state is busy, no read or write will be performed until it is unset. Used for data contention.<br>
+Parameter: <i><b>devid</b></i>: Integer - Device id of the audio device<br>
+Parameter: <i><b>busy</b></i>: Boolean - Specifies if the audio device must be set or unset to busy state.<br>
+Return value: None
+</td></tr>
+<tr><td>
+<b>audioDevice_setVolume(const int devid, const float volume)</b><br><br>
+Sets the hardware input or output gain for the device.<br>
+Parameter: <i><b>devid</b></i>: Integer - Device id of the audio device<br>
+Parameter: <i><b>volume</b></i>: Real - Value for the volume, between 0.0 and 1.0<br>
+Return value: None
+</td></tr>
+<tr><td>
+<b>audioDevice_write(const int devid, QByteArrayView data)</b><br><br>
+Writes audio to an output audio device.<br>
+Parameter: <i><b>devid</b></i>: Integer - Device id of the audio device<br>
+Parameter: <i><b>data</b></i>: Binary - Data in the format specified when the audio device was open (8 bit unsigned, 16 bit signed or float)<br>
 Return value: None
 </td></tr>
 
