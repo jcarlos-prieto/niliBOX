@@ -1256,7 +1256,7 @@ Parameter: <i><b>mode</b></i>: String - Can take 3 different values:
 <li><i>"OUTPUT"</i> (default): Returns a list of output audio devices</li>
 </ul>
 Parameter: <i><b>raw</b></i>: Boolean - If true, it will not include the virtual audio devices<br>
-Return value: List - A list of String containing the device names of the requestedaudio devices
+Return value: List - A list of String containing the device names of the requested audio devices
 </td></tr>
 <tr><td><b>QString audioDevice_mode(const QString &devname)</b></td></tr>
 <tr><td>
@@ -1272,7 +1272,7 @@ Return value: None
 </td></tr>
 <tr><td><b>int audioDevice_open(const QString &devname, const QString &mode, const bool direct = false)</b></td></tr>
 <tr><td>
-Opens an audio device and returns a device handler.<br>
+Opens an audio device and returns a new audio device id.<br>
 Parameter: <i><b>devname</b></i>: String - Device name of the audio device<br>
 Parameter: <i><b>mode</b></i>: String - Audio mode to be used to open. It is composed by a list of values separated by commas in the format <i>"samplerate,samplingbits,compressedbits"</i><br>
 Parameter: <i><b>direct</b></i>: Boolean - If true, the audio device will be open in <i>direct</i> mode: low latency, no buffering, no virtual input device created<br>
@@ -1388,5 +1388,67 @@ Return value: String - Device name of the default video device
 Retrieves the readable description of a video device.<br>
 Parameter: <i><b>devname</b></i>: String - Device name of the video device<br>
 Return value: String - Readable description of the video device
+</td></tr>
+<tr><td><b>QList&lt;int&gt; videoDevice_frameRates(const QString &devname)</b></td></tr>
+<tr><td>
+Retrieves a list of supported frame rates of a video device.<br>
+Parameter: <i><b>devname</b></i>: String - Device name of the video device<br>
+Return value: List - A list of Integer containing all the frame rates supported by the video device in frames per second
+</td></tr>
+<tr><td><b>bool videoDevice_isOpen()</b></td></tr>
+<tr><td>
+Returns wether there is any video device open.<br>
+Parameter: None<br>
+Return value: Boolean - True if there is any video device open, false otherwise
+</td></tr>
+<tr><td><b>bool videoDevice_isOpen(const QString &devname)</b></td></tr>
+<tr><td>
+Returns wether a specific video device is open.<br>
+Parameter: <i><b>devname</b></i>: String - Device name of the video device<br>
+Return value: Boolean - True if the video device is open, false otherwise
+</td></tr>
+<tr><td><b>QList&lt;QString&gt; videoDevice_list()</b></td></tr>
+<tr><td>
+Returns a list of device names of the available video devices.<br>
+Parameter: None
+Return value: List - A list of String containing the device names of the available video devices
+</td></tr>
+<tr><td><b>int videoDevice_open(const QString &devname, const QString &mode)</b></td></tr>
+<tr><td>
+Opens an video device and returns a new video device id.<br>
+Parameter: <i><b>devname</b></i>: String - Device name of the video device<br>
+Parameter: <i><b>mode</b></i>: String - Audio mode to be used to open. It is composed by a list of values separated by commas in the format <i>"widthxheight,framerate"</i><br>
+Return value: Integer - Device id for the video device. If the video device could not be open, this value is -1<br>
+</td></tr>
+<tr><td><b>int videoDevice_orientation(const QString &devname)</b></td></tr>
+<tr><td>
+Returns the current orientation of the video device. Applies to cameras only.<br>
+Parameter: <i><b>devname</b></i>: String - Device name of the video device<br>
+Return value: String - Current orientation. The possible values are <i>LANDSCAPE</i> and <i>PORTRAIT</i><br>
+</td></tr>
+<tr><td><b>int videoDevice_position(const QString &devname)</b></td></tr>
+<tr><td>
+Returns the position of the video device (camera) in the device (mobile devices).<br>
+Parameter: <i><b>devname</b></i>: String - Device name of the video device<br>
+Return value: String - Camera position. The possible values are <i>FRONT</i> and <i>BACK</i><br>
+</td></tr>
+<tr><td><b>QList&lt;QString&gt; videoDevice_resolutions(const QString &devname)</b></td></tr>
+<tr><td>
+Retrieves a list of supported resolutions of a video device.<br>
+Parameter: <i><b>devname</b></i>: String - Device name of the video device<br>
+Return value: List - A list of String containing all the resolutions supported by the video device in the format <i>widthxheight</i>
+</td></tr>
+<tr><td><b>void videoDevice_setQuality(const int devid, const int quality)</b></td></tr>
+<tr><td>
+Sets the quality of the video after the device has been opened.<br>
+Parameter: <i><b>devid</b></i>: Integer - Device id of the video device<br>
+Parameter: <i><b>quality</b></i>: Integer - Quality factor. Value between 0 (lowest quality) and 100 (highest uncompressed quality)<br>
+Return value: None
+</td></tr>
+<tr><td><b>QByteArrayView videoDevice_takeShot(const int devid)</b></td></tr>
+<tr><td>
+Takes a screenshot from the video input and returns it as a binary value.<br>
+Parameter: <i><b>devid</b></i>: Integer - Device id of the video device<br>
+Return value: Binary value containing the image in JPEG format
 </td></tr>
 </table>
