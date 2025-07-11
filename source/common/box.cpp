@@ -728,33 +728,6 @@ void Box::videoDevice_close(const int devid)
 }
 
 
-QList<QString> Box::videoDevice_configurations(const QString &devname)
-{
-    QList<QString> list;
-
-    if (m_remote)
-        return list;
-
-    QCameraDevice device = videoDevice_fromName(devname);
-    if (device.isNull())
-        return list;
-
-    QString item;
-    for (QCameraFormat &format : device.videoFormats()) {
-#if defined NOGUI
-        if (format.pixelFormat() != QVideoFrameFormat::Format_Jpeg)
-            continue;
-#endif
-        item = QString::number(format.pixelFormat()) + ",";
-        item.append(QString::number(format.resolution().width()) + "x" + QString::number(format.resolution().height()) + ",");
-        item.append(QString::number(format.maxFrameRate()));
-        list << item;
-    }
-
-    return list;
-}
-
-
 QString Box::videoDevice_default()
 {
     if (m_remote)
@@ -987,45 +960,6 @@ QList<QString> Box::videoDevice_resolutions(const QString &devname)
 }
 
 
-bool Box::videoDevice_setConfiguration(const int devid, const QString &mode)
-//mode: format, resolution, framerate
-{
-    if (m_remote)
-        return false;
-
-    VideoDevice *device = G_BOX->videoDevices()->value(devid);
-
-    if (!device)
-        return false;
-
-    QString lmode = mode;
-    QList<QString> amode = lmode.replace(" ", "").toUpper().split(',');
-    if (amode.size() < 3)
-        return false;
-
-    QVideoFrameFormat::PixelFormat pixelformat = (QVideoFrameFormat::PixelFormat)amode.at(0).toInt();
-    QSize resolution;
-    qsizetype pos = amode.at(1).indexOf("x");
-
-    if (pos > 0) {
-        int w = amode.at(1).first(pos).toInt();
-        int h = amode.at(1).sliced(pos + 1).toInt();
-        resolution = QSize(w, h);
-    } else
-        resolution = QSize(0, 0);
-
-    int framerate = amode.at(2).toInt();
-
-    for (QCameraFormat &format : device->camera->cameraDevice().videoFormats())
-        if (format.pixelFormat() == pixelformat && format.resolution() == resolution && format.maxFrameRate() == framerate) {
-            device->camera->setCameraFormat(format);
-            return true;
-        }
-
-    return false;
-}
-
-
 void Box::videoDevice_setQuality(const int devid, const int quality)
 {
     if (m_remote)
@@ -1059,32 +993,6 @@ QByteArrayView Box::videoDevice_takeShot(const int devid)
     QByteArrayView output = G_BOX->mem()->alloc(data);
 
     return output;
-}
-
-
-QList<int> Box::videoDevice_videoFormats(const QString &devname)
-{
-    QList<int> list;
-
-    if (m_remote)
-        return list;
-
-    QCameraDevice device = videoDevice_fromName(devname);
-    if (device.isNull())
-        return list;
-
-    int item;
-    for (QCameraFormat &format : device.videoFormats()) {
-#if defined NOGUI
-        if (format.pixelFormat() != QVideoFrameFormat::Format_Jpeg)
-            continue;
-#endif
-        item = format.pixelFormat();
-        if (!list.contains(item))
-            list << item;
-    }
-
-    return list;
 }
 
 

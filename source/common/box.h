@@ -319,7 +319,6 @@ public:
     QAudioDevice                           audioDevice_fromName(const QString &devname);
 
     Q_INVOKABLE void                       videoDevice_close(const int devid);
-    Q_INVOKABLE QList<QString>             videoDevice_configurations(const QString &devname);
     Q_INVOKABLE QString                    videoDevice_default();
     Q_INVOKABLE QString                    videoDevice_description(const QString &devname);
     Q_INVOKABLE QList<int>                 videoDevice_frameRates(const QString &devname);
@@ -330,10 +329,8 @@ public:
     Q_INVOKABLE QString                    videoDevice_orientation(const QString &devname);
     Q_INVOKABLE QString                    videoDevice_position(const QString &devname);
     Q_INVOKABLE QList<QString>             videoDevice_resolutions(const QString &devname);
-    Q_INVOKABLE bool                       videoDevice_setConfiguration(const int devid, const QString &mode);
     Q_INVOKABLE void                       videoDevice_setQuality(const int devid, const int quality);
     Q_INVOKABLE QByteArrayView             videoDevice_takeShot(const int devid);
-    Q_INVOKABLE QList<int>                 videoDevice_videoFormats(const QString &devname);
     QCameraDevice                          videoDevice_fromName(const QString &devname);
 
     Q_INVOKABLE void                       serialPort_close(const int devid);
