@@ -542,21 +542,21 @@ private:
     QList<QString>                         m_virtualdevices;
 
 signals:
-    void                                   audioDevice_Data(const int audiodeviceid, QByteArrayView data);
-    void                                   audioDevice_Error(const int audiodeviceid, const QString &error);
-    void                                   audioDevice_Processing(const int audiodeviceid, QByteArrayView data);
-    void                                   audioDevice_RecordSize(const int audiodeviceid, const qint64 size);
+    void                                   audioDevice_Data(const int devid, QByteArrayView data);
+    void                                   audioDevice_Error(const int devid, const QString &error);
+    void                                   audioDevice_Processing(const int devid, QByteArrayView data);
+    void                                   audioDevice_RecordSize(const int devid, const qint64 size);
     void                                   audioDevice_Slave(const int samplerate, QByteArrayView data);
     void                                   file_playData(const int fileid, QByteArrayView data);
     void                                   hotPlug();
     void                                   recRemoteBox(const Message &message);
     void                                   reqRemoteBox(const Message &message);
-    void                                   serialPort_Data(const int serialportid, const QByteArray &data);
-    void                                   serialPort_Error(const int serialportid);
-    void                                   USB_Data(const int usbdeviceid, QByteArrayView data);
-    void                                   USB_Error(const int usbdeviceid);
-    void                                   videoDevice_Data(const int videodeviceid, QByteArrayView data);
-    void                                   videoDevice_Error(const int videodeviceid);
+    void                                   serialPort_Data(const int devid, const QByteArray &data);
+    void                                   serialPort_Error(const int devid);
+    void                                   USB_Data(const int devid, QByteArrayView data);
+    void                                   USB_Error(const int devid);
+    void                                   videoDevice_Data(const int devid, QByteArrayView data);
+    void                                   videoDevice_Error(const int devid);
 };
 
 
