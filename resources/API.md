@@ -1377,16 +1377,16 @@ Closes a video device.<br>
 Parameter: <i><b>devid</b></i>: Integer - Device id of the video device obtained when it was opened.<br>
 Return value: None
 </td></tr>
-<tr><td><b>videoDevice_configurations(const QString &devname)</b></td></tr>
+<tr><td><b>QString videoDevice_default()</b></td></tr>
 <tr><td>
-Returns a list of the possible configurations supported by the video device. Each item in the list has this format: <i>pixelformat,widthxheight,framerate</i>. This is the meaning of each field:
-<ul>
-<li><i>pixelformat</i>: Integer - A number representing the pixel format supported for this configuration</li>
-<li><i>width</i>: Integer - Frame width</li>
-<li><i>height</i>: Integer - Frame height</li>
-<li><i>framerate</i>: Integer - Maximum frame rate supported by this configuration</li>
-</ul>
-Parameter: <i><b>devname</b></i>: String - Device name of the video device.<br>
-Return value: List of String
+Retrieves the device name of the default video device.<br>
+Parameter: None<br>
+Return value: String - Device name of the default video device
+</td></tr>
+<tr><td><b>QString videoDevice_description(const QString &devname)</b></td></tr>
+<tr><td>
+Retrieves the readable description of a video device.<br>
+Parameter: <i><b>devname</b></i>: String - Device name of the video device<br>
+Return value: String - Readable description of the video device
 </td></tr>
 </table>
