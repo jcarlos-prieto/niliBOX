@@ -368,13 +368,13 @@ public:
     Q_INVOKABLE void                       USB_setBusy(const int usbhandleid, const bool busy);
     Q_INVOKABLE int                        USB_set_configuration(const int usbhandleid, const int configuration);
     Q_INVOKABLE int                        USB_set_interface_alt_setting(const int usbhandleid, const int interface, const int altsetting);
-    Q_INVOKABLE bool                       USBDevice_close(const QString &id);
-    Q_INVOKABLE QString                    USBDevice_description(const QString &id);
+    Q_INVOKABLE bool                       USBDevice_close(const QString &devname);
+    Q_INVOKABLE QString                    USBDevice_description(const QString &devname);
     Q_INVOKABLE QList<QString>             USBDevice_list();
-    Q_INVOKABLE QString                    USBDevice_manufacturer(const QString &id);
+    Q_INVOKABLE QString                    USBDevice_manufacturer(const QString &devname);
     Q_INVOKABLE int                        USBDevice_open(const QString &id, const int interface = -1);
-    Q_INVOKABLE QString                    USBDevice_serialNumber(const QString &id);
-    Q_INVOKABLE bool                       USBDevice_test(const QString &id);
+    Q_INVOKABLE QString                    USBDevice_serialNumber(const QString &devname);
+    Q_INVOKABLE bool                       USBDevice_test(const QString &devname);
     libusb_context                        *usb_context() {return m_usbcontext;}
     QString                                usb_description(int vid, int pid);
     QString                                usb_manufacturer(int vid, int pid);
@@ -438,9 +438,9 @@ public:
     Q_INVOKABLE int                        file_channels(const int fileid, const int newval = -1);
     Q_INVOKABLE void                       file_close(const int fileid);
     Q_INVOKABLE bool                       file_delete(const QString filename);
-    Q_INVOKABLE QList<QString>             file_list(const QString &name);
-    Q_INVOKABLE int                        file_openRead(const QString &name);
-    Q_INVOKABLE int                        file_openWrite(const QString &name);
+    Q_INVOKABLE QList<QString>             file_list(const QString &mask);
+    Q_INVOKABLE int                        file_openRead(const QString &filename);
+    Q_INVOKABLE int                        file_openWrite(const QString &filename);
     Q_INVOKABLE void                       file_play(const int fileid, const Box::PlayMode playmode = PM_DEFAULT);
     Q_INVOKABLE QByteArrayView             file_read(const int fileid, const int size);
     Q_INVOKABLE int                        file_samplebits(const int fileid, const int newval = -1);

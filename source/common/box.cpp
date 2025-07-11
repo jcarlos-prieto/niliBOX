@@ -4306,10 +4306,10 @@ bool Box::file_delete(const QString filename)
 }
 
 
-QList<QString> Box::file_list(const QString &name)
+QList<QString> Box::file_list(const QString &mask)
 {
     if (m_remote) {
-        QString ret = remoteBox("file_list", name);
+        QString ret = remoteBox("file_list", mask);
         if (ret.isEmpty())
             return QList<QString>();
         else
@@ -4317,7 +4317,7 @@ QList<QString> Box::file_list(const QString &name)
     }
 
     QDir dir(G_LOCALSETTINGS.localFilePath() + "/data");
-    QFileInfoList rawlist = dir.entryInfoList(QList<QString>() << name, QDir::Files, QDir::Name);
+    QFileInfoList rawlist = dir.entryInfoList(QList<QString>() << mask, QDir::Files, QDir::Name);
     QList<QString> list;
 
     for (QFileInfo &f : rawlist)
@@ -4327,9 +4327,9 @@ QList<QString> Box::file_list(const QString &name)
 }
 
 
-int Box::file_openRead(const QString &name)
+int Box::file_openRead(const QString &filename)
 {
-    QFile *f = new QFile(G_LOCALSETTINGS.localFilePath() + "/data/" + name);
+    QFile *f = new QFile(G_LOCALSETTINGS.localFilePath() + "/data/" + filename);
 
     if (!f->open(QFile::ReadOnly)) {
         f->deleteLater();
@@ -4373,9 +4373,9 @@ int Box::file_openRead(const QString &name)
 }
 
 
-int Box::file_openWrite(const QString &name)
+int Box::file_openWrite(const QString &filename)
 {
-    QFile *f = new QFile(G_LOCALSETTINGS.localFilePath() + "/data/" + name);
+    QFile *f = new QFile(G_LOCALSETTINGS.localFilePath() + "/data/" + filename);
 
     if (!f->open(QFile::WriteOnly)) {
         f->deleteLater();
