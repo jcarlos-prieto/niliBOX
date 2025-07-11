@@ -1379,14 +1379,14 @@ Return value: None
 </td></tr>
 <tr><td><b>videoDevice_configurations(const QString &devname)</b></td></tr>
 <tr><td>
-Returns a list of the possible configurations supported by the video device. Each item in the list has this format: *pixelformat,widthxheight,framerate*. This is the meaning of each field:
+Returns a list of the possible configurations supported by the video device. Each item in the list has this format: <i>pixelformat,widthxheight,framerate</i>. This is the meaning of each field:
 <ul>
 <li><i>pixelformat</i>: Integer - A number representing the pixel format supported for this configuration</li>
 <li><i>width</i>: Integer - Frame width</li>
 <li><i>height</i>: Integer - Frame height</li>
 <li><i>framerate</i>: Integer - Maximum frame rate supported by this configuration</li>
 </ul>
-Parameter: <i><b>devname</b></i>: Integer - Device name of the video device.<br>
+Parameter: <i><b>devname</b></i>: String - Device name of the video device.<br>
 Return value: List of String
 </td></tr>
 </table>
