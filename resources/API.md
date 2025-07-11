@@ -1358,3 +1358,23 @@ Parameter: <i><b>devid</b></i>: Integer - Device id of the audio device<br>
 Parameter: <i><b>size</b></i>: Integer - Current output audio file<br>
 </td></tr>
 </table>
+
+### Video subsystem
+The video subsystem handles the video input devices. There is no equivalent for output video devices.<br>
+Every video device can be identified in 3 different ways:
+- *Device name*: A string that identifies an video device available in the system</li>
+- *Device id*: An integer identifying a video device that has been open and can be used for input operations</li>
+- *Description*: A string providing a readable name for the video device</li>
+
+When an video device is open, a parameter <i>mode</i> must be provided. The <i>mode</i> is composed by a list of values separated by commas in the format <i>"resolution,framerate"</i>. This is the meaning of each value:
+- *resolution*: String - Size of the video frame in the format *widthxheight*. The symbol *x* must be included</li>
+- *framerate*: Integer - Number of frames per second</li>
+
+<table><tr></tr>
+<tr><td><b>void audioDevice_close(const int devid)</b></td></tr>
+<tr><td>
+Closes an audio device.<br>
+Parameter: <i><b>devid</b></i>: Integer - Device id of the audio device obtained when it was opened.<br>
+Return value: None
+</td></tr>
+</table>
