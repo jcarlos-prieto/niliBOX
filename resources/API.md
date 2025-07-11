@@ -858,7 +858,7 @@ Standard combo box.
 <tr>
 <td>TFrame</td>
 <td>
-A basic panel with a border. Equivalent to TPane. To be removed in future versions.
+A basic panel with a border. Equivalent to TPane except the theme customization.
 <ul>
 <li>Theme properties: <i><b>background-color foreground-color border-width border-color radius radius-topleft radius-topright radius-bottomleft radius-bottomright margin-top margin-bottom margin-left margin-right spacing image angle</b></i></li>
 </ul>
