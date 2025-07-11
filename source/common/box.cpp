@@ -136,17 +136,17 @@ Box::~Box()
 }
 
 
-void Box::audioDevice_close(const int deviceid)
+void Box::audioDevice_close(const int devid)
 {
     if (m_remote)
         return;
 
-    AudioDevice *device = G_BOX->audioDevices()->value(deviceid);
+    AudioDevice *device = G_BOX->audioDevices()->value(devid);
 
     if (!device)
         return;
 
-    if (G_VERBOSE) qInfo() << qPrintable("BOX: Closing audio device " + audioDevice_description(G_BOX->audioDevices()->value(deviceid)->devname));
+    if (G_VERBOSE) qInfo() << qPrintable("BOX: Closing audio device " + audioDevice_description(G_BOX->audioDevices()->value(devid)->devname));
 
     QMutexLocker locker(&m_audioDevice_mutex);
 
@@ -178,7 +178,7 @@ void Box::audioDevice_close(const int deviceid)
     DSP_release(device->dspid);
     delete device;
 
-    G_BOX->audioDevices()->remove(deviceid);
+    G_BOX->audioDevices()->remove(devid);
 }
 
 
@@ -208,23 +208,23 @@ QString Box::audioDevice_defaultOutput()
 }
 
 
-QString Box::audioDevice_description(const QString &id)
+QString Box::audioDevice_description(const QString &devname)
 {
-    if (id == "O:null")
+    if (devname == "O:null")
         return G_LOCALSETTINGS.get("system.dummyaudio");
 
     if (m_remote)
-        return remoteBox("audioDevice_description", id);
+        return remoteBox("audioDevice_description", devname);
 
 #if defined OS_ANDROID
-    if (id.startsWith("I:") || id.startsWith("O:"))
+    if (devname.startsWith("I:") || devname.startsWith("O:"))
         return id.mid(2);
     else
         return id;
 #else
-    QAudioDevice dev = audioDevice_fromId(id);
+    QAudioDevice dev = audioDevice_fromName(devname);
     if (dev.isNull())
-        return id;
+        return devname;
     else
         return dev.description().trimmed();
 #endif
@@ -237,9 +237,9 @@ bool Box::audioDevice_isOpen()
 }
 
 
-bool Box::audioDevice_isOpen(const QString &id)
+bool Box::audioDevice_isOpen(const QString &devname)
 {
-    if (id.isEmpty())
+    if (devname.isEmpty())
         return false;
 
     if (m_remote)
@@ -247,7 +247,7 @@ bool Box::audioDevice_isOpen(const QString &id)
 
     QList<AudioDevice *> devs = G_BOX->audioDevices()->values();
     for (AudioDevice *&dev : devs)
-        if (dev->devname == id)
+        if (dev->devname == devname)
             return true;
 
     return false;
@@ -294,14 +294,14 @@ QList<QString> Box::audioDevice_list(const QString &mode, bool raw)
 }
 
 
-QString Box::audioDevice_mode(const QString &id)
+QString Box::audioDevice_mode(const QString &devname)
 {
     if (m_remote)
         return QString();
 
     QList<AudioDevice *> devs = G_BOX->audioDevices()->values();
     for (AudioDevice *&dev : devs)
-        if (dev->devname == id)
+        if (dev->devname == devname)
             return QString::number(dev->samplerate) + "," + QString::number(dev->samplingbits) + "," + QString::number(dev->compressedbits);
 
     return QString();
@@ -309,19 +309,19 @@ QString Box::audioDevice_mode(const QString &id)
 
 
 
-void Box::audioDevice_mute(const int deviceid, const bool mute)
+void Box::audioDevice_mute(const int devid, const bool mute)
 {
     if (m_remote)
         return;
 
-    AudioDevice *device = G_BOX->audioDevices()->value(deviceid);
+    AudioDevice *device = G_BOX->audioDevices()->value(devid);
 
     if (!device)
         return;
 
     device->mute = mute;
 
-    audioDevice_setVolume(deviceid, device->volume);
+    audioDevice_setVolume(devid, device->volume);
 }
 
 
@@ -344,7 +344,7 @@ int Box::audioDevice_open(const QString &devname, const QString &mode, const boo
         return -1;
 
 #if !defined OS_ANDROID
-    QAudioDevice audiodev = audioDevice_fromId(devname);
+    QAudioDevice audiodev = audioDevice_fromName(devname);
 
     if (audiodev.isNull() && devname != "O:null" && !G_BOX->virtualDevices()->contains(devname))
         return -1;
@@ -467,12 +467,12 @@ int Box::audioDevice_open(const QString &devname, const QString &mode, const boo
 }
 
 
-void Box::audioDevice_recordPause(const int deviceid, const bool pause)
+void Box::audioDevice_recordPause(const int devid, const bool pause)
 {
     if (m_remote)
         return;
 
-    AudioDevice *device = G_BOX->audioDevices()->value(deviceid);
+    AudioDevice *device = G_BOX->audioDevices()->value(devid);
 
     if (!device)
         return;
@@ -481,12 +481,12 @@ void Box::audioDevice_recordPause(const int deviceid, const bool pause)
 }
 
 
-void Box::audioDevice_recordStart(const int deviceid, const QString filename, const int rawsamplerate)
+void Box::audioDevice_recordStart(const int devid, const QString filename, const int rawsamplerate)
 {
     if (m_remote)
         return;
 
-    AudioDevice *device = G_BOX->audioDevices()->value(deviceid);
+    AudioDevice *device = G_BOX->audioDevices()->value(devid);
 
     if (!device)
         return;
@@ -539,12 +539,12 @@ void Box::audioDevice_recordStart(const int deviceid, const QString filename, co
 }
 
 
-void Box::audioDevice_recordStop(const int deviceid)
+void Box::audioDevice_recordStop(const int devid)
 {
     if (m_remote)
         return;
 
-    AudioDevice *device = G_BOX->audioDevices()->value(deviceid);
+    AudioDevice *device = G_BOX->audioDevices()->value(devid);
 
     if (!device)
         return;
@@ -568,12 +568,12 @@ void Box::audioDevice_recordStop(const int deviceid)
 }
 
 
-void Box::audioDevice_recordWrite(const int deviceid, QByteArrayView data)
+void Box::audioDevice_recordWrite(const int devid, QByteArrayView data)
 {
     if (m_remote)
         return;
 
-    AudioDevice *device = G_BOX->audioDevices()->value(deviceid);
+    AudioDevice *device = G_BOX->audioDevices()->value(devid);
 
     if (!device)
         return;
@@ -584,16 +584,16 @@ void Box::audioDevice_recordWrite(const int deviceid, QByteArrayView data)
         device->raw.write(data.data(), data.size());
 
     device->recordlength += (qint64)data.size();
-    emit audioDevice_RecordSize(deviceid, device->recordlength);
+    emit audioDevice_RecordSize(devid, device->recordlength);
 }
 
 
-void Box::audioDevice_reset(const int deviceid)
+void Box::audioDevice_reset(const int devid)
 {
     if (m_remote)
         return;
 
-    AudioDevice *device = G_BOX->audioDevices()->value(deviceid);
+    AudioDevice *device = G_BOX->audioDevices()->value(devid);
 
     if (!device)
         return;
@@ -609,9 +609,9 @@ void Box::audioDevice_reset(const int deviceid)
 }
 
 
-void Box::audioDevice_setBusy(const int deviceid, const bool busy)
+void Box::audioDevice_setBusy(const int devid, const bool busy)
 {
-    AudioDevice *device = G_BOX->audioDevices()->value(deviceid);
+    AudioDevice *device = G_BOX->audioDevices()->value(devid);
 
     if (!device)
         return;
@@ -620,12 +620,12 @@ void Box::audioDevice_setBusy(const int deviceid, const bool busy)
 }
 
 
-void Box::audioDevice_setVolume(const int deviceid, const float volume)
+void Box::audioDevice_setVolume(const int devid, const float volume)
 {
     if (m_remote)
         return;
 
-    AudioDevice *device = G_BOX->audioDevices()->value(deviceid);
+    AudioDevice *device = G_BOX->audioDevices()->value(devid);
 
     if (!device)
         return;
@@ -646,12 +646,12 @@ void Box::audioDevice_setVolume(const int deviceid, const float volume)
 }
 
 
-void Box::audioDevice_write(const int deviceid, QByteArrayView data)
+void Box::audioDevice_write(const int devid, QByteArrayView data)
 {
     if (m_remote)
         return;
 
-    AudioDevice *device = G_BOX->audioDevices()->value(deviceid);
+    AudioDevice *device = G_BOX->audioDevices()->value(devid);
 
     if (!device)
         return;
@@ -686,31 +686,31 @@ void Box::audioDevice_write(const int deviceid, QByteArrayView data)
 }
 
 
-QAudioDevice Box::audioDevice_fromId(const QString &id)
+QAudioDevice Box::audioDevice_fromName(const QString &devname)
 {
     if (m_remote)
         return QAudioDevice();
 
     for (QAudioDevice &device : QMediaDevices::audioInputs())
-        if (id == "I:" + device.description().trimmed())
+        if (devname == "I:" + device.description().trimmed())
             return device;
 
     for (QAudioDevice &device : QMediaDevices::audioOutputs())
-        if (id == "O:" + device.description().trimmed())
+        if (devname == "O:" + device.description().trimmed())
             return device;
 
     return QAudioDevice();
 }
 
 
-void Box::videoDevice_close(const int deviceid)
+void Box::videoDevice_close(const int devid)
 {
     if (m_remote)
         return;
 
     QMutexLocker locker(&m_videoDevice_mutex);
 
-    VideoDevice *device = G_BOX->videoDevices()->value(deviceid);
+    VideoDevice *device = G_BOX->videoDevices()->value(devid);
 
     if (!device)
         return;
@@ -724,18 +724,18 @@ void Box::videoDevice_close(const int deviceid)
     delete device->capture;
     delete device;
 
-    G_BOX->videoDevices()->remove(deviceid);
+    G_BOX->videoDevices()->remove(devid);
 }
 
 
-QList<QString> Box::videoDevice_configurations(const QString &id)
+QList<QString> Box::videoDevice_configurations(const QString &devname)
 {
     QList<QString> list;
 
     if (m_remote)
         return list;
 
-    QCameraDevice device = videoDevice_fromId(id);
+    QCameraDevice device = videoDevice_fromName(devname);
     if (device.isNull())
         return list;
 
@@ -764,27 +764,27 @@ QString Box::videoDevice_default()
 }
 
 
-QString Box::videoDevice_description(const QString &id)
+QString Box::videoDevice_description(const QString &devname)
 {
     if (m_remote)
-        return remoteBox("videoDevice_description", id);
+        return remoteBox("videoDevice_description", devname);
 
-    QCameraDevice device = videoDevice_fromId(id);
+    QCameraDevice device = videoDevice_fromName(devname);
     if (device.isNull())
-        return id;
+        return devname;
     else
         return device.description().trimmed();
 }
 
 
-QList<int> Box::videoDevice_frameRates(const QString &id)
+QList<int> Box::videoDevice_frameRates(const QString &devname)
 {
     QList<int> list;
 
     if (m_remote)
         return list;
 
-    QCameraDevice device = videoDevice_fromId(id);
+    QCameraDevice device = videoDevice_fromName(devname);
     if (device.isNull())
         return QList<int>();
 
@@ -813,9 +813,9 @@ bool Box::videoDevice_isOpen()
 }
 
 
-bool Box::videoDevice_isOpen(const QString &id)
+bool Box::videoDevice_isOpen(const QString &devname)
 {
-    if (id.isEmpty())
+    if (devname.isEmpty())
         return false;
 
     if (m_remote)
@@ -823,7 +823,7 @@ bool Box::videoDevice_isOpen(const QString &id)
 
     QList<VideoDevice *> devs = G_BOX->videoDevices()->values();
     for (VideoDevice *&dev : devs)
-        if (dev->devname == id)
+        if (dev->devname == devname)
             return true;
 
     return false;
@@ -879,7 +879,7 @@ int Box::videoDevice_open(const QString &devname, const QString &mode)
     } else
         resolution = QSize(0, 0);
 
-    QCameraDevice device = videoDevice_fromId(devname);
+    QCameraDevice device = videoDevice_fromName(devname);
     if (device.isNull())
         return -1;
 
@@ -927,9 +927,9 @@ int Box::videoDevice_open(const QString &devname, const QString &mode)
 }
 
 
-QString Box::videoDevice_orientation(const QString &id)
+QString Box::videoDevice_orientation(const QString &devname)
 {
-    Q_UNUSED(id)
+    Q_UNUSED(devname)
 
 #if defined NOGUI
     return "LANDSCAPE";
@@ -944,12 +944,12 @@ QString Box::videoDevice_orientation(const QString &id)
 }
 
 
-QString Box::videoDevice_position(const QString &id)
+QString Box::videoDevice_position(const QString &devname)
 {
     if (m_remote)
         return QString();
 
-    QCameraDevice device = videoDevice_fromId(id);
+    QCameraDevice device = videoDevice_fromName(devname);
     if (device.isNull())
         return QString();
     if (device.position() == QCameraDevice::FrontFace)
@@ -961,14 +961,14 @@ QString Box::videoDevice_position(const QString &id)
 }
 
 
-QList<QString> Box::videoDevice_resolutions(const QString &id)
+QList<QString> Box::videoDevice_resolutions(const QString &devname)
 {
     QList<QString> list;
 
     if (m_remote)
         return list;
 
-    QCameraDevice device = videoDevice_fromId(id);
+    QCameraDevice device = videoDevice_fromName(devname);
     if (device.isNull())
         return list;
 
@@ -987,13 +987,13 @@ QList<QString> Box::videoDevice_resolutions(const QString &id)
 }
 
 
-bool Box::videoDevice_setConfiguration(const int deviceid, const QString &mode)
+bool Box::videoDevice_setConfiguration(const int devid, const QString &mode)
 //mode: format, resolution, framerate
 {
     if (m_remote)
         return false;
 
-    VideoDevice *device = G_BOX->videoDevices()->value(deviceid);
+    VideoDevice *device = G_BOX->videoDevices()->value(devid);
 
     if (!device)
         return false;
@@ -1026,12 +1026,12 @@ bool Box::videoDevice_setConfiguration(const int deviceid, const QString &mode)
 }
 
 
-void Box::videoDevice_setQuality(const int deviceid, const int quality)
+void Box::videoDevice_setQuality(const int devid, const int quality)
 {
     if (m_remote)
         return;
 
-    VideoDevice *device = G_BOX->videoDevices()->value(deviceid);
+    VideoDevice *device = G_BOX->videoDevices()->value(devid);
 
     if (!device)
         return;
@@ -1040,12 +1040,12 @@ void Box::videoDevice_setQuality(const int deviceid, const int quality)
 }
 
 
-QByteArrayView Box::videoDevice_takeShot(const int deviceid)
+QByteArrayView Box::videoDevice_takeShot(const int devid)
 {
     if (m_remote)
         return QByteArrayView();
 
-    VideoDevice *device = G_BOX->videoDevices()->value(deviceid);
+    VideoDevice *device = G_BOX->videoDevices()->value(devid);
 
     if (!device)
         return QByteArrayView();
@@ -1062,14 +1062,14 @@ QByteArrayView Box::videoDevice_takeShot(const int deviceid)
 }
 
 
-QList<int> Box::videoDevice_videoFormats(const QString &id)
+QList<int> Box::videoDevice_videoFormats(const QString &devname)
 {
     QList<int> list;
 
     if (m_remote)
         return list;
 
-    QCameraDevice device = videoDevice_fromId(id);
+    QCameraDevice device = videoDevice_fromName(devname);
     if (device.isNull())
         return list;
 
@@ -1088,27 +1088,27 @@ QList<int> Box::videoDevice_videoFormats(const QString &id)
 }
 
 
-QCameraDevice Box::videoDevice_fromId(const QString &id)
+QCameraDevice Box::videoDevice_fromName(const QString &devname)
 {
     if (m_remote)
         return QCameraDevice();
 
     for (QCameraDevice &device : QMediaDevices::videoInputs())
-        if (id == device.description().trimmed())
+        if (devname == device.description().trimmed())
             return device;
 
     return QCameraDevice();
 }
 
 
-void Box::serialPort_close(const int deviceid)
+void Box::serialPort_close(const int devid)
 {
     if (m_remote)
         return;
 
     QMutexLocker locker(&m_serialPort_mutex);
 
-    SerialPortDevice *device = G_BOX->serialPorts()->value(deviceid);
+    SerialPortDevice *device = G_BOX->serialPorts()->value(devid);
 
     if (!device)
         return;
@@ -1121,7 +1121,7 @@ void Box::serialPort_close(const int deviceid)
     device->serialport->deleteLater();
     delete device;
 
-    G_BOX->serialPorts()->remove(deviceid);
+    G_BOX->serialPorts()->remove(devid);
 
 #elif defined OS_ANDROID
     if (G_VERBOSE) qInfo() << qPrintable("BOX: Closing serial port " + device->devname);
@@ -1139,25 +1139,25 @@ void Box::serialPort_close(const int deviceid)
     alibserial_close(device->devname.toUtf8().data());
     delete device;
 
-    G_BOX->serialPorts()->remove(deviceid);
+    G_BOX->serialPorts()->remove(devid);
 
 #else
-    Q_UNUSED(deviceid)
+    Q_UNUSED(devid)
     return;
 #endif
 }
 
 
-QString Box::serialPort_description(const QString &id)
+QString Box::serialPort_description(const QString &devname)
 {
-    if (id.isEmpty())
+    if (devname.isEmpty())
         return QString();
 
     if (m_remote)
-        return remoteBox("serialPort_description", id);
+        return remoteBox("serialPort_description", devname);
 
 #if defined SERIAL
-    return QSerialPortInfo(id).description().trimmed();
+    return QSerialPortInfo(devname).description().trimmed();
 
 #elif defined OS_ANDROID
     return QString(alibserial_description(id.toUtf8().data()));
@@ -1168,12 +1168,12 @@ QString Box::serialPort_description(const QString &id)
 }
 
 
-int Box::serialPort_DTR(const int deviceid, const int newDTR)
+int Box::serialPort_DTR(const int devid, const int newDTR)
 {
     if (m_remote)
         return -1;
 
-    SerialPortDevice *device = G_BOX->serialPorts()->value(deviceid);
+    SerialPortDevice *device = G_BOX->serialPorts()->value(devid);
 
     if (!device)
         return -1;
@@ -1190,16 +1190,16 @@ int Box::serialPort_DTR(const int deviceid, const int newDTR)
     return alibserial_dtr(device->devname.toUtf8().data(), newDTR);
 
 #else
-    Q_UNUSED(deviceid)
+    Q_UNUSED(devid)
     Q_UNUSED(newDTR)
     return -1;
 #endif
 }
 
 
-bool Box::serialPort_isOpen(const QString &id)
+bool Box::serialPort_isOpen(const QString &devname)
 {
-    if (id.isEmpty())
+    if (devname.isEmpty())
         return false;
 
     if (m_remote)
@@ -1208,7 +1208,7 @@ bool Box::serialPort_isOpen(const QString &id)
 #if defined SERIAL
     QList<SerialPortDevice *> devs = G_BOX->serialPorts()->values();
     for (SerialPortDevice *&dev : devs)
-        if (dev->devname == id)
+        if (dev->devname == devname)
             return true;
     return false;
 
@@ -1251,16 +1251,16 @@ QList<QString> Box::serialPort_list()
 }
 
 
-QString Box::serialPort_manufacturer(const QString &id)
+QString Box::serialPort_manufacturer(const QString &devname)
 {
-    if (id.isEmpty())
+    if (devname.isEmpty())
         return QString();
 
     if (m_remote)
         return QString();
 
 #if defined SERIAL
-    return QSerialPortInfo(id).manufacturer();
+    return QSerialPortInfo(devname).manufacturer();
 
 #elif defined OS_ANDROID
     return QString(alibserial_manufacturer(id.toUtf8().data()));
@@ -1415,12 +1415,12 @@ int Box::serialPort_open(const QString &devname, const QString &mode)
 }
 
 
-int Box::serialPort_RTS(const int deviceid, const int newRTS)
+int Box::serialPort_RTS(const int devid, const int newRTS)
 {
     if (m_remote)
         return -1;
 
-    SerialPortDevice *device = G_BOX->serialPorts()->value(deviceid);
+    SerialPortDevice *device = G_BOX->serialPorts()->value(devid);
 
     if (!device)
         return -1;
@@ -1437,26 +1437,26 @@ int Box::serialPort_RTS(const int deviceid, const int newRTS)
     return alibserial_rts(device->devname.toUtf8().data(), newRTS);
 
 #else
-    Q_UNUSED(deviceid)
+    Q_UNUSED(devid)
     Q_UNUSED(newRTS)
     return -1;
 #endif
 }
 
 
-QString Box::serialPort_serialNumber(const QString &id)
+QString Box::serialPort_serialNumber(const QString &devname)
 {
-    if (id.isEmpty())
+    if (devname.isEmpty())
         return QString();
 
     if (m_remote)
         return QString();
 
 #if defined SERIAL
-    return QSerialPortInfo(id).serialNumber();
+    return QSerialPortInfo(devname).serialNumber();
 
 #elif defined OS_ANDROID
-    return QString(alibserial_serialnumber(id.toUtf8().data()));
+    return QString(alibserial_serialnumber(devname.toUtf8().data()));
 
 #else
     return QString();
@@ -1464,9 +1464,9 @@ QString Box::serialPort_serialNumber(const QString &id)
 }
 
 
-QString Box::serialPort_systemLocation(const QString &id)
+QString Box::serialPort_systemLocation(const QString &devname)
 {
-    if (id.isEmpty())
+    if (devname.isEmpty())
         return QString();
 
     if (m_remote)
@@ -1474,10 +1474,10 @@ QString Box::serialPort_systemLocation(const QString &id)
 
 #if defined SERIAL
 
-    return QSerialPortInfo(id).systemLocation();
+    return QSerialPortInfo(devname).systemLocation();
 
 #elif defined OS_ANDROID
-    return QString(alibserial_systemlocation(id.toUtf8().data()));
+    return QString(alibserial_systemlocation(devname.toUtf8().data()));
 
 #else
     return QString();
@@ -1485,12 +1485,12 @@ QString Box::serialPort_systemLocation(const QString &id)
 }
 
 
-void Box::serialPort_write(const int deviceid, const QByteArray &data)
+void Box::serialPort_write(const int devid, const QByteArray &data)
 {
     if (m_remote)
         return;
 
-    SerialPortDevice *device = G_BOX->serialPorts()->value(deviceid);
+    SerialPortDevice *device = G_BOX->serialPorts()->value(devid);
 
     if (!device)
         return;
@@ -1503,7 +1503,7 @@ void Box::serialPort_write(const int deviceid, const QByteArray &data)
     alibserial_write(device->devname.toUtf8().data(), (char *)data.data());
 
 #else
-    Q_UNUSED(deviceid)
+    Q_UNUSED(devid)
     Q_UNUSED(data)
     return;
 #endif
@@ -2132,23 +2132,23 @@ int Box::USB_set_interface_alt_setting(const int usbhandleid, const int interfac
 }
 
 
-bool Box::USBDevice_close(const QString &id)
+bool Box::USBDevice_close(const QString &devname)
 {
     if (m_remote)
-        return remoteBox("USBDevice_close", id) == "true";
+        return remoteBox("USBDevice_close", devname) == "true";
 
 #if defined USB
-    if (id.size() < 9)
+    if (devname.size() < 9)
         return false;
 
-    int vid = id.first(4).toInt(nullptr, 16);
-    int pid = id.sliced(5, 4).toInt(nullptr, 16);
+    int vid = devname.first(4).toInt(nullptr, 16);
+    int pid = devname.sliced(5, 4).toInt(nullptr, 16);
     int order = 0;
     int count = 0;
     int usbdeviceid;
 
-    if (id.size() > 10)
-        order = id.sliced(10).toInt();
+    if (devname.size() > 10)
+        order = devname.sliced(10).toInt();
 
     libusb_device **list_dev;
     struct libusb_device_descriptor descriptor;
@@ -2179,16 +2179,16 @@ bool Box::USBDevice_close(const QString &id)
 }
 
 
-QString Box::USBDevice_description(const QString &id)
+QString Box::USBDevice_description(const QString &devname)
 {
     if (m_remote)
-        return remoteBox("USBDevice_description", id);
+        return remoteBox("USBDevice_description", devname);
 
-    if (id.size() < 9)
+    if (devname.size() < 9)
         return QString();
 
-    int vid = id.first(4).toInt(nullptr, 16);
-    int pid = id.sliced(5, 4).toInt(nullptr, 16);
+    int vid = devname.first(4).toInt(nullptr, 16);
+    int pid = devname.sliced(5, 4).toInt(nullptr, 16);
 
     return usb_description(vid, pid);
 }
@@ -2236,38 +2236,38 @@ QList<QString> Box::USBDevice_list()
 }
 
 
-QString Box::USBDevice_manufacturer(const QString &id)
+QString Box::USBDevice_manufacturer(const QString &devname)
 {
     if (m_remote)
-        return remoteBox("USBDevice_manufacturer", id);
+        return remoteBox("USBDevice_manufacturer", devname);
 
-    if (id.size() < 9)
+    if (devname.size() < 9)
         return QString();
 
-    int vid = id.first(4).toInt(nullptr, 16);
-    int pid = id.sliced(5, 4).toInt(nullptr, 16);
+    int vid = devname.first(4).toInt(nullptr, 16);
+    int pid = devname.sliced(5, 4).toInt(nullptr, 16);
 
     return usb_manufacturer(vid, pid);
 }
 
 
-int Box::USBDevice_open(const QString &id, const int interface)
+int Box::USBDevice_open(const QString &devname, const int interface)
 {
     if (m_remote)
-        return remoteBox("USBDevice_open", id).toInt();
+        return remoteBox("USBDevice_open", devname).toInt();
 
 #if defined USB
-    if (id.size() < 9)
+    if (devname.size() < 9)
         return -1;
 
-    int vid = id.first(4).toInt(nullptr, 16);
-    int pid = id.sliced(5, 4).toInt(nullptr, 16);
+    int vid = devname.first(4).toInt(nullptr, 16);
+    int pid = devname.sliced(5, 4).toInt(nullptr, 16);
     int order = 0;
     int count = 0;
     int usbdeviceid = -1;
 
-    if (id.size() > 10)
-        order = id.sliced(10).toInt();
+    if (devname.size() > 10)
+        order = devname.sliced(10).toInt();
 
     libusb_device **list_dev;
     struct libusb_device_descriptor descriptor;
@@ -2298,19 +2298,19 @@ int Box::USBDevice_open(const QString &id, const int interface)
 }
 
 
-QString Box::USBDevice_serialNumber(const QString &id)
+QString Box::USBDevice_serialNumber(const QString &devname)
 {
     if (m_remote)
-        return remoteBox("USBDevice_serialNumber", id);
+        return remoteBox("USBDevice_serialNumber", devname);
 
     QString ret;
 
 #if defined USB
-    if (id.size() < 9)
+    if (devname.size() < 9)
         return ret;
 
-    int vid = id.first(4).toInt(nullptr, 16);
-    int pid = id.sliced(5, 4).toInt(nullptr, 16);
+    int vid = devname.first(4).toInt(nullptr, 16);
+    int pid = devname.sliced(5, 4).toInt(nullptr, 16);
 
     libusb_device_handle *handle = libusb_open_device_with_vid_pid(m_usbcontext, vid, pid);
     if (handle != NULL) {
@@ -2331,23 +2331,23 @@ QString Box::USBDevice_serialNumber(const QString &id)
 }
 
 
-bool Box::USBDevice_test(const QString &id)
+bool Box::USBDevice_test(const QString &devname)
 {
     if (m_remote)
-        return remoteBox("USBDevice_test", id) == "true";
+        return remoteBox("USBDevice_test", devname) == "true";
 
 #if defined USB
-    if (id.size() < 9)
+    if (devname.size() < 9)
         return false;
 
-    int vid = id.first(4).toInt(nullptr, 16);
-    int pid = id.sliced(5, 4).toInt(nullptr, 16);
+    int vid = devname.first(4).toInt(nullptr, 16);
+    int pid = devname.sliced(5, 4).toInt(nullptr, 16);
     int order = 0;
     int count = 0;
     int usbdeviceid;
 
-    if (id.size() > 10)
-        order = id.sliced(10).toInt();
+    if (devname.size() > 10)
+        order = devname.sliced(10).toInt();
 
     libusb_device **list_dev;
     struct libusb_device_descriptor descriptor;
