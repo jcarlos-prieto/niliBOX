@@ -1371,10 +1371,22 @@ When an video device is open, a parameter <i>mode</i> must be provided. The <i>m
 - *framerate*: Integer - Number of frames per second</li>
 
 <table><tr></tr>
-<tr><td><b>void audioDevice_close(const int devid)</b></td></tr>
+<tr><td><b>void videoDevice_close(const int devid)</b></td></tr>
 <tr><td>
-Closes an audio device.<br>
-Parameter: <i><b>devid</b></i>: Integer - Device id of the audio device obtained when it was opened.<br>
+Closes a video device.<br>
+Parameter: <i><b>devid</b></i>: Integer - Device id of the video device obtained when it was opened.<br>
 Return value: None
+</td></tr>
+<tr><td><b>videoDevice_configurations(const QString &devname)</b></td></tr>
+<tr><td>
+Returns a list of the possible configurations supported by the video device. Each item in the list has this format: *pixelformat,widthxheight,framerate*. This is the meaning of each field:
+<ul>
+<li><i>pixelformat</i>: Integer - A number representing the pixel format supported for this configuration</li>
+<li><i>width</i>: Integer - Frame width</li>
+<li><i>height</i>: Integer - Frame height</li>
+<li><i>framerate</i>: Integer - Maximum frame rate supported by this configuration</li>
+</ul>
+Parameter: <i><b>devname</b></i>: Integer - Device name of the video device.<br>
+Return value: List of String
 </td></tr>
 </table>
