@@ -1176,6 +1176,25 @@ All these functions, constants and signals are decribed below for each subsystem
 
 The *Binary* Javascript type is an opaque type used to represent an array of bytes. This type is not a Javascript *Array buffer* but a reference to an array of bytes in the C++ context. The *Box API* provides functions to convert this type to an actual *Array buffer* and also to make some basic handling. The reason to use this opaque type instead of a standard *Array buffer* is to minimize the transfer of data between the C++ and JAvascript contexts.
 
+The signals are events generated from the C++ core application that must be handled by the Javascript environment. It is necessary to connect the signal to an event handler function. This is an example to connect a function handler to the event triggered when an input audio device has collected enough data:
+```
+function b_start(params)
+{
+    box = b_getbox();
+    box.audioDevice_Data.connect(audioDeviceData);
+}
+
+function audioDeviceData(devid, data)
+{
+    if (devid !== audiodeviceid)
+        return;
+
+    ... handle audio data ...
+}
+
+```
+
+
 ### Audio subsystem
 The audio subsystem handles the audio devices.<br>
 Every audio device can be identified in 3 different ways:
@@ -1313,6 +1332,30 @@ Writes audio to an output audio device.<br>
 Parameter: <i><b>devid</b></i>: Integer - Device id of the audio device<br>
 Parameter: <i><b>data</b></i>: Binary - Data in the format specified when the audio device was open (8 bit unsigned, 16 bit signed or float)<br>
 Return value: None
+</td></tr>
+<tr><td>
+<b>SIGNAL - audioDevice_Data(const int devid, QByteArrayView data)</b><br><br>
+Triggered when there is data available from an input audio device.<br>
+Parameter: <i><b>devid</b></i>: Integer - Device id of the audio device<br>
+Parameter: <i><b>data</b></i>: Binary - Data in the format specified when the audio device was open (8 bit unsigned, 16 bit signed or float)<br>
+</td></tr>
+<tr><td>
+<b>SIGNAL - audioDevice_Error(const int devid, const QString &error)</b><br><br>
+Triggered when an error accurred in the audio device.<br>
+Parameter: <i><b>devid</b></i>: Integer - Device id of the audio device<br>
+Parameter: <i><b>error</b></i>: String - Description of the error<br>
+</td></tr>
+<tr><td>
+<b>SIGNAL - audioDevice_Processing(const int devid, QByteArrayView data)</b><br><br>
+Triggered when a audio data chunk has been written to the audio device.<br>
+Parameter: <i><b>devid</b></i>: Integer - Device id of the audio device<br>
+Parameter: <i><b>data</b></i>: Binary - Audio data in the format used to open the audio device<br>
+</td></tr>
+<tr><td>
+<b>SIGNAL - audioDevice_RecordSize(const int devid, const qint64 size)</b><br><br>
+Triggered while audio is recorded to update the current output file size.<br>
+Parameter: <i><b>devid</b></i>: Integer - Device id of the audio device<br>
+Parameter: <i><b>size</b></i>: Integer - Current output audio file<br>
 </td></tr>
 
 </table>
