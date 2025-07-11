@@ -372,7 +372,7 @@ public:
     Q_INVOKABLE QString                    USBDevice_description(const QString &devname);
     Q_INVOKABLE QList<QString>             USBDevice_list();
     Q_INVOKABLE QString                    USBDevice_manufacturer(const QString &devname);
-    Q_INVOKABLE int                        USBDevice_open(const QString &id, const int interface = -1);
+    Q_INVOKABLE int                        USBDevice_open(const QString &devname, const int interface = -1);
     Q_INVOKABLE QString                    USBDevice_serialNumber(const QString &devname);
     Q_INVOKABLE bool                       USBDevice_test(const QString &devname);
     libusb_context                        *usb_context() {return m_usbcontext;}
