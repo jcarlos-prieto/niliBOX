@@ -1501,7 +1501,6 @@ Closes a serial port device.<br>
 Parameter: <i><b>devid</b></i>: Integer - Device id of the serial port device obtained when it was opened.<br>
 Return value: None
 </td></tr>
-</td></tr>
 <tr><td><b>QString serialPort_description(const QString &devname)</b></td></tr>
 <tr><td>
 Retrieves the readable description of a serial port device.<br>
@@ -1575,3 +1574,14 @@ Parameter: <i><b>devid</b></i>: Integer - Device id of the serial port device<br
 
 ### USB subsystem
 The USB subsystem handles the USB devices.
+
+This subsystem provides two type of functions:
+- Functions with name starting by *USB_*: These functions provide a wrapper to the *lbusb* API. It is assumed that you are familiar with this API. For a reference to the *libusb* API, please consult the API [here](https://libusb.sourceforge.io/api-1.0/libusb_api.html)
+- Functions with name starting by *USBDevice_*: These functions provide a simple high level interface to the SUB devices.
+
+Every USB device can be identified in 3 different ways:
+- *Device id (usbdeviceid)*: A unique identifier for the USB device based on the position in the system. This identifier may change if the USB device is plugged to a different USB port. This identifier is linked to a structure of type *libusb_device*
+- *Handle id (usbhandleid)*: An integer identifying a USB device that has been open and can be used for input/output operations. This identifier is linked to a structure of type *libusb_device_handle*
+- *Device name*: A string providing a readable identifier for the USB device. It has a strcuture like *VVVV:PPPP* where *VVVV* is the vendor id in hexadecimal format and *PPPP* is the product id in hexadecimal format. If there are more than one device of the same type, the device name will also contain a sufix with a unique identifier for the device like *VVVV:PPPP:N* where *N* is an integer starting by 0.
+
+
