@@ -1592,4 +1592,14 @@ Parameter: <i><b>usbhandleid</b></i>: Integer - Handle id of the USB device obta
 Parameter: <i><b>interface</b></i>: Integer - USB interface to be attached.<br>
 Return value: Integer - 0 on success. Error code otherwise
 </td></tr>
+<tr><td><b>int USB_bulk_transfer(const int usbhandleid, const int endpoint, const QByteArray &data, const int len, const int timeout)</b></td></tr>
+<tr><td>
+Wrapper for <a href=https://libusb.sourceforge.io/api-1.0/group__libusb__syncio.html#ga2f90957ccc1285475ae96ad2ceb1f58c>libusb_bulk_transfer()()</a>. Perform a USB bulk transfer. The direction of the transfer is inferred from the direction bits of the endpoint address..<br><br>
+Parameter: <i><b>usbhandleid</b></i>: Integer - Handle id of the USB device obtained when it was opened.<br>
+Parameter: <i><b>endpoint</b></i>: Integer - The address of a valid endpoint to communicate with.<br>
+Parameter: <i><b>data</b></i>: String - Buffer to send or receive data.<br>
+Parameter: <i><b>len</b></i>: Integer - Maximum size of the data to be transferred.<br>
+Parameter: <i><b>timeout</b></i>: Integer - Time in miliseconds to wait for the operation to complete. For an unlimited timeout, use 0.<br>
+Return value: Integer - 0 on success. Error code otherwise
+</td></tr>
 </table>
