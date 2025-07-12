@@ -13,6 +13,9 @@
 - [Core object names](#core-object-names)
 - [Theme properties](#theme-properties)
 - [Box API](#box-api)
+  - [Audio subsystem](#audio-subsystem)
+  - [Video subsystem](#video-subsystem)
+  - [Serial subsystem](#serial-subsystem)
 
 ## QML controls
 These controls extend the functionality of the standard QtQuick controls to make them adjust to the theme selected in the core application. The purpose is to provide a consistent look and feel between the core application and the modules.  
@@ -1200,6 +1203,10 @@ function audioDeviceData(devid, data)
 
 ```
 
+Subsystems:
+- [Audio subsystem](#audio-subsystem)
+- [Video subsystem](#video-subsystem)
+- [Serial subsystem](#serial-subsystem)
 
 ### Audio subsystem
 The audio subsystem handles the audio devices.<br>
