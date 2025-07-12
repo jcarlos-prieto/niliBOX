@@ -365,7 +365,7 @@ These functions can be implemented in the Javascript code and will be called by 
 <tr>
 <td>b_start(params)</td>
 <td>
-Called when the client starts.
+Called when the client starts.<br><br>
 <ul>
 <li>Parameter <i><b>params</b></i>: Data structure - The object params contains one property for each parameter defined in the Config resource</li>
 <li>Return value: None</li>
@@ -383,7 +383,7 @@ function b_start(params)
 <tr>
 <td>b_finish()</td>
 <td>
-Called when the client is going to finish.
+Called when the client is going to finish.<br><br>
 <ul>
 <li>Parameters: None</li>
 <li>Return value: None</li>
@@ -400,7 +400,7 @@ function b_finish()
 <tr>
 <td>b_receive(key,value)</td>
 <td>
-Receive data from the server side.<br>
+Receive data from the server side.<br><br>
 <ul>
 <li>Parameter <i><b>key</b></i>: String</li>
 <li>Parameter <i><b>value</b></i>: Any basic Javascript type</li>
@@ -419,7 +419,7 @@ function b_receive(key, value)
 <tr>
 <td>b_receivebin(key,value)</td>
 <td>
-Receive binary data from the server side.
+Receive binary data from the server side.<br><br>
 <ul>
 <li>Parameter <i><b>key</b></i>: String</li>
 <li>Parameter <i><b>value</b></i>: Binary - The binary type is a mirror of the Qt type QByteArrayView. Check in the <a href=./API.md#box-api>Box API</a> section for an explanation of this data type.</li>
@@ -438,7 +438,7 @@ function b_receivebin(key, value)
 <tr>
 <td>b_active()</td>
 <td>
-Called when the client state changes from inactive to active (Android and iOS).
+Called when the client state changes from inactive to active (Android and iOS).<br><br>
 <ul>
 <li>Parameters: None</li>
 <li>Return value: None</li>
@@ -455,7 +455,7 @@ function b_active()
 <tr>
 <td>b_inactive()</td>
 <td>
-Called when the client state changes from active to inactive (Android and iOS).
+Called when the client state changes from active to inactive (Android and iOS).<br><br>
 <ul>
 <li>Parameters: None</li>
 <li>Return value: None</li>
@@ -472,12 +472,12 @@ function b_inactive()
 <tr>
 <td>b_hotplug()</td>
 <td>
-Called when a hardware device has been plugged or unplugged.
+Called when a hardware device has been plugged or unplugged.<br><br>
 <ul>
 <li>Parameters: None</li>
 <li>Return value: None</li>
 </ul>
-Example:
+Example:<br>
 <code>
 function b_hotplug()
 {
