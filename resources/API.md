@@ -1957,14 +1957,14 @@ Return value: Real - Minimum value
 </td></tr>
 <tr><td><b>QByteArrayView DSP_normalize(const int dspid, QByteArrayView input)</b></td></tr>
 <tr><td>
-Normalizes a series of real values. The process of normalization consists on removiing the DC component of a signal by forcing the average value of the signal to be null.</i><br><br>
+Normalizes a series of real values. The process of normalization consists on removing the DC component of a signal by forcing the average value of the signal to be null.</i><br><br>
 Parameter: <i><b>dspid</b></i>: Integer - DSP id<br>
 Parameter: <i><b>input</b></i>: Binary - Input series of real values<br>
 Return value: Binary - Normalized series of real values. The length of the resulting series is equal to the input
 </td></tr>
 <tr><td><b>QByteArrayView DSP_normalize_c(const int dspid, QByteArrayView input)</b></td></tr>
 <tr><td>
-Normalizes a series of complex values. The process of normalization consists on removiing the DC component of a signal by forcing the average value of the signal to be null.</i><br><br>
+Normalizes a series of complex values. The process of normalization consists on removing the DC component of a signal by forcing the average value of the signal to be null.</i><br><br>
 Parameter: <i><b>dspid</b></i>: Integer - DSP id<br>
 Parameter: <i><b>input</b></i>: Binary - Input series of complex values<br>
 Return value: Binary - Normalized series of complex values. The length of the resulting series is equal to the input
