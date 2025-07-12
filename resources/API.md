@@ -477,7 +477,7 @@ Called when a hardware device has been plugged or unplugged.<br><br>
 <li>Parameters: None</li>
 <li>Return value: None</li>
 </ul>
-Example:<br><br>
+Example:
 <code>
 function b_hotplug()
 {
