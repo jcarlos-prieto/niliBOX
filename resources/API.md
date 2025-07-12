@@ -1204,6 +1204,19 @@ function audioDeviceData(devid, data)
 
 ```
 
+Some functions use parameters of special types defined in the Box API as C++ enums. The different values defined by these enums can be used from Javascript as constants provided by the Box API. For instance, to use a value from the enum for FFT window types, the enum is defined like this:
+```
+enum FFTWindow {
+    FFTW_NONE,
+    FFTW_HANN,
+    FFTW_HAMMING,
+    FFTW_BLACKMAN,
+    FFTW_BLACKMAN_HARRIS_4,
+    FFTW_BLACKMAN_HARRIS_7
+};
+```
+Then, from Javascript, you can use any of these values with the prefix *Box.*. For instance: *Box.FFTW_HAMMING*.
+
 Subsystems:
 - [Audio subsystem](#audio-subsystem)
 - [Video subsystem](#video-subsystem)
@@ -1594,7 +1607,24 @@ Return value: Integer - 0 on success. Error code otherwise
 </td></tr>
 <tr><td><b>int USB_bulk_transfer(const int usbhandleid, const int endpoint, const QByteArray &data, const int len, const int timeout)</b></td></tr>
 <tr><td>
-Wrapper for <a href=https://libusb.sourceforge.io/api-1.0/group__libusb__syncio.html#ga2f90957ccc1285475ae96ad2ceb1f58c>libusb_bulk_transfer()</a>. Perform a USB bulk transfer. The direction of the transfer is inferred from the direction bits of the endpoint address.<br><br>
+Wrapper for <a href=https://libusb.sourceforge.io/api-1.0/group__libusb__syncio.html#ga2f90957ccc1285475ae96ad2ceb1f58c>libusb_bulk_transfer()</a>. Perform a USB write bulk transfer. The direction of the transfer is inferred from the direction bits of the endpoint address.<br><br>
+Parameter: <i><b>usbhandleid</b></i>: Integer - Handle id of the USB device obtained when it was opened.<br>
+Parameter: <i><b>endpoint</b></i>: Integer - The address of a valid endpoint to communicate with.<br>
+Parameter: <i><b>data</b></i>: String - Buffer to send or receive data.<br>
+Parameter: <i><b>len</b></i>: Integer - Maximum size of the data to be transferred.<br>
+Parameter: <i><b>timeout</b></i>: Integer - Time in miliseconds to wait for the operation to complete. For an unlimited timeout, use 0.<br>
+Return value: Integer - 0 on success. Error code otherwise
+</td></tr>
+<tr><td><b>void USB_bulk_transfer_setBufLen(const int usbhandleid, const int buflen)</b></td></tr>
+<tr><td>
+Set the buffer length for an asynchronous bulk transfer managed by *USB_bulk_transfer_start* and *USB_bulk_transfer_stop*. This function can be called before or after the bulk transfer has been started.<br><br>
+Parameter: <i><b>usbhandleid</b></i>: Integer - Handle id of the USB device obtained when it was opened.<br>
+Parameter: <i><b>buflen</b></i>: Integer - Buffer length.<br>
+Return value: None
+</td></tr>
+<tr><td><b>void USB_bulk_transfer_start(const int usbhandleid, const int endpoint, const Box::USBMode mode = USB_BulkSync, const int size = 65536)</b></td></tr>
+<tr><td>
+Start an asynchronous read bulk transfer. The transfer method can be *Synchronous*, *Asynchronous* or *Isochronous*.<br><br>
 Parameter: <i><b>usbhandleid</b></i>: Integer - Handle id of the USB device obtained when it was opened.<br>
 Parameter: <i><b>endpoint</b></i>: Integer - The address of a valid endpoint to communicate with.<br>
 Parameter: <i><b>data</b></i>: String - Buffer to send or receive data.<br>
