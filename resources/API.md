@@ -1661,6 +1661,13 @@ Stop an asynchronous read bulk transfer.<br><br>
 Parameter: <i><b>usbhandleid</b></i>: Integer - Handle id of the USB device obtained when it was opened<br>
 Return value: None
 </td></tr>
+<tr><td><b>int USB_claim_interface(const int usbhandleid, const int interface)</b></td></tr>
+<tr><td>
+Wrapper for <a href=https://libusb.sourceforge.io/api-1.0/group__libusb__dev.html#gaee5076addf5de77c7962138397fd5b1a>libusb_claim_interface()</a>. Claim an interface on a given device handle.<br><br>
+Parameter: <i><b>usbhandleid</b></i>: Integer - Handle id of the USB device obtained when it was opened<br>
+Parameter: <i><b>interface</b></i>: Integer - USB interface to be claimed<br>
+Return value: Integer - 0 on success. Error code otherwise
+</td></tr>
 <tr><td><b>int USB_close(const int usbhandleid)</b></td></tr>
 <tr><td>
 Wrapper for <a href=https://libusb.sourceforge.io/api-1.0/group__libusb__dev.html#ga779bc4f1316bdb0ac383bddbd538620e>libusb_close()</a>. Close a USB device.<br>
@@ -1725,5 +1732,12 @@ Wrapper for <a href=https://libusb.sourceforge.io/api-1.0/group__libusb__dev.htm
 Parameter: <i><b>usbdeviceid</b></i>: Integer - Device id of the USB device<br>
 Parameter: <i><b>interface</b></i>: Integer - Interface number<br>
 Return value: Integer - New USB handle id or error code
+</td></tr>
+<tr><td><b>int USB_release_interface(const int usbhandleid, const int interface)</b></td></tr>
+<tr><td>
+Wrapper for <a href=https://libusb.sourceforge.io/api-1.0/group__libusb__dev.html#ga49b5cb0d894f6807cd1693ef29aecbfa>libusb_release_interface()</a>. Release an interface previously claimed.<br><br>
+Parameter: <i><b>usbhandleid</b></i>: Integer - Handle id of the USB device obtained when it was opened<br>
+Parameter: <i><b>interface</b></i>: Integer - USB interface to be released<br>
+Return value: Integer - 0 on success. Error code otherwise
 </td></tr>
 </table>
