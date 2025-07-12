@@ -1825,7 +1825,8 @@ Parameter: <i><b>usbhandleid</b></i>: Integer - Handle id of the USB device<br>
 
 ### DSP subsystem
 The *DSP* subsystem provides functions to handle real-time data, specially audio. The real-time data is managed as *Binary* types. As explained above, a *Binary* type is a reference to a byte stream which resides in the C++ core application environment.<br><br>
-All the *Binary* values handled by the *DSP* subsystem are assumed to be series of 32-bit floating point values. In some cases, the series are complex, with a real and an imaginary component interlaced in the series of values. In this case, we will call this type *Binary Complex*.  
+All the *Binary* values handled by the *DSP* subsystem are assumed to be series of 32-bit floating point values. In some cases, the series are complex, with a real and an imaginary component interlaced in the series of values. In this case, we will call this type *Binary Complex*.<br><br>
+Many of these functions require a certain *memory* between calls. For instance, to be able to apply a filter, the filter must be defined first. Also, certain operations need to know the last value processed in the previous call to avoid abrupt changes, like filtering, FFTs, resample, etc. For this reason, the DSP subsystem provides a function (*DSP_create()*) to get an object of type *DSP* which can be used in these cases.
 
 <table><tr></tr>
 <tr><td><b>ENUM: FFTWindow</b></td></tr>
@@ -1836,6 +1837,15 @@ FFTW_HAMMING<br>
 FFTW_BLACKMAN<br>
 FFTW_BLACKMAN_HARRIS_4<br>
 FFTW_BLACKMAN_HARRIS_7
+</td></tr>
+<tr><td><b>ENUM: Band</b></td></tr>
+<tr><td>
+BAND_AM<br>
+BAND_FM<br>
+BAND_WFM<br>
+BAND_LSB<br>
+BAND_USB<br>
+BAND_DSB<br>
 </td></tr>
 <tr><td><b>ENUM: FilterType</b></td></tr>
 <tr><td>
@@ -1855,6 +1865,27 @@ MF_504
 <tr><td><b>float DSP_avg(QByteArrayView input)</b></td></tr>
 <tr><td>
 Return the average of all values in the input series.<br><br>
-Parameter: <i><b>input</b></i>: Binary
+Parameter: <i><b>input</b></i>: Binary - Series of real values<br>
 Return value: Real - Result of the average
+</td></tr>
+<tr><td><b>QByteArrayView DSP_compress(QByteArrayView input, const int cbits)</b></td></tr>
+<tr><td>
+Compress the input 32-bit float series of values to a series of 8 or 16 bit values. The resulting series contains an additional 8 byte header to be able to decompress the series. The purpose of this function is to cmpress audio.<br><br>
+Parameter: <i><b>input</b></i>: Binary - Series of real values<br>
+Parameter: <i><b>cbits</b></i>: Integer - This value can be 8 or 16<br>
+Return value: Binary - Compressed series. The length of the resulting series is half (for 16 bit) or a quarter (for 8 bit) of the input series plus 8 additional header bytes
+</td></tr>
+<tr><td><b>int DSP_create()</b></td></tr>
+<tr><td>
+Returns a reference to a newly created <i>DSP</i> object.<br><br>
+Return value: Integer - Identifier of the new <i>DSP</i> object
+</td></tr>
+<tr><td><b>QByteArrayView DSP_demodulate(const int dspid, QByteArrayView input, const int fs, const Box::Band band)</b></td></tr>
+<tr><td>
+Demodulates a complex I/Q series of values to audio..<br><br>
+Parameter: <i><b>dspid</b></i>: Integer - DSP id<br>
+Parameter: <i><b>input</b></i>: Binary Complex - Input complex series. This series comes usually from a SDR radio receiver<br>
+Parameter: <i><b>fs</b></i>: Integer - Sampling frequency of the input series<br>
+Parameter: <i><b>fs</b></i>: Band - One value from the *Band* enum specifying the demodulation type (AM, FM, etc.). For instance, *Box.BAND_WFM* for wide FM.<br>
+Return value: Binary - Demodulated signal.
 </td></tr>
