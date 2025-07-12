@@ -1712,4 +1712,18 @@ Parameter: <i><b>usbhandleid</b></i>: Integer - Handle id of the USB device obta
 Parameter: <i><b>index</b></i>: Integer - The index of the descriptor to retrieved<br>
 Return value: String - Descriptor for the specified index. Blank if error or not found
 </td></tr>
+<tr><td><b>int USB_kernel_driver_active(const int usbhandleid, const int interface)</b></td></tr>
+<tr><td>
+Wrapper for <a href=https://libusb.sourceforge.io/api-1.0/group__libusb__dev.html#ga1cabd4660a274f715eeb82de112e0779>libusb_kernel_driver_active()</a>. Determine if a kernel driver is active on an interface. Not available on Windows.<br><br>
+Parameter: <i><b>usbhandleid</b></i>: Integer - Handle id of the USB device obtained when it was opened<br>
+Parameter: <i><b>interface</b></i>: Integer - Interface number<br>
+Return value: Integer - 0 if no kernel driver is active, 1 if a kernel driver is active, error code otherwise
+</td></tr>
+<tr><td><b>int USB_open(const int usbdeviceid, const int interface = -1)</b></td></tr>
+<tr><td>
+Wrapper for <a href=https://libusb.sourceforge.io/api-1.0/group__libusb__dev.html#ga3f184a8be4488a767b2e0ae07e76d1b0>libusb_open()</a>. Open a USB device. If an interface number is provided, it also claims the interface.<br><br>
+Parameter: <i><b>usbdeviceid</b></i>: Integer - Device id of the USB device<br>
+Parameter: <i><b>interface</b></i>: Integer - Interface number<br>
+Return value: Integer - New USB handle id or error code
+</td></tr>
 </table>
