@@ -1944,10 +1944,29 @@ Parameter: <i><b>input</b></i>: Binary - Series of real values<br>
 Return value: Real - Maximum value
 <tr><td><b>QByteArrayView DSP_mirics_convert(QByteArrayView input, Box::MiricsFormat format, const int rate)</b></td></tr>
 <tr><td>
-The Mirics chipset for SDR devices generates outputs the data in a special format which must be preprocessed in order to get a raw I/Q complex values series. The purpose of this function is to perform that conversion. There are 4 subformats: <i>252</i>, <i>336</i>, <i>384</i> and <i>504</i><br><br>
+The Mirics chipset for SDR devices outputs the data in a special format which must be preprocessed in order to get a raw I/Q complex values series. The purpose of this function is to perform that conversion. There are 4 subformats: <i>252</i>, <i>336</i>, <i>384</i> and <i>504</i><br><br>
 Parameter: <i><b>input</b></i>: Binary - Input series in Mirics format<br>
 Parameter: <i><b>format</b></i>: MiricsFormat - Check the definition of this enum above<br>
 Parameter: <i><b>rate</b></i>: Integer - Sample rate<br>
 Return value: Binary - Series of complex I/Q values
+<tr><td><b>float DSP_min(QByteArrayView input)</b></td></tr>
+<tr><td>
+Return the minimum value in the input series.<br><br>
+Parameter: <i><b>input</b></i>: Binary - Series of real values<br>
+Return value: Real - Minimum value
+</td></tr>
+<tr><td><b>QByteArrayView DSP_normalize(const int dspid, QByteArrayView input)</b></td></tr>
+<tr><td>
+Normalizes a series of real values. The process of normalization consists on removiing the DC component of a signal by forcing the average value of the signal to be null.</i><br><br>
+Parameter: <i><b>dspid</b></i>: Integer - DSP id<br>
+Parameter: <i><b>input</b></i>: Binary - Input series of real values<br>
+Return value: Binary - Normalized series of real values. The length of the resulting series is equal to the input
+</td></tr>
+<tr><td><b>QByteArrayView DSP_normalize_c(const int dspid, QByteArrayView input)</b></td></tr>
+<tr><td>
+Normalizes a series of complex values. The process of normalization consists on removiing the DC component of a signal by forcing the average value of the signal to be null.</i><br><br>
+Parameter: <i><b>dspid</b></i>: Integer - DSP id<br>
+Parameter: <i><b>input</b></i>: Binary - Input series of complex values<br>
+Return value: Binary - Normalized series of complex values. The length of the resulting series is equal to the input
 </td></tr>
 </table>
