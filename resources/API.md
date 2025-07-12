@@ -1227,43 +1227,43 @@ An audio device can be a physical device but also a virtual input audio device. 
 <table><tr></tr>
 <tr><td><b>void audioDevice_close(const int devid)</b></td></tr>
 <tr><td>
-Closes an audio device.<br>
+Closes an audio device.<br><br>
 Parameter: <i><b>devid</b></i>: Integer - Device id of the audio device obtained when it was opened.<br>
 Return value: None
 </td></tr>
 <tr><td><b>QString audioDevice_defaultInput()</b></td></tr>
 <tr><td>
-Retrieves the device name of the default audio input device.<br>
+Retrieves the device name of the default audio input device.<br><br>
 Parameter: None<br>
 Return value: String - Device name of the default input audio device
 </td></tr>
 <tr><td><b>QString audioDevice_defaultOutput()</b></td></tr>
 <tr><td>
-Retrieves the device name of the default audio output device.<br>
+Retrieves the device name of the default audio output device.<br><br>
 Parameter: None<br>
 Return value: String - Device name of the default output audio device
 </td></tr>
 <tr><td><b>QString audioDevice_description(const QString &devname)</b></td></tr>
 <tr><td>
-Retrieves the readable description of an audio device.<br>
+Retrieves the readable description of an audio device.<br><br>
 Parameter: <i><b>devname</b></i>: String - Device name of the audio device<br>
 Return value: String - Readable description of the audio device
 </td></tr>
 <tr><td><b>bool audioDevice_isOpen()</b></td></tr>
 <tr><td>
-Returns wether there is any audio device open.<br>
+Returns wether there is any audio device open.<br><br>
 Parameter: None<br>
 Return value: Boolean - True if there is any audio device open, false otherwise
 </td></tr>
 <tr><td><b>bool audioDevice_isOpen(const QString &devname)</b></td></tr>
 <tr><td>
-Returns wether a specific audio device is open.<br>
+Returns wether a specific audio device is open.<br><br>
 Parameter: <i><b>devname</b></i>: String - Device name of the audio device<br>
 Return value: Boolean - True if the audio device is open, false otherwise
 </td></tr>
 <tr><td><b>QList&lt;QString&gt; audioDevice_list(const QString &mode = "ALL", bool raw = false)</b></td></tr>
 <tr><td>
-Returns a list of device names of the available audio devices.<br>
+Returns a list of device names of the available audio devices.<br><br>
 Parameter: <i><b>mode</b></i>: String - Can take 3 different values:
 <ul>
 <li><i>"ALL"</i> (default): Returns all audio devices, input and output</li>
@@ -1275,19 +1275,19 @@ Return value: List - A list of String containing the device names of the request
 </td></tr>
 <tr><td><b>QString audioDevice_mode(const QString &devname)</b></td></tr>
 <tr><td>
-Returns the audio mode used to open a specific audio device by its device name. If the device is not open, then returns an empty String.<br>
+Returns the audio mode used to open a specific audio device by its device name. If the device is not open, then returns an empty String.<br><br>
 Parameter: <i><b>devname</b></i>: String - Device name of the audio device<br>
 Return value: String - Audio mode of the device. It is composed by a list of values separated by commas in the format <i>"samplerate,samplingbits,compressedbits"</i>
 </td></tr>
 <tr><td><b>void audioDevice_mute(const int devid, const bool mute)</b></td></tr>
 <tr><td>
-Mutes an output audio device that is open.<br>
+Mutes an output audio device that is open.<br><br>
 Parameter: <i><b>devid</b></i>: Integer - Device id of the audio device<br>
 Return value: None
 </td></tr>
 <tr><td><b>int audioDevice_open(const QString &devname, const QString &mode, const bool direct = false)</b></td></tr>
 <tr><td>
-Opens an audio device and returns a new audio device id.<br>
+Opens an audio device and returns a new audio device id.<br><br>
 Parameter: <i><b>devname</b></i>: String - Device name of the audio device<br>
 Parameter: <i><b>mode</b></i>: String - Audio mode to be used to open. It is composed by a list of values separated by commas in the format <i>"samplerate,samplingbits,compressedbits"</i><br>
 Parameter: <i><b>direct</b></i>: Boolean - If true, the audio device will be open in <i>direct</i> mode: low latency, no buffering, no virtual input device created<br>
@@ -1295,14 +1295,14 @@ Return value: Integer - Device id for the audio device. If the audio device coul
 </td></tr>
 <tr><td><b>audioDevice_recordPause(const int devid, const bool pause)</b></td></tr>
 <tr><td>
-Pauses or resumes the process to record the output audio to a file.<br>
+Pauses or resumes the process to record the output audio to a file.<br><br>
 Parameter: <i><b>devid</b></i>: Integer - Device id of the audio device<br>
 Parameter: <i><b>pause</b></i>: Boolean - If true, then pauses recording. If false, resumes recording<br>
 Return value: None
 </td></tr>
 <tr><td><b>audioDevice_recordStart(const int devid, const QString filename, const int rawsamplerate = 0)</b></td></tr>
 <tr><td>
-Starts the process to record the output audio to a file. Opens and initializes the output file.<br>
+Starts the process to record the output audio to a file. Opens and initializes the output file.<br><br>
 Parameter: <i><b>devid</b></i>: Integer - Device id of the audio device<br>
 Parameter: <i><b>filename</b></i>: String - Name of the output file. The extension must be provided. The format of the file is a WAV<br>
 Parameter: <i><b>rawsamplerate</b></i>: Integer - If this value is zero, then the output file will be an mono audio file at the sample rate that the audio device was open. If this value is greater than zero, then the data to be written will be assumed to be a I/Q data stream written in stereo at the sample rate specified. This second format is used to gerenetae raw I/Q files from SDR receivers<br>
@@ -1310,65 +1310,65 @@ Return value: None
 </td></tr>
 <tr><td><b>audioDevice_recordStop(const int devid)</b></td></tr>
 <tr><td>
-Finalizes the recording process. Closes the output file.<br>
+Finalizes the recording process. Closes the output file.<br><br>
 Parameter: <i><b>devid</b></i>: Integer - Device id of the audio device<br>
 Return value: None
 </td></tr>
 <tr><td><b>audioDevice_recordWrite(const int devid, QByteArrayView data)</b></td></tr>
 <tr><td>
-Writes data to the output file.<br>
+Writes data to the output file.<br><br>
 Parameter: <i><b>devid</b></i>: Integer - Device id of the audio device<br>
 Parameter: <i><b>data</b></i>: Binary - Data to be written<br>
 Return value: None
 </td></tr>
 <tr><td><b>audioDevice_reset(const int devid)</b></td></tr>
 <tr><td>
-Resets the audio device. Reinitializes the underlaying hardware and clear all buffers.<br>
+Resets the audio device. Reinitializes the underlaying hardware and clear all buffers.<br><br>
 Parameter: <i><b>devid</b></i>: Integer - Device id of the audio device<br>
 Return value: None
 </td></tr>
 <tr><td><b>audioDevice_setBusy(const int devid, const bool busy)</b></td></tr>
 <tr><td>
-Sets or undets the device to busy state. If state is busy, no read or write will be performed until it is unset. Used for data contention.<br>
+Sets or undets the device to busy state. If state is busy, no read or write will be performed until it is unset. Used for data contention.<br><br>
 Parameter: <i><b>devid</b></i>: Integer - Device id of the audio device<br>
 Parameter: <i><b>busy</b></i>: Boolean - Specifies if the audio device must be set or unset to busy state.<br>
 Return value: None
 </td></tr>
 <tr><td><b>audioDevice_setVolume(const int devid, const float volume)</b></td></tr>
 <tr><td>
-Sets the hardware input or output gain for the device.<br>
+Sets the hardware input or output gain for the device.<br><br>
 Parameter: <i><b>devid</b></i>: Integer - Device id of the audio device<br>
 Parameter: <i><b>volume</b></i>: Real - Value for the volume, between 0.0 and 1.0<br>
 Return value: None
 </td></tr>
 <tr><td><b>audioDevice_write(const int devid, QByteArrayView data)</b></td></tr>
 <tr><td>
-Writes audio to an output audio device.<br>
+Writes audio to an output audio device.<br><br>
 Parameter: <i><b>devid</b></i>: Integer - Device id of the audio device<br>
 Parameter: <i><b>data</b></i>: Binary - Data in the format specified when the audio device was open (8 bit unsigned, 16 bit signed or float)<br>
 Return value: None
 </td></tr>
 <tr><td><b>SIGNAL - audioDevice_Data(const int devid, QByteArrayView data)</b></td></tr>
 <tr><td>
-Triggered when there is data available from an input audio device.<br>
+Triggered when there is data available from an input audio device.<br><br>
 Parameter: <i><b>devid</b></i>: Integer - Device id of the audio device<br>
 Parameter: <i><b>data</b></i>: Binary - Data in the format specified when the audio device was opened (8 bit unsigned, 16 bit signed or float)<br>
 </td></tr>
 <tr><td><b>SIGNAL - audioDevice_Error(const int devid, const QString &error)</b></td></tr>
 <tr><td>
-Triggered when an error accurred in the audio device.<br>
+Triggered when an error accurred in the audio device.<br><br>
 Parameter: <i><b>devid</b></i>: Integer - Device id of the audio device<br>
 Parameter: <i><b>error</b></i>: String - Description of the error<br>
 </td></tr>
 <tr><td><b>SIGNAL - audioDevice_Processing(const int devid, QByteArrayView data)</b></td></tr>
 <tr><td>
-Triggered when a audio data chunk has been written to the audio device.<br>
+Triggered when a audio data chunk has been written to the audio device.<br><br>
 Parameter: <i><b>devid</b></i>: Integer - Device id of the audio device<br>
 Parameter: <i><b>data</b></i>: Binary - Audio data in the format used to open the audio device<br>
 </td></tr>
 <tr><td><b>SIGNAL - audioDevice_RecordSize(const int devid, const qint64 size)</b</td></tr>
 <tr><td>
-Triggered while audio is recorded to update the current output file size.<br>
+Triggered while audio is recorded to update the current output file size.<br><br>
 Parameter: <i><b>devid</b></i>: Integer - Device id of the audio device<br>
 Parameter: <i><b>size</b></i>: Integer - Current output audio file<br>
 </td></tr>
@@ -1388,93 +1388,93 @@ When an video device is open, a parameter <i>mode</i> must be provided. The <i>m
 <table><tr></tr>
 <tr><td><b>void videoDevice_close(const int devid)</b></td></tr>
 <tr><td>
-Closes a video device.<br>
+Closes a video device.<br><br>
 Parameter: <i><b>devid</b></i>: Integer - Device id of the video device obtained when it was opened.<br>
 Return value: None
 </td></tr>
 <tr><td><b>QString videoDevice_default()</b></td></tr>
 <tr><td>
-Retrieves the device name of the default video device.<br>
+Retrieves the device name of the default video device.<br><br>
 Parameter: None<br>
 Return value: String - Device name of the default video device
 </td></tr>
 <tr><td><b>QString videoDevice_description(const QString &devname)</b></td></tr>
 <tr><td>
-Retrieves the readable description of a video device.<br>
+Retrieves the readable description of a video device.<br><br>
 Parameter: <i><b>devname</b></i>: String - Device name of the video device<br>
 Return value: String - Readable description of the video device
 </td></tr>
 <tr><td><b>QList&lt;int&gt; videoDevice_frameRates(const QString &devname)</b></td></tr>
 <tr><td>
-Retrieves a list of supported frame rates of a video device.<br>
+Retrieves a list of supported frame rates of a video device.<br><br>
 Parameter: <i><b>devname</b></i>: String - Device name of the video device<br>
 Return value: List - A list of Integer containing all the frame rates supported by the video device in frames per second
 </td></tr>
 <tr><td><b>bool videoDevice_isOpen()</b></td></tr>
 <tr><td>
-Returns wether there is any video device open.<br>
+Returns wether there is any video device open.<br><br>
 Parameter: None<br>
 Return value: Boolean - True if there is any video device open, false otherwise
 </td></tr>
 <tr><td><b>bool videoDevice_isOpen(const QString &devname)</b></td></tr>
 <tr><td>
-Returns wether a specific video device is open.<br>
+Returns wether a specific video device is open.<br><br>
 Parameter: <i><b>devname</b></i>: String - Device name of the video device<br>
 Return value: Boolean - True if the video device is open, false otherwise
 </td></tr>
 <tr><td><b>QList&lt;QString&gt; videoDevice_list()</b></td></tr>
 <tr><td>
-Returns a list of device names of the available video devices.<br>
+Returns a list of device names of the available video devices.<br><br>
 Parameter: None
 Return value: List - A list of String containing the device names of the available video devices
 </td></tr>
 <tr><td><b>int videoDevice_open(const QString &devname, const QString &mode)</b></td></tr>
 <tr><td>
-Opens an video device and returns a new video device id.<br>
+Opens an video device and returns a new video device id.<br><br>
 Parameter: <i><b>devname</b></i>: String - Device name of the video device<br>
 Parameter: <i><b>mode</b></i>: String - Audio mode to be used to open. It is composed by a list of values separated by commas in the format <i>"widthxheight,framerate"</i><br>
 Return value: Integer - Device id for the video device. If the video device could not be open, this value is -1<br>
 </td></tr>
 <tr><td><b>int videoDevice_orientation(const QString &devname)</b></td></tr>
 <tr><td>
-Returns the current orientation of the video device. Applies to cameras only.<br>
+Returns the current orientation of the video device. Applies to cameras only.<br><br>
 Parameter: <i><b>devname</b></i>: String - Device name of the video device<br>
 Return value: String - Current orientation. The possible values are <i>LANDSCAPE</i> and <i>PORTRAIT</i><br>
 </td></tr>
 <tr><td><b>int videoDevice_position(const QString &devname)</b></td></tr>
 <tr><td>
-Returns the position of the video device (camera) in the device (mobile devices).<br>
+Returns the position of the video device (camera) in the device (mobile devices).<br><br>
 Parameter: <i><b>devname</b></i>: String - Device name of the video device<br>
 Return value: String - Camera position. The possible values are <i>FRONT</i> and <i>BACK</i><br>
 </td></tr>
 <tr><td><b>QList&lt;QString&gt; videoDevice_resolutions(const QString &devname)</b></td></tr>
 <tr><td>
-Retrieves a list of supported resolutions of a video device.<br>
+Retrieves a list of supported resolutions of a video device.<br><br>
 Parameter: <i><b>devname</b></i>: String - Device name of the video device<br>
 Return value: List - A list of String containing all the resolutions supported by the video device in the format <i>widthxheight</i>
 </td></tr>
 <tr><td><b>void videoDevice_setQuality(const int devid, const int quality)</b></td></tr>
 <tr><td>
-Sets the quality of the video after the device has been opened.<br>
+Sets the quality of the video after the device has been opened.<br><br>
 Parameter: <i><b>devid</b></i>: Integer - Device id of the video device<br>
 Parameter: <i><b>quality</b></i>: Integer - Quality factor. Value between 0 (lowest quality) and 100 (highest uncompressed quality)<br>
 Return value: None
 </td></tr>
 <tr><td><b>QByteArrayView videoDevice_takeShot(const int devid)</b></td></tr>
 <tr><td>
-Takes a screenshot from the video input and returns it as a binary value.<br>
+Takes a screenshot from the video input and returns it as a binary value.<br><br>
 Parameter: <i><b>devid</b></i>: Integer - Device id of the video device<br>
 Return value: Binary value containing the image in JPEG format
 </td></tr>
 <tr><td><b>SIGNAL - videoDevice_Data(const int devid, QByteArrayView data)</b></td></tr>
 <tr><td>
-Triggered when there is data available from a video device.<br>
+Triggered when there is data available from a video device.<br><br>
 Parameter: <i><b>devid</b></i>: Integer - Device id of the video device<br>
 Parameter: <i><b>data</b></i>: Binary - Data in the JPEG format with the width and height specified when the video device was opened<br>
 </td></tr>
 <tr><td><b>SIGNAL - videoDevice_Error(const int devid, const QString &error)</b></td></tr>
 <tr><td>
-Triggered when an error accurred in the video device.<br>
+Triggered when an error accurred in the video device.<br><br>
 Parameter: <i><b>devid</b></i>: Integer - Device id of the video device<br>
 Parameter: <i><b>error</b></i>: String - Description of the error<br>
 </td></tr>
