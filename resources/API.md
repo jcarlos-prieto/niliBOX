@@ -1852,3 +1852,9 @@ MF_336<br>
 MF_384<br>
 MF_504
 </td></tr>
+<tr><td><b>float DSP_avg(QByteArrayView input)</b></td></tr>
+<tr><td>
+Return the average of all values in the input series.<br><br>
+Parameter: <i><b>input</b></i>: Binary
+Return value: Real - Result of the average
+</td></tr>
