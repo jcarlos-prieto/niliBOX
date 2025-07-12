@@ -33,7 +33,7 @@ The appearence of these controls is modified by the theme properties also listed
 <tr>
 <td>TButton</td>
 <td>
-Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-controls-abstractbutton.html>AbstractButton</a><br>
+Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-controls-abstractbutton.html>AbstractButton</a><br><br>
 <ul>
 <li>Property <i><b>name</b></i>: String</li>
 <li>Property <i><b>tooltiptext</b></i>: String - Text for tooltip box</li>
