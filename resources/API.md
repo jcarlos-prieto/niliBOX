@@ -1204,14 +1204,14 @@ function audioDeviceData(devid, data)
 ### Audio subsystem
 The audio subsystem handles the audio devices.<br>
 Every audio device can be identified in 3 different ways:
-- *Device name*: A string that identifies an audio device available in the system</li>
-- *Device id*: An integer identifying an audio device that has been open and can be used for input/output operations</li>
-- *Description*: A string providing a readable name for the audio device</li>
+- *Device name*: A string that identifies an audio device available in the system
+- *Device id*: An integer identifying an audio device that has been open and can be used for input/output operations
+- *Description*: A string providing a readable name for the audio device
 
 When an audio device is open, a parameter <i>mode</i> must be provided. The <i>mode</i> is composed by a list of values separated by commas in the format <i>"samplerate,samplingbits,compressedbits"</i>. This is the meaning of each value:
-- *samplerate*: Integer - Audio rate in samples per second. The standard values are 8000, 11020, 16000, 22040, 32000, 44080 and 48000</li>
-- *samplingbits*: Integer - Number of bits per sample. It can be 8 (unsigned), 16 (signed) or 32 (float)</li>
-- *compressedbits*: Integer - The audio can be open in compressed mode. In this case, the audio will be compressed before sending it from server to client and viceversa and uncompressed at destination. The possible values are 8 and 16 bits</li>
+- *samplerate*: Integer - Audio rate in samples per second. The standard values are 8000, 11020, 16000, 22040, 32000, 44080 and 48000
+- *samplingbits*: Integer - Number of bits per sample. It can be 8 (unsigned), 16 (signed) or 32 (float)
+- *compressedbits*: Integer - The audio can be open in compressed mode. In this case, the audio will be compressed before sending it from server to client and viceversa and uncompressed at destination. The possible values are 8 and 16 bits
 
 An audio device can be a physical device but also a virtual input audio device. The vitual input devices are created when a module has audio output capabilities. In this way, the output of a module can be used as input for anoher module.<br>
 
@@ -1368,13 +1368,13 @@ Parameter: <i><b>size</b></i>: Integer - Current output audio file<br>
 ### Video subsystem
 The video subsystem handles the video input devices. There is no equivalent for output video devices.<br>
 Every video device can be identified in 3 different ways:
-- *Device name*: A string that identifies a video device available in the system</li>
-- *Device id*: An integer identifying a video device that has been open and can be used for input operations</li>
-- *Description*: A string providing a readable name for the video device</li>
+- *Device name*: A string that identifies a video device available in the system
+- *Device id*: An integer identifying a video device that has been open and can be used for input operations
+- *Description*: A string providing a readable name for the video device
 
 When an video device is open, a parameter <i>mode</i> must be provided. The <i>mode</i> is composed by a list of values separated by commas in the format <i>"resolution,framerate"</i>. This is the meaning of each value:
-- *resolution*: String - Size of the video frame in the format *widthxheight*. The symbol *x* must be included</li>
-- *framerate*: Integer - Number of frames per second</li>
+- *resolution*: String - Size of the video frame in the format *widthxheight*. The symbol *x* must be included
+- *framerate*: Integer - Number of frames per second
 
 <table><tr></tr>
 <tr><td><b>void videoDevice_close(const int devid)</b></td></tr>
@@ -1462,20 +1462,22 @@ Return value: Binary value containing the image in JPEG format
 ### Serial subsystem
 The serial subsystem handles the serial port devices.<br>
 Every serial port can be identified in 3 different ways:
-- *Device name*: A string that identifies a serial port device available in the system</li>
-- *Device id*: An integer identifying a serial port that has been open and can be used for input/output operations</li>
-- *Description*: A string providing a readable name for the serial port device</li>
+- *Device name*: A string that identifies a serial port device available in the system
+- *Device id*: An integer identifying a serial port that has been open and can be used for input/output operations
+- *Description*: A string providing a readable name for the serial port device
 
 When an serial port device is open, a parameter <i>mode</i> must be provided. The <i>mode</i> is composed by a list of values separated by commas in the format <i>"baudrate,parity,databits,stopbits,flowcontrol"</i>. This is the meaning of each value:
-- *baudrate*: Integer - Baud rate</li>
-- *parity*: String - Any value among *N*, *E*, *O*, *S*, *M* for *None*, *Even*, *Odd*, *Space*, *Mark*</li>
-- *baudrate*: Integer - Baud rate</li>
+- *baudrate*: Integer - Baud rate
+- *parity*: String - Any value among *N*, *E*, *O*, *S*, *M* for *None*, *Even*, *Odd*, *Space*, *Mark*
+- *databits*: Integer - Any value among *8*, *7*, *6*, *5*
+- *stopbits*: Real - Any value among *1*, *1.5*, *2*
+- *flowcontrol*: String - Any value among *NO*, *HW*, *SW* for *None*, *Hardware*, *Software*
 
 <table><tr></tr>
-<tr><td><b>void videoDevice_close(const int devid)</b></td></tr>
+<tr><td><b>void serialPort_close(const int devid)</b></td></tr>
 <tr><td>
-Closes a video device.<br>
-Parameter: <i><b>devid</b></i>: Integer - Device id of the video device obtained when it was opened.<br>
+Closes a serial port device.<br>
+Parameter: <i><b>devid</b></i>: Integer - Device id of the serial port device obtained when it was opened.<br>
 Return value: None
 </td></tr>
 </table>
