@@ -1928,13 +1928,26 @@ Return value: Binary - Series of values in the frequrncy domain. As the input is
 Filter a series of real values. Please note that the filter coeficients must be calculated before calling this function using <i>DSP_setFilterParams</i><br><br>
 Parameter: <i><b>dspid</b></i>: Integer - DSP id<br>
 Parameter: <i><b>input</b></i>: Binary - Input series of real values<br>
-Return value: Binary - Filtered series of real values. The length of the reulting series is equal to the input
+Return value: Binary - Filtered series of real values. The length of the resulting series is equal to the input
 </td></tr>
 <tr><td><b>QByteArrayView DSP_filter_c(const int dspid, QByteArrayView input)</b></td></tr>
 <tr><td>
 Filter a series of complex values. Please note that the filter coeficients must be calculated before calling this function using <i>DSP_setFilterParams</i><br><br>
 Parameter: <i><b>dspid</b></i>: Integer - DSP id<br>
 Parameter: <i><b>input</b></i>: Binary - Input series of complex values<br>
-Return value: Binary - Filtered series of real values. The length of the reulting series is equal to the input
+Return value: Binary - Filtered series of real values. The length of the resulting series is equal to the input
+</td></tr>
+<tr><td><b>float DSP_max(QByteArrayView input)</b></td></tr>
+<tr><td>
+Return the maximum value in the input series.<br><br>
+Parameter: <i><b>input</b></i>: Binary - Series of real values<br>
+Return value: Real - Maximum value
+<tr><td><b>QByteArrayView DSP_mirics_convert(QByteArrayView input, Box::MiricsFormat format, const int rate)</b></td></tr>
+<tr><td>
+The Mirics chipset for SDR devices generates outputs the data in a special format which must be preprocessed in order to get a raw I/Q complex values series. The purpose of this function is to perform that conversion. There are 4 subformats: <i>252</i>, <i>336</i>, <i>384</i> and <i>504</i><br><br>
+Parameter: <i><b>input</b></i>: Binary - Input series in Mirics format<br>
+Parameter: <i><b>format</b></i>: MiricsFormat - Check the definition of this enum above<br>
+Parameter: <i><b>rate</b></i>: Integer - Sample rate<br>
+Return value: Binary - Series of complex I/Q values
 </td></tr>
 </table>
