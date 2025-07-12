@@ -1497,77 +1497,77 @@ When an serial port device is open, a parameter <i>mode</i> must be provided. Th
 <table><tr></tr>
 <tr><td><b>void serialPort_close(const int devid)</b></td></tr>
 <tr><td>
-Closes a serial port device.<br>
+Closes a serial port device.<br><br>
 Parameter: <i><b>devid</b></i>: Integer - Device id of the serial port device obtained when it was opened.<br>
 Return value: None
 </td></tr>
 <tr><td><b>QString serialPort_description(const QString &devname)</b></td></tr>
 <tr><td>
-Retrieves the readable description of a serial port device.<br>
+Retrieves the readable description of a serial port device.<br><br>
 Parameter: <i><b>devname</b></i>: String - Device name of the serial port device<br>
 Return value: String - Readable description of the serial device
 </td></tr>
 <tr><td><b>int serialPort_DTR(const int devid, const int newDTR = -1)</b></td></tr>
 <tr><td>
-Retrieves and optionally sets the DTR signal for the serial port.<br>
+Retrieves and optionally sets the DTR signal for the serial port.<br><br>
 Parameter: <i><b>devid</b></i>: Integer - Device id of the serial port device<br>
 Parameter: <i><b>newDTR</b></i>: Integer - New DTR (0 or 1). If this parameter is not provided, then no action is taken<br>
 Return value: Integer - Current value for DTR (0 or 1). If a new DTR value is provided, the current value is read after the value is set
 </td></tr>
 <tr><td><b>bool serialPort_isOpen(const QString &devname)</b></td></tr>
 <tr><td>
-Returns wether a specific serial port device is open.<br>
+Returns wether a specific serial port device is open.<br><br>
 Parameter: <i><b>devname</b></i>: String - Device name of the serial port device<br>
 Return value: Boolean - True if the serial port device is open, false otherwise
 </td></tr>
 <tr><td><b>QString serialPort_manufacturer(const QString &devname)</b></td></tr>
 <tr><td>
-Returns the manufacturer of the serial port device.<br>
+Returns the manufacturer of the serial port device.<br><br>
 Parameter: <i><b>devname</b></i>: String - Device name of the serial port device<br>
 Return value: String - Name of the manufacturer of the serial port device. Blank if not available
 </td></tr>
 <tr><td><b>int serialPort_open(const QString &devname, const QString &mode)</b></td></tr>
 <tr><td>
-Opens a serial port device and returns a new serial port device id.<br>
+Opens a serial port device and returns a new serial port device id.<br><br>
 Parameter: <i><b>devname</b></i>: String - Device name of the serial port device<br>
 Parameter: <i><b>mode</b></i>: String - Port mode to be used to open. It is composed by a list of values separated by commas in the format <i>"baudrate,parity,databits,stopbits,flowcontrol"</i><br>
 Return value: Integer - Device id for the serial port device. If the serial port device could not be open, this value is -1<br>
 </td></tr>
 <tr><td><b>int serialPort_RTS(const int devid, const int newRTS = -1)</b></td></tr>
 <tr><td>
-Retrieves and optionally sets the RTS signal for the serial port.<br>
+Retrieves and optionally sets the RTS signal for the serial port.<br><br>
 Parameter: <i><b>devid</b></i>: Integer - Device id of the serial port device<br>
 Parameter: <i><b>newRTS</b></i>: Integer - New RTS (0 or 1). If this parameter is not provided, then no action is taken<br>
 Return value: Integer - Current value for RTS (0 or 1). If a new RTS value is provided, the current value is read after the value is set
 </td></tr>
 <tr><td><b>QString serialPort_serialNumber(const QString &devname)</b></td></tr>
 <tr><td>
-Returns the serial number of the serial port device.<br>
+Returns the serial number of the serial port device.<br><br>
 Parameter: <i><b>devname</b></i>: String - Device name of the serial port device<br>
 Return value: String - Serial number of the serial port device. Blank if not available
 </td></tr>
 <tr><td><b>QString serialPort_systemLocation(const QString &devname)</b></td></tr>
 <tr><td>
-Returns the system location of the serial port device.<br>
+Returns the system location of the serial port device.<br><br>
 Parameter: <i><b>devname</b></i>: String - Device name of the serial port device<br>
 Return value: String - System location of the serial port device. Blank if not available
 </td></tr>
 <tr><td><b>serialPort_write(const int devid, QByteArray data)</b></td></tr>
 <tr><td>
-Writes data to a serial port device.<br>
+Writes data to a serial port device.<br><br>
 Parameter: <i><b>devid</b></i>: Integer - Device id of the serial port device<br>
 Parameter: <i><b>data</b></i>: String - Data to be written<br>
 Return value: None
 </td></tr>
 <tr><td><b>SIGNAL - serialPort_Data(const int devid, QByteArray data)</b></td></tr>
 <tr><td>
-Triggered when there is data available from a serial port device.<br>
+Triggered when there is data available from a serial port device.<br><br>
 Parameter: <i><b>devid</b></i>: Integer - Device id of the serial port device<br>
 Parameter: <i><b>data</b></i>: String - Data received<br>
 </td></tr>
 <tr><td><b>SIGNAL - serialPort_Error(const int devid)</b></td></tr>
 <tr><td>
-Triggered when an error accurred in the serial port device.<br>
+Triggered when an error accurred in the serial port device.<br><br>
 Parameter: <i><b>devid</b></i>: Integer - Device id of the serial port device<br>
 </td></tr>
 </table>
@@ -1587,7 +1587,7 @@ Every USB device can be identified in 3 different ways:
 <table><tr></tr>
 <tr><td><b>int USB_attach_kernel_driver(const int usbhandleid, const int interface)</b></td></tr>
 <tr><td>
-Wrapper for <a href=https://libusb.sourceforge.io/api-1.0/group__libusb__dev.html#gadeba36e900db663c0b7cf1b164a20d02>libusb_attach_kernel_driver()</a>. Re-attach an interface's kernel driver, which was previously detached using USB_detach_kernel_driver(). This functionality is not available on Windows.<br>
+Wrapper for <a href=https://libusb.sourceforge.io/api-1.0/group__libusb__dev.html#gadeba36e900db663c0b7cf1b164a20d02>libusb_attach_kernel_driver()</a>. Re-attach an interface's kernel driver, which was previously detached using USB_detach_kernel_driver(). This functionality is not available on Windows.<br><br>
 Parameter: <i><b>usbhandleid</b></i>: Integer - Handle id of the USB device obtained when it was opened.<br>
 Parameter: <i><b>interface</b></i>: Integer - USB interface to be attached.<br>
 Return value: Integer - 0 on success. Error code otherwise
