@@ -1358,14 +1358,14 @@ Return value: None
 <tr><td>
 Write audio to an output audio device.<br><br>
 Parameter: <i><b>devid</b></i>: Integer - Device id of the audio device<br>
-Parameter: <i><b>data</b></i>: Binary - Data in the format specified when the audio device was open (8 bit unsigned, 16 bit signed or float)<br>
+Parameter: <i><b>data</b></i>: Binary - Data in the standard format of 32-bit float values<br>
 Return value: None
 </td></tr>
 <tr><td><b>SIGNAL - audioDevice_Data(const int devid, QByteArrayView data)</b></td></tr>
 <tr><td>
 Triggered when there is data available from an input audio device.<br><br>
 Parameter: <i><b>devid</b></i>: Integer - Device id of the audio device<br>
-Parameter: <i><b>data</b></i>: Binary - Data in the format specified when the audio device was opened (8 bit unsigned, 16 bit signed or float)<br>
+Parameter: <i><b>data</b></i>: Binary - Data in the standard format of 32-bit float values<br>
 </td></tr>
 <tr><td><b>SIGNAL - audioDevice_Error(const int devid, const QString &error)</b></td></tr>
 <tr><td>
