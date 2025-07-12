@@ -33,10 +33,10 @@ The appearence of these controls is modified by the theme properties also listed
 <tr>
 <td>TButton</td>
 <td>
-Extends:</bold> <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-controls-abstractbutton.html>AbstractButton</a>
+Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-controls-abstractbutton.html>AbstractButton</a><br>
 <ul>
-<li>Property: <i><b>name</b></i>: String</li>
-<li>Property: <i><b>tooltiptext</b></i>: String - Text for tooltip box</li>
+<li>Property <i><b>name</b></i>: String</li>
+<li>Property <i><b>tooltiptext</b></i>: String - Text for tooltip box</li>
 <li>Theme properties: <i><b>margin margin-top margin-bottom margin-left margin-right padding padding-top padding-botton padding-left padding-right border-width radius angle foreground-color border-color text-color text-weight image</b></i></li>
 </ul>
 </td>
@@ -67,19 +67,19 @@ Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-column.html>Column
 Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-controls-combobox.html>ComboBox</a>
 <ul>
 <li>Property <i><b>name</b></i>: String</li>
-<li>Subcomponent <i><b>.arrow</b></i>:  Theme properties: angle foregrouund-color image</li>
 <li>Theme properties: <i><b>margin margin-top margin-bottom margin-left margin-right padding padding-top padding-botton padding-left padding-right border-width radius foreground-color border-color text-color</b></i></li>
+<li>Subcomponent <i><b>.arrow</b></i>: Theme properties: <i><b>angle foregrouund-color image</b></i></li>
 </ul>
 </td>
 </tr>
 <tr>
 <td>TGraph</td>
 <td>
-This is a native control, not inheriting any standard QML control. It provides a high quality graph panel for time series signals.<br>
+This is a native control, not inheriting any standard QML control. It provides a high quality graph panel for time and frequency series signals.<br>
 When we refer to a color data type, it means a String value representing a color, either in <a href=https://doc.qt.io/archives/qt-6.7/qml-color.html#svg-color-reference>SVG color</a> or in #RRGGBB hexadecimal format.
 <ul>
 <li>Property <i><b>name</b></i>: String</li>
-<li>Property <i><b>data</b></i>: QByteArrayView containing an array of 32-bit floatint point values. Check <a href=./API.md#box-api>Box API</a> for an explanation of this data type</li>
+<li>Property <i><b>data</b></i>: QByteArrayView containing an array of 32-bit floating point values. Check <a href=./API.md#box-api>Box API</a> for an explanation of this data type</li>
 <li>Property <i><b>backgroundcolor</b></i>: Color - Color of the background panel</li>
 <li>Property <i><b>signalcolor</b></i>: Color - Color of the curve representing the signal</li>
 <li>Property <i><b>signalfillcolor1</b></i>: Color - When the signal graph is filled, this is the color of the upper part of the filling gradient</li>
@@ -103,7 +103,7 @@ When we refer to a color data type, it means a String value representing a color
 Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-grid.html>Grid</a>
 <ul>
 <li>Property <i><b>name</b></i>: String</li>
-<li>Theme properties: <i<b>>margin margin-top margin-bottom margin-left margin-right padding padding-top padding-botton padding-left padding-right spacing</i></i></li>
+<li>Theme properties: <i><b>margin margin-top margin-bottom margin-left margin-right padding padding-top padding-botton padding-left padding-right spacing</b></i></i></li>
 </ul>
 </td>
 </tr>
@@ -136,8 +136,8 @@ This is a native control, not inheriting any standard QML control. It provides a
 <li>Property <i><b>hovered</b></i>: Boolean - True if the knob is hovered</li>
 <li>Property <i><b>fast</b></i>: Boolean - If true, it provides the functionality of changes values by clicking and moving the mouse to right and left</li>
 <li>Property <i><b>tooltiptext</b></i>: String - Text of the tooltip box</li>
-<li>Subcomponent <i><b>.arrow</b></i>: Theme properties: image</li>
 <li>Theme properties: <i><b>margin margin-top margin-bottom margin-left margin-right border-width foreground-color border-color text-color</b></i></li>
+<li>Subcomponent <i><b>.arrow</b></i>: Theme properties: <i><b>image</b></i></li>
 </ul>
 </td>
 </tr>
@@ -146,8 +146,8 @@ This is a native control, not inheriting any standard QML control. It provides a
 <td>
 Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-controls-label.html>Label</a>
 <ul>
-<li>Additional property <i><b>name</b></i>: String</li>
-<li>Additional property <i><b>pressed</b></i>: Boolean - True if the label is pressed</li>
+<li>Property <i><b>name</b></i>: String</li>
+<li>Property <i><b>pressed</b></i>: Boolean - True if the label is pressed</li>
 <li>Theme properties: <i><b>padding padding-top padding-botton padding-left padding-right border-width radius angle foreground-color border-color text-color text-weight image</b></i></li>
 </ul>
 </td>
@@ -187,7 +187,7 @@ Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-controls-slider.ht
 <td>
 This is a native control, not inheriting any standard QML control. It provides a panel to show live video.<br>
 <ul>
-<li>Property <i><b>data</b></i>: QByteArrayView containing an image captured by the Video subsystem in the <a href=./API.md#box-api>Box API</a></li>
+<li>Property <i><b>data</b></i>: QByteArrayView containing an image captured by the Video subsystem. Check <a href=./API.md#box-api>Box API</a> for an explanation of this data type</li>
 <li>Property <i><b>mirror</b></i>: Boolean - If true, the image is shown upside down</li>
 <li>Theme properties: None</li>
 </ul>
@@ -219,8 +219,9 @@ Example: <code>let box = b_getbox("REMOTE");</code><br>
 <tr>
 <td>b_send(key,value)</td>
 <td>
-Client: Send data to the server side.<br>
-Config: Add the module configuration file a parameter <code>key</code> with value <code>value</code>
+The usage differs depending on wether it is used in <i>Client</i> or <i>Config</i> resource:<br>
+<i>Client</i>: Send data to the server side.<br>
+<i>Config</i>: Add a parameter <i>key</i> with value <i>value</i> to the module configuration file 
 <ul>
 <li>Parameter <i><b>key</b></i>: String</li>
 <li>Parameter <i><b>value</b></i>: Any basic Javascript type</li>
