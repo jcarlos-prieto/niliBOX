@@ -1882,10 +1882,45 @@ Return value: Integer - Identifier of the new <i>DSP</i> object
 </td></tr>
 <tr><td><b>QByteArrayView DSP_demodulate(const int dspid, QByteArrayView input, const int fs, const Box::Band band)</b></td></tr>
 <tr><td>
-Demodulates a complex I/Q series of values to audio..<br><br>
+Demodulates a complex I/Q series of values to audio.<br><br>
 Parameter: <i><b>dspid</b></i>: Integer - DSP id<br>
 Parameter: <i><b>input</b></i>: Binary Complex - Input complex series. This series comes usually from a SDR radio receiver<br>
 Parameter: <i><b>fs</b></i>: Integer - Sampling frequency of the input series<br>
-Parameter: <i><b>fs</b></i>: Band - One value from the *Band* enum specifying the demodulation type (AM, FM, etc.). For instance, *Box.BAND_WFM* for wide FM.<br>
+Parameter: <i><b>band</b></i>: Band - One value from the *Band* enum specifying the demodulation type (AM, FM, etc.). For instance, *Box.BAND_WFM* for wide FM.<br>
 Return value: Binary - Demodulated signal.
 </td></tr>
+<tr><td><b>void DSP_dump(QByteArrayView input, const QString &filename, const bool append = false)</b></td></tr>
+<tr><td>
+Dump the content of the series of real values to a file in readable format. For debug purposes.<br><br>
+Parameter: <i><b>input</b></i>: Binary - Series of values<br>
+Parameter: <i><b>filename</b></i>: String - File name to write the output<br>
+Parameter: <i><b>append</b></i>: Boolean - Specifies wether the values are appended to the file or it is ovewritten at each call. The default is not to append<br>
+Return value: None
+</td></tr>
+<tr><td><b>void DSP_dump_c(QByteArrayView input, const QString &filename, const bool append = false)</b></td></tr>
+<tr><td>
+Dump the content of the series of complex values to a file in readable format. For debug purposes.<br><br>
+Parameter: <i><b>input</b></i>: Binary Complex - Series of complex values<br>
+Parameter: <i><b>filename</b></i>: String - File name to write the output<br>
+Parameter: <i><b>append</b></i>: Boolean - Specifies wether the values are appended to the file or it is ovewritten at each call. The default is not to append<br>
+Return value: None
+</td></tr>
+<tr><td><b>QByteArrayView DSP_FFT(const int dspid, QByteArrayView input, const int width = -1, const Box::FFTWindow window_type = FFTW_BLACKMAN_HARRIS_4)</b></td></tr>
+<tr><td>
+Calculate the FFT of a series of real values. The length of the input is truncated to the nearest power of 2 value. For instance, if the series contains 1000 values, only 512 will be used. If the series contains 1030, then 1024 values will be used.<br><br>
+Parameter: <i><b>dspid</b></i>: Integer - DSP id<br>
+Parameter: <i><b>input</b></i>: Binary - Input series of real values in time domain.<br>
+Parameter: <i><b>width</b></i>: Integer - If specified, the resulting series of values in the frequency domain will be resampled to this width<br>
+Parameter: <i><b>window_type</b></i>: FFTWindow - The FFT window to be applied to the input series. This is related to the technique to calculate the FFT.<br>
+Return value: Binary - Series of values in the frequrncy domain. As the input is a series of real values, the output series in the frequency will be always symmetric and only the positive half will be included in the resulting series.
+</td></tr>
+<tr><td><b>QByteArrayView DSP_FFT_c(const int dspid, QByteArrayView input, const int width = -1, const Box::FFTWindow window_type = FFTW_BLACKMAN_HARRIS_4)</b></td></tr>
+<tr><td>
+Calculate the FFT of a series of complex values. The length of the input is truncated to the double of the nearest power of 2 value. For instance, if the series contains 1000 values (500 complex samples) , only 256 will be used. If the series contains 1030 (515 complex value), then 512 values will be used.<br><br>
+Parameter: <i><b>dspid</b></i>: Integer - DSP id<br>
+Parameter: <i><b>input</b></i>: Binary - Input series of complex values in time domain.<br>
+Parameter: <i><b>width</b></i>: Integer - If specified, the resulting series of values in the frequency domain will be resampled to this width<br>
+Parameter: <i><b>window_type</b></i>: FFTWindow - The FFT window to be applied to the input series. This is related to the technique to calculate the FFT.<br>
+Return value: Binary - Series of values in the frequrncy domain. As the input is a series of complex values, the output series in the frequency domain will not be be always symmetric and the full spectrum will be provided.
+</td></tr>
+</table>
