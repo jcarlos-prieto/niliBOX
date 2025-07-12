@@ -207,13 +207,13 @@ These functions can be called from your source code, both a QML action or a Java
 <tr>
 <td>b_getbox(type)</td>
 <td>
-Create a new Box object to interact with the C++ Box API.
+Create a new Box object to interact with the C++ Box API.<br><br>
 <ul>
 <li>Parameter <i><b>type</b></i>: String - It can be either "REMOTE" or nothing. If "REMOTE" is provided, then the Box object will access the hardware at the server side</li>
 <li>Return value: An object of type Box</li>
 </ul>
 Example: <code>let box = b_getbox();</code><br>
-Example: <code>let box = b_getbox("REMOTE");</code><br>
+Example: <code>let box = b_getbox("REMOTE");</code>
 </td>
 </tr>
 <tr>
@@ -221,7 +221,7 @@ Example: <code>let box = b_getbox("REMOTE");</code><br>
 <td>
 The usage differs depending on wether it is used in <i>Client</i> or <i>Config</i> resource:<br>
 <i>Client</i>: Send data to the server side.<br>
-<i>Config</i>: Add a parameter <i>key</i> with value <i>value</i> to the module configuration file 
+<i>Config</i>: Add a parameter <i>key</i> with value <i>value</i> to the module configuration file.<br><br>
 <ul>
 <li>Parameter <i><b>key</b></i>: String</li>
 <li>Parameter <i><b>value</b></i>: Any basic Javascript type</li>
@@ -234,13 +234,13 @@ Example: <code>b_send("gain", "15");</code><br>
 <tr>
 <td>b_sendbin(key,value)</td>
 <td>
-Send binary data to the server side.
+Send binary data to the server side.<br><br>
 <ul>
 <li>Parameter <i><b>key</b></i>: String</li>
 <li>Parameter <i><b>value</b></i>: Binary - The binary type is a mirror of the Qt type QByteArrayView. Check in the <a href=./API.md#box-api>Box API</a> section for an explanation of this data type.</li>
 <li>Return value: None</li>
 </ul>
-Example: <code>b_send("audio", data);</code><br>
+Example: <code>b_sendbin("audio", data);</code><br>
 </td>
 </tr>
 <tr>
