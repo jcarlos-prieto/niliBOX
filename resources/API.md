@@ -1518,4 +1518,48 @@ Returns the manufacturer of the serial port device.<br>
 Parameter: <i><b>devname</b></i>: String - Device name of the serial port device<br>
 Return value: String - Name of the manufacturer of the serial port device. Blank is not available
 </td></tr>
+<tr><td><b>int serialPort_open(const QString &devname, const QString &mode)</b></td></tr>
+<tr><td>
+Opens a serial port device and returns a new serial port device id.<br>
+Parameter: <i><b>devname</b></i>: String - Device name of the serial port device<br>
+Parameter: <i><b>mode</b></i>: String - Port mode to be used to open. It is composed by a list of values separated by commas in the format <i>"baudrate,parity,databits,stopbits,flowcontrol"</i><br>
+Return value: Integer - Device id for the serial port device. If the serial port device could not be open, this value is -1<br>
+</td></tr>
+<tr><td><b>int serialPort_RTS(const int devid, const int newRTS = -1)</b></td></tr>
+<tr><td>
+Retrieves and optionally sets the RTS signal for the serial port.<br>
+Parameter: <i><b>devid</b></i>: Integer - Device id of the serial port device<br>
+Parameter: <i><b>newRTS</b></i>: Integer - New RTS (0 or 1). If this parameter is not provided, then no action is taken<br>
+Return value: Integer - Current value for RTS (0 or 1). If a new RTS value is provided, the current value is read after the value is set
+</td></tr>
+<tr><td><b>QString serialPort_serialNumber(const QString &devname)</b></td></tr>
+<tr><td>
+Returns the serial number of the serial port device.<br>
+Parameter: <i><b>devname</b></i>: String - Device name of the serial port device<br>
+Return value: String - Serial number of the serial port device. Blank is not available
+</td></tr>
+<tr><td><b>QString serialPort_systemLocation(const QString &devname)</b></td></tr>
+<tr><td>
+Returns the system location of the serial port device.<br>
+Parameter: <i><b>devname</b></i>: String - Device name of the serial port device<br>
+Return value: String - System location of the serial port device. Blank is not available
+</td></tr>
+<tr><td><b>serialPort_write(const int devid, QByteArray data)</b></td></tr>
+<tr><td>
+Writes data to a serial port device.<br>
+Parameter: <i><b>devid</b></i>: Integer - Device id of the serial port device<br>
+Parameter: <i><b>data</b></i>: String - Data to be written<br>
+Return value: None
+</td></tr>
+<tr><td><b>SIGNAL - serialPort_Data(const int devid, QByteArray data)</b></td></tr>
+<tr><td>
+Triggered when there is data available from a serial port device.<br>
+Parameter: <i><b>devid</b></i>: Integer - Device id of the serial port device<br>
+Parameter: <i><b>data</b></i>: String - Data received<br>
+</td></tr>
+<tr><td><b>SIGNAL - serialPort_Error(const int devid)</b></td></tr>
+<tr><td>
+Triggered when an error accurred in the serial port device.<br>
+Parameter: <i><b>devid</b></i>: Integer - Device id of the serial port device<br>
+</td></tr>
 </table>
