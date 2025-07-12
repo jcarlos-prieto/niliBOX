@@ -206,7 +206,7 @@ These functions can be called from your source code, both a QML action or a Java
 <tr>
 <td>b_getbox(type)</td>
 <td>
-Creates a new Box object to interact with the C++ Box API.
+Create a new Box object to interact with the C++ Box API.
 <ul>
 <li>Parameter <i><b>type</b></i>: String - It can be either "REMOTE" or nothing. If "REMOTE" is provided, then the Box object will access the hardware at the server side</li>
 <li>Return value: An object of type Box</li>
@@ -218,8 +218,8 @@ Example: <code>let box = b_getbox("REMOTE");</code><br>
 <tr>
 <td>b_send(key,value)</td>
 <td>
-Client: Sends data to the server side.<br>
-Config: Adds the module configuration file a parameter <code>key</code> with value <code>value</code>
+Client: Send data to the server side.<br>
+Config: Add the module configuration file a parameter <code>key</code> with value <code>value</code>
 <ul>
 <li>Parameter <i><b>key</b></i>: String</li>
 <li>Parameter <i><b>value</b></i>: Any basic Javascript type</li>
@@ -232,7 +232,7 @@ Example: <code>b_send("gain", "15");</code><br>
 <tr>
 <td>b_sendbin(key,value)</td>
 <td>
-Sends binary data to the server side.
+Send binary data to the server side.
 <ul>
 <li>Parameter <i><b>key</b></i>: String</li>
 <li>Parameter <i><b>value</b></i>: Binary - The binary type is a mirror of the Qt type QByteArrayView. Check in the <a href=./API.md#box-api>Box API</a> section for an explanation of this data type.</li>
@@ -244,7 +244,7 @@ Example: <code>b_send("audio", data);</code><br>
 <tr>
 <td>b_setvar(key,value)</td>
 <td>
-Sets a configuration parameter. The configuration parameters are used to save values that are permanent among several runs of the module.
+Set a configuration parameter. The configuration parameters are used to save values that are permanent among several runs of the module.
 <ul>
 <li>Parameter <i><b>key</b></i>: String - Setting name.</li>
 <li>Parameter <i><b>value</b></i>: Any basic Javascript data type - Setting value</li>
@@ -256,7 +256,7 @@ Example: <code>b_setvar("height", "100");</code><br>
 <tr>
 <td>b_getvar(key,default)</td>
 <td>
-Gets a configuration parameter. The configuration parameters are used to save values that are permanent among several runs of the module.
+Get a configuration parameter. The configuration parameters are used to save values that are permanent among several runs of the module.
 <ul>
 <li>Parameter <i><b>key</b></i>: String - Setting name.</li>
 <li>Parameter <i><b>default</b></i>: Any basic Javascript data type - Default value if the setting doesn't exist</li>
@@ -268,7 +268,7 @@ Example: <code>let h = b_setvar("height", "100");</code><br>
 <tr>
 <td>b_debug(value)</td>
 <td>
-Adds a message to the log file and the console if any.
+Add a message to the log file and the console if any.
 <ul>
 <li>Parameter <i><b>value</b></i>: Any native Javascript type</li>
 <li>Return value: None</li>
@@ -279,7 +279,7 @@ Example: <code>b_debug("height=" + h);</code><br>
 <tr>
 <td>b_param(key)</td>
 <td>
-Retrieves a configuration parameter from the main configuration file of the application stored in the file config.set.
+Retrieve a configuration parameter from the main configuration file of the application stored in the file config.set.
 <ul>
 <li>Parameter <i><b>key</b></i>: String</li>
 <li>Return value: String</li>
@@ -290,7 +290,7 @@ Example: <code>let theme = b_param("ui.theme");</code><br>
 <tr>
 <td>b_import(name,file)</td>
 <td>
-Imports a Javascript module of type .mjs.
+Import a Javascript module of type .mjs.
 <ul>
 <li>Parameter <i><b>name</b></i>: String - This value will be used to reference the primitives available in the imported module</li>
 <li>Parameter <i><b>file</b></i>: String - File name of the module to be imported. This file must be added to the resource collection file</li>
@@ -302,7 +302,7 @@ Example: <code>b_import("RTLSDR", "rtlsdr.mjs");</code><br>
 <tr>
 <td>b_translate(text)</td>
 <td>
-Returns the translation into the current language of the text (in English) provided.
+Return the translation into the current language of the text (in English) provided.
 <ul>
 <li>Parameter <i><b>text</b></i>: String - This value will be added to the corresponding language file to be manually translated before compilation</li>
 <li>Return value: String</li>
@@ -313,7 +313,7 @@ Example: <code>text: b_translate("Name:");</code><br>
 <tr>
 <td>b_theme(type,name,var)</td>
 <td>
-Returns the value of a parameter from the current theme. This could be a color, a size, etc. Usually, this function is not needed. It is used by the QML components included in the code.
+Return the value of a parameter from the current theme. This could be a color, a size, etc. Usually, this function is not needed. It is used by the QML components included in the code.
 <ul>
 <li>Parameter <i><b>type</b></i>: String - Control type</li>
 <li>Parameter <i><b>name</b></i>: String - Control name.</li>
@@ -326,7 +326,7 @@ Example: <code>color: b_theme("TButton", "mybutton", "foreground-color");</code>
 <tr>
 <td>b_conn()</td>
 <td>
-Returns the type of connection established between the client and the server. The possible values are:
+Return the type of connection established between the client and the server. The possible values are:
 <ul>
 <li><i>SELF</i>: The client and the server are on the same computer</li>
 <li><i>LOCAL</i>: The client and the server are on different computers on the same local network</li>
@@ -341,7 +341,7 @@ Example: <code>let connection = b_conn();</code><br>
 <tr>
 <td>b_mouse(type)</td>
 <td>
-Changes the shape of the mouse cursor.
+Change the shape of the mouse cursor.
 <ul>
 <li>Parameter <i><b>type</b></i>:  Qt::CursorShape type - This type is described <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-mousearea.html#cursorShape-prop>here</a></li>
 <li>Return value: None</li>
@@ -398,7 +398,7 @@ function b_finish()
 <tr>
 <td>b_receive(key,value)</td>
 <td>
-Receives data from the server side.<br>
+Receive data from the server side.<br>
 <ul>
 <li>Parameter <i><b>key</b></i>: String</li>
 <li>Parameter <i><b>value</b></i>: Any basic Javascript type</li>
@@ -417,7 +417,7 @@ function b_receive(key, value)
 <tr>
 <td>b_receivebin(key,value)</td>
 <td>
-Receives binary data from the server side.
+Receive binary data from the server side.
 <ul>
 <li>Parameter <i><b>key</b></i>: String</li>
 <li>Parameter <i><b>value</b></i>: Binary - The binary type is a mirror of the Qt type QByteArrayView. Check in the <a href=./API.md#box-api>Box API</a> section for an explanation of this data type.</li>
@@ -573,7 +573,7 @@ These functions can be called from your source Javascript code.
 <tr>
 <td>b_getbox(type)</td>
 <td>
-Creates a new Box object to interact with the C++ Box API.
+Create a new Box object to interact with the C++ Box API.
 <ul>
 <li>Parameter <i><b>type</b></i>: String - It can be either "REMOTE" or nothing. If "REMOTE" is provided, then the Box object will access the hardware at the server side</li>
 <li>Return value: An object of type Box</li>
@@ -585,7 +585,7 @@ Example: <code>let box = b_getbox("REMOTE");</code><br>
 <tr>
 <td>b_send(key,value)</td>
 <td>
-Sends data to the client side.
+Send data to the client side.
 <ul>
 <li>Parameter <i><b>key</b></i>: String</li>
 <li>Parameter <i><b>value</b></i>: Any basic Javascript type</li>
@@ -598,7 +598,7 @@ Example: <code>b_send("gain", "15");</code><br>
 <tr>
 <td>b_sendbin(key,value)</td>
 <td>
-Sends binary data to the client side.
+Send binary data to the client side.
 <ul>
 <li>Parameter <i><b>key</b></i>: String</li>
 <li>Parameter <i><b>value</b></i>: Binary - The binary type is a mirror of the Qt type QByteArrayView. Check in the <a href=./API.md#box-api>Box API</a> section for an explanation of this data type.</li>
@@ -610,7 +610,7 @@ Example: <code>b_send("audio", data);</code><br>
 <tr>
 <td>b_setvar(key,value)</td>
 <td>
-Sets a configuration parameter. The configuration parameters are used to save values that are permanent among several runs of the module.
+Set a configuration parameter. The configuration parameters are used to save values that are permanent among several runs of the module.
 <ul>
 <li>Parameter <i><b>key</b></i>: String - Setting name.</li>
 <li>Parameter <i><b>value</b></i>: Any basic Javascript data type - Setting value</li>
@@ -622,7 +622,7 @@ Example: <code>b_setvar("height", "100");</code><br>
 <tr>
 <td>b_getvar(key,default)</td>
 <td>
-Gets a configuration parameter. The configuration parameters are used to save values that are permanent among several runs of the module.
+Get a configuration parameter. The configuration parameters are used to save values that are permanent among several runs of the module.
 <ul>
 <li>Parameter <i><b>key</b></i>: String - Setting name.</li>
 <li>Parameter <i><b>default</b></i>: Any basic Javascript data type - Default value if the setting doesn't exist</li>
@@ -634,7 +634,7 @@ Example: <code>let h = b_setvar("height", "100");</code><br>
 <tr>
 <td>b_debug(value)</td>
 <td>
-Adds a message to the log file and the console if any.
+Add a message to the log file and the console if any.
 <ul>
 <li>Parameter <i><b>value</b></i>: Any native Javascript type</li>
 <li>Return value: None</li>
@@ -645,7 +645,7 @@ Example: <code>b_debug("height=" + h);</code><br>
 <tr>
 <td>b_param(key)</td>
 <td>
-Retrieves a configuration parameter from the main configuration file of the application stored in the file config.set.
+Retrieve a configuration parameter from the main configuration file of the application stored in the file config.set.
 <ul>
 <li>Parameter <i><b>key</b></i>: String</li>
 <li>Return value: String</li>
@@ -656,7 +656,7 @@ Example: <code>let theme = b_param("ui.theme");</code><br>
 <tr>
 <td>b_import(name,file)</td>
 <td>
-Imports a Javascript module of type .mjs.
+Import a Javascript module of type .mjs.
 <ul>
 <li>Parameter <i><b>name</b></i>: String - This value will be used to reference the primitives available in the imported module</li>
 <li>Parameter <i><b>file</b></i>: String - File name of the module to be imported. This file must be added to the resource collection file</li>
@@ -1227,43 +1227,43 @@ An audio device can be a physical device but also a virtual input audio device. 
 <table><tr></tr>
 <tr><td><b>void audioDevice_close(const int devid)</b></td></tr>
 <tr><td>
-Closes an audio device.<br><br>
+Close an audio device.<br><br>
 Parameter: <i><b>devid</b></i>: Integer - Device id of the audio device obtained when it was opened.<br>
 Return value: None
 </td></tr>
 <tr><td><b>QString audioDevice_defaultInput()</b></td></tr>
 <tr><td>
-Retrieves the device name of the default audio input device.<br><br>
+Retrieve the device name of the default audio input device.<br><br>
 Parameter: None<br>
 Return value: String - Device name of the default input audio device
 </td></tr>
 <tr><td><b>QString audioDevice_defaultOutput()</b></td></tr>
 <tr><td>
-Retrieves the device name of the default audio output device.<br><br>
+Retrieve the device name of the default audio output device.<br><br>
 Parameter: None<br>
 Return value: String - Device name of the default output audio device
 </td></tr>
 <tr><td><b>QString audioDevice_description(const QString &devname)</b></td></tr>
 <tr><td>
-Retrieves the readable description of an audio device.<br><br>
+Retrieve the readable description of an audio device.<br><br>
 Parameter: <i><b>devname</b></i>: String - Device name of the audio device<br>
 Return value: String - Readable description of the audio device
 </td></tr>
 <tr><td><b>bool audioDevice_isOpen()</b></td></tr>
 <tr><td>
-Returns wether there is any audio device open.<br><br>
+Return wether there is any audio device open.<br><br>
 Parameter: None<br>
 Return value: Boolean - True if there is any audio device open, false otherwise
 </td></tr>
 <tr><td><b>bool audioDevice_isOpen(const QString &devname)</b></td></tr>
 <tr><td>
-Returns wether a specific audio device is open.<br><br>
+Return wether a specific audio device is open.<br><br>
 Parameter: <i><b>devname</b></i>: String - Device name of the audio device<br>
 Return value: Boolean - True if the audio device is open, false otherwise
 </td></tr>
 <tr><td><b>QList&lt;QString&gt; audioDevice_list(const QString &mode = "ALL", bool raw = false)</b></td></tr>
 <tr><td>
-Returns a list of device names of the available audio devices.<br><br>
+Return a list of device names of the available audio devices.<br><br>
 Parameter: <i><b>mode</b></i>: String - Can take 3 different values:
 <ul>
 <li><i>"ALL"</i> (default): Returns all audio devices, input and output</li>
@@ -1275,19 +1275,19 @@ Return value: List - A list of String containing the device names of the request
 </td></tr>
 <tr><td><b>QString audioDevice_mode(const QString &devname)</b></td></tr>
 <tr><td>
-Returns the audio mode used to open a specific audio device by its device name. If the device is not open, then returns an empty String.<br><br>
+Return the audio mode used to open a specific audio device by its device name. If the device is not open, then returns an empty String.<br><br>
 Parameter: <i><b>devname</b></i>: String - Device name of the audio device<br>
 Return value: String - Audio mode of the device. It is composed by a list of values separated by commas in the format <i>"samplerate,samplingbits,compressedbits"</i>
 </td></tr>
 <tr><td><b>void audioDevice_mute(const int devid, const bool mute)</b></td></tr>
 <tr><td>
-Mutes an output audio device that is open.<br><br>
+Mute an output audio device that is open.<br><br>
 Parameter: <i><b>devid</b></i>: Integer - Device id of the audio device<br>
 Return value: None
 </td></tr>
 <tr><td><b>int audioDevice_open(const QString &devname, const QString &mode, const bool direct = false)</b></td></tr>
 <tr><td>
-Opens an audio device and returns a new audio device id.<br><br>
+Open an audio device and returns a new audio device id.<br><br>
 Parameter: <i><b>devname</b></i>: String - Device name of the audio device<br>
 Parameter: <i><b>mode</b></i>: String - Audio mode to be used to open. It is composed by a list of values separated by commas in the format <i>"samplerate,samplingbits,compressedbits"</i><br>
 Parameter: <i><b>direct</b></i>: Boolean - If true, the audio device will be open in <i>direct</i> mode: low latency, no buffering, no virtual input device created<br>
@@ -1295,14 +1295,14 @@ Return value: Integer - Device id for the audio device. If the audio device coul
 </td></tr>
 <tr><td><b>audioDevice_recordPause(const int devid, const bool pause)</b></td></tr>
 <tr><td>
-Pauses or resumes the process to record the output audio to a file.<br><br>
+Pause or resumes the process to record the output audio to a file.<br><br>
 Parameter: <i><b>devid</b></i>: Integer - Device id of the audio device<br>
 Parameter: <i><b>pause</b></i>: Boolean - If true, then pauses recording. If false, resumes recording<br>
 Return value: None
 </td></tr>
 <tr><td><b>audioDevice_recordStart(const int devid, const QString filename, const int rawsamplerate = 0)</b></td></tr>
 <tr><td>
-Starts the process to record the output audio to a file. Opens and initializes the output file.<br><br>
+Start the process to record the output audio to a file. Opens and initializes the output file.<br><br>
 Parameter: <i><b>devid</b></i>: Integer - Device id of the audio device<br>
 Parameter: <i><b>filename</b></i>: String - Name of the output file. The extension must be provided. The format of the file is a WAV<br>
 Parameter: <i><b>rawsamplerate</b></i>: Integer - If this value is zero, then the output file will be an mono audio file at the sample rate that the audio device was open. If this value is greater than zero, then the data to be written will be assumed to be a I/Q data stream written in stereo at the sample rate specified. This second format is used to gerenetae raw I/Q files from SDR receivers<br>
@@ -1310,40 +1310,40 @@ Return value: None
 </td></tr>
 <tr><td><b>audioDevice_recordStop(const int devid)</b></td></tr>
 <tr><td>
-Finalizes the recording process. Closes the output file.<br><br>
+Finalize the recording process. Closes the output file.<br><br>
 Parameter: <i><b>devid</b></i>: Integer - Device id of the audio device<br>
 Return value: None
 </td></tr>
 <tr><td><b>audioDevice_recordWrite(const int devid, QByteArrayView data)</b></td></tr>
 <tr><td>
-Writes data to the output file.<br><br>
+Write data to the output file.<br><br>
 Parameter: <i><b>devid</b></i>: Integer - Device id of the audio device<br>
 Parameter: <i><b>data</b></i>: Binary - Data to be written<br>
 Return value: None
 </td></tr>
 <tr><td><b>audioDevice_reset(const int devid)</b></td></tr>
 <tr><td>
-Resets the audio device. Reinitializes the underlaying hardware and clear all buffers.<br><br>
+Reset the audio device. Reinitializes the underlaying hardware and clear all buffers.<br><br>
 Parameter: <i><b>devid</b></i>: Integer - Device id of the audio device<br>
 Return value: None
 </td></tr>
 <tr><td><b>audioDevice_setBusy(const int devid, const bool busy)</b></td></tr>
 <tr><td>
-Sets or undets the device to busy state. If state is busy, no read or write will be performed until it is unset. Used for data contention.<br><br>
+Set or undets the device to busy state. If state is busy, no read or write will be performed until it is unset. Used for data contention.<br><br>
 Parameter: <i><b>devid</b></i>: Integer - Device id of the audio device<br>
 Parameter: <i><b>busy</b></i>: Boolean - Specifies if the audio device must be set or unset to busy state.<br>
 Return value: None
 </td></tr>
 <tr><td><b>audioDevice_setVolume(const int devid, const float volume)</b></td></tr>
 <tr><td>
-Sets the hardware input or output gain for the device.<br><br>
+Set the hardware input or output gain for the device.<br><br>
 Parameter: <i><b>devid</b></i>: Integer - Device id of the audio device<br>
 Parameter: <i><b>volume</b></i>: Real - Value for the volume, between 0.0 and 1.0<br>
 Return value: None
 </td></tr>
 <tr><td><b>audioDevice_write(const int devid, QByteArrayView data)</b></td></tr>
 <tr><td>
-Writes audio to an output audio device.<br><br>
+Write audio to an output audio device.<br><br>
 Parameter: <i><b>devid</b></i>: Integer - Device id of the audio device<br>
 Parameter: <i><b>data</b></i>: Binary - Data in the format specified when the audio device was open (8 bit unsigned, 16 bit signed or float)<br>
 Return value: None
@@ -1388,81 +1388,81 @@ When an video device is open, a parameter <i>mode</i> must be provided. The <i>m
 <table><tr></tr>
 <tr><td><b>void videoDevice_close(const int devid)</b></td></tr>
 <tr><td>
-Closes a video device.<br><br>
+Close a video device.<br><br>
 Parameter: <i><b>devid</b></i>: Integer - Device id of the video device obtained when it was opened.<br>
 Return value: None
 </td></tr>
 <tr><td><b>QString videoDevice_default()</b></td></tr>
 <tr><td>
-Retrieves the device name of the default video device.<br><br>
+Retrieve the device name of the default video device.<br><br>
 Parameter: None<br>
 Return value: String - Device name of the default video device
 </td></tr>
 <tr><td><b>QString videoDevice_description(const QString &devname)</b></td></tr>
 <tr><td>
-Retrieves the readable description of a video device.<br><br>
+Retrieve the readable description of a video device.<br><br>
 Parameter: <i><b>devname</b></i>: String - Device name of the video device<br>
 Return value: String - Readable description of the video device
 </td></tr>
 <tr><td><b>QList&lt;int&gt; videoDevice_frameRates(const QString &devname)</b></td></tr>
 <tr><td>
-Retrieves a list of supported frame rates of a video device.<br><br>
+Retrieve a list of supported frame rates of a video device.<br><br>
 Parameter: <i><b>devname</b></i>: String - Device name of the video device<br>
 Return value: List - A list of Integer containing all the frame rates supported by the video device in frames per second
 </td></tr>
 <tr><td><b>bool videoDevice_isOpen()</b></td></tr>
 <tr><td>
-Returns wether there is any video device open.<br><br>
+Return wether there is any video device open.<br><br>
 Parameter: None<br>
 Return value: Boolean - True if there is any video device open, false otherwise
 </td></tr>
 <tr><td><b>bool videoDevice_isOpen(const QString &devname)</b></td></tr>
 <tr><td>
-Returns wether a specific video device is open.<br><br>
+Return wether a specific video device is open.<br><br>
 Parameter: <i><b>devname</b></i>: String - Device name of the video device<br>
 Return value: Boolean - True if the video device is open, false otherwise
 </td></tr>
 <tr><td><b>QList&lt;QString&gt; videoDevice_list()</b></td></tr>
 <tr><td>
-Returns a list of device names of the available video devices.<br><br>
+Return a list of device names of the available video devices.<br><br>
 Parameter: None
 Return value: List - A list of String containing the device names of the available video devices
 </td></tr>
 <tr><td><b>int videoDevice_open(const QString &devname, const QString &mode)</b></td></tr>
 <tr><td>
-Opens an video device and returns a new video device id.<br><br>
+Open an video device and returns a new video device id.<br><br>
 Parameter: <i><b>devname</b></i>: String - Device name of the video device<br>
 Parameter: <i><b>mode</b></i>: String - Audio mode to be used to open. It is composed by a list of values separated by commas in the format <i>"widthxheight,framerate"</i><br>
 Return value: Integer - Device id for the video device. If the video device could not be open, this value is -1<br>
 </td></tr>
 <tr><td><b>int videoDevice_orientation(const QString &devname)</b></td></tr>
 <tr><td>
-Returns the current orientation of the video device. Applies to cameras only.<br><br>
+Return the current orientation of the video device. Applies to cameras only.<br><br>
 Parameter: <i><b>devname</b></i>: String - Device name of the video device<br>
 Return value: String - Current orientation. The possible values are <i>LANDSCAPE</i> and <i>PORTRAIT</i><br>
 </td></tr>
 <tr><td><b>int videoDevice_position(const QString &devname)</b></td></tr>
 <tr><td>
-Returns the position of the video device (camera) in the device (mobile devices).<br><br>
+Return the position of the video device (camera) in the device (mobile devices).<br><br>
 Parameter: <i><b>devname</b></i>: String - Device name of the video device<br>
 Return value: String - Camera position. The possible values are <i>FRONT</i> and <i>BACK</i><br>
 </td></tr>
 <tr><td><b>QList&lt;QString&gt; videoDevice_resolutions(const QString &devname)</b></td></tr>
 <tr><td>
-Retrieves a list of supported resolutions of a video device.<br><br>
+Retrieve a list of supported resolutions of a video device.<br><br>
 Parameter: <i><b>devname</b></i>: String - Device name of the video device<br>
 Return value: List - A list of String containing all the resolutions supported by the video device in the format <i>widthxheight</i>
 </td></tr>
 <tr><td><b>void videoDevice_setQuality(const int devid, const int quality)</b></td></tr>
 <tr><td>
-Sets the quality of the video after the device has been opened.<br><br>
+Set the quality of the video after the device has been opened.<br><br>
 Parameter: <i><b>devid</b></i>: Integer - Device id of the video device<br>
 Parameter: <i><b>quality</b></i>: Integer - Quality factor. Value between 0 (lowest quality) and 100 (highest uncompressed quality)<br>
 Return value: None
 </td></tr>
 <tr><td><b>QByteArrayView videoDevice_takeShot(const int devid)</b></td></tr>
 <tr><td>
-Takes a screenshot from the video input and returns it as a binary value.<br><br>
+Take a screenshot from the video input and returns it as a binary value.<br><br>
 Parameter: <i><b>devid</b></i>: Integer - Device id of the video device<br>
 Return value: Binary value containing the image in JPEG format
 </td></tr>
@@ -1497,64 +1497,64 @@ When an serial port device is open, a parameter <i>mode</i> must be provided. Th
 <table><tr></tr>
 <tr><td><b>void serialPort_close(const int devid)</b></td></tr>
 <tr><td>
-Closes a serial port device.<br><br>
+Close a serial port device.<br><br>
 Parameter: <i><b>devid</b></i>: Integer - Device id of the serial port device obtained when it was opened.<br>
 Return value: None
 </td></tr>
 <tr><td><b>QString serialPort_description(const QString &devname)</b></td></tr>
 <tr><td>
-Retrieves the readable description of a serial port device.<br><br>
+Retrieve the readable description of a serial port device.<br><br>
 Parameter: <i><b>devname</b></i>: String - Device name of the serial port device<br>
 Return value: String - Readable description of the serial device
 </td></tr>
 <tr><td><b>int serialPort_DTR(const int devid, const int newDTR = -1)</b></td></tr>
 <tr><td>
-Retrieves and optionally sets the DTR signal for the serial port.<br><br>
+Retrieve and optionally sets the DTR signal for the serial port.<br><br>
 Parameter: <i><b>devid</b></i>: Integer - Device id of the serial port device<br>
 Parameter: <i><b>newDTR</b></i>: Integer - New DTR (0 or 1). If this parameter is not provided, then no action is taken<br>
 Return value: Integer - Current value for DTR (0 or 1). If a new DTR value is provided, the current value is read after the value is set
 </td></tr>
 <tr><td><b>bool serialPort_isOpen(const QString &devname)</b></td></tr>
 <tr><td>
-Returns wether a specific serial port device is open.<br><br>
+Return wether a specific serial port device is open.<br><br>
 Parameter: <i><b>devname</b></i>: String - Device name of the serial port device<br>
 Return value: Boolean - True if the serial port device is open, false otherwise
 </td></tr>
 <tr><td><b>QString serialPort_manufacturer(const QString &devname)</b></td></tr>
 <tr><td>
-Returns the manufacturer of the serial port device.<br><br>
+Return the manufacturer of the serial port device.<br><br>
 Parameter: <i><b>devname</b></i>: String - Device name of the serial port device<br>
 Return value: String - Name of the manufacturer of the serial port device. Blank if not available
 </td></tr>
 <tr><td><b>int serialPort_open(const QString &devname, const QString &mode)</b></td></tr>
 <tr><td>
-Opens a serial port device and returns a new serial port device id.<br><br>
+Open a serial port device and returns a new serial port device id.<br><br>
 Parameter: <i><b>devname</b></i>: String - Device name of the serial port device<br>
 Parameter: <i><b>mode</b></i>: String - Port mode to be used to open. It is composed by a list of values separated by commas in the format <i>"baudrate,parity,databits,stopbits,flowcontrol"</i><br>
 Return value: Integer - Device id for the serial port device. If the serial port device could not be open, this value is -1<br>
 </td></tr>
 <tr><td><b>int serialPort_RTS(const int devid, const int newRTS = -1)</b></td></tr>
 <tr><td>
-Retrieves and optionally sets the RTS signal for the serial port.<br><br>
+Retrieve and optionally sets the RTS signal for the serial port.<br><br>
 Parameter: <i><b>devid</b></i>: Integer - Device id of the serial port device<br>
 Parameter: <i><b>newRTS</b></i>: Integer - New RTS (0 or 1). If this parameter is not provided, then no action is taken<br>
 Return value: Integer - Current value for RTS (0 or 1). If a new RTS value is provided, the current value is read after the value is set
 </td></tr>
 <tr><td><b>QString serialPort_serialNumber(const QString &devname)</b></td></tr>
 <tr><td>
-Returns the serial number of the serial port device.<br><br>
+Return the serial number of the serial port device.<br><br>
 Parameter: <i><b>devname</b></i>: String - Device name of the serial port device<br>
 Return value: String - Serial number of the serial port device. Blank if not available
 </td></tr>
 <tr><td><b>QString serialPort_systemLocation(const QString &devname)</b></td></tr>
 <tr><td>
-Returns the system location of the serial port device.<br><br>
+Return the system location of the serial port device.<br><br>
 Parameter: <i><b>devname</b></i>: String - Device name of the serial port device<br>
 Return value: String - System location of the serial port device. Blank if not available
 </td></tr>
 <tr><td><b>serialPort_write(const int devid, QByteArray data)</b></td></tr>
 <tr><td>
-Writes data to a serial port device.<br><br>
+Write data to a serial port device.<br><br>
 Parameter: <i><b>devid</b></i>: Integer - Device id of the serial port device<br>
 Parameter: <i><b>data</b></i>: String - Data to be written<br>
 Return value: None
@@ -1594,7 +1594,7 @@ Return value: Integer - 0 on success. Error code otherwise
 </td></tr>
 <tr><td><b>int USB_bulk_transfer(const int usbhandleid, const int endpoint, const QByteArray &data, const int len, const int timeout)</b></td></tr>
 <tr><td>
-Wrapper for <a href=https://libusb.sourceforge.io/api-1.0/group__libusb__syncio.html#ga2f90957ccc1285475ae96ad2ceb1f58c>libusb_bulk_transfer()()</a>. Perform a USB bulk transfer. The direction of the transfer is inferred from the direction bits of the endpoint address..<br><br>
+Wrapper for <a href=https://libusb.sourceforge.io/api-1.0/group__libusb__syncio.html#ga2f90957ccc1285475ae96ad2ceb1f58c>libusb_bulk_transfer()</a>. Perform a USB bulk transfer. The direction of the transfer is inferred from the direction bits of the endpoint address.<br><br>
 Parameter: <i><b>usbhandleid</b></i>: Integer - Handle id of the USB device obtained when it was opened.<br>
 Parameter: <i><b>endpoint</b></i>: Integer - The address of a valid endpoint to communicate with.<br>
 Parameter: <i><b>data</b></i>: String - Buffer to send or receive data.<br>
