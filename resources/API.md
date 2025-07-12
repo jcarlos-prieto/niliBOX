@@ -44,7 +44,7 @@ Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-controls-abstractb
 <tr>
 <td>TCheck</td>
 <td>
-Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-controls-abstractbutton.html>AbstractButton</a>
+Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-controls-abstractbutton.html>AbstractButton</a><br><br>
 <ul>
 <li>Property <i><b>name</b></i>: String</li>
 <li>Theme properties: <i><b>margin margin-top margin-bottom margin-left margin-right padding padding-top padding-botton padding-left padding-right border-width radius angle foreground-color border-color text-color text-weight image</b></i></li>
@@ -54,7 +54,7 @@ Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-controls-abstractb
 <tr>
 <td>TColumn</td>
 <td>
-Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-column.html>Column</a>
+Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-column.html>Column</a><br><br>
 <ul>
 <li>Property <i><b>name</b></i>: String</li>
 <li>Theme properties: <i><b>margin margin-top margin-bottom margin-left margin-right padding padding-top padding-botton padding-left padding-right spacing</b></i></li>
@@ -64,7 +64,7 @@ Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-column.html>Column
 <tr>
 <td>TComboBox</td>
 <td>
-Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-controls-combobox.html>ComboBox</a>
+Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-controls-combobox.html>ComboBox</a><br><br>
 <ul>
 <li>Property <i><b>name</b></i>: String</li>
 <li>Theme properties: <i><b>margin margin-top margin-bottom margin-left margin-right padding padding-top padding-botton padding-left padding-right border-width radius foreground-color border-color text-color</b></i></li>
@@ -76,7 +76,7 @@ Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-controls-combobox.
 <td>TGraph</td>
 <td>
 This is a native control, not inheriting any standard QML control. It provides a high quality graph panel for time and frequency series signals.<br>
-When we refer to a color data type, it means a String value representing a color, either in <a href=https://doc.qt.io/archives/qt-6.7/qml-color.html#svg-color-reference>SVG color</a> or in #RRGGBB hexadecimal format.
+When we refer to a color data type, it means a String value representing a color, either in <a href=https://doc.qt.io/archives/qt-6.7/qml-color.html#svg-color-reference>SVG color</a> or in #RRGGBB hexadecimal format.<br><br>
 <ul>
 <li>Property <i><b>name</b></i>: String</li>
 <li>Property <i><b>data</b></i>: QByteArrayView containing an array of 32-bit floating point values. Check <a href=./API.md#box-api>Box API</a> for an explanation of this data type</li>
@@ -100,7 +100,7 @@ When we refer to a color data type, it means a String value representing a color
 <tr>
 <td>TGrid</td>
 <td>
-Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-grid.html>Grid</a>
+Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-grid.html>Grid</a><br><br>
 <ul>
 <li>Property <i><b>name</b></i>: String</li>
 <li>Theme properties: <i><b>margin margin-top margin-bottom margin-left margin-right padding padding-top padding-botton padding-left padding-right spacing</b></i></i></li>
@@ -110,7 +110,7 @@ Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-grid.html>Grid</a>
 <tr>
 <td>TGroupBox</td>
 <td>
-Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-controls-groupbox.html>GroupBox</a>
+Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-controls-groupbox.html>GroupBox</a><br><br>
 <ul>
 <li>Property <i><b>name</b></i>: String</li>
 <li>Theme properties: <i><b>margin margin-top margin-bottom margin-left margin-right padding padding-top padding-botton padding-left padding-right border-width radius foreground-color border-color</b></i></li>
@@ -120,7 +120,7 @@ Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-controls-groupbox.
 <tr>
 <td>TKnob</td>
 <td>
-This is a native control, not inheriting any standard QML control. It provides a knob.<br>
+This is a native control, not inheriting any standard QML control. It provides a knob.<br><br>
 <ul>
 <li>Property <i><b>name</b></i>: String</li>
 <li>Property <i><b>text</b></i>: String - Text to appear inside the knob</li>
@@ -144,7 +144,7 @@ This is a native control, not inheriting any standard QML control. It provides a
 <tr>
 <td>TLabel</td>
 <td>
-Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-controls-label.html>Label</a>
+Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-controls-label.html>Label</a><br><br>
 <ul>
 <li>Property <i><b>name</b></i>: String</li>
 <li>Property <i><b>pressed</b></i>: Boolean - True if the label is pressed</li>
@@ -155,7 +155,7 @@ Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-controls-label.htm
 <tr>
 <td>TLineEdit</td>
 <td>
-Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-controls-textfield.html>TextField</a>
+Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-controls-textfield.html>TextField</a><br><br>
 <ul>
 <li>Property <i><b>name</b></i>: String</li>
 <li>Theme properties: <i><b>padding padding-top padding-botton padding-left padding-right border-width radius foreground-color border-color text-color</b></i></li>
@@ -165,7 +165,7 @@ Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-controls-textfield
 <tr>
 <td>TRow</td>
 <td>
-Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-row.html>Row</a>
+Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-row.html>Row</a><br><br>
 <ul>
 <li>Property <i><b>name</b></i>: String</li>
 <li>Theme properties: <i><b>margin margin-top margin-bottom margin-left margin-right padding padding-top padding-botton padding-left padding-right spacing</b></i></li>
@@ -175,7 +175,7 @@ Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-row.html>Row</a>
 <tr>
 <td>TSlider</td>
 <td>
-Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-controls-slider.html>Slider</a>
+Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-controls-slider.html>Slider</a><br><br>
 <ul>
 <li>Property <i><b>name</b></i>: String</li>
 <li>Theme properties: <i><b>margin margin-top margin-bottom margin-left margin-right radius foreground-color border-color</b></i></li>
@@ -185,7 +185,7 @@ Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-controls-slider.ht
 <tr>
 <td>TVideoFrame</td>
 <td>
-This is a native control, not inheriting any standard QML control. It provides a panel to show live video.<br>
+This is a native control, not inheriting any standard QML control. It provides a panel to show live video.<br><br>
 <ul>
 <li>Property <i><b>data</b></i>: QByteArrayView containing an image captured by the Video subsystem. Check <a href=./API.md#box-api>Box API</a> for an explanation of this data type</li>
 <li>Property <i><b>mirror</b></i>: Boolean - If true, the image is shown upside down</li>
