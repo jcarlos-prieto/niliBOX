@@ -1767,4 +1767,45 @@ Parameter: <i><b>interface</b></i>: Integer - Number of the previously-claimed i
 Parameter: <i><b>altsetting</b></i>: Integer - Number of the alternate setting to activate<br>
 Return value: Integer - 0 on success. Error code otherwise
 </td></tr>
+<tr><td><b>bool USBDevice_close(const QString &devname)</b></td></tr>
+<tr><td>
+Close a previously opened USB device.<br><br>
+Parameter: <i><b>devname</b></i>: String - Device name of the USB device<br>
+Return value: Boolean - True on success, false otherwise
+</td></tr>
+<tr><td><b>QString USBDevice_description(const QString &devname)</b></td></tr>
+<tr><td>
+Retiurn the description (product) of the USB device.<br><br>
+Parameter: <i><b>devname</b></i>: String - Device name of the USB device<br>
+Return value: String - Description if found, blank if not found or on error
+</td></tr>
+<tr><td><b>QList&lt;QString&gt; USBDevice_list()</b></td></tr>
+<tr><td>
+Provide a list of the USB device names of the USB devices currently available in the system.<br><br>
+Return value: List - List of String containing the USB device names found in the format <i>VVVV:PPPP[:N]</i> where <i>VVVV</i> is the vendor id, <i>PPPP</i> i the product id and <i>N</i> is a sequencal number if more than one device of the same type are found.
+</td></tr>
+<tr><td><b>QString USBDevice_manufacturer(const QString &devname)</b></td></tr>
+<tr><td>
+Returns the manufacturer (vendor) of the USB device.<br><br>
+Parameter: <i><b>devname</b></i>: String - Device name of the USB device<br>
+Return value: String - Manufacturer if found, blank if not found or on error
+</td></tr>
+<tr><td><b>int USBDevice_open(const QString &devname)</b></td></tr>
+<tr><td>
+Open a USB device.<br><br>
+Parameter: <i><b>devname</b></i>: String - Device name of the USB device<br>
+Return value: Integer - New handle id for the USB device. Returns -1 on error
+</td></tr>
+<tr><td><b>QString USBDevice_serialNumber(const QString &devname)</b></td></tr>
+<tr><td>
+Return the serial number of the USB device.<br><br>
+Parameter: <i><b>devname</b></i>: String - Device name of the USB device<br>
+Return value: String - Serial number if found, blank if not found or on error
+</td></tr>
+<tr><td><b>bool USBDevice_test(const QString &devname)</b></td></tr>
+<tr><td>
+Test if a USB device can be used. This function tries to open and close the USB device.<br><br>
+Parameter: <i><b>devname</b></i>: String - Device name of the USB device<br>
+Return value: Boolean - True on success, false otherwise
+</td></tr>
 </table>
