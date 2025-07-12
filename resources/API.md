@@ -1957,16 +1957,77 @@ Return value: Real - Minimum value
 </td></tr>
 <tr><td><b>QByteArrayView DSP_normalize(const int dspid, QByteArrayView input)</b></td></tr>
 <tr><td>
-Normalizes a series of real values. The process of normalization consists on removing the DC component of a signal by forcing the average value of the signal to be null.</i><br><br>
+Normalizes a series of real values. The process of normalization consists on removing the DC component of a signal by forcing the average value of the signal to be null.<br><br>
 Parameter: <i><b>dspid</b></i>: Integer - DSP id<br>
 Parameter: <i><b>input</b></i>: Binary - Input series of real values<br>
 Return value: Binary - Normalized series of real values. The length of the resulting series is equal to the input
 </td></tr>
 <tr><td><b>QByteArrayView DSP_normalize_c(const int dspid, QByteArrayView input)</b></td></tr>
 <tr><td>
-Normalizes a series of complex values. The process of normalization consists on removing the DC component of a signal by forcing the average value of the signal to be null.</i><br><br>
+Normalizes a series of complex values. The process of normalization consists on removing the DC component of a signal by forcing the average value of the signal to be null.<br><br>
 Parameter: <i><b>dspid</b></i>: Integer - DSP id<br>
 Parameter: <i><b>input</b></i>: Binary - Input series of complex values<br>
 Return value: Binary - Normalized series of complex values. The length of the resulting series is equal to the input
+</td></tr>
+<tr><td><b>QByteArrayView DSP_NR(const int dspid, QByteArrayView input, const float ratio)</b></td></tr>
+<tr><td>
+Apply a basic algorithm to reduce white noise in an audio signal. The amount of noise reduced is given by the parameter <i>ratio</i>.<br><br>
+Parameter: <i><b>dspid</b></i>: Integer - DSP id<br>
+Parameter: <i><b>input</b></i>: Binary - Input series of real values<br>
+Parameter: <i><b>ratio</b></i>: Real - Reduction ratio between 0.0 and 1.0<br>
+Return value: Binary - Processed audio signal. The length of the resulting series is equal to the input
+</td></tr>
+<tr><td><b>void DSP_release(const int dspid)</b></td></tr>
+<tr><td>
+Destroy the <i>DSP</i> object given by the parameter <i>dspid</i>.<br><br>
+Parameter: <i><b>dspid</b></i>: Integer - DSP id<br>
+Return value: None
+</td></tr>
+<tr><td><b>QByteArrayView DSP_resample(const int dspid, QByteArrayView input, const int outputsize)</b></td></tr>
+<tr><td>
+Resample a real values series to make the length fit to <i>outputsize</i>.<br><br>
+Parameter: <i><b>dspid</b></i>: Integer - DSP id<br>
+Parameter: <i><b>input</b></i>: Binary - Input series of real values<br>
+Parameter: <i><b>outputsize</b></i>: Integer - New size<br>
+Return value: Binary - Resized real values series
+</td></tr>
+<tr><td><b>QByteArrayView DSP_resample_c(const int dspid, QByteArrayView input, const int outputsize)</b></td></tr>
+<tr><td>
+Resample a complex values series to make the length fit to <i>outputsize</i>. Note that this parameter is the number of complex pairs of values. So, the total number of values in the resulting series is double than <i>outputsize</i><br><br>
+Parameter: <i><b>dspid</b></i>: Integer - DSP id<br>
+Parameter: <i><b>input</b></i>: Binary - Input series of real values<br>
+Parameter: <i><b>outputsize</b></i>: Integer - New size<br>
+Return value: Binary - Resized complex values series
+</td></tr>
+<tr><td><b>void DSP_resetFilter(const int dspid)</b></td></tr>
+<tr><td>
+Reset the filter parameters in the <i>DSP</i> object. The filtering will be disabled until new parameters are calculated.<br><br>
+Parameter: <i><b>dspid</b></i>: Integer - DSP id<br>
+Return value: None
+</td></tr>
+<tr><td><b>QByteArrayView DSP_scale(const int dspid, QByteArrayView input, const float scale)</b></td></tr>
+<tr><td>
+Multiplies all values in the series by a factor given by <i>scale</i>. This function can be applied to both real and complex series.<br><br>
+Parameter: <i><b>dspid</b></i>: Integer - DSP id<br>
+Parameter: <i><b>input</b></i>: Binary - Input series of values<br>
+Parameter: <i><b>scale</b></i>: Real - Multiplying factor<br>
+Return value: Binary - New scaled values series
+</td></tr>
+<tr><td><b>void DSP_setFilterParams(const int dspid, const int fs, const int f1, const int f2, const int order, const Box::FilterType type, const Box::FilterType algorithm = FT_IIR)</b></td></tr>
+<tr><td>
+Set the filter parameters in the <i>DSP</i> object based on the parameters provided. The filter types are <i>pass band</i> and <i>reject band</i>. For low pass filters, set f1 = 0. For high pass filter, set f2 = fs / 2.<br><br>
+Parameter: <i><b>dspid</b></i>: Integer - DSP id<br>
+Parameter: <i><b>fs</b></i>: Integer - Sampling frequency<br>
+Parameter: <i><b>f1</b></i>: Integer - Low cut frequency<br>
+Parameter: <i><b>f2</b></i>: Integer - High cut frequency<br>
+Parameter: <i><b>order</b></i>: Integer - Filter order. This value depends on the filter algorithm<br>
+Parameter: <i><b>type</b></i>: FilterType - This parameter can be either <i>Box.FT_PASSBAND</i> or <i>Box.FT_REJECTBAND</i><br>
+Parameter: <i><b>algorithm</b></i>: FilterType - This parameter can be one of the following:
+<ul>
+<li><i>Box.FT_FIR</i>: Finite impulse response filter with Hamming window</li>
+<li><i>Box.FT_IFIR</i>: Interpolated finite impulse response filter with Hamming window</li>
+<li><i>Box.FT_IIR</i>: Chebyshev type II infinite impulse response filter</li>
+</ul>
+Return value: None
 </td></tr>
 </table>
