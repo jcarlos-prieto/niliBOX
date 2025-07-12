@@ -1215,7 +1215,7 @@ enum FFTWindow {
     FFTW_BLACKMAN_HARRIS_7
 };
 ```
-Then, from Javascript, you can use any of these values with the prefix *Box.*. For instance: *Box.FFTW_HAMMING*.
+Then, from Javascript, you can use any of these values with the prefix *"Box."*. For instance: *Box.FFTW_HAMMING*.
 
 Subsystems:
 - [Audio subsystem](#audio-subsystem)
@@ -1598,6 +1598,29 @@ Every USB device can be identified in 3 different ways:
 - *Device name*: A string providing a readable identifier for the USB device. It has a strcuture like *VVVV:PPPP* where *VVVV* is the vendor id in hexadecimal format and *PPPP* is the product id in hexadecimal format. If there are more than one device of the same type, the device name will also contain a sufix with a unique identifier for the device like *VVVV:PPPP:N* where *N* is an integer starting by 0.
 
 <table><tr></tr>
+<tr><td><b>ENUM: USBMode</b></td></tr>
+<tr><td>
+USB_BulkSync<br>
+USB_BulkAsync<br>
+USB_Isochronous<br>
+</td></tr>
+<tr><td><b>ENUM: USBDescriptor</b></td></tr>
+<tr><td>
+USB_bLength<br>
+USB_bDescriptorType<br>
+USB_bcdUSB<br>
+USB_bDeviceClass<br>
+USB_bDeviceSubClass<br>
+USB_bDeviceProtocol<br>
+USB_bMaxPacketSize0<br>
+USB_idVendor<br>
+USB_idProduct<br>
+USB_bcdDevice<br>
+USB_iManufacturer<br>
+USB_iProduct<br>
+USB_iSerialNumber<br>
+USB_bNumConfigurations
+</td></tr>
 <tr><td><b>int USB_attach_kernel_driver(const int usbhandleid, const int interface)</b></td></tr>
 <tr><td>
 Wrapper for <a href=https://libusb.sourceforge.io/api-1.0/group__libusb__dev.html#gadeba36e900db663c0b7cf1b164a20d02>libusb_attach_kernel_driver()</a>. Re-attach an interface's kernel driver, which was previously detached using USB_detach_kernel_driver(). This functionality is not available on Windows.<br><br>
@@ -1608,28 +1631,34 @@ Return value: Integer - 0 on success. Error code otherwise
 <tr><td><b>int USB_bulk_transfer(const int usbhandleid, const int endpoint, const QByteArray &data, const int len, const int timeout)</b></td></tr>
 <tr><td>
 Wrapper for <a href=https://libusb.sourceforge.io/api-1.0/group__libusb__syncio.html#ga2f90957ccc1285475ae96ad2ceb1f58c>libusb_bulk_transfer()</a>. Perform a USB write bulk transfer. The direction of the transfer is inferred from the direction bits of the endpoint address.<br><br>
-Parameter: <i><b>usbhandleid</b></i>: Integer - Handle id of the USB device obtained when it was opened.<br>
-Parameter: <i><b>endpoint</b></i>: Integer - The address of a valid endpoint to communicate with.<br>
-Parameter: <i><b>data</b></i>: String - Buffer to send or receive data.<br>
-Parameter: <i><b>len</b></i>: Integer - Maximum size of the data to be transferred.<br>
-Parameter: <i><b>timeout</b></i>: Integer - Time in miliseconds to wait for the operation to complete. For an unlimited timeout, use 0.<br>
+Parameter: <i><b>usbhandleid</b></i>: Integer - Handle id of the USB device obtained when it was opened<br>
+Parameter: <i><b>endpoint</b></i>: Integer - The address of a valid endpoint to communicate with<br>
+Parameter: <i><b>data</b></i>: String - Buffer to send or receive data<br>
+Parameter: <i><b>len</b></i>: Integer - Maximum size of the data to be transferred<br>
+Parameter: <i><b>timeout</b></i>: Integer - Time in miliseconds to wait for the operation to complete. For an unlimited timeout, use 0<br>
 Return value: Integer - 0 on success. Error code otherwise
 </td></tr>
 <tr><td><b>void USB_bulk_transfer_setBufLen(const int usbhandleid, const int buflen)</b></td></tr>
 <tr><td>
-Set the buffer length for an asynchronous bulk transfer managed by *USB_bulk_transfer_start* and *USB_bulk_transfer_stop*. This function can be called before or after the bulk transfer has been started.<br><br>
-Parameter: <i><b>usbhandleid</b></i>: Integer - Handle id of the USB device obtained when it was opened.<br>
-Parameter: <i><b>buflen</b></i>: Integer - Buffer length.<br>
+Set the buffer length for an asynchronous bulk transfer managed by <i>USB_bulk_transfer_start</i> and <i>USB_bulk_transfer_stop</i>. This function can be called before or after the bulk transfer has been started<br><br>
+Parameter: <i><b>usbhandleid</b></i>: Integer - Handle id of the USB device obtained when it was opened<br>
+Parameter: <i><b>buflen</b></i>: Integer - Buffer length<br>
 Return value: None
 </td></tr>
 <tr><td><b>void USB_bulk_transfer_start(const int usbhandleid, const int endpoint, const Box::USBMode mode = USB_BulkSync, const int size = 65536)</b></td></tr>
 <tr><td>
-Start an asynchronous read bulk transfer. The transfer method can be *Synchronous*, *Asynchronous* or *Isochronous*.<br><br>
-Parameter: <i><b>usbhandleid</b></i>: Integer - Handle id of the USB device obtained when it was opened.<br>
-Parameter: <i><b>endpoint</b></i>: Integer - The address of a valid endpoint to communicate with.<br>
-Parameter: <i><b>data</b></i>: String - Buffer to send or receive data.<br>
-Parameter: <i><b>len</b></i>: Integer - Maximum size of the data to be transferred.<br>
-Parameter: <i><b>timeout</b></i>: Integer - Time in miliseconds to wait for the operation to complete. For an unlimited timeout, use 0.<br>
-Return value: Integer - 0 on success. Error code otherwise
+Start an asynchronous read bulk transfer. The transfer method can be <i>Synchronous</i>, <i>Asynchronous</i> or <i>Isochronous</i>.<br>
+When enough data has been received, it emits the signal <i>USB_Data</i><br><br>
+Parameter: <i><b>usbhandleid</b></i>: Integer - Handle id of the USB device obtained when it was opened<br>
+Parameter: <i><b>endpoint</b></i>: Integer - The address of a valid endpoint to communicate with<br>
+Parameter: <i><b>mode</b></i>: USBMode - Any of <i>Box.USB_BulkSync</i>, <i>Box.USB_BulkAsync</i> or <i>USB_Isochronous</i><br>
+Parameter: <i><b>size</b></i>: Integer - Chunk size of data to be transferred<br>
+Return value: None
+</td></tr>
+<tr><td><b>void USB_bulk_transfer_stop(const int usbhandleid)</b></td></tr>
+<tr><td>
+Stop an asynchronous read bulk transfer.<br><br>
+Parameter: <i><b>usbhandleid</b></i>: Integer - Handle id of the USB device obtained when it was opened<br>
+Return value: None
 </td></tr>
 </table>
