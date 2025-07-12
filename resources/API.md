@@ -1824,8 +1824,8 @@ Parameter: <i><b>usbhandleid</b></i>: Integer - Handle id of the USB device<br>
 </table>
 
 ### DSP subsystem
-The *DSP* subsystem provides functions to handle real-time data, specially audio. The real-time data is managed as *Binary* types. As explained above, a *Binary* type is a reference to a byte stream which resides in the C++ core application environment.<br>
-All the *Binary* values handle by the *DSP* subsystem are assumed to be series of 32-bit floating point values. In some cases, the series are complex, with a real and an imaginary component interlaced in the series of values. In this case, we will call this type *Binary Complex*.  
+The *DSP* subsystem provides functions to handle real-time data, specially audio. The real-time data is managed as *Binary* types. As explained above, a *Binary* type is a reference to a byte stream which resides in the C++ core application environment.<br><br>
+All the *Binary* values handled by the *DSP* subsystem are assumed to be series of 32-bit floating point values. In some cases, the series are complex, with a real and an imaginary component interlaced in the series of values. In this case, we will call this type *Binary Complex*.  
 
 <table><tr></tr>
 <tr><td><b>ENUM: FFTWindow</b></td></tr>
