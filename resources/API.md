@@ -1909,18 +1909,18 @@ Return value: None
 <tr><td>
 Calculate the FFT of a series of real values. The length of the input is truncated to the nearest power of 2 value. For instance, if the series contains 1000 values, only 512 will be used. If the series contains 1030, then 1024 values will be used.<br><br>
 Parameter: <i><b>dspid</b></i>: Integer - DSP id<br>
-Parameter: <i><b>input</b></i>: Binary - Input series of real values in time domain.<br>
+Parameter: <i><b>input</b></i>: Binary - Input series of real values in time domain<br>
 Parameter: <i><b>width</b></i>: Integer - If specified, the resulting series of values in the frequency domain will be resampled to this width<br>
-Parameter: <i><b>window_type</b></i>: FFTWindow - The FFT window to be applied to the input series. This is related to the technique to calculate the FFT.<br>
-Return value: Binary - Series of values in the frequrncy domain. As the input is a series of real values, the output series in the frequency will be always symmetric and only the positive half will be included in the resulting series.
+Parameter: <i><b>window_type</b></i>: FFTWindow - The FFT window to be applied to the input series. The defualt is Blackman-Harris-4. Check <a href=https://en.wikipedia.org/wiki/Window_function>here</a> for additonal information<br>
+Return value: Binary - Series of values in the frequrncy domain. As the input is a series of real values, the output series in the frequency will be always symmetric and only the positive half will be included in the resulting series
 </td></tr>
 <tr><td><b>QByteArrayView DSP_FFT_c(const int dspid, QByteArrayView input, const int width = -1, const Box::FFTWindow window_type = FFTW_BLACKMAN_HARRIS_4)</b></td></tr>
 <tr><td>
 Calculate the FFT of a series of complex values. The length of the input is truncated to the double of the nearest power of 2 value. For instance, if the series contains 1000 values (500 complex samples) , only 256 will be used. If the series contains 1030 (515 complex value), then 512 values will be used.<br><br>
 Parameter: <i><b>dspid</b></i>: Integer - DSP id<br>
-Parameter: <i><b>input</b></i>: Binary - Input series of complex values in time domain.<br>
+Parameter: <i><b>input</b></i>: Binary - Input series of complex values in time domain<br>
 Parameter: <i><b>width</b></i>: Integer - If specified, the resulting series of values in the frequency domain will be resampled to this width<br>
-Parameter: <i><b>window_type</b></i>: FFTWindow - The FFT window to be applied to the input series. This is related to the technique to calculate the FFT.<br>
-Return value: Binary - Series of values in the frequrncy domain. As the input is a series of complex values, the output series in the frequency domain will not be be always symmetric and the full spectrum will be provided.
+Parameter: <i><b>window_type</b></i>: FFTWindow - The FFT window to be applied to the input series. The defualt is Blackman-Harris-4. Check <a href=https://en.wikipedia.org/wiki/Window_function>here</a> for additonal information<br>
+Return value: Binary - Series of values in the frequrncy domain. As the input is a series of complex values, the output series in the frequency domain will not be be always symmetric and the full spectrum will be provided
 </td></tr>
 </table>
