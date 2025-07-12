@@ -228,7 +228,7 @@ The usage differs depending on wether it is used in <i>Client</i> or <i>Config</
 <li>Return value: None</li>
 </ul>
 Example: <code>b_send("init");</code><br>
-Example: <code>b_send("gain", "15");</code><br>
+Example: <code>b_send("gain", "15");</code>
 </td>
 </tr>
 <tr>
@@ -240,89 +240,89 @@ Send binary data to the server side.<br><br>
 <li>Parameter <i><b>value</b></i>: Binary - The binary type is a mirror of the Qt type QByteArrayView. Check in the <a href=./API.md#box-api>Box API</a> section for an explanation of this data type.</li>
 <li>Return value: None</li>
 </ul>
-Example: <code>b_sendbin("audio", data);</code><br>
+Example: <code>b_sendbin("audio", data);</code>
 </td>
 </tr>
 <tr>
 <td>b_setvar(key,value)</td>
 <td>
-Set a configuration parameter. The configuration parameters are used to save values that are permanent among several runs of the module.
+Set a configuration parameter. The configuration parameters are used to save values that are permanent among several runs of the module.<br><br>
 <ul>
-<li>Parameter <i><b>key</b></i>: String - Setting name.</li>
+<li>Parameter <i><b>key</b></i>: String - Setting name</li>
 <li>Parameter <i><b>value</b></i>: Any basic Javascript data type - Setting value</li>
 <li>Return value: None</li>
 </ul>
-Example: <code>b_setvar("height", "100");</code><br>
+Example: <code>b_setvar("height", "100");</code>
 </td>
 </tr>
 <tr>
 <td>b_getvar(key,default)</td>
 <td>
-Get a configuration parameter. The configuration parameters are used to save values that are permanent among several runs of the module.
+Get a configuration parameter. The configuration parameters are used to save values that are permanent among several runs of the module.<br><br>
 <ul>
 <li>Parameter <i><b>key</b></i>: String - Setting name.</li>
 <li>Parameter <i><b>default</b></i>: Any basic Javascript data type - Default value if the setting doesn't exist</li>
 <li>Return value: String</li>
 </ul>
-Example: <code>let h = b_setvar("height", "100");</code><br>
+Example: <code>let h = b_setvar("height", "100");</code>
 </td>
 </tr>
 <tr>
 <td>b_debug(value)</td>
 <td>
-Add a message to the log file and the console if any.
+Send a message to the log file and the console if any.<br><br>
 <ul>
 <li>Parameter <i><b>value</b></i>: Any native Javascript type</li>
 <li>Return value: None</li>
 </ul>
-Example: <code>b_debug("height=" + h);</code><br>
+Example: <code>b_debug("height=" + h);</code>
 </td>
 </tr>
 <tr>
 <td>b_param(key)</td>
 <td>
-Retrieve a configuration parameter from the main configuration file of the application stored in the file config.set.
+Retrieve a configuration parameter from the main configuration file of the application stored in the file config.set.<br><br>
 <ul>
 <li>Parameter <i><b>key</b></i>: String</li>
 <li>Return value: String</li>
 </ul>
-Example: <code>let theme = b_param("ui.theme");</code><br>
+Example: <code>let theme = b_param("ui.theme");</code>
 </td>
 </tr>
 <tr>
 <td>b_import(name,file)</td>
 <td>
-Import a Javascript module of type .mjs.
+Import a Javascript module of type .mjs.<br><br>
 <ul>
 <li>Parameter <i><b>name</b></i>: String - This value will be used to reference the primitives available in the imported module</li>
 <li>Parameter <i><b>file</b></i>: String - File name of the module to be imported. This file must be added to the resource collection file</li>
 <li>Return value: None</li>
 </ul>
-Example: <code>b_import("RTLSDR", "rtlsdr.mjs");</code><br>
+Example: <code>b_import("RTLSDR", "rtlsdr.mjs");</code>
 </td>
 </tr>
 <tr>
 <td>b_translate(text)</td>
 <td>
-Return the translation into the current language of the text (in English) provided.
+Return the translation into the current language of the text (in English) provided.<br><br>
 <ul>
 <li>Parameter <i><b>text</b></i>: String - This value will be added to the corresponding language file to be manually translated before compilation</li>
 <li>Return value: String</li>
 </ul>
-Example: <code>text: b_translate("Name:");</code><br>
+Example: <code>text: b_translate("Name:");</code>
 </td>
 </tr>
 <tr>
 <td>b_theme(type,name,var)</td>
 <td>
-Return the value of a parameter from the current theme. This could be a color, a size, etc. Usually, this function is not needed. It is used by the QML components included in the code.
+Return the value of a parameter from the current theme. This could be a color, a size, etc. Usually, this function is not needed. It is used by the QML components included in the code.<br><br>
 <ul>
 <li>Parameter <i><b>type</b></i>: String - Control type</li>
-<li>Parameter <i><b>name</b></i>: String - Control name.</li>
+<li>Parameter <i><b>name</b></i>: String - Control name</li>
 <li>Parameter <i><b>var</b></i>: String - Theme parameter to be retrieved</li>
 <li>Return value: String</li>
 </ul>
-Example: <code>color: b_theme("TButton", "mybutton", "foreground-color");</code><br>
+Example: <code>color: b_theme("TButton", "mybutton", "foreground-color");</code>
 </td>
 </tr>
 <tr>
@@ -334,21 +334,21 @@ Return the type of connection established between the client and the server. The
 <li><i>LOCAL</i>: The client and the server are on different computers on the same local network</li>
 <li><i>DIRECT</i>: The client and the server are on different local networks but the client can access the server directly</li>
 <li><i>CBACK</i>: The client and the server are on different local networks but the server can contact the client directly. The client has used a call-back method to contact the server</li>
-<li><i>TCP</i>: The client and the server cannot communicate directly and the traffic if relayed by the niliBOX server</li>
-<li><i>HTTP</i>: The client and the server cannot communicate and there is no possible TCP connection with the niliBOX server. The traffic is encapsulated in HTTP</li>
+<li><i>TCP</i>: The client and the server cannot communicate directly and the traffic if relayed by the <i><b>niliBOX</b></i> server</li>
+<li><i>HTTP</i>: The client and the server cannot communicate and there is no possible TCP connection with the <i><b>niliBOX</b></i> server. The traffic is encapsulated in HTTP</li>
 </ul>
-Example: <code>let connection = b_conn();</code><br>
+Example: <code>let connection = b_conn();</code>
 </td>
 </tr>
 <tr>
 <td>b_mouse(type)</td>
 <td>
-Change the shape of the mouse cursor.
+Change the shape of the mouse cursor.<br><br>
 <ul>
 <li>Parameter <i><b>type</b></i>:  Qt::CursorShape type - This type is described <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-mousearea.html#cursorShape-prop>here</a></li>
 <li>Return value: None</li>
 </ul>
-Example: <code>b_mouse(Qt.PointingHandCursor);</code><br>
+Example: <code>b_mouse(Qt.PointingHandCursor);</code>
 </td>
 </tr>
 </table>
