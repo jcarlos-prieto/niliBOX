@@ -1923,4 +1923,18 @@ Parameter: <i><b>width</b></i>: Integer - If specified, the resulting series of 
 Parameter: <i><b>window_type</b></i>: FFTWindow - The FFT window to be applied to the input series. The defualt is Blackman-Harris-4. Check <a href=https://en.wikipedia.org/wiki/Window_function>here</a> for additonal information<br>
 Return value: Binary - Series of values in the frequrncy domain. As the input is a series of complex values, the output series in the frequency domain will not be be always symmetric and the full spectrum will be provided
 </td></tr>
+<tr><td><b>QByteArrayView DSP_filter(const int dspid, QByteArrayView input)</b></td></tr>
+<tr><td>
+Filter a series of real values. Please note that the filter coeficients must be calculated before calling this function using <i>DSP_setFilterParams</i><br><br>
+Parameter: <i><b>dspid</b></i>: Integer - DSP id<br>
+Parameter: <i><b>input</b></i>: Binary - Input series of real values<br>
+Return value: Binary - Filtered series of real values. The length of the reulting series is equal to the input
+</td></tr>
+<tr><td><b>QByteArrayView DSP_filter_c(const int dspid, QByteArrayView input)</b></td></tr>
+<tr><td>
+Filter a series of complex values. Please note that the filter coeficients must be calculated before calling this function using <i>DSP_setFilterParams</i><br><br>
+Parameter: <i><b>dspid</b></i>: Integer - DSP id<br>
+Parameter: <i><b>input</b></i>: Binary - Input series of complex values<br>
+Return value: Binary - Filtered series of real values. The length of the reulting series is equal to the input
+</td></tr>
 </table>
