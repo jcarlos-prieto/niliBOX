@@ -1178,10 +1178,16 @@ The *Binary* Javascript type is an opaque type used to represent an array of byt
 
 The signals are events generated from the C++ core application that must be handled by the Javascript environment. It is necessary to connect the signal to an event handler function. This is an example to connect a function handler to the event triggered when an input audio device has collected enough data:
 ```
+let box;
+let audiodeviceid;
+
 function b_start(params)
 {
     box = b_getbox();
     box.audioDevice_Data.connect(audioDeviceData);
+
+    let audiodevice = box.audioDevice_defaultInput();
+    audiodeviceid = box.audioDevice_open(audiodevice, "32000,32,0");
 }
 
 function audioDeviceData(devid, data)
@@ -1362,7 +1368,7 @@ Parameter: <i><b>size</b></i>: Integer - Current output audio file<br>
 ### Video subsystem
 The video subsystem handles the video input devices. There is no equivalent for output video devices.<br>
 Every video device can be identified in 3 different ways:
-- *Device name*: A string that identifies an video device available in the system</li>
+- *Device name*: A string that identifies a video device available in the system</li>
 - *Device id*: An integer identifying a video device that has been open and can be used for input operations</li>
 - *Description*: A string providing a readable name for the video device</li>
 
@@ -1450,5 +1456,26 @@ Return value: None
 Takes a screenshot from the video input and returns it as a binary value.<br>
 Parameter: <i><b>devid</b></i>: Integer - Device id of the video device<br>
 Return value: Binary value containing the image in JPEG format
+</td></tr>
+</table>
+
+### Serial subsystem
+The serial subsystem handles the serial port devices.<br>
+Every serial port can be identified in 3 different ways:
+- *Device name*: A string that identifies a serial port device available in the system</li>
+- *Device id*: An integer identifying a serial port that has been open and can be used for input/output operations</li>
+- *Description*: A string providing a readable name for the serial port device</li>
+
+When an serial port device is open, a parameter <i>mode</i> must be provided. The <i>mode</i> is composed by a list of values separated by commas in the format <i>"baudrate,parity,databits,stopbits,flowcontrol"</i>. This is the meaning of each value:
+- *baudrate*: Integer - Baud rate</li>
+- *parity*: String - Any value among *N*, *E*, *O*, *S*, *M* for *None*, *Even*, *Odd*, *Space*, *Mark*</li>
+- *baudrate*: Integer - Baud rate</li>
+
+<table><tr></tr>
+<tr><td><b>void videoDevice_close(const int devid)</b></td></tr>
+<tr><td>
+Closes a video device.<br>
+Parameter: <i><b>devid</b></i>: Integer - Device id of the video device obtained when it was opened.<br>
+Return value: None
 </td></tr>
 </table>
