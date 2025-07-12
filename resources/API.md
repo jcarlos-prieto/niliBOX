@@ -1590,7 +1590,7 @@ The USB subsystem handles the USB devices.
 
 This subsystem provides two type of functions:
 - Functions with name starting by *USB_*: These functions provide a wrapper to the *lbusb* API. It is assumed that you are familiar with this API. For a reference to the *libusb* API, please consult it [here](https://libusb.sourceforge.io/api-1.0/libusb_api.html)
-- Functions with name starting by *USBDevice_*: These functions provide a simple high level interface to the SUB devices.
+- Functions with name starting by *USBDevice_*: These functions provide a simple high level interface to the USB devices.
 
 Every USB device can be identified in 3 different ways:
 - *Device id (usbdeviceid)*: A unique identifier for the USB device based on the position in the system. This identifier may change if the USB device is plugged to a different USB port. This identifier is linked to a structure of type *libusb_device*
@@ -1704,5 +1704,12 @@ Return value: List - List of 14 integer values
 <tr><td>
 Wrapper for <a href=https://libusb.sourceforge.io/api-1.0/group__libusb__dev.html#gac0fe4b65914c5ed036e6cbec61cb0b97>libusb_get_device_list()</a>. Returns a list of USB device id corresponding to all the USB devices present in the system. The order is guaranteed to be always ther same.<br><br>
 Return value: List - List of integers
+</td></tr>
+<tr><td><b>QString USB_get_string_descriptor_ascii(const int usbhandleid, const int index)</b></td></tr>
+<tr><td>
+Wrapper for <a href=https://libusb.sourceforge.io/api-1.0/group__libusb__desc.html#ga240aac96d92cb9f51e3aea79a4adbf42>libusb_get_string_descriptor_ascii()</a>. Detach a kernel driver from an interface.<br><br>
+Parameter: <i><b>usbhandleid</b></i>: Integer - Handle id of the USB device obtained when it was opened<br>
+Parameter: <i><b>index</b></i>: Integer - The index of the descriptor to retrieved<br>
+Return value: String - Descriptor for the specified index. Blank if error or not found
 </td></tr>
 </table>
