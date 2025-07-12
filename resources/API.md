@@ -1576,7 +1576,7 @@ Parameter: <i><b>devid</b></i>: Integer - Device id of the serial port device<br
 The USB subsystem handles the USB devices.
 
 This subsystem provides two type of functions:
-- Functions with name starting by *USB_*: These functions provide a wrapper to the *lbusb* API. It is assumed that you are familiar with this API. For a reference to the *libusb* API, please consult the API [here](https://libusb.sourceforge.io/api-1.0/libusb_api.html)
+- Functions with name starting by *USB_*: These functions provide a wrapper to the *lbusb* API. It is assumed that you are familiar with this API. For a reference to the *libusb* API, please consult it [here](https://libusb.sourceforge.io/api-1.0/libusb_api.html)
 - Functions with name starting by *USBDevice_*: These functions provide a simple high level interface to the SUB devices.
 
 Every USB device can be identified in 3 different ways:
@@ -1584,4 +1584,12 @@ Every USB device can be identified in 3 different ways:
 - *Handle id (usbhandleid)*: An integer identifying a USB device that has been open and can be used for input/output operations. This identifier is linked to a structure of type *libusb_device_handle*
 - *Device name*: A string providing a readable identifier for the USB device. It has a strcuture like *VVVV:PPPP* where *VVVV* is the vendor id in hexadecimal format and *PPPP* is the product id in hexadecimal format. If there are more than one device of the same type, the device name will also contain a sufix with a unique identifier for the device like *VVVV:PPPP:N* where *N* is an integer starting by 0.
 
-
+<table><tr></tr>
+<tr><td><b>int USB_attach_kernel_driver(const int usbhandleid, const int interface)</b></td></tr>
+<tr><td>
+Wrapper for <a href=https://libusb.sourceforge.io/api-1.0/group__libusb__dev.html#gadeba36e900db663c0b7cf1b164a20d02>libusb_attach_kernel_driver()</a>. Re-attach an interface's kernel driver, which was previously detached using USB_detach_kernel_driver(). This functionality is not available on Windows.<br>
+Parameter: <i><b>usbhandleid</b></i>: Integer - Handle id of the USB device obtained when it was opened.<br>
+Parameter: <i><b>interface</b></i>: Integer - USB interface to be attached.<br>
+Return value: Integer - 0 on success. Error code otherwise
+</td></tr>
+</table>
