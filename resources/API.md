@@ -1670,7 +1670,7 @@ Return value: Integer - 0 on success. Error code otherwise
 </td></tr>
 <tr><td><b>QByteArray USB_control_transfer(const int usbhandleid, const int type, const int request, const int value, const int index, const QByteArray &data, const int len, const int timeout)</b></td></tr>
 <tr><td>
-Wrapper for <a href=https://libusb.sourceforge.io/api-1.0/group__libusb__syncio.html#ga2f90957ccc1285475ae96ad2ceb1f58c>libusb_control_transfer()</a>. Perform a USB read/write control transfer. The direction of the transfer is inferred from the direction bits of the endpoint address.<br><br>
+Wrapper for <a href=https://libusb.sourceforge.io/api-1.0/group__libusb__syncio.html#ga2f90957ccc1285475ae96ad2ceb1f58c>libusb_control_transfer()</a>. Perform a USB read/write control transfer. The direction of the transfer is inferred from the type field of the setup packet.<br><br>
 Parameter: <i><b>usbhandleid</b></i>: Integer - Handle id of the USB device obtained when it was opened<br>
 Parameter: <i><b>type</b></i>: Integer - The request type field for the setup packet<br>
 Parameter: <i><b>request</b></i>: Integer - The request field for the setup packet<br>
@@ -1680,5 +1680,24 @@ Parameter: <i><b>data</b></i>: String - Buffer to receive data<br>
 Parameter: <i><b>len</b></i>: Integer - Maximum size of the data to be transferred<br>
 Parameter: <i><b>timeout</b></i>: Integer - Time in miliseconds to wait for the operation to complete. For an unlimited timeout, use 0<br>
 Return value: Integer - 0 on success. Error code otherwise
+</td></tr>
+<tr><td><b>int USB_detach_kernel_driver(const int usbhandleid, const int interface)</b></td></tr>
+<tr><td>
+Wrapper for <a href=https://libusb.sourceforge.io/api-1.0/group__libusb__dev.html#ga5e0cc1d666097e915748593effdc634a>libusb_detach_kernel_driver()</a>. Detach a kernel driver from an interface.<br><br>
+Parameter: <i><b>usbhandleid</b></i>: Integer - Handle id of the USB device obtained when it was opened.<br>
+Parameter: <i><b>interface</b></i>: Integer - USB interface to be detached<br>
+Return value: Integer - 0 on success. Error code otherwise
+</td></tr>
+<tr><td><b>int USB_get_device(const int usbhandleid)</b></td></tr>
+<tr><td>
+Returns the USB device id corresponding to the USB handle id provided.<br><br>
+Parameter: <i><b>usbhandleid</b></i>: Integer - Handle id of the USB device obtained when it was opened.<br>
+Return value: Integer - USB device id. Returns -1 on error
+</td></tr>
+<tr><td><b>QList&lt;int&gt; USB_get_device_descriptor(const int usbhandleid)</b></td></tr>
+<tr><td>
+Wrapper for <a href=https://libusb.sourceforge.io/api-1.0/group__libusb__desc.html#ga5e9ab08d490a7704cf3a9b0439f16f00>libusb_get_device_descriptor()</a>. Returns a list of integers containing all the fields of the USB device descriptor of the USB device provided. The order of the fields in the list is given in the description of the enum USBDescriptor.<br><br>
+Parameter: <i><b>usbhandleid</b></i>: Integer - Handle id of the USB device obtained when it was opened.<br>
+Return value: List - List of 14 integer values
 </td></tr>
 </table>
