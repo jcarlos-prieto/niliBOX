@@ -1224,7 +1224,7 @@ Subsystems:
 - [USB subsystem](#usb-subsystem)
 
 ### Audio subsystem
-The audio subsystem handles the audio devices.
+The *Audio* subsystem handles the audio devices.
 Every audio device can be identified in 3 different ways:
 - *Device name*: A string that identifies an audio device available in the system
 - *Device id*: An integer identifying an audio device that has been open and can be used for input/output operations
@@ -1388,7 +1388,7 @@ Parameter: <i><b>size</b></i>: Integer - Current output audio file<br>
 </table>
 
 ### Video subsystem
-The video subsystem handles the video input devices. There is no equivalent for output video devices.
+The *Video* subsystem handles the video input devices. There is no equivalent for output video devices.
 Every video device can be identified in 3 different ways:
 - *Device name*: A string that identifies a video device available in the system
 - *Device id*: An integer identifying a video device that has been open and can be used for input operations
@@ -1494,7 +1494,7 @@ Parameter: <i><b>error</b></i>: String - Description of the error<br>
 </table>
 
 ### Serial subsystem
-The serial subsystem handles the serial port devices.
+The *Serial* subsystem handles the serial port devices.
 Every serial port can be identified in 3 different ways:
 - *Device name*: A string that identifies a serial port device available in the system
 - *Device id*: An integer identifying a serial port that has been open and can be used for input/output operations
@@ -1586,7 +1586,7 @@ Parameter: <i><b>devid</b></i>: Integer - Device id of the serial port device<br
 </table>
 
 ### USB subsystem
-The USB subsystem handles the USB devices.
+The *USB* subsystem handles the USB devices.
 
 This subsystem provides two type of functions:
 - Functions with name starting by *USB_*: These functions provide a wrapper to the *lbusb* API. It is assumed that you are familiar with this API. For a reference to the *libusb* API, please consult it [here](https://libusb.sourceforge.io/api-1.0/libusb_api.html)
@@ -1820,3 +1820,32 @@ Triggered when an error accurred in the USB device.<br><br>
 Parameter: <i><b>usbhandleid</b></i>: Integer - Handle id of the USB device<br>
 </td></tr>
 </table>
+
+### DSP subsystem
+The *DSP* subsystem provides functions to handle real-time data, specially audio. The real-time data is managed as *Binary* types. As explain above, a *Binary* type is a reference to a byte stream which resides in the C++ core application environment. All the *Binary* values handle by the *DSP* subsystem are assumed to be series of 32-bit floating point values. In some cases, the series are complex, with a real and an imaginary component interlaced in the series of values. In this case, we will call this type *Binary Complex*.  
+
+<table><tr></tr>
+<tr><td><b>ENUM: FFTWindow</b></td></tr>
+<tr><td>
+FFTW_NONE<br>
+FFTW_HANN<br>
+FFTW_HAMMING<br>
+FFTW_BLACKMAN<br>
+FFTW_BLACKMAN_HARRIS_4<br>
+FFTW_BLACKMAN_HARRIS_7
+</td></tr>
+<tr><td><b>ENUM: FilterType</b></td></tr>
+<tr><td>
+FT_PASSBAND<br>
+FT_REJECTBAND<br>
+FT_IIR<br>
+FT_FIR<br>
+FT_IFIR
+</td></tr>
+<tr><td><b>ENUM: MiricsFormat</b></td></tr>
+<tr><td>
+MF_252<br>
+MF_336<br>
+MF_384<br>
+MF_504
+</td></tr>
