@@ -1775,7 +1775,7 @@ Return value: Boolean - True on success, false otherwise
 </td></tr>
 <tr><td><b>QString USBDevice_description(const QString &devname)</b></td></tr>
 <tr><td>
-Retiurn the description (product) of the USB device.<br><br>
+Return the description (product) of the USB device.<br><br>
 Parameter: <i><b>devname</b></i>: String - Device name of the USB device<br>
 Return value: String - Description if found, blank if not found or on error
 </td></tr>
