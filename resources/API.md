@@ -1740,4 +1740,31 @@ Parameter: <i><b>usbhandleid</b></i>: Integer - Handle id of the USB device obta
 Parameter: <i><b>interface</b></i>: Integer - USB interface to be released<br>
 Return value: Integer - 0 on success. Error code otherwise
 </td></tr>
+<tr><td><b>int USB_reset_device(const int usbhandleid)</b></td></tr>
+<tr><td>
+Wrapper for <a href=https://libusb.sourceforge.io/api-1.0/group__libusb__dev.html#gafee9c4638f1713ca5faa867948878111>libusb_reset_device()</a>. Perform a USB port reset to reinitialize a device.<br><br>
+Parameter: <i><b>usbhandleid</b></i>: Integer - Handle id of the USB device obtained when it was opened<br>
+Return value: Integer - 0 on success. Error code otherwise
+</td></tr>
+<tr><td><b>USB_setBusy(const int usbhandleid, const bool busy)</b></td></tr>
+<tr><td>
+Set or undets the device to busy state. If state is busy, no read or write will be performed until it is unset. Used for data contention.<br><br>
+Parameter: <i><b>usbhandleid</b></i>: Integer - Handle id of the USB device obtained when it was opened<br>
+Parameter: <i><b>busy</b></i>: Boolean - Specifies if the USB device must be set or unset to busy state.<br>
+Return value: None
+</td></tr>
+<tr><td><b>int USB_set_configuration(const int usbhandleid, const int configuration)</b></td></tr>
+<tr><td>
+Wrapper for <a href=https://libusb.sourceforge.io/api-1.0/group__libusb__dev.html#ga785ddea63a2b9bcb879a614ca4867bed>libusb_set_configuration()</a>. Set the active configuration for a device.<br><br>
+Parameter: <i><b>usbhandleid</b></i>: Integer - Handle id of the USB device obtained when it was opened<br>
+Parameter: <i><b>configuration</b></i>: Integer - The value of the configuration you wish to activate, or -1 if you wish to put the device in an unconfigured state<br>
+Return value: Integer - 0 on success. Error code otherwise
+<tr><td><b>int USB_set_interface_alt_setting(const int usbhandleid, const int interface, const int altsetting)</b></td></tr>
+<tr><td>
+Wrapper for <a href=https://libusb.sourceforge.io/api-1.0/group__libusb__dev.html#ga4858ad4f0f58fd1dc0afaead1fe6479a>libusb_set_interface_alt_setting()</a>. Release an interface previously claimed.<br><br>
+Parameter: <i><b>usbhandleid</b></i>: Integer - Handle id of the USB device obtained when it was opened<br>
+Parameter: <i><b>interface</b></i>: Integer - Number of the previously-claimed interface<br>
+Parameter: <i><b>altsetting</b></i>: Integer - Number of the alternate setting to activate<br>
+Return value: Integer - 0 on success. Error code otherwise
+</td></tr>
 </table>
