@@ -1523,7 +1523,7 @@ Return value: Boolean - True if the serial port device is open, false otherwise
 <tr><td>
 Returns the manufacturer of the serial port device.<br>
 Parameter: <i><b>devname</b></i>: String - Device name of the serial port device<br>
-Return value: String - Name of the manufacturer of the serial port device. Blank is not available
+Return value: String - Name of the manufacturer of the serial port device. Blank if not available
 </td></tr>
 <tr><td><b>int serialPort_open(const QString &devname, const QString &mode)</b></td></tr>
 <tr><td>
@@ -1543,13 +1543,13 @@ Return value: Integer - Current value for RTS (0 or 1). If a new RTS value is pr
 <tr><td>
 Returns the serial number of the serial port device.<br>
 Parameter: <i><b>devname</b></i>: String - Device name of the serial port device<br>
-Return value: String - Serial number of the serial port device. Blank is not available
+Return value: String - Serial number of the serial port device. Blank if not available
 </td></tr>
 <tr><td><b>QString serialPort_systemLocation(const QString &devname)</b></td></tr>
 <tr><td>
 Returns the system location of the serial port device.<br>
 Parameter: <i><b>devname</b></i>: String - Device name of the serial port device<br>
-Return value: String - System location of the serial port device. Blank is not available
+Return value: String - System location of the serial port device. Blank if not available
 </td></tr>
 <tr><td><b>serialPort_write(const int devid, QByteArray data)</b></td></tr>
 <tr><td>
