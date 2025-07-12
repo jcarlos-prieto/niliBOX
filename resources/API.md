@@ -1670,7 +1670,7 @@ Return value: Integer - 0 on success. Error code otherwise
 </td></tr>
 <tr><td><b>QByteArray USB_control_transfer(const int usbhandleid, const int type, const int request, const int value, const int index, const QByteArray &data, const int len, const int timeout)</b></td></tr>
 <tr><td>
-Wrapper for <a href=[https://libusb.sourceforge.io/api-1.0/group__libusb__syncio.html#ga2f90957ccc1285475ae96ad2ceb1f58c>](https://libusb.sourceforge.io/api-1.0/group__libusb__syncio.html#gadb11f7a761bd12fc77a07f4568d56f38)libusb_control_transfer()</a>. Perform a USB read/write control transfer. The direction of the transfer is inferred from the direction bits of the endpoint address.<br><br>
+Wrapper for <a href=https://libusb.sourceforge.io/api-1.0/group__libusb__syncio.html#ga2f90957ccc1285475ae96ad2ceb1f58c>](https://libusb.sourceforge.io/api-1.0/group__libusb__syncio.html#gadb11f7a761bd12fc77a07f4568d56f38)libusb_control_transfer()</a>. Perform a USB read/write control transfer. The direction of the transfer is inferred from the direction bits of the endpoint address.<br><br>
 Parameter: <i><b>usbhandleid</b></i>: Integer - Handle id of the USB device obtained when it was opened<br>
 Parameter: <i><b>type</b></i>: Integer - The request type field for the setup packet<br>
 Parameter: <i><b>request</b></i>: Integer - The request field for the setup packet<br>
