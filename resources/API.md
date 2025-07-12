@@ -1808,4 +1808,15 @@ Test if a USB device can be used. This function tries to open and close the USB 
 Parameter: <i><b>devname</b></i>: String - Device name of the USB device<br>
 Return value: Boolean - True on success, false otherwise
 </td></tr>
+<tr><td><b>SIGNAL - USB_Data(const int usbhandleid, QByteArrayView data)</b></td></tr>
+<tr><td>
+Triggered when there is data available from a USB device.<br><br>
+Parameter: <i><b>usbhandleid</b></i>: Integer - Handle id of the USB device<br>
+Parameter: <i><b>data</b></i>: Binary - Data received<br>
+</td></tr>
+<tr><td><b>SIGNAL - serialPort_Error(const int usbhandleid)</b></td></tr>
+<tr><td>
+Triggered when an error accurred in the USB device.<br><br>
+Parameter: <i><b>usbhandleid</b></i>: Integer - Handle id of the USB device<br>
+</td></tr>
 </table>
