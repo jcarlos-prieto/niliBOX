@@ -1684,7 +1684,7 @@ Return value: Integer - 0 on success. Error code otherwise
 <tr><td><b>int USB_detach_kernel_driver(const int usbhandleid, const int interface)</b></td></tr>
 <tr><td>
 Wrapper for <a href=https://libusb.sourceforge.io/api-1.0/group__libusb__dev.html#ga5e0cc1d666097e915748593effdc634a>libusb_detach_kernel_driver()</a>. Detach a kernel driver from an interface.<br><br>
-Parameter: <i><b>usbhandleid</b></i>: Integer - Handle id of the USB device obtained when it was opened.<br>
+Parameter: <i><b>usbhandleid</b></i>: Integer - Handle id of the USB device obtained when it was opened<br>
 Parameter: <i><b>interface</b></i>: Integer - USB interface to be detached<br>
 Return value: Integer - 0 on success. Error code otherwise
 </td></tr>
@@ -1694,10 +1694,15 @@ Returns the USB device id corresponding to the USB handle id provided.<br><br>
 Parameter: <i><b>usbhandleid</b></i>: Integer - Handle id of the USB device obtained when it was opened.<br>
 Return value: Integer - USB device id. Returns -1 on error
 </td></tr>
-<tr><td><b>QList&lt;int&gt; USB_get_device_descriptor(const int usbhandleid)</b></td></tr>
+<tr><td><b>QList&lt;int&gt; USB_get_device_descriptor(const int usbdeviceid)</b></td></tr>
 <tr><td>
 Wrapper for <a href=https://libusb.sourceforge.io/api-1.0/group__libusb__desc.html#ga5e9ab08d490a7704cf3a9b0439f16f00>libusb_get_device_descriptor()</a>. Returns a list of integers containing all the fields of the USB device descriptor of the USB device provided. The order of the fields in the list is given in the description of the enum USBDescriptor.<br><br>
-Parameter: <i><b>usbhandleid</b></i>: Integer - Handle id of the USB device obtained when it was opened.<br>
+Parameter: <i><b>usbdeviceid</b></i>: Integer - Device id of the USB device<br>
 Return value: List - List of 14 integer values
+</td></tr>
+<tr><td><b>QList&lt;int&gt; USB_get_device_list()</b></td></tr>
+<tr><td>
+Wrapper for <a href=https://libusb.sourceforge.io/api-1.0/group__libusb__dev.html#gac0fe4b65914c5ed036e6cbec61cb0b97>libusb_get_device_list()</a>. Returns a list of USB device id corresponding to all the USB devices present in the system. The order is guaranteed to be always ther same.<br><br>
+Return value: List - List of integers
 </td></tr>
 </table>
