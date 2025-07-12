@@ -2030,4 +2030,11 @@ Parameter: <i><b>algorithm</b></i>: FilterType - This parameter can be one of th
 </ul>
 Return value: None
 </td></tr>
+<tr><td><b>QByteArrayView DSP_uncompress(QByteArrayView input, const int cbits)</b></td></tr>
+<tr><td>
+Uncompress a previously compressed series value. The parameter <i>cbits</i> (compressed bits) must be the same used when it was compressed.<br><br>
+Parameter: <i><b>input</b></i>: Binary - Compresed series of values<br>
+Parameter: <i><b>cbits</b></i>: Integer - This value can be 8 or 16<br>
+Return value: Binary - Uncompressed series
+</td></tr>
 </table>
