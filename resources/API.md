@@ -1814,7 +1814,7 @@ Triggered when there is data available from a USB device.<br><br>
 Parameter: <i><b>usbhandleid</b></i>: Integer - Handle id of the USB device<br>
 Parameter: <i><b>data</b></i>: Binary - Data received<br>
 </td></tr>
-<tr><td><b>SIGNAL - serialPort_Error(const int usbhandleid)</b></td></tr>
+<tr><td><b>SIGNAL - USB_Error(const int usbhandleid)</b></td></tr>
 <tr><td>
 Triggered when an error accurred in the USB device.<br><br>
 Parameter: <i><b>usbhandleid</b></i>: Integer - Handle id of the USB device<br>
