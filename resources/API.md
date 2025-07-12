@@ -16,6 +16,7 @@
   - [Audio subsystem](#audio-subsystem)
   - [Video subsystem](#video-subsystem)
   - [Serial subsystem](#serial-subsystem)
+  - [USB subsystem](#usb-subsystem)
 
 ## QML controls
 These controls extend the functionality of the standard QtQuick controls to make them adjust to the theme selected in the core application. The purpose is to provide a consistent look and feel between the core application and the modules.  
@@ -1207,20 +1208,21 @@ Subsystems:
 - [Audio subsystem](#audio-subsystem)
 - [Video subsystem](#video-subsystem)
 - [Serial subsystem](#serial-subsystem)
+- [USB subsystem](#usb-subsystem)
 
 ### Audio subsystem
-The audio subsystem handles the audio devices.<br>
+The audio subsystem handles the audio devices.
 Every audio device can be identified in 3 different ways:
 - *Device name*: A string that identifies an audio device available in the system
 - *Device id*: An integer identifying an audio device that has been open and can be used for input/output operations
 - *Description*: A string providing a readable name for the audio device
 
-When an audio device is open, a parameter <i>mode</i> must be provided. The <i>mode</i> is composed by a list of values separated by commas in the format <i>"samplerate,samplingbits,compressedbits"</i>. This is the meaning of each value:
+When an audio device is open, a parameter <i>mode</i> must be provided. The <i>mode</i> is composed by a list of values separated by commas in the format *"samplerate,samplingbits,compressedbits"*. This is the meaning of each value:
 - *samplerate*: Integer - Audio rate in samples per second. The standard values are 8000, 11020, 16000, 22040, 32000, 44080 and 48000
 - *samplingbits*: Integer - Number of bits per sample. It can be 8 (unsigned), 16 (signed) or 32 (float)
 - *compressedbits*: Integer - The audio can be open in compressed mode. In this case, the audio will be compressed before sending it from server to client and viceversa and uncompressed at destination. The possible values are 8 and 16 bits
 
-An audio device can be a physical device but also a virtual input audio device. The vitual input devices are created when a module has audio output capabilities. In this way, the output of a module can be used as input for anoher module.<br>
+An audio device can be a physical device but also a virtual input audio device. The vitual input devices are created when a module has audio output capabilities. In this way, the output of a module can be used as input for anoher module.
 
 <table><tr></tr>
 <tr><td><b>void audioDevice_close(const int devid)</b></td></tr>
@@ -1373,13 +1375,13 @@ Parameter: <i><b>size</b></i>: Integer - Current output audio file<br>
 </table>
 
 ### Video subsystem
-The video subsystem handles the video input devices. There is no equivalent for output video devices.<br>
+The video subsystem handles the video input devices. There is no equivalent for output video devices.
 Every video device can be identified in 3 different ways:
 - *Device name*: A string that identifies a video device available in the system
 - *Device id*: An integer identifying a video device that has been open and can be used for input operations
 - *Description*: A string providing a readable name for the video device
 
-When an video device is open, a parameter <i>mode</i> must be provided. The <i>mode</i> is composed by a list of values separated by commas in the format <i>"resolution,framerate"</i>. This is the meaning of each value:
+When an video device is open, a parameter <i>mode</i> must be provided. The <i>mode</i> is composed by a list of values separated by commas in the format *"resolution,framerate"*. This is the meaning of each value:
 - *resolution*: String - Size of the video frame in the format *widthxheight*. The symbol *x* must be included
 - *framerate*: Integer - Number of frames per second
 
@@ -1479,13 +1481,13 @@ Parameter: <i><b>error</b></i>: String - Description of the error<br>
 </table>
 
 ### Serial subsystem
-The serial subsystem handles the serial port devices.<br>
+The serial subsystem handles the serial port devices.
 Every serial port can be identified in 3 different ways:
 - *Device name*: A string that identifies a serial port device available in the system
 - *Device id*: An integer identifying a serial port that has been open and can be used for input/output operations
 - *Description*: A string providing a readable name for the serial port device
 
-When an serial port device is open, a parameter <i>mode</i> must be provided. The <i>mode</i> is composed by a list of values separated by commas in the format <i>"baudrate,parity,databits,stopbits,flowcontrol"</i>. This is the meaning of each value:
+When an serial port device is open, a parameter <i>mode</i> must be provided. The <i>mode</i> is composed by a list of values separated by commas in the format *"baudrate,parity,databits,stopbits,flowcontrol"*. This is the meaning of each value:
 - *baudrate*: Integer - Baud rate
 - *parity*: String - Any value among *N*, *E*, *O*, *S*, *M* for *None*, *Even*, *Odd*, *Space*, *Mark*
 - *databits*: Integer - Any value among *8*, *7*, *6*, *5*
@@ -1570,3 +1572,6 @@ Triggered when an error accurred in the serial port device.<br>
 Parameter: <i><b>devid</b></i>: Integer - Device id of the serial port device<br>
 </td></tr>
 </table>
+
+### USB subsystem
+The USB subsystem handles the USB devices.
