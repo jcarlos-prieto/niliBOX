@@ -1661,4 +1661,24 @@ Stop an asynchronous read bulk transfer.<br><br>
 Parameter: <i><b>usbhandleid</b></i>: Integer - Handle id of the USB device obtained when it was opened<br>
 Return value: None
 </td></tr>
+<tr><td><b>int USB_close(const int usbhandleid)</b></td></tr>
+<tr><td>
+Wrapper for <a href=https://libusb.sourceforge.io/api-1.0/group__libusb__dev.html#ga779bc4f1316bdb0ac383bddbd538620e>libusb_close()</a>. Close a USB device.<br>
+If the USB device was opened passing an interface number, then the interface is released and attached to the kernel.<br><br>
+Parameter: <i><b>usbhandleid</b></i>: Integer - Handle id of the USB device obtained when it was opened<br>
+Return value: Integer - 0 on success. Error code otherwise
+</td></tr>
+<tr><td><b>QByteArray USB_control_transfer(const int usbhandleid, const int type, const int request, const int value, const int index, const QByteArray &data, const int len, const int timeout)</b></td></tr>
+<tr><td>
+Wrapper for <a href=[https://libusb.sourceforge.io/api-1.0/group__libusb__syncio.html#ga2f90957ccc1285475ae96ad2ceb1f58c>](https://libusb.sourceforge.io/api-1.0/group__libusb__syncio.html#gadb11f7a761bd12fc77a07f4568d56f38)libusb_control_transfer()</a>. Perform a USB read/write control transfer. The direction of the transfer is inferred from the direction bits of the endpoint address.<br><br>
+Parameter: <i><b>usbhandleid</b></i>: Integer - Handle id of the USB device obtained when it was opened<br>
+Parameter: <i><b>type</b></i>: Integer - The request type field for the setup packet<br>
+Parameter: <i><b>request</b></i>: Integer - The request field for the setup packet<br>
+Parameter: <i><b>value</b></i>: Integer - The value field for the setup packet<br>
+Parameter: <i><b>index</b></i>: Integer - The index field for the setup packet<br>
+Parameter: <i><b>data</b></i>: String - Buffer to receive data<br>
+Parameter: <i><b>len</b></i>: Integer - Maximum size of the data to be transferred<br>
+Parameter: <i><b>timeout</b></i>: Integer - Time in miliseconds to wait for the operation to complete. For an unlimited timeout, use 0<br>
+Return value: Integer - 0 on success. Error code otherwise
+</td></tr>
 </table>
