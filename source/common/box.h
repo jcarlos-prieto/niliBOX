@@ -550,8 +550,8 @@ signals:
     void                                   reqRemoteBox(const Message &message);
     void                                   serialPort_Data(const int devid, const QByteArray &data);
     void                                   serialPort_Error(const int devid);
-    void                                   USB_Data(const int devid, QByteArrayView data);
-    void                                   USB_Error(const int devid);
+    void                                   USB_Data(const int usbhandleid, QByteArrayView data);
+    void                                   USB_Error(const int usbhandleid);
     void                                   videoDevice_Data(const int devid, QByteArrayView data);
     void                                   videoDevice_Error(const int devid);
 };
