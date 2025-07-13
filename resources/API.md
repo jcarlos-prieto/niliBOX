@@ -2283,7 +2283,7 @@ Destroy the <i>SDR</i> object given by the parameter <i>sdrid</i>.<br><br>
 </td></tr>
 <tr><td><b>void SDR_setAFAGC(const int sdrid, const bool agc)</b></td></tr>
 <tr><td>
-Activate or deactivate AGC (automatic gain control) in audio output of the <i>SDR</i> object.<br><br>
+Activate or deactivate AGC (automatic gain control) at the audio output of the <i>SDR</i> object.<br><br>
 <ul>
 <li>Parameter: <i><b>sdrid</b></i>: Integer - SDR id</li>
 <li>Parameter: <i><b>agc</b></i>: Boolean - A value of true will activate AGC. False will decativate it</li>
