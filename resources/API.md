@@ -1183,7 +1183,7 @@ All these functions, constants and signals are decribed below for each subsystem
 <tr><td>QByteArrayView</td><td>Binary</td></tr>
 </table>
 
-The *Binary* Javascript type is an opaque type used to represent an array of bytes. This type is not a Javascript *Array buffer* but a reference to an array of bytes in the C++ context. The ***Box API*** provides functions to convert this type to an actual *Array buffer* and also to make some basic handling. The reason to use this opaque type instead of a standard *Array buffer* is to minimize the transfer of data between the C++ and Javascript contexts.
+The *Binary* Javascript type is an opaque type used to represent an array of bytes. This type is not a Javascript *ArrayBuffer* but a reference to an array of bytes in the C++ context. The ***Box API*** provides functions to convert this type to an actual *ArrayBuffer* and also to make some basic handling. The reason to use this opaque type instead of a standard *ArrayBuffer* is to minimize the transfer of data between the C++ and Javascript contexts.
 
 The signals are events generated from the C++ core application that must be handled by the Javascript environment. It is necessary to connect the signal to an event handler function. This is an example of how to connect a function handler to the event triggered when an input audio device has collected enough data:
 ```
@@ -2540,7 +2540,7 @@ The *HTTP* subsystem provides basic functions to interact with a web server. It 
 Download a file from the given url.<br><br>
 <ul>
 <li>Parameter: <i><b>url</b></i>: String - Full url for the file, including protocol, server name, subdirectories and file name</li>
-<li>Return value: String - Contents of the file downloaded</li>
+<li>Return value: ArrayBuffer - Contents of the file downloaded</li>
 </ul>
 </td></tr>
 <tr><td><b>QString HTTP_get(const QString &url)</b></td></tr>
