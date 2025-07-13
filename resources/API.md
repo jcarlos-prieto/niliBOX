@@ -1449,7 +1449,7 @@ When an video device is open, a parameter <i>mode</i> must be provided. The <i>m
 <tr><td>
 Close a video device.<br><br>
 <ul>
-<li>Parameter: <i><b>devid</b></i>: Integer - Device id of the video device obtained when it was opened.</li>
+<li>Parameter: <i><b>devid</b></i>: Integer - Device id of the video device obtained when it was opened</li>
 <li>Return value: None</li>
 </ul>
 </td></tr>
@@ -1507,7 +1507,7 @@ Open an video device and returns a new video device id.<br><br>
 <ul>
 <li>Parameter: <i><b>devname</b></i>: String - Device name of the video device</li>
 <li>Parameter: <i><b>mode</b></i>: String - Audio mode to be used to open. It is composed by a list of values separated by commas in the format <i>"widthxheight,framerate"</i></li>
-<li>Return value: Integer - Device id for the video device. If the video device could not be open, this value is -1</li>
+<li>Return value: Integer - New device id for the video device. If the video device could not be open, this value is -1</li>
 </ul>
 </td></tr>
 <tr><td><b>int videoDevice_orientation(const QString &devname)</b></td></tr>
@@ -1556,7 +1556,7 @@ Take a screenshot from the video input and returns it as a binary value.<br><br>
 Triggered when there is data available from a video device.<br><br>
 <ul>
 <li>Parameter: <i><b>devid</b></i>: Integer - Device id of the video device</li>
-<li>Parameter: <i><b>data</b></i>: Binary - Data in the JPEG format with the width and height specified when the video device was opened</li>
+<li>Parameter: <i><b>data</b></i>: Binary - Data in JPEG format with the width and height specified when the video device was opened</li>
 </ul>
 </td></tr>
 <tr><td><b>SIGNAL - videoDevice_Error(const int devid, const QString &error)</b></td></tr>
@@ -1573,7 +1573,7 @@ Triggered when an error accurred in the video device.<br><br>
 The *Serial* subsystem handles the serial port devices.
 Every serial port can be identified in 3 different ways:
 - *Device name*: A string that identifies a serial port device available in the system
-- *Device id*: An integer identifying a serial port that has been open and can be used for input/output operations
+- *Device id*: An integer identifying a serial port that has been opened and can be used for input/output operations
 - *Description*: A string providing a readable name for the serial port device
 
 When an serial port device is open, a parameter <i>mode</i> must be provided. The <i>mode</i> is composed by a list of values separated by commas in the format *"baudrate,parity,databits,stopbits,flowcontrol"*. This is the meaning of each value:
@@ -1587,77 +1587,101 @@ When an serial port device is open, a parameter <i>mode</i> must be provided. Th
 <tr><td><b>void serialPort_close(const int devid)</b></td></tr>
 <tr><td>
 Close a serial port device.<br><br>
-Parameter: <i><b>devid</b></i>: Integer - Device id of the serial port device obtained when it was opened.<br>
-Return value: None
+<ul>
+<li>Parameter: <i><b>devid</b></i>: Integer - Device id of the serial port device obtained when it was opened.</li>
+<li>Return value: None</li>
+</ul>
 </td></tr>
 <tr><td><b>QString serialPort_description(const QString &devname)</b></td></tr>
 <tr><td>
 Retrieve the readable description of a serial port device.<br><br>
-Parameter: <i><b>devname</b></i>: String - Device name of the serial port device<br>
-Return value: String - Readable description of the serial device
+<ul>
+<li>Parameter: <i><b>devname</b></i>: String - Device name of the serial port device</li>
+<li>Return value: String - Readable description of the serial device</li>
+</ul>
 </td></tr>
 <tr><td><b>int serialPort_DTR(const int devid, const int newDTR = -1)</b></td></tr>
 <tr><td>
 Retrieve and optionally sets the DTR signal for the serial port.<br><br>
-Parameter: <i><b>devid</b></i>: Integer - Device id of the serial port device<br>
-Parameter: <i><b>newDTR</b></i>: Integer - New DTR (0 or 1). If this parameter is not provided, then no action is taken<br>
-Return value: Integer - Current value for DTR (0 or 1). If a new DTR value is provided, the current value is read after the value is set
+<ul>
+<li>Parameter: <i><b>devid</b></i>: Integer - Device id of the serial port device</li>
+<li>Parameter: <i><b>newDTR</b></i>: Integer - New DTR (0 or 1). If this parameter is not provided, then no action is taken</li>
+<li>Return value: Integer - Current value for DTR (0 or 1). If a new DTR value is provided, the current value is read after the value is set</li>
+</ul>
 </td></tr>
 <tr><td><b>bool serialPort_isOpen(const QString &devname)</b></td></tr>
 <tr><td>
 Return wether a specific serial port device is open.<br><br>
-Parameter: <i><b>devname</b></i>: String - Device name of the serial port device<br>
-Return value: Boolean - True if the serial port device is open, false otherwise
+<ul>
+<li>Parameter: <i><b>devname</b></i>: String - Device name of the serial port device</li>
+<li>Return value: Boolean - True if the serial port device is open, false otherwise</li>
+</ul>
 </td></tr>
 <tr><td><b>QString serialPort_manufacturer(const QString &devname)</b></td></tr>
 <tr><td>
 Return the manufacturer of the serial port device.<br><br>
-Parameter: <i><b>devname</b></i>: String - Device name of the serial port device<br>
-Return value: String - Name of the manufacturer of the serial port device. Blank if not available
+<ul>
+<li>Parameter: <i><b>devname</b></i>: String - Device name of the serial port device</li>
+<li>Return value: String - Name of the manufacturer of the serial port device. Blank if not available</li>
+</ul>
 </td></tr>
 <tr><td><b>int serialPort_open(const QString &devname, const QString &mode)</b></td></tr>
 <tr><td>
 Open a serial port device and returns a new serial port device id.<br><br>
-Parameter: <i><b>devname</b></i>: String - Device name of the serial port device<br>
-Parameter: <i><b>mode</b></i>: String - Port mode to be used to open. It is composed by a list of values separated by commas in the format <i>"baudrate,parity,databits,stopbits,flowcontrol"</i><br>
-Return value: Integer - Device id for the serial port device. If the serial port device could not be open, this value is -1<br>
+<ul>
+<li>Parameter: <i><b>devname</b></i>: String - Device name of the serial port device</li>
+<li>Parameter: <i><b>mode</b></i>: String - Port mode to be used to open. It is composed by a list of values separated by commas in the format <i>"baudrate,parity,databits,stopbits,flowcontrol"</i></li>
+<li>Return value: Integer - Device id for the serial port device. If the serial port device could not be open, this value is -1</li>
+</ul>
 </td></tr>
 <tr><td><b>int serialPort_RTS(const int devid, const int newRTS = -1)</b></td></tr>
 <tr><td>
 Retrieve and optionally sets the RTS signal for the serial port.<br><br>
-Parameter: <i><b>devid</b></i>: Integer - Device id of the serial port device<br>
-Parameter: <i><b>newRTS</b></i>: Integer - New RTS (0 or 1). If this parameter is not provided, then no action is taken<br>
-Return value: Integer - Current value for RTS (0 or 1). If a new RTS value is provided, the current value is read after the value is set
+<ul>
+<li>Parameter: <i><b>devid</b></i>: Integer - Device id of the serial port device</li>
+<li>Parameter: <i><b>newRTS</b></i>: Integer - New RTS (0 or 1). If this parameter is not provided, then no action is taken</li>
+<li>Return value: Integer - Current value for RTS (0 or 1). If a new RTS value is provided, the current value is read after the value is set</li>
+</ul>
 </td></tr>
 <tr><td><b>QString serialPort_serialNumber(const QString &devname)</b></td></tr>
 <tr><td>
 Return the serial number of the serial port device.<br><br>
-Parameter: <i><b>devname</b></i>: String - Device name of the serial port device<br>
-Return value: String - Serial number of the serial port device. Blank if not available
+<ul>
+<li>Parameter: <i><b>devname</b></i>: String - Device name of the serial port device</li>
+<li>Return value: String - Serial number of the serial port device. Blank if not available</li>
+</ul>
 </td></tr>
 <tr><td><b>QString serialPort_systemLocation(const QString &devname)</b></td></tr>
 <tr><td>
 Return the system location of the serial port device.<br><br>
-Parameter: <i><b>devname</b></i>: String - Device name of the serial port device<br>
-Return value: String - System location of the serial port device. Blank if not available
+<ul>
+<li>Parameter: <i><b>devname</b></i>: String - Device name of the serial port device</li>
+<li>Return value: String - System location of the serial port device. Blank if not available</li>
+</ul>
 </td></tr>
 <tr><td><b>serialPort_write(const int devid, QByteArray data)</b></td></tr>
 <tr><td>
 Write data to a serial port device.<br><br>
-Parameter: <i><b>devid</b></i>: Integer - Device id of the serial port device<br>
-Parameter: <i><b>data</b></i>: String - Data to be written<br>
-Return value: None
+<ul>
+<li>Parameter: <i><b>devid</b></i>: Integer - Device id of the serial port device</li>
+<li>Parameter: <i><b>data</b></i>: String - Data to be written</li>
+<li>Return value: None</li>
+</ul>
 </td></tr>
 <tr><td><b>SIGNAL - serialPort_Data(const int devid, QByteArray data)</b></td></tr>
 <tr><td>
 Triggered when there is data available from a serial port device.<br><br>
-Parameter: <i><b>devid</b></i>: Integer - Device id of the serial port device<br>
-Parameter: <i><b>data</b></i>: String - Data received<br>
+<ul>
+<li>Parameter: <i><b>devid</b></i>: Integer - Device id of the serial port device</li>
+<li>Parameter: <i><b>data</b></i>: String - Data received</li>
+</ul>
 </td></tr>
 <tr><td><b>SIGNAL - serialPort_Error(const int devid)</b></td></tr>
 <tr><td>
 Triggered when an error accurred in the serial port device.<br><br>
-Parameter: <i><b>devid</b></i>: Integer - Device id of the serial port device<br>
+<ul>
+<li>Parameter: <i><b>devid</b></i>: Integer - Device id of the serial port device</li>
+</ul>
 </td></tr>
 </table>
 
