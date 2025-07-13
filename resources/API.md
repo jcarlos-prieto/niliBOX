@@ -1331,7 +1331,7 @@ Open an audio device and return a new audio device id.<br><br>
 <li>Return value: Integer - New device id for the audio device. If the audio device could not be open, this value is -1</li>
 </ul>
 </td></tr>
-<tr><td><b>audioDevice_recordPause(const int devid, const bool pause)</b></td></tr>
+<tr><td><b>void audioDevice_recordPause(const int devid, const bool pause)</b></td></tr>
 <tr><td>
 Pause or resume the process to record the output audio to a file.<br><br>
 <ul>
@@ -1340,7 +1340,7 @@ Pause or resume the process to record the output audio to a file.<br><br>
 <li>Return value: None</li>
 </ul>
 </td></tr>
-<tr><td><b>audioDevice_recordStart(const int devid, const QString filename, const int rawsamplerate = 0)</b></td></tr>
+<tr><td><b>void audioDevice_recordStart(const int devid, const QString filename, const int rawsamplerate = 0)</b></td></tr>
 <tr><td>
 Start the process to record the output audio to a file. Open and initialize the output file.<br><br>
 <ul>
@@ -1350,7 +1350,7 @@ Start the process to record the output audio to a file. Open and initialize the 
 <li>Return value: None</li>
 </ul>
 </td></tr>
-<tr><td><b>audioDevice_recordStop(const int devid)</b></td></tr>
+<tr><td><b>void audioDevice_recordStop(const int devid)</b></td></tr>
 <tr><td>
 Finalize the recording process. Close the output file.<br><br>
 <ul>
@@ -1358,7 +1358,7 @@ Finalize the recording process. Close the output file.<br><br>
 <li>Return value: None</li>
 </ul>
 </td></tr>
-<tr><td><b>audioDevice_recordWrite(const int devid, QByteArrayView data)</b></td></tr>
+<tr><td><b>void audioDevice_recordWrite(const int devid, QByteArrayView data)</b></td></tr>
 <tr><td>
 Write data to the output file.<br><br>
 <ul>
@@ -1367,7 +1367,7 @@ Write data to the output file.<br><br>
 <li>Return value: None</li>
 </ul>
 </td></tr>
-<tr><td><b>audioDevice_reset(const int devid)</b></td></tr>
+<tr><td><b>void audioDevice_reset(const int devid)</b></td></tr>
 <tr><td>
 Reset the audio device. Reinitializes the underlaying hardware and clear all buffers.<br><br>
 <ul>
@@ -1375,7 +1375,7 @@ Reset the audio device. Reinitializes the underlaying hardware and clear all buf
 <li>Return value: None</li>
 </ul>
 </td></tr>
-<tr><td><b>audioDevice_setBusy(const int devid, const bool busy)</b></td></tr>
+<tr><td><b>void audioDevice_setBusy(const int devid, const bool busy)</b></td></tr>
 <tr><td>
 Set or unset the device to busy state. If state is busy, no read or write will be performed until it is unset. Used for data contention.<br><br>
 <ul>
@@ -1384,7 +1384,7 @@ Set or unset the device to busy state. If state is busy, no read or write will b
 <li>Return value: None</li>
 </ul>
 </td></tr>
-<tr><td><b>audioDevice_setVolume(const int devid, const float volume)</b></td></tr>
+<tr><td><b>void audioDevice_setVolume(const int devid, const float volume)</b></td></tr>
 <tr><td>
 Set the hardware input or output gain for the device.<br><br>
 <ul>
@@ -1393,7 +1393,7 @@ Set the hardware input or output gain for the device.<br><br>
 <li>Return value: None</li>
 </ul>
 </td></tr>
-<tr><td><b>audioDevice_write(const int devid, QByteArrayView data)</b></td></tr>
+<tr><td><b>void audioDevice_write(const int devid, QByteArrayView data)</b></td></tr>
 <tr><td>
 Write audio to an output audio device.<br><br>
 <ul>
@@ -1891,7 +1891,7 @@ Wrapper for <a href=https://libusb.sourceforge.io/api-1.0/group__libusb__dev.htm
 <li>Return value: Integer - 0 on success. Error code otherwise</li>
 </ul>
 </td></tr>
-<tr><td><b>USB_setBusy(const int usbhandleid, const bool busy)</b></td></tr>
+<tr><td><b>void USB_setBusy(const int usbhandleid, const bool busy)</b></td></tr>
 <tr><td>
 Set or unset the device to busy state. If state is busy, no read or write will be performed until it is unset. Used for data contention.<br><br>
 <ul>
@@ -2310,10 +2310,37 @@ Set the demodulation type.<br><br>
 </td></tr>
 <tr><td><b>void SDR_setBusy(const int sdrid, const bool busy)</b></td></tr>
 <tr><td>
-Set or unset the device to busy state. If state is busy, no processing will be performed until it is unset. Used for data contention.<br><br>
+Set or unset the SDR object to busy state. If state is busy, no processing will be performed until it is unset. Used for data contention.<br><br>
 <ul>
 <li>Parameter: <i><b>sdrid</b></i>: Integer - SDR id</li>
 <li>Parameter: <i><b>busy</b></i>: Boolean - Specifies if the SDR object must be set or unset to busy state.</li>
+<li>Return value: None</li>
+</ul>
+</td></tr>
+<tr><td><b>void SDR_setFilter(const int sdrid, const int filter)</b></td></tr>
+<tr><td>
+Set the bandwidth of the pass band filter to be applied to the raw I/Q signal before demodulation.<br><br>
+<ul>
+<li>Parameter: <i><b>sdrid</b></i>: Integer - SDR id</li>
+<li>Parameter: <i><b>filter</b></i>: Integer - Bandwidth value in Hz</li>
+<li>Return value: None</li>
+</ul>
+</td></tr>
+<tr><td><b>void SDR_setFMtau(const int sdrid, const int tau)</b></td></tr>
+<tr><td>
+Set the de-emphasis filter to be applied after WFM demodulation. Check <a href=https://en.wikipedia.org/wiki/FM_broadcasting#Pre-emphasis_and_de-emphasis>Pre-emphasis and de-emphasis</a> for additional information.<br><br>
+<ul>
+<li>Parameter: <i><b>sdrid</b></i>: Integer - SDR id</li>
+<li>Parameter: <i><b>tau</b></i>: Integer - The typical values are 75 for America and South Korea and 50 for the rest of the world. A value of 0 will deactivate de-emphasis</li>
+<li>Return value: None</li>
+</ul>
+</td></tr>
+<tr><td><b>void SDR_setSampleRate(const int sdrid, const int rate = 0)</b></td></tr>
+<tr><td>
+Set the sample rate of the input series of I/Q complex values.<br><br>
+<ul>
+<li>Parameter: <i><b>sdrid</b></i>: Integer - SDR id</li>
+<li>Parameter: <i><b>rate</b></i>: Integer - Sample rate in samples per second</li>
 <li>Return value: None</li>
 </ul>
 </td></tr>
