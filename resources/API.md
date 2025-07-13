@@ -1732,7 +1732,7 @@ Wrapper for <a href=https://libusb.sourceforge.io/api-1.0/group__libusb__dev.htm
 </td></tr>
 <tr><td><b>int USB_bulk_transfer(const int usbhandleid, const int endpoint, const QByteArray &data, const int len, const int timeout)</b></td></tr>
 <tr><td>
-Wrapper for <a href=https://libusb.sourceforge.io/api-1.0/group__libusb__syncio.html#ga2f90957ccc1285475ae96ad2ceb1f58c>libusb_bulk_transfer()</a>. Perform a USB write bulk transfer. The direction of the transfer is inferred from the direction bits of the endpoint address.<br><br>
+Wrapper for <a href=https://libusb.sourceforge.io/api-1.0/group__libusb__syncio.html#ga2f90957ccc1285475ae96ad2ceb1f58c>libusb_bulk_transfer()</a>. Perform a USB read/write bulk transfer. The direction of the transfer is inferred from the direction bits of the endpoint address.<br><br>
 <ul>
 <li>Parameter: <i><b>usbhandleid</b></i>: Integer - Handle id of the USB device obtained when it was opened</li>
 <li>Parameter: <i><b>endpoint</b></i>: Integer - The address of a valid endpoint to communicate with</li>
@@ -1747,7 +1747,7 @@ Wrapper for <a href=https://libusb.sourceforge.io/api-1.0/group__libusb__syncio.
 Set the buffer length for an asynchronous bulk transfer managed by <i>USB_bulk_transfer_start</i> and <i>USB_bulk_transfer_stop</i>. This function can be called before or after the bulk transfer has been started<br><br>
 <ul>
 <li>Parameter: <i><b>usbhandleid</b></i>: Integer - Handle id of the USB device obtained when it was opened</li>
-<li>Parameter: <i><b>buflen</b></i>: Integer - Buffer length</li>
+<li>Parameter: <i><b>buflen</b></i>: Integer - Buffer length in bytes</li>
 <li>Return value: None</li>
 </ul>
 </td></tr>
@@ -1838,7 +1838,7 @@ Wrapper for <a href=https://libusb.sourceforge.io/api-1.0/group__libusb__dev.htm
 </td></tr>
 <tr><td><b>QString USB_get_string_descriptor_ascii(const int usbhandleid, const int index)</b></td></tr>
 <tr><td>
-Wrapper for <a href=https://libusb.sourceforge.io/api-1.0/group__libusb__desc.html#ga240aac96d92cb9f51e3aea79a4adbf42>libusb_get_string_descriptor_ascii()</a>. Detach a kernel driver from an interface.<br><br>
+Wrapper for <a href=https://libusb.sourceforge.io/api-1.0/group__libusb__desc.html#ga240aac96d92cb9f51e3aea79a4adbf42>libusb_get_string_descriptor_ascii()</a>. Retrieve a string descriptor by it index.<br><br>
 <ul>
 <li>Parameter: <i><b>usbhandleid</b></i>: Integer - Handle id of the USB device obtained when it was opened</li>
 <li>Parameter: <i><b>index</b></i>: Integer - The index of the descriptor to retrieved</li>
@@ -1882,7 +1882,7 @@ Wrapper for <a href=https://libusb.sourceforge.io/api-1.0/group__libusb__dev.htm
 </td></tr>
 <tr><td><b>USB_setBusy(const int usbhandleid, const bool busy)</b></td></tr>
 <tr><td>
-Set or undets the device to busy state. If state is busy, no read or write will be performed until it is unset. Used for data contention.<br><br>
+Set or unset the device to busy state. If state is busy, no read or write will be performed until it is unset. Used for data contention.<br><br>
 <ul>
 <li>Parameter: <i><b>usbhandleid</b></i>: Integer - Handle id of the USB device obtained when it was opened</li>
 <li>Parameter: <i><b>busy</b></i>: Boolean - Specifies if the USB device must be set or unset to busy state.</li>
@@ -1899,7 +1899,7 @@ Wrapper for <a href=https://libusb.sourceforge.io/api-1.0/group__libusb__dev.htm
 </ul>
 <tr><td><b>int USB_set_interface_alt_setting(const int usbhandleid, const int interface, const int altsetting)</b></td></tr>
 <tr><td>
-Wrapper for <a href=https://libusb.sourceforge.io/api-1.0/group__libusb__dev.html#ga4858ad4f0f58fd1dc0afaead1fe6479a>libusb_set_interface_alt_setting()</a>. Release an interface previously claimed.<br><br>
+Wrapper for <a href=https://libusb.sourceforge.io/api-1.0/group__libusb__dev.html#ga4858ad4f0f58fd1dc0afaead1fe6479a>libusb_set_interface_alt_setting()</a>. Activate an alternate setting for an interface.<br><br>
 <ul>
 <li>Parameter: <i><b>usbhandleid</b></i>: Integer - Handle id of the USB device obtained when it was opened</li>
 <li>Parameter: <i><b>interface</b></i>: Integer - Number of the previously-claimed interface</li>
@@ -1927,7 +1927,7 @@ Return the description (product) of the USB device.<br><br>
 <tr><td>
 Provide a list of the USB device names of the USB devices currently available in the system.<br><br>
 <li>Parameters: None</li>
-<li>Return value: List - List of String containing the USB device names found in the format <i>VVVV:PPPP[:N]</i> where <i>VVVV</i> is the vendor id, <i>PPPP</i> i the product id and <i>N</i> is a sequencal number if more than one device of the same type are found.</li>
+<li>Return value: List - List of String containing the USB device names found in the format <i>VVVV:PPPP[:N]</i> where <i>VVVV</i> is the vendor id, <i>PPPP</i> is the product id and <i>N</i> is a sequencial number if more than one device of the same type are found</li>
 </td>
 </td></tr>
 <tr><td><b>QString USBDevice_manufacturer(const QString &devname)</b></td></tr>
