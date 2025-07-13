@@ -422,7 +422,7 @@ public:
     Q_INVOKABLE void                       SDR_feed(const int sdrid, QByteArrayView input);
     Q_INVOKABLE void                       SDR_release(const int sdrid);
     Q_INVOKABLE void                       SDR_setAFAGC(const int sdrid, const bool agc);
-    Q_INVOKABLE void                       SDR_setAudioMode(const int sdrid, const QString &audiomode);
+    Q_INVOKABLE void                       SDR_setAudioMode(const int sdrid, const QString &mode);
     Q_INVOKABLE void                       SDR_setBand(const int sdrid, const QString &band);
     Q_INVOKABLE void                       SDR_setBusy(const int sdrid, const bool busy);
     Q_INVOKABLE void                       SDR_setFilter(const int sdrid, const int filter);

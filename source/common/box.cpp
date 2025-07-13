@@ -3976,6 +3976,7 @@ int Box::SDR_create()
 
     Sdr *sdr = new Sdr();
     sdr->busy = false;
+    sdr->unfiltered = false;
     sdr->dspA = DSP_create();
     sdr->dspB = DSP_create();
     sdr->dspC = DSP_create();
@@ -4040,14 +4041,14 @@ void Box::SDR_setAFAGC(const int sdrid, const bool agc)
 }
 
 
-void Box::SDR_setAudioMode(const int sdrid, const QString &audiomode)
+void Box::SDR_setAudioMode(const int sdrid, const QString &mode)
 {
     Sdr *sdr = m_SDRs.value(sdrid);
 
     if (!sdr)
         return;
 
-    QString lmode = audiomode;
+    QString lmode = mode;
     QList<QString> amode = lmode.replace(" ", "").toUpper().split(',');
     if (amode.size() < 3)
         return;
