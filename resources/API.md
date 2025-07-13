@@ -2258,7 +2258,7 @@ The *SDR* subsystem provides functions to handle SDR receivers. An *SDR* object 
 <table><tr></tr>
 <tr><td><b>int SDR_create()</b></td></tr>
 <tr><td>
-Returns a reference to a newly created <i>SDR</i> object.<br><br>
+Return a reference to a newly created <i>SDR</i> object.<br><br>
 <ul>
 <li>Parameter: None</li>
 <li>Return value: Integer - Identifier of the new <i>SDR</i> object</li>
