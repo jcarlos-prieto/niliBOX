@@ -2346,7 +2346,7 @@ Set the sample rate of the input series of I/Q complex values.<br><br>
 </td></tr>
 <tr><td><b>void SDR_setUnfiltered(const int sdrid, const bool unfiltered)</b></td></tr>
 <tr><td>
-Set wether the audio output is filtered. By default, the audio output is filtered. Using untiltered audio can be useful when decoding digital modes.<br><br>
+Set wether the audio output is filtered. By default, the audio output is filtered. Using unfiltered audio can be useful when decoding digital modes.<br><br>
 <ul>
 <li>Parameter: <i><b>sdrid</b></i>: Integer - SDR id</li>
 <li>Parameter: <i><b>unfiltered</b></i>: Boolean - True to set unfiltered audio output</li>
