@@ -1161,9 +1161,9 @@ The different type of values are the following:
 </table>
 
 ## Box API
-The ***BOX API*** is a set of functions, constants and signals that can be invoked from QML or Javascript code. This API implement the most common functionalities to handle hardware and signal processing. These functions are implemented in the C++ core application and are usually much more efficient than implementing the same functionalities directly in JAvascript. The API is divided in subsystems.
+The ***BOX API*** is a set of functions, constants and signals that can be invoked from QML or Javascript code. This API implements the most common functionalities to handle hardware and signal processing. These functions are implemented in the C++ core application and are usually much more efficient than implementing the same functionalities directly in Javascript. The API is divided in subsystems.
 
-All these functions, constants and signals are decribed below for each subsystem. The syntax used to descrbe each one is the exact definition in C++. To be used from QML and Javascript, the C++ types are converted to Javascript types. This is a list of the different types used in C++ and how they can be used from Javascript:
+All these functions, constants and signals are decribed below for each subsystem. The syntax used to describe each one is the exact definition in C++. To be used from QML and Javascript, the C++ types are converted to Javascript types. This is a list of the different types used in C++ and how they can be used from Javascript:
 
 <table>
 <thead>
@@ -1172,17 +1172,17 @@ All these functions, constants and signals are decribed below for each subsystem
 <th>Javascript</th>
 </tr>
 </thead>
-<tr><td>int</td><td>Integer</td></tr>
-<tr><td>float</td><td>Real</td></tr>
+<tr><td>int</td><td>Integer (Number)</td></tr>
+<tr><td>float</td><td>Real (Number)</td></tr>
 <tr><td>bool</td><td>Boolean</td></tr>
 <tr><td>QString</td><td>String</td></tr>
 <tr><td>QList</td><td>List</td></tr>
 <tr><td>QByteArrayView</td><td>Binary</td></tr>
 </table>
 
-The *Binary* Javascript type is an opaque type used to represent an array of bytes. This type is not a Javascript *Array buffer* but a reference to an array of bytes in the C++ context. The *Box API* provides functions to convert this type to an actual *Array buffer* and also to make some basic handling. The reason to use this opaque type instead of a standard *Array buffer* is to minimize the transfer of data between the C++ and JAvascript contexts.
+The *Binary* Javascript type is an opaque type used to represent an array of bytes. This type is not a Javascript *Array buffer* but a reference to an array of bytes in the C++ context. The ***Box API*** provides functions to convert this type to an actual *Array buffer* and also to make some basic handling. The reason to use this opaque type instead of a standard *Array buffer* is to minimize the transfer of data between the C++ and Javascript contexts.
 
-The signals are events generated from the C++ core application that must be handled by the Javascript environment. It is necessary to connect the signal to an event handler function. This is an example to connect a function handler to the event triggered when an input audio device has collected enough data:
+The signals are events generated from the C++ core application that must be handled by the Javascript environment. It is necessary to connect the signal to an event handler function. This is an example of how to connect a function handler to the event triggered when an input audio device has collected enough data:
 ```
 let box;
 let audiodeviceid;
@@ -1190,13 +1190,13 @@ let audiodeviceid;
 function b_start(params)
 {
     box = b_getbox();
-    box.audioDevice_Data.connect(audioDeviceData);
+    box.audioDevice_Data.connect(audioDeviceData); //<== This is where the signal is connected to an event handler
 
     let audiodevice = box.audioDevice_defaultInput();
     audiodeviceid = box.audioDevice_open(audiodevice, "32000,32,0");
 }
 
-function audioDeviceData(devid, data)
+function audioDeviceData(devid, data) //<== The event handler
 {
     if (devid !== audiodeviceid)
         return;
@@ -1206,7 +1206,7 @@ function audioDeviceData(devid, data)
 
 ```
 
-Some functions use parameters of special types defined in the Box API as C++ enums. The different values defined by these enums can be used from Javascript as constants provided by the Box API. For instance, to use a value from the enum for FFT window types, the enum is defined like this:
+Some functions use parameters of special types defined in the ***Box API*** as C++ enums. The different values defined by these enums can be used from Javascript as constants provided by the Box API. For instance, to use a value from the enum for FFT window types, the enum is defined like this:
 ```
 enum FFTWindow {
     FFTW_NONE,
@@ -1230,7 +1230,7 @@ Subsystems:
 The *Audio* subsystem handles the audio devices.
 Every audio device can be identified in 3 different ways:
 - *Device name*: A string that identifies an audio device available in the system
-- *Device id*: An integer identifying an audio device that has been open and can be used for input/output operations
+- *Device id*: An integer identifying an audio device that has been opened and can be used for input/output operations
 - *Description*: A string providing a readable name for the audio device
 
 When an audio device is open, a parameter <i>mode</i> must be provided. The <i>mode</i> is composed by a list of values separated by commas in the format *"samplerate,samplingbits,compressedbits"*. This is the meaning of each value:
