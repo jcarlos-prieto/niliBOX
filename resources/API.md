@@ -2449,4 +2449,74 @@ Start playing the file specified by the file id which has been opened for read o
 <li>Return value: None</li>
 </ul>
 </td></tr>
+<tr><td><b>QByteArrayView file_read(const int fileid, const int size)</b></td></tr>
+<tr><td>
+Read a maximum of <i>size</i> bytes from the file specified by <i>fileid</i>.<br><br>
+<ul>
+<li>Parameter: <i><b>fileid</b></i>: Integer - File id</li>
+<li>Parameter: <i><b>size</b></i>: Integer - Maximum number of bytes to read</li>
+<li>Return value: Binary - Data read</li>
+</ul>
+</td></tr>
+<tr><td><b>int file_samplebits(const int fileid, const int newval = -1)</b></td></tr>
+<tr><td>
+Retrieve and/or set the sample size in bits in the file if it is in WAV format.<br><br>
+<ul>
+<li>Parameter: <i><b>fileid</b></i>: Integer - File id</li>
+<li>Parameter: <i><b>newval</b></i>: Integer - If a value is provided, the file object is forced to assume that the sample size is the number provided. Allowed values are 8, 16 and 32</li>
+<li>Return value: Integer - Sample size in the file if it is a WAV file. If a <i>newval</i> is provided, the same value will be returned</li>
+</ul>
+</td></tr>
+<tr><td><b>int file_samplerate(const int fileid, const int newval = -1)</b></td></tr>
+<tr><td>
+Retrieve and/or set the sample rate in samples per seconds in the file if it is in WAV format.<br><br>
+<ul>
+<li>Parameter: <i><b>fileid</b></i>: Integer - File id</li>
+<li>Parameter: <i><b>newval</b></i>: Integer - If a value is provided, the file object is forced to assume that the sample rate is the number provided</li>
+<li>Return value: Integer - Sample rate in the file if it is a WAV file. If a <i>newval</i> is provided, the same value will be returned</li>
+</ul>
+</td></tr>
+<tr><td><b>void file_save(const QString filename)</b></td></tr>
+<tr><td>
+Open a dialog to save the file specified to a different location. Only works in environments with graphical interface, better on computers, not mobile devices.<br><br>
+<ul>
+<li>Parameter: <i><b>filename</b></i>: String - File name</li>
+<li>Return value: None</li>
+</ul>
+</td></tr>
+<tr><td><b>void file_seek(const int fileid, const int position</b></td></tr>
+<tr><td>
+Moves the read position in the file to the one specified. The next read operations will start at this position.<br><br>
+<ul>
+<li>Parameter: <i><b>fileid</b></i>: Integer - File id</li>
+<li>Parameter: <i><b>position</b></i>: Integer - The position value must be lower than the file size</li>
+<li>Return value: None</li>
+</ul>
+</td></tr>
+<tr><td><b>void file_setBusy(const int devid, const bool busy)</b></td></tr>
+<tr><td>
+Set or unset the file to busy state. If state is busy, no read or write will be performed until it is unset. Used for data contention.<br><br>
+<ul>
+<li>Parameter: <i><b>fileid</b></i>: Integer - File id of the file</li>
+<li>Parameter: <i><b>busy</b></i>: Boolean - Specifies wether the file must be set or unset to busy state.</li>
+<li>Return value: None</li>
+</ul>
+</td></tr>
+<tr><td><b>void file_stop(const int fileid)</b></td></tr>
+<tr><td>
+Stop the play process. This function does not close the file.<br><br>
+<ul>
+<li>Parameter: <i><b>fileid</b></i>: Integer - File id of the file</li>
+<li>Return value: None</li>
+</ul>
+</td></tr>
+<tr><td><b>void file_write(const int fileid, const QByteArrayView &data)</b></td></tr>
+<tr><td>
+Write data to a file open in write mode.<br><br>
+<ul>
+<li>Parameter: <i><b>fileid</b></i>: Integer - File id of the file</li>
+<li>Parameter: <i><b>data</b></i>: Binary - Data to be written</li>
+<li>Return value: None</li>
+</ul>
+</td></tr>
 </table>
