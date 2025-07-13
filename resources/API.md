@@ -2292,7 +2292,7 @@ Activate or deactivate AGC (automatic gain control) at the audio output of the <
 </td></tr>
 <tr><td><b>void SDR_setAudioMode(const int sdrid, const QString &mode)</b></td></tr>
 <tr><td>
-Set the audio mode for the audio output. The audio mode is equal to the one used for audio devices. It is composed by a list of values separated by commas in the format <i>"samplerate,samplingbits,compressedbits". Refer to <a href=./API.md#audio-subsystem>Audio subsystem</a> for additional information.</i><br><br>
+Set the audio mode for the audio output. The audio mode is equal to the one used for audio devices. It is composed by a list of values separated by commas in the format <i>"samplerate,samplingbits,compressedbits"</i>. Refer to <a href=./API.md#audio-subsystem>Audio subsystem</a> for additional information.<br><br>
 <ul>
 <li>Parameter: <i><b>sdrid</b></i>: Integer - SDR id</li>
 <li>Parameter: <i><b>mode</b></i>: String - Audio mode to be used. It is composed by a list of values separated by commas in the format <i>"samplerate,samplingbits,compressedbits"</i></li>
