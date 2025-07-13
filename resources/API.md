@@ -2615,4 +2615,48 @@ Restores a previously escaped string.<br><br>
 <li>Return value: String - Unescaped string</li>
 </ul>
 </td></tr>
+<tr><td><b>QByteArrayView viewClone(QByteArrayView input, const int p1 = 0, const int p2 = -1)</b></td></tr>
+<tr><td>
+Create a clone of a Binary value. As an option, the value can be sliced. The cloned Binary value will be independent from the original (no shared memory).<br><br>
+<ul>
+<li>Parameter: <i><b>input</b></i>: Binary - Original Binary value</li>
+<li>Parameter: <i><b>p1</b></i>: Integer - If specified, the cloned Binary will contain the bytes from position <i>p1</i></li>
+<li>Parameter: <i><b>p2</b></i>: Integer - If specified, the cloned Binary will contain <i>p2</i> bytes starting from <i>p1</i></li>
+<li>Return value: Binary - Cloned binary value</li>
+</ul>
+</td></tr>
+<tr><td><b>QByteArrayView viewSize(QByteArrayView input)</b></td></tr>
+<tr><td>
+Provide the size in bytes of a Binary value.<br><br>
+<ul>
+<li>Parameter: <i><b>input</b></i>: Binary - Binary value</li>
+<li>Return value: Integer - Size of the input value</li>
+</ul>
+</td></tr>
+<tr><td><b>QByteArrayView viewSlice(QByteArrayView input, const int p1 = 0, const int p2 = -1)</b></td></tr>
+<tr><td>
+Return a new Binary value containing a portion of the input. Any change in the resulting Binary value will also change the original (shared memory).<br><br>
+<ul>
+<li>Parameter: <i><b>input</b></i>: Binary - Original Binary value</li>
+<li>Parameter: <i><b>p1</b></i>: Integer - If specified, the returned Binary will contain the bytes from position <i>p1</i></li>
+<li>Parameter: <i><b>p2</b></i>: Integer - If specified, the returned Binary will contain <i>p2</i> bytes starting from <i>p1</i></li>
+<li>Return value: Binary - New binary value</li>
+</ul>
+</td></tr>
+<tr><td><b>QByteArrayView viewFromBytes(QByteArray input)</b></td></tr>
+<tr><td>
+Convert a Javascript ArrayBuffer into a Binary value.<br><br>
+<ul>
+<li>Parameter: <i><b>input</b></i>: ArrayBuffer - Input value</li>
+<li>Return value: Binary - Output value</li>
+</ul>
+</td></tr>
+<tr><td><b>QByteArray bytesFromView(QByteArrayView input)</b></td></tr>
+<tr><td>
+Convert a Binary value into a Javascript ArrayBuffer value.<br><br>
+<ul>
+<li>Parameter: <i><b>input</b></i>: Binary - Input value</li>
+<li>Return value: ArrayBuffer - Output value</li>
+</ul>
+</td></tr>
 </table>
