@@ -1229,7 +1229,7 @@ Subsystems:
 ### Audio subsystem
 The *Audio* subsystem handles the audio devices.
 Every audio device can be identified in 3 different ways:
-- *Device name*: A string that identifies an audio device available in the system
+- *Device name*: A string that uniquely identifies an audio device available in the system
 - *Device id*: An integer identifying an audio device that has been opened and can be used for input/output operations
 - *Description*: A string providing a readable name for the audio device
 
@@ -1436,7 +1436,7 @@ Triggered while audio is recorded to update the current output file size.<br><br
 ### Video subsystem
 The *Video* subsystem handles the video input devices. There is no equivalent for output video devices.
 Every video device can be identified in 3 different ways:
-- *Device name*: A string that identifies a video device available in the system
+- *Device name*: A string that uniquely identifies a video device available in the system
 - *Device id*: An integer identifying a video device that has been open and can be used for input operations
 - *Description*: A string providing a readable name for the video device
 
@@ -1447,9 +1447,11 @@ When an video device is open, a parameter <i>mode</i> must be provided. The <i>m
 <table><tr></tr>
 <tr><td><b>void videoDevice_close(const int devid)</b></td></tr>
 <tr><td>
-Close a video device.<br><br>
-Parameter: <i><b>devid</b></i>: Integer - Device id of the video device obtained when it was opened.<br>
-Return value: None
+Close a video device.
+<ul>
+<li>Parameter: <i><b>devid</b></i>: Integer - Device id of the video device obtained when it was opened.</li>
+<li>Return value: None</li>
+</ul>
 </td></tr>
 <tr><td><b>QString videoDevice_default()</b></td></tr>
 <tr><td>
