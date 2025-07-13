@@ -33,7 +33,7 @@ The appearence of these controls is modified by the theme properties also listed
 <tr>
 <td>TButton</td>
 <td>
-Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-controls-abstractbutton.html>AbstractButton</a><br><br>
+Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-controls-abstractbutton.html target="_blank">AbstractButton</a><br><br>
 <ul>
 <li>Property <i><b>name</b></i>: String</li>
 <li>Property <i><b>tooltiptext</b></i>: String - Text for tooltip box</li>
@@ -44,7 +44,7 @@ Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-controls-abstractb
 <tr>
 <td>TCheck</td>
 <td>
-Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-controls-abstractbutton.html>AbstractButton</a><br><br>
+Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-controls-abstractbutton.html target="_blank">AbstractButton</a><br><br>
 <ul>
 <li>Property <i><b>name</b></i>: String</li>
 <li>Theme properties: <i><b>margin margin-top margin-bottom margin-left margin-right padding padding-top padding-botton padding-left padding-right border-width radius angle foreground-color border-color text-color text-weight image</b></i></li>
@@ -54,7 +54,7 @@ Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-controls-abstractb
 <tr>
 <td>TColumn</td>
 <td>
-Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-column.html>Column</a><br><br>
+Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-column.html target="_blank">Column</a><br><br>
 <ul>
 <li>Property <i><b>name</b></i>: String</li>
 <li>Theme properties: <i><b>margin margin-top margin-bottom margin-left margin-right padding padding-top padding-botton padding-left padding-right spacing</b></i></li>
@@ -64,7 +64,7 @@ Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-column.html>Column
 <tr>
 <td>TComboBox</td>
 <td>
-Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-controls-combobox.html>ComboBox</a><br><br>
+Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-controls-combobox.html target="_blank">ComboBox</a><br><br>
 <ul>
 <li>Property <i><b>name</b></i>: String</li>
 <li>Theme properties: <i><b>margin margin-top margin-bottom margin-left margin-right padding padding-top padding-botton padding-left padding-right border-width radius foreground-color border-color text-color</b></i></li>
@@ -76,10 +76,10 @@ Extends <a href=https://doc.qt.io/archives/qt-6.7/qml-qtquick-controls-combobox.
 <td>TGraph</td>
 <td>
 This is a native control, not inheriting any standard QML control. It provides a high quality graph panel for time and frequency series signals.<br>
-When we refer to a color data type, it means a String value representing a color, either in <a href=https://doc.qt.io/archives/qt-6.7/qml-color.html#svg-color-reference>SVG color</a> or in #RRGGBB hexadecimal format.<br><br>
+When we refer to a color data type, it means a String value representing a color, either in <a href=https://doc.qt.io/archives/qt-6.7/qml-color.html#svg-color-reference target="_blank">SVG color</a> or in #RRGGBB hexadecimal format.<br><br>
 <ul>
 <li>Property <i><b>name</b></i>: String</li>
-<li>Property <i><b>data</b></i>: QByteArrayView containing an array of 32-bit floating point values. Check <a href=./API.md#box-api>Box API</a> for an explanation of this data type</li>
+<li>Property <i><b>data</b></i>: QByteArrayView containing an array of 32-bit floating point values. Check <a href=./API.md#box-api target="_blank">Box API</a> for an explanation of this data type</li>
 <li>Property <i><b>backgroundcolor</b></i>: Color - Color of the background panel</li>
 <li>Property <i><b>signalcolor</b></i>: Color - Color of the curve representing the signal</li>
 <li>Property <i><b>signalfillcolor1</b></i>: Color - When the signal graph is filled, this is the color of the upper part of the filling gradient</li>
