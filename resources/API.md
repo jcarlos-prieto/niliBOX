@@ -2377,7 +2377,10 @@ Retrieve the signal level received at the tuned frequency.<br><br>
 ### File subsystem
 The *File* subsystem provides functions to handle files. There are functions for standard handling (open, close, read, write) and also other functions focused on handling audio files (play, stop, etc.).
 
-The files handled by this subsystem must be stored in the special location for data.
+The files handled by this subsystem must be stored in the special location for data. The *data* directory is placed in the home directory of ***niliBOX*** (not where the application is located). The location of the home directory depends on the operating system in this way:
+- Windows: `C:\Users\username\AppData\Roaming\nilibox\niliBOX\data`
+- Linux: `/home/username/.config/nilibox/niliBOX/data`
+- macOS: `/home/username/.config/nilibox.com/niliBOX/data`
 
 When a file is open, the *File* subsystem provides a File id which is used to perform the rest of operations.
 
