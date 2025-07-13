@@ -1295,9 +1295,9 @@ Return a list of device names of the available audio devices.<br><br>
 <ul>
 <li>Parameter: <i><b>mode</b></i>: String - Can take 3 different values:
 <ul>
-<li><i>"ALL"</i> (default): Returns all audio devices, input and output</li>
-<li><i>"INPUT"</i> (default): Returns a list of input audio devices</li>
-<li><i>"OUTPUT"</i> (default): Returns a list of output audio devices</li>
+<li><i>"ALL"</i> (default): Return all audio devices, input and output</li>
+<li><i>"INPUT"</i>: Return a list of input audio devices</li>
+<li><i>"OUTPUT"</i>: Return a list of output audio devices</li>
 </ul>
 <li>Parameter: <i><b>raw</b></i>: Boolean - If true, it will not include the virtual audio devices</li>
 <li>Return value: List - A list of String containing the device names of the requested audio devices</li>
@@ -1321,17 +1321,17 @@ Mute an output audio device that is open.<br><br>
 </td></tr>
 <tr><td><b>int audioDevice_open(const QString &devname, const QString &mode, const bool direct = false)</b></td></tr>
 <tr><td>
-Open an audio device and returns a new audio device id.<br><br>
+Open an audio device and return a new audio device id.<br><br>
 <ul>
 <li>Parameter: <i><b>devname</b></i>: String - Device name of the audio device</li>
 <li>Parameter: <i><b>mode</b></i>: String - Audio mode to be used to open. It is composed by a list of values separated by commas in the format <i>"samplerate,samplingbits,compressedbits"</i></li>
 <li>Parameter: <i><b>direct</b></i>: Boolean - If true, the audio device will be open in <i>direct</i> mode: low latency, no buffering, no virtual input device created</li>
-<li>Return value: Integer - Device id for the audio device. If the audio device could not be open, this value is -1</li>
+<li>Return value: Integer - New device id for the audio device. If the audio device could not be open, this value is -1</li>
 </ul>
 </td></tr>
 <tr><td><b>audioDevice_recordPause(const int devid, const bool pause)</b></td></tr>
 <tr><td>
-Pause or resumes the process to record the output audio to a file.<br><br>
+Pause or resume the process to record the output audio to a file.<br><br>
 <ul>
 <li>Parameter: <i><b>devid</b></i>: Integer - Device id of the audio device</li>
 <li>Parameter: <i><b>pause</b></i>: Boolean - If true, then pauses recording. If false, resumes recording</li>
@@ -1340,7 +1340,7 @@ Pause or resumes the process to record the output audio to a file.<br><br>
 </td></tr>
 <tr><td><b>audioDevice_recordStart(const int devid, const QString filename, const int rawsamplerate = 0)</b></td></tr>
 <tr><td>
-Start the process to record the output audio to a file. Opens and initializes the output file.<br><br>
+Start the process to record the output audio to a file. Open and initialize the output file.<br><br>
 <ul>
 <li>Parameter: <i><b>devid</b></i>: Integer - Device id of the audio device</li>
 <li>Parameter: <i><b>filename</b></i>: String - Name of the output file. The extension must be provided. The format of the file is a WAV</li>
@@ -1350,7 +1350,7 @@ Start the process to record the output audio to a file. Opens and initializes th
 </td></tr>
 <tr><td><b>audioDevice_recordStop(const int devid)</b></td></tr>
 <tr><td>
-Finalize the recording process. Closes the output file.<br><br>
+Finalize the recording process. Close the output file.<br><br>
 <ul>
 <li>Parameter: <i><b>devid</b></i>: Integer - Device id of the audio device</li>
 <li>Return value: None</li>
