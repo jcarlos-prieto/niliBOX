@@ -403,7 +403,7 @@ function b_finish()
 Receive data from the server side.<br><br>
 <ul>
 <li>Parameter <i><b>key</b></i>: String</li>
-<li>Parameter <i><b>value</b></i>: Any basic Javascript type</li>
+<li>Parameter <i><b>value</b></i>: String</li>
 <li>Return value: None</li>
 </ul>
 Example:
@@ -575,90 +575,90 @@ These functions can be called from your source Javascript code.
 <tr>
 <td>b_getbox(type)</td>
 <td>
-Create a new Box object to interact with the C++ Box API.
+Create a new Box object to interact with the C++ Box API.<br><br>
 <ul>
 <li>Parameter <i><b>type</b></i>: String - It can be either "REMOTE" or nothing. If "REMOTE" is provided, then the Box object will access the hardware at the server side</li>
 <li>Return value: An object of type Box</li>
 </ul>
 Example: <code>let box = b_getbox();</code><br>
-Example: <code>let box = b_getbox("REMOTE");</code><br>
+Example: <code>let box = b_getbox("REMOTE");</code>
 </td>
 </tr>
 <tr>
 <td>b_send(key,value)</td>
 <td>
-Send data to the client side.
+Send data to the client side.<br><br>
 <ul>
 <li>Parameter <i><b>key</b></i>: String</li>
 <li>Parameter <i><b>value</b></i>: Any basic Javascript type</li>
 <li>Return value: None</li>
 </ul>
 Example: <code>b_send("init");</code><br>
-Example: <code>b_send("gain", "15");</code><br>
+Example: <code>b_send("gain", "15");</code>
 </td>
 </tr>
 <tr>
 <td>b_sendbin(key,value)</td>
 <td>
-Send binary data to the client side.
+Send binary data to the client side.<br><br>
 <ul>
 <li>Parameter <i><b>key</b></i>: String</li>
 <li>Parameter <i><b>value</b></i>: Binary - The binary type is a mirror of the Qt type QByteArrayView. Check in the <a href=./API.md#box-api>Box API</a> section for an explanation of this data type.</li>
 <li>Return value: None</li>
 </ul>
-Example: <code>b_send("audio", data);</code><br>
+Example: <code>b_sendbin("audio", data);</code>
 </td>
 </tr>
 <tr>
 <td>b_setvar(key,value)</td>
 <td>
-Set a configuration parameter. The configuration parameters are used to save values that are permanent among several runs of the module.
+Set a configuration parameter. The configuration parameters are used to save values that are permanent among several runs of the module.<br><br>
 <ul>
 <li>Parameter <i><b>key</b></i>: String - Setting name.</li>
 <li>Parameter <i><b>value</b></i>: Any basic Javascript data type - Setting value</li>
 <li>Return value: None</li>
 </ul>
-Example: <code>b_setvar("height", "100");</code><br>
+Example: <code>b_setvar("height", "100");</code>
 </td>
 </tr>
 <tr>
 <td>b_getvar(key,default)</td>
 <td>
-Get a configuration parameter. The configuration parameters are used to save values that are permanent among several runs of the module.
+Get a configuration parameter. The configuration parameters are used to save values that are permanent among several runs of the module.<br><br>
 <ul>
 <li>Parameter <i><b>key</b></i>: String - Setting name.</li>
 <li>Parameter <i><b>default</b></i>: Any basic Javascript data type - Default value if the setting doesn't exist</li>
 <li>Return value: String</li>
 </ul>
-Example: <code>let h = b_setvar("height", "100");</code><br>
+Example: <code>let h = b_setvar("height", "100");</code>
 </td>
 </tr>
 <tr>
 <td>b_debug(value)</td>
 <td>
-Add a message to the log file and the console if any.
+Send a message to the log file and the console if any.<br><br>
 <ul>
 <li>Parameter <i><b>value</b></i>: Any native Javascript type</li>
 <li>Return value: None</li>
 </ul>
-Example: <code>b_debug("height=" + h);</code><br>
+Example: <code>b_debug("height=" + h);</code>
 </td>
 </tr>
 <tr>
 <td>b_param(key)</td>
 <td>
-Retrieve a configuration parameter from the main configuration file of the application stored in the file config.set.
+Retrieve a configuration parameter from the main configuration file of the application stored in the file config.set.<br><br>
 <ul>
 <li>Parameter <i><b>key</b></i>: String</li>
 <li>Return value: String</li>
 </ul>
-Example: <code>let theme = b_param("ui.theme");</code><br>
+Example: <code>let theme = b_param("ui.theme");</code>
 </td>
 </tr>
 <tr>
 <td>b_import(name,file)</td>
 <td>
-Import a Javascript module of type .mjs.
+Import a Javascript module of type .mjs.<br><br>
 <ul>
 <li>Parameter <i><b>name</b></i>: String - This value will be used to reference the primitives available in the imported module</li>
 <li>Parameter <i><b>file</b></i>: String - File name of the module to be imported. This file must be added to the resource collection file</li>
@@ -681,9 +681,9 @@ These functions can be implemented in the Javascript code and will be called by 
 <tr>
 <td>b_start(params)</td>
 <td>
-Called when the client starts.
+Called when the client starts.<br><br>
 <ul>
-<li>Parameter <i><b>params</b></i>: Data structure - The object params contains one property for each parameter defined in the Config resource</li>
+<li>Parameter <i><b>params</b></i>: Data structure - The object params contains one property for each parameter defined in the <i>Config</i> resource</li>
 <li>Return value: None</li>
 </ul>
 Example:
@@ -699,7 +699,7 @@ function b_start(params)
 <tr>
 <td>b_finish()</td>
 <td>
-Called when the client is going to finish.
+Called when the client is going to finish.<br><br>
 <ul>
 <li>Parameters: None</li>
 <li>Return value: None</li>
@@ -716,10 +716,10 @@ function b_finish()
 <tr>
 <td>b_receive(key,value)</td>
 <td>
-Receives data from the client side.<br>
+Receive data from the client side.<br><br>
 <ul>
 <li>Parameter <i><b>key</b></i>: String</li>
-<li>Parameter <i><b>value</b></i>: Any basic Javascript type</li>
+<li>Parameter <i><b>value</b></i>: String</li>
 <li>Return value: None</li>
 </ul>
 Example:
@@ -735,7 +735,7 @@ function b_receive(key, value)
 <tr>
 <td>b_receivebin(key,value)</td>
 <td>
-Receives binary data from the client side.
+Receive binary data from the client side.<br><br>
 <ul>
 <li>Parameter <i><b>key</b></i>: String</li>
 <li>Parameter <i><b>value</b></i>: Binary - The binary type is a mirror of the Qt type QByteArrayView. Check in the <a href=./API.md#box-api>Box API</a> section for an explanation of this data type.</li>
@@ -754,7 +754,7 @@ function b_receivebin(key, value)
 <tr>
 <td>b_hotplug()</td>
 <td>
-Called when a hardware device has been plugged or unplugged.
+Called when a hardware device has been plugged or unplugged.<br><br>
 <ul>
 <li>Parameters: None</li>
 <li>Return value: None</li>
@@ -800,7 +800,7 @@ String value containing the operating system in use. The possible values are:
 
 ## Core class names
 These C++ graphical classes inherit the class QWidget and extend the standard functionality to make them adjust to the theme selected. The purpose is to provide a consistent look and feel between the core application and the modules.  
-When these classes are used in the core application to create a new object, they are always given a name. These names are fixed in the application (unless it is modified). The possible object name are listed in the next section [Core object names](#core-object-names). 
+When these classes are used in the core application to create a new object, they are always given a name. These names are fixed in the application (unless it is modified). The possible object names are listed in the next section [Core object names](#core-object-names). 
 The appearence of these controls is modified by the theme properties also listed here. For a description of the available theme properties, check the section [Theme properties](#theme-properties).
 <table>
 <thead>
@@ -812,7 +812,7 @@ The appearence of these controls is modified by the theme properties also listed
 <tr>
 <td>TbButton</td>
 <td>
-Blinds button. A button that can contain 2 subbuttons accessible sliding the main button to the left.
+Blinds button. A button that can contain 2 subbuttons accessible sliding the main button to the left.<br><br>
 <ul>
 <li>Subtype: <i><b>TbButton.blind1</b></i> (type <i>TButton</i>)</li>
 <li>Subtype: <i><b>TbButton.blind2</b></i> (type <i>TButton</i>)</li>
@@ -823,7 +823,7 @@ Blinds button. A button that can contain 2 subbuttons accessible sliding the mai
 <tr>
 <td>TButton</td>
 <td>
-Standard button.
+Standard button.<br><br>
 <ul>
 <li>Theme properties: <i><b>background-color foreground-color border-width border-color radius radius-topleft radius-topright radius-bottomleft radius-bottomright margin-top margin-bottom margin-left margin-right spacing image angle text-color link-color text-weight text-align text-font</b></i></li>
 </ul>
@@ -832,20 +832,20 @@ Standard button.
 <tr>
 <td>TcFrame</td>
 <td>
-Collapsable frame. A frame with a title that can be expanded or collapsed clicking on the title.
+Collapsable frame. A frame with a title that can be expanded or collapsed clicking on the title.<br><br>
 <ul>
+<li>Theme properties: <i><b>background-color foreground-color border-width border-color radius radius-topleft radius-topright radius-bottomleft radius-bottomright margin-top margin-bottom margin-left margin-right spacing image angle</li>
 <li>Subtype: <i><b>TcFrame.header</b></i> (type <i>TButton</i>)</li>
 <li>Subtype: <i><b>TcFrame.header.title</b></i> (type <i>TLabel</i>)</li>
 <li>Subtype: <i><b>TcFrame.header.arrow</b></i> (type <i>TPane</i>)</li>
 <li>Subtype: <i><b>TcFRame.body</b></i> (type <i>TPane</i>)</li>
-<li>Theme properties: <i><b>background-color foreground-color border-width border-color radius radius-topleft radius-topright radius-bottomleft radius-bottomright margin-top margin-bottom margin-left margin-right spacing image angle</li>
 </ul>
 </td>
 </tr>
 <tr>
 <td>TCheck</td>
 <td>
-Standard check box.
+Standard check box.<br><br>
 <ul>
 <li>Theme properties: <i><b>background-color foreground-color border-width border-color radius radius-topleft radius-topright radius-bottomleft radius-bottomright margin-top margin-bottom margin-left margin-right spacing image angle text-color link-color text-weight text-align text-font</b></i></li>
 </ul>
@@ -854,17 +854,17 @@ Standard check box.
 <tr>
 <td>TComboBox</td>
 <td>
-Standard combo box.
+Standard combo box.<br><br>
 <ul>
-<li>Subtype: <i><b>TComboBox.arrow</b></i> (type <i>TPane</i>)</li>
 <li>Theme properties: <i><b>background-color foreground-color border-width border-color radius radius-topleft radius-topright radius-bottomleft radius-bottomright margin-top margin-bottom margin-left margin-right spacing image angle text-color link-color text-weight text-align text-font</b></i></li>
+<li>Subtype: <i><b>TComboBox.arrow</b></i> (type <i>TPane</i>)</li>
 </ul>
 </td>
 </tr>
 <tr>
 <td>TFrame</td>
 <td>
-A basic panel with a border. Equivalent to TPane except the theme customization.
+A basic panel with a border. Equivalent to TPane except the theme customization.<br><br>
 <ul>
 <li>Theme properties: <i><b>background-color foreground-color border-width border-color radius radius-topleft radius-topright radius-bottomleft radius-bottomright margin-top margin-bottom margin-left margin-right spacing image angle</b></i></li>
 </ul>
@@ -873,7 +873,7 @@ A basic panel with a border. Equivalent to TPane except the theme customization.
 <tr>
 <td>TLabel</td>
 <td>
-A basic label.
+A basic label.<br><br>
 <ul>
 <li>Theme properties: <i><b>background-color foreground-color border-width border-color radius radius-topleft radius-topright radius-bottomleft radius-bottomright margin-top margin-bottom margin-left margin-right spacing image angle text-color link-color text-weight text-align text-font</b></i></li>
 </ul>
@@ -882,7 +882,7 @@ A basic label.
 <tr>
 <td>TLineEdit</td>
 <td>
-A basic box to enter text.
+A basic box to enter text.<br><br>
 <ul>
 <li>Theme properties: <i><b>background-color foreground-color border-width border-color radius radius-topleft radius-topright radius-bottomleft radius-bottomright margin-top margin-bottom margin-left margin-right spacing image angle</b></i></li>
 </ul>
@@ -891,14 +891,14 @@ A basic box to enter text.
 <tr>
 <td>TList</td>
 <td>
-A list of selectable items.
+A list of selectable items.<br><br>
 <ul>
 <li>Theme properties: <i><b>background-color foreground-color border-width border-color radius radius-topleft radius-topright radius-bottomleft radius-bottomright margin-top margin-bottom margin-left margin-right spacing image angle</b></i></li>
 </ul>
 </td>
 </tr>
 <tr>
-<td>TPane</td>
+<td>TPane</td><br><br>
 <td>
 The most basic object. A rectangular panel with a border
 <ul>
@@ -909,8 +909,9 @@ The most basic object. A rectangular panel with a border
 <tr>
 <td>TPopup</td>
 <td>
-A full screen modal window with a box to select options.
+A full screen modal window with a box to select options.<br><br>
 <ul>
+<li>Theme properties: <i><b>background-color foreground-color border-width border-color radius radius-topleft radius-topright radius-bottomleft radius-bottomright margin-top margin-bottom margin-left margin-right spacing image angle</b></i></li>
 <li>Subtype: <i><b>TPopup.box</b></i> (type <i>TPane</i>)</li>
 <li>Subtype: <i><b>TPopup.text</b></i> (type <i>TLabel</i>)</li>
 <li>Subtype: <i><b>TPopup.buttons</b></i> (type <i>TPane</i>)</li>
@@ -918,14 +919,13 @@ A full screen modal window with a box to select options.
 <li>Subtype: <i><b>TPopup.icon.ques</b></i> (type <i>TPane</i>)</li>
 <li>Subtype: <i><b>TPopup.icon.warn</b></i> (type <i>TPane</i>)</li>
 <li>Subtype: <i><b>TPopup.icon.crit</b></i> (type <i>TPane</i>)</li>
-<li>Theme properties: <i><b>background-color foreground-color border-width border-color radius radius-topleft radius-topright radius-bottomleft radius-bottomright margin-top margin-bottom margin-left margin-right spacing image angle</b></i></li>
 </ul>
 </td>
 </tr>
 <tr>
 <td>TTextEdit</td>
 <td>
-A multiline entry field.
+A multiline entry field.<br><br>
 <ul>
 <li>Theme properties: <i><b>background-color foreground-color border-width border-color radius radius-topleft radius-topright radius-bottomleft radius-bottomright margin-top margin-bottom margin-left margin-right spacing image angle</b></i></li>
 </ul>
@@ -1110,15 +1110,15 @@ These are the names of the graphical objects implemented in the core application
 
 
 ## Theme properties
-This is the list of theme properties that can used in the definition of themes for the core application and the drivers. You can check what properties apply to each graphical object in the sections [QML controls](#qml-controls) and [Core class names](#core-class-names).
+This is the list of theme properties that can be used in the definition of themes for the core application and the drivers. You can check what properties apply to each graphical object in the sections [QML controls](#qml-controls) and [Core class names](#core-class-names).
 
 The different type of values are the following:
-- *Number*: A number representing a size in milimeters. IN mobile devices, the total size is multipled by 0,8.
-- *Number of round*: In the special case of raius of a border, it can be specificed by a *Number* or the word 'round' to specify a complete rounded border.
+- *Number*: A number representing a size in milimeters. In mobile devices, the total size is multipled by 0.8.
+- *Number or round*: In the special case of raius of a border, it can be specificed by a *Number* or the word '*round'* to specify a complete rounded border.
 - *Real number*: An absolute number. Used for angles.
 - *String*: Used to specify a file location.
 - *Color*: A String value representing a color, either in <a href=https://doc.qt.io/archives/qt-6.7/qml-color.html#svg-color-reference>SVG color</a> or in #RRGGBB hexadecimal format.
-- *Alignment*: One of these values: LEFT RIGHT HCENTER JUSTIFY TOP BOTTOM VCENTER CENTER BASELINE
+- *Alignment*: One of these values: *LEFT RIGHT HCENTER JUSTIFY TOP BOTTOM VCENTER CENTER BASELINE*
 <table>
 <thead>
 <tr>
@@ -1151,12 +1151,12 @@ The different type of values are the following:
 <tr><td>radius-topright</td><td>Number or round</td><td>Top-right radius</td></tr>
 <tr><td>signal-color</td><td>Color</td><td>Color of the line representing the signal in a Graph object</td></tr>
 <tr><td>signalfillcolor1</td><td>Color</td><td>Bottom color of the gradient used to fill a signal in a Graph object</td></tr>
-<tr><td>signalfillcolor2</td><td>Color</td><td>>Upper color of the gradient used to fill a signal in a Graph object</td></tr>
+<tr><td>signalfillcolor2</td><td>Color</td><td>Upper color of the gradient used to fill a signal in a Graph object</td></tr>
 <tr><td>signalfillcolor3</td><td>Color</td><td>Third color in the gradient used to represent a signal in spectrogram mode in a Graph object</td></tr>
 <tr><td>spacing</td><td>Number</td><td>Spacing between objects in a row, column or grid</td></tr>
 <tr><td>text-align</td><td>Alignment</td><td>Alignment of the text inside an object. By default, the text is centered</td></tr>
 <tr><td>text-color</td><td>Color</td><td>Color of the text</td></tr>
-<tr><td>text-font</td><td>Number</td><td>Factor applied to the standard font size. By default, it is 1</td></tr>
+<tr><td>text-font</td><td>Number</td><td>Factor applied to the standard font size. By default, it is 1.0</td></tr>
 <tr><td>text-weight</td><td>BOLD</td><td>Weight of the text font. Only accepts the value BOLD. If not specified, then it is normal weight</td></tr>
 </table>
 
