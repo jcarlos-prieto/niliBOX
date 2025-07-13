@@ -1588,7 +1588,7 @@ When an serial port device is open, a parameter <i>mode</i> must be provided. Th
 <tr><td>
 Close a serial port device.<br><br>
 <ul>
-<li>Parameter: <i><b>devid</b></i>: Integer - Device id of the serial port device obtained when it was opened.</li>
+<li>Parameter: <i><b>devid</b></i>: Integer - Device id of the serial port device obtained when it was opened</li>
 <li>Return value: None</li>
 </ul>
 </td></tr>
@@ -1631,7 +1631,7 @@ Open a serial port device and returns a new serial port device id.<br><br>
 <ul>
 <li>Parameter: <i><b>devname</b></i>: String - Device name of the serial port device</li>
 <li>Parameter: <i><b>mode</b></i>: String - Port mode to be used to open. It is composed by a list of values separated by commas in the format <i>"baudrate,parity,databits,stopbits,flowcontrol"</i></li>
-<li>Return value: Integer - Device id for the serial port device. If the serial port device could not be open, this value is -1</li>
+<li>Return value: Integer - New device id for the serial port device. If the serial port device could not be open, this value is -1</li>
 </ul>
 </td></tr>
 <tr><td><b>int serialPort_RTS(const int devid, const int newRTS = -1)</b></td></tr>
@@ -1689,13 +1689,13 @@ Triggered when an error accurred in the serial port device.<br><br>
 The *USB* subsystem handles the USB devices.
 
 This subsystem provides two type of functions:
-- Functions with name starting by *USB_*: These functions provide a wrapper to the *lbusb* API. It is assumed that you are familiar with this API. For a reference to the *libusb* API, please consult it [here](https://libusb.sourceforge.io/api-1.0/libusb_api.html)
+- Functions with name starting by *USB_*: These functions provide a wrapper to the *libusb* API. It is assumed that you are familiar with this API. For a reference to the *libusb* API, please consult it [here](https://libusb.sourceforge.io/api-1.0/libusb_api.html)
 - Functions with name starting by *USBDevice_*: These functions provide a simple high level interface to the USB devices.
 
 Every USB device can be identified in 3 different ways:
 - *Device id (usbdeviceid)*: A unique identifier for the USB device based on the position in the system. This identifier may change if the USB device is plugged to a different USB port. This identifier is linked to a structure of type *libusb_device*
-- *Handle id (usbhandleid)*: An integer identifying a USB device that has been open and can be used for input/output operations. This identifier is linked to a structure of type *libusb_device_handle*
-- *Device name*: A string providing a readable identifier for the USB device. It has a strcuture like *VVVV:PPPP* where *VVVV* is the vendor id in hexadecimal format and *PPPP* is the product id in hexadecimal format. If there are more than one device of the same type, the device name will also contain a sufix with a unique identifier for the device like *VVVV:PPPP:N* where *N* is an integer starting by 0.
+- *Handle id (usbhandleid)*: An integer identifying a USB device that has been opened and can be used for input/output operations. This identifier is linked to a structure of type *libusb_device_handle*
+- *Device name*: A string providing a readable identifier for the USB device. It has a strcuture like *VVVV:PPPP* where *VVVV* is the vendor id in hexadecimal format and *PPPP* is the product id in hexadecimal format. If there are more than one device of the same type, the device name will also contain a sufix with a unique identifier for the device like *VVVV:PPPP:N* where *N* is an integer starting by 0
 
 <table><tr></tr>
 <tr><td><b>ENUM: USBMode</b></td></tr>
@@ -1724,200 +1724,258 @@ USB_bNumConfigurations
 <tr><td><b>int USB_attach_kernel_driver(const int usbhandleid, const int interface)</b></td></tr>
 <tr><td>
 Wrapper for <a href=https://libusb.sourceforge.io/api-1.0/group__libusb__dev.html#gadeba36e900db663c0b7cf1b164a20d02>libusb_attach_kernel_driver()</a>. Re-attach an interface's kernel driver, which was previously detached using USB_detach_kernel_driver(). This functionality is not available on Windows.<br><br>
-Parameter: <i><b>usbhandleid</b></i>: Integer - Handle id of the USB device obtained when it was opened.<br>
-Parameter: <i><b>interface</b></i>: Integer - USB interface to be attached.<br>
-Return value: Integer - 0 on success. Error code otherwise
+<ul>
+<li>Parameter: <i><b>usbhandleid</b></i>: Integer - Handle id of the USB device obtained when it was opened.</li>
+<li>Parameter: <i><b>interface</b></i>: Integer - USB interface to be attached.</li>
+<li>Return value: Integer - 0 on success. Error code otherwise</li>
+</ul>
 </td></tr>
 <tr><td><b>int USB_bulk_transfer(const int usbhandleid, const int endpoint, const QByteArray &data, const int len, const int timeout)</b></td></tr>
 <tr><td>
 Wrapper for <a href=https://libusb.sourceforge.io/api-1.0/group__libusb__syncio.html#ga2f90957ccc1285475ae96ad2ceb1f58c>libusb_bulk_transfer()</a>. Perform a USB write bulk transfer. The direction of the transfer is inferred from the direction bits of the endpoint address.<br><br>
-Parameter: <i><b>usbhandleid</b></i>: Integer - Handle id of the USB device obtained when it was opened<br>
-Parameter: <i><b>endpoint</b></i>: Integer - The address of a valid endpoint to communicate with<br>
-Parameter: <i><b>data</b></i>: String - Buffer to send or receive data<br>
-Parameter: <i><b>len</b></i>: Integer - Maximum size of the data to be transferred<br>
-Parameter: <i><b>timeout</b></i>: Integer - Time in miliseconds to wait for the operation to complete. For an unlimited timeout, use 0<br>
-Return value: Integer - 0 on success. Error code otherwise
+<ul>
+<li>Parameter: <i><b>usbhandleid</b></i>: Integer - Handle id of the USB device obtained when it was opened</li>
+<li>Parameter: <i><b>endpoint</b></i>: Integer - The address of a valid endpoint to communicate with</li>
+<li>Parameter: <i><b>data</b></i>: String - Buffer to send or receive data</li>
+<li>Parameter: <i><b>len</b></i>: Integer - Maximum size of the data to be transferred</li>
+<li>Parameter: <i><b>timeout</b></i>: Integer - Time in miliseconds to wait for the operation to complete. For an unlimited timeout, use 0</li>
+<li>Return value: Integer - 0 on success. Error code otherwise</li>
+</ul>
 </td></tr>
 <tr><td><b>void USB_bulk_transfer_setBufLen(const int usbhandleid, const int buflen)</b></td></tr>
 <tr><td>
 Set the buffer length for an asynchronous bulk transfer managed by <i>USB_bulk_transfer_start</i> and <i>USB_bulk_transfer_stop</i>. This function can be called before or after the bulk transfer has been started<br><br>
-Parameter: <i><b>usbhandleid</b></i>: Integer - Handle id of the USB device obtained when it was opened<br>
-Parameter: <i><b>buflen</b></i>: Integer - Buffer length<br>
-Return value: None
+<ul>
+<li>Parameter: <i><b>usbhandleid</b></i>: Integer - Handle id of the USB device obtained when it was opened</li>
+<li>Parameter: <i><b>buflen</b></i>: Integer - Buffer length</li>
+<li>Return value: None</li>
+</ul>
 </td></tr>
 <tr><td><b>void USB_bulk_transfer_start(const int usbhandleid, const int endpoint, const Box::USBMode mode = USB_BulkSync, const int size = 65536)</b></td></tr>
 <tr><td>
 Start an asynchronous read bulk transfer. The transfer method can be <i>Synchronous</i>, <i>Asynchronous</i> or <i>Isochronous</i>.<br>
 When enough data has been received, it emits the signal <i>USB_Data</i><br><br>
-Parameter: <i><b>usbhandleid</b></i>: Integer - Handle id of the USB device obtained when it was opened<br>
-Parameter: <i><b>endpoint</b></i>: Integer - The address of a valid endpoint to communicate with<br>
-Parameter: <i><b>mode</b></i>: USBMode - Any of <i>Box.USB_BulkSync</i>, <i>Box.USB_BulkAsync</i> or <i>USB_Isochronous</i><br>
-Parameter: <i><b>size</b></i>: Integer - Chunk size of data to be transferred<br>
-Return value: None
+<ul>
+<li>Parameter: <i><b>usbhandleid</b></i>: Integer - Handle id of the USB device obtained when it was opened</li>
+<li>Parameter: <i><b>endpoint</b></i>: Integer - The address of a valid endpoint to communicate with</li>
+<li>Parameter: <i><b>mode</b></i>: USBMode - Any of <i>Box.USB_BulkSync</i>, <i>Box.USB_BulkAsync</i> or <i>USB_Isochronous</i></li>
+<li>Parameter: <i><b>size</b></i>: Integer - Chunk size of data to be transferred</li>
+<li>Return value: None</li>
+</ul>
 </td></tr>
 <tr><td><b>void USB_bulk_transfer_stop(const int usbhandleid)</b></td></tr>
 <tr><td>
 Stop an asynchronous read bulk transfer.<br><br>
-Parameter: <i><b>usbhandleid</b></i>: Integer - Handle id of the USB device obtained when it was opened<br>
-Return value: None
+<ul>
+<li>Parameter: <i><b>usbhandleid</b></i>: Integer - Handle id of the USB device obtained when it was opened</li>
+<li>Return value: None</li>
+</ul>
 </td></tr>
 <tr><td><b>int USB_claim_interface(const int usbhandleid, const int interface)</b></td></tr>
 <tr><td>
 Wrapper for <a href=https://libusb.sourceforge.io/api-1.0/group__libusb__dev.html#gaee5076addf5de77c7962138397fd5b1a>libusb_claim_interface()</a>. Claim an interface on a given device handle.<br><br>
-Parameter: <i><b>usbhandleid</b></i>: Integer - Handle id of the USB device obtained when it was opened<br>
-Parameter: <i><b>interface</b></i>: Integer - USB interface to be claimed<br>
-Return value: Integer - 0 on success. Error code otherwise
+<ul>
+<li>Parameter: <i><b>usbhandleid</b></i>: Integer - Handle id of the USB device obtained when it was opened</li>
+<li>Parameter: <i><b>interface</b></i>: Integer - USB interface to be claimed</li>
+<li>Return value: Integer - 0 on success. Error code otherwise</li>
+</ul>
 </td></tr>
 <tr><td><b>int USB_close(const int usbhandleid)</b></td></tr>
 <tr><td>
 Wrapper for <a href=https://libusb.sourceforge.io/api-1.0/group__libusb__dev.html#ga779bc4f1316bdb0ac383bddbd538620e>libusb_close()</a>. Close a USB device.<br>
 If the USB device was opened passing an interface number, then the interface is released and attached to the kernel.<br><br>
-Parameter: <i><b>usbhandleid</b></i>: Integer - Handle id of the USB device obtained when it was opened<br>
-Return value: Integer - 0 on success. Error code otherwise
+<ul>
+<li>Parameter: <i><b>usbhandleid</b></i>: Integer - Handle id of the USB device obtained when it was opened</li>
+<li>Return value: Integer - 0 on success. Error code otherwise</li>
+</ul>
 </td></tr>
 <tr><td><b>QByteArray USB_control_transfer(const int usbhandleid, const int type, const int request, const int value, const int index, const QByteArray &data, const int len, const int timeout)</b></td></tr>
 <tr><td>
 Wrapper for <a href=https://libusb.sourceforge.io/api-1.0/group__libusb__syncio.html#ga2f90957ccc1285475ae96ad2ceb1f58c>libusb_control_transfer()</a>. Perform a USB read/write control transfer. The direction of the transfer is inferred from the type field of the setup packet.<br><br>
-Parameter: <i><b>usbhandleid</b></i>: Integer - Handle id of the USB device obtained when it was opened<br>
-Parameter: <i><b>type</b></i>: Integer - The request type field for the setup packet<br>
-Parameter: <i><b>request</b></i>: Integer - The request field for the setup packet<br>
-Parameter: <i><b>value</b></i>: Integer - The value field for the setup packet<br>
-Parameter: <i><b>index</b></i>: Integer - The index field for the setup packet<br>
-Parameter: <i><b>data</b></i>: String - Buffer to receive data<br>
-Parameter: <i><b>len</b></i>: Integer - Maximum size of the data to be transferred<br>
-Parameter: <i><b>timeout</b></i>: Integer - Time in miliseconds to wait for the operation to complete. For an unlimited timeout, use 0<br>
-Return value: Integer - 0 on success. Error code otherwise
+<ul>
+<li>Parameter: <i><b>usbhandleid</b></i>: Integer - Handle id of the USB device obtained when it was opened</li>
+<li>Parameter: <i><b>type</b></i>: Integer - The request type field for the setup packet</li>
+<li>Parameter: <i><b>request</b></i>: Integer - The request field for the setup packet</li>
+<li>Parameter: <i><b>value</b></i>: Integer - The value field for the setup packet</li>
+<li>Parameter: <i><b>index</b></i>: Integer - The index field for the setup packet</li>
+<li>Parameter: <i><b>data</b></i>: String - Buffer to receive data</li>
+<li>Parameter: <i><b>len</b></i>: Integer - Maximum size of the data to be transferred</li>
+<li>Parameter: <i><b>timeout</b></i>: Integer - Time in miliseconds to wait for the operation to complete. For an unlimited timeout, use 0</li>
+<li>Return value: Integer - 0 on success. Error code otherwise</li>
+</ul>
 </td></tr>
 <tr><td><b>int USB_detach_kernel_driver(const int usbhandleid, const int interface)</b></td></tr>
 <tr><td>
 Wrapper for <a href=https://libusb.sourceforge.io/api-1.0/group__libusb__dev.html#ga5e0cc1d666097e915748593effdc634a>libusb_detach_kernel_driver()</a>. Detach a kernel driver from an interface.<br><br>
-Parameter: <i><b>usbhandleid</b></i>: Integer - Handle id of the USB device obtained when it was opened<br>
-Parameter: <i><b>interface</b></i>: Integer - USB interface to be detached<br>
-Return value: Integer - 0 on success. Error code otherwise
+<ul>
+<li>Parameter: <i><b>usbhandleid</b></i>: Integer - Handle id of the USB device obtained when it was opened</li>
+<li>Parameter: <i><b>interface</b></i>: Integer - USB interface to be detached</li>
+<li>Return value: Integer - 0 on success. Error code otherwise</li>
+</ul>
 </td></tr>
 <tr><td><b>int USB_get_device(const int usbhandleid)</b></td></tr>
 <tr><td>
 Returns the USB device id corresponding to the USB handle id provided.<br><br>
-Parameter: <i><b>usbhandleid</b></i>: Integer - Handle id of the USB device obtained when it was opened.<br>
-Return value: Integer - USB device id. Returns -1 on error
+<ul>
+<li>Parameter: <i><b>usbhandleid</b></i>: Integer - Handle id of the USB device obtained when it was opened.</li>
+<li>Return value: Integer - USB device id. Returns -1 on error</li>
+</ul>
 </td></tr>
 <tr><td><b>QList&lt;int&gt; USB_get_device_descriptor(const int usbdeviceid)</b></td></tr>
 <tr><td>
 Wrapper for <a href=https://libusb.sourceforge.io/api-1.0/group__libusb__desc.html#ga5e9ab08d490a7704cf3a9b0439f16f00>libusb_get_device_descriptor()</a>. Returns a list of integers containing all the fields of the USB device descriptor of the USB device provided. The order of the fields in the list is given in the description of the enum USBDescriptor.<br><br>
-Parameter: <i><b>usbdeviceid</b></i>: Integer - Device id of the USB device<br>
-Return value: List - List of 14 integer values
+<ul>
+<li>Parameter: <i><b>usbdeviceid</b></i>: Integer - Device id of the USB device</li>
+<li>Return value: List - List of 14 integer values</li>
+</ul>
 </td></tr>
 <tr><td><b>QList&lt;int&gt; USB_get_device_list()</b></td></tr>
 <tr><td>
-Wrapper for <a href=https://libusb.sourceforge.io/api-1.0/group__libusb__dev.html#gac0fe4b65914c5ed036e6cbec61cb0b97>libusb_get_device_list()</a>. Returns a list of USB device id corresponding to all the USB devices present in the system. The order is guaranteed to be always ther same.<br><br>
-Return value: List - List of integers
+Wrapper for <a href=https://libusb.sourceforge.io/api-1.0/group__libusb__dev.html#gac0fe4b65914c5ed036e6cbec61cb0b97>libusb_get_device_list()</a>. Returns a list of USB device id corresponding to all the USB devices present in the system. The order is guaranteed to be always the same.<br><br>
+<ul>
+<li>Return value: List - List of integers</li>
+</ul>
 </td></tr>
 <tr><td><b>QString USB_get_string_descriptor_ascii(const int usbhandleid, const int index)</b></td></tr>
 <tr><td>
 Wrapper for <a href=https://libusb.sourceforge.io/api-1.0/group__libusb__desc.html#ga240aac96d92cb9f51e3aea79a4adbf42>libusb_get_string_descriptor_ascii()</a>. Detach a kernel driver from an interface.<br><br>
-Parameter: <i><b>usbhandleid</b></i>: Integer - Handle id of the USB device obtained when it was opened<br>
-Parameter: <i><b>index</b></i>: Integer - The index of the descriptor to retrieved<br>
-Return value: String - Descriptor for the specified index. Blank if error or not found
+<ul>
+<li>Parameter: <i><b>usbhandleid</b></i>: Integer - Handle id of the USB device obtained when it was opened</li>
+<li>Parameter: <i><b>index</b></i>: Integer - The index of the descriptor to retrieved</li>
+<li>Return value: String - Descriptor for the specified index. Blank if error or not found</li>
+</ul>
 </td></tr>
 <tr><td><b>int USB_kernel_driver_active(const int usbhandleid, const int interface)</b></td></tr>
 <tr><td>
 Wrapper for <a href=https://libusb.sourceforge.io/api-1.0/group__libusb__dev.html#ga1cabd4660a274f715eeb82de112e0779>libusb_kernel_driver_active()</a>. Determine if a kernel driver is active on an interface. Not available on Windows.<br><br>
-Parameter: <i><b>usbhandleid</b></i>: Integer - Handle id of the USB device obtained when it was opened<br>
-Parameter: <i><b>interface</b></i>: Integer - Interface number<br>
-Return value: Integer - 0 if no kernel driver is active, 1 if a kernel driver is active, error code otherwise
+<ul>
+<li>Parameter: <i><b>usbhandleid</b></i>: Integer - Handle id of the USB device obtained when it was opened</li>
+<li>Parameter: <i><b>interface</b></i>: Integer - Interface number</li>
+<li>Return value: Integer - 0 if no kernel driver is active, 1 if a kernel driver is active, error code otherwise</li>
+</ul>
 </td></tr>
 <tr><td><b>int USB_open(const int usbdeviceid, const int interface = -1)</b></td></tr>
 <tr><td>
 Wrapper for <a href=https://libusb.sourceforge.io/api-1.0/group__libusb__dev.html#ga3f184a8be4488a767b2e0ae07e76d1b0>libusb_open()</a>. Open a USB device. If an interface number is provided, it also claims the interface.<br><br>
-Parameter: <i><b>usbdeviceid</b></i>: Integer - Device id of the USB device<br>
-Parameter: <i><b>interface</b></i>: Integer - Interface number<br>
-Return value: Integer - New USB handle id or error code
+<ul>
+<li>Parameter: <i><b>usbdeviceid</b></i>: Integer - Device id of the USB device</li>
+<li>Parameter: <i><b>interface</b></i>: Integer - Interface number</li>
+<li>Return value: Integer - New USB handle id or error code</li>
+</ul>
 </td></tr>
 <tr><td><b>int USB_release_interface(const int usbhandleid, const int interface)</b></td></tr>
 <tr><td>
 Wrapper for <a href=https://libusb.sourceforge.io/api-1.0/group__libusb__dev.html#ga49b5cb0d894f6807cd1693ef29aecbfa>libusb_release_interface()</a>. Release an interface previously claimed.<br><br>
-Parameter: <i><b>usbhandleid</b></i>: Integer - Handle id of the USB device obtained when it was opened<br>
-Parameter: <i><b>interface</b></i>: Integer - USB interface to be released<br>
-Return value: Integer - 0 on success. Error code otherwise
+<ul>
+<li>Parameter: <i><b>usbhandleid</b></i>: Integer - Handle id of the USB device obtained when it was opened</li>
+<li>Parameter: <i><b>interface</b></i>: Integer - USB interface to be released</li>
+<li>Return value: Integer - 0 on success. Error code otherwise</li>
+</ul>
 </td></tr>
 <tr><td><b>int USB_reset_device(const int usbhandleid)</b></td></tr>
 <tr><td>
 Wrapper for <a href=https://libusb.sourceforge.io/api-1.0/group__libusb__dev.html#gafee9c4638f1713ca5faa867948878111>libusb_reset_device()</a>. Perform a USB port reset to reinitialize a device.<br><br>
-Parameter: <i><b>usbhandleid</b></i>: Integer - Handle id of the USB device obtained when it was opened<br>
-Return value: Integer - 0 on success. Error code otherwise
+<ul>
+<li>Parameter: <i><b>usbhandleid</b></i>: Integer - Handle id of the USB device obtained when it was opened</li>
+<li>Return value: Integer - 0 on success. Error code otherwise</li>
+</ul>
 </td></tr>
 <tr><td><b>USB_setBusy(const int usbhandleid, const bool busy)</b></td></tr>
 <tr><td>
 Set or undets the device to busy state. If state is busy, no read or write will be performed until it is unset. Used for data contention.<br><br>
-Parameter: <i><b>usbhandleid</b></i>: Integer - Handle id of the USB device obtained when it was opened<br>
-Parameter: <i><b>busy</b></i>: Boolean - Specifies if the USB device must be set or unset to busy state.<br>
-Return value: None
+<ul>
+<li>Parameter: <i><b>usbhandleid</b></i>: Integer - Handle id of the USB device obtained when it was opened</li>
+<li>Parameter: <i><b>busy</b></i>: Boolean - Specifies if the USB device must be set or unset to busy state.</li>
+<li>Return value: None</li>
+</ul>
 </td></tr>
 <tr><td><b>int USB_set_configuration(const int usbhandleid, const int configuration)</b></td></tr>
 <tr><td>
 Wrapper for <a href=https://libusb.sourceforge.io/api-1.0/group__libusb__dev.html#ga785ddea63a2b9bcb879a614ca4867bed>libusb_set_configuration()</a>. Set the active configuration for a device.<br><br>
-Parameter: <i><b>usbhandleid</b></i>: Integer - Handle id of the USB device obtained when it was opened<br>
-Parameter: <i><b>configuration</b></i>: Integer - The value of the configuration you wish to activate, or -1 if you wish to put the device in an unconfigured state<br>
-Return value: Integer - 0 on success. Error code otherwise
+<ul>
+<li>Parameter: <i><b>usbhandleid</b></i>: Integer - Handle id of the USB device obtained when it was opened</li>
+<li>Parameter: <i><b>configuration</b></i>: Integer - The value of the configuration you wish to activate, or -1 if you wish to put the device in an unconfigured state</li>
+<li>Return value: Integer - 0 on success. Error code otherwise</li>
+</ul>
 <tr><td><b>int USB_set_interface_alt_setting(const int usbhandleid, const int interface, const int altsetting)</b></td></tr>
 <tr><td>
 Wrapper for <a href=https://libusb.sourceforge.io/api-1.0/group__libusb__dev.html#ga4858ad4f0f58fd1dc0afaead1fe6479a>libusb_set_interface_alt_setting()</a>. Release an interface previously claimed.<br><br>
-Parameter: <i><b>usbhandleid</b></i>: Integer - Handle id of the USB device obtained when it was opened<br>
-Parameter: <i><b>interface</b></i>: Integer - Number of the previously-claimed interface<br>
-Parameter: <i><b>altsetting</b></i>: Integer - Number of the alternate setting to activate<br>
-Return value: Integer - 0 on success. Error code otherwise
+<ul>
+<li>Parameter: <i><b>usbhandleid</b></i>: Integer - Handle id of the USB device obtained when it was opened</li>
+<li>Parameter: <i><b>interface</b></i>: Integer - Number of the previously-claimed interface</li>
+<li>Parameter: <i><b>altsetting</b></i>: Integer - Number of the alternate setting to activate</li>
+<li>Return value: Integer - 0 on success. Error code otherwise</li>
+</ul>
 </td></tr>
 <tr><td><b>bool USBDevice_close(const QString &devname)</b></td></tr>
 <tr><td>
 Close a previously opened USB device.<br><br>
-Parameter: <i><b>devname</b></i>: String - Device name of the USB device<br>
-Return value: Boolean - True on success, false otherwise
+<ul>
+<li>Parameter: <i><b>devname</b></i>: String - Device name of the USB device</li>
+<li>Return value: Boolean - True on success, false otherwise</li>
+</ul>
 </td></tr>
 <tr><td><b>QString USBDevice_description(const QString &devname)</b></td></tr>
 <tr><td>
 Return the description (product) of the USB device.<br><br>
-Parameter: <i><b>devname</b></i>: String - Device name of the USB device<br>
-Return value: String - Description if found, blank if not found or on error
+<ul>
+<li>Parameter: <i><b>devname</b></i>: String - Device name of the USB device</li>
+<li>Return value: String - Description if found, blank if not found or on error</li>
+</ul>
 </td></tr>
 <tr><td><b>QList&lt;QString&gt; USBDevice_list()</b></td></tr>
 <tr><td>
 Provide a list of the USB device names of the USB devices currently available in the system.<br><br>
-Return value: List - List of String containing the USB device names found in the format <i>VVVV:PPPP[:N]</i> where <i>VVVV</i> is the vendor id, <i>PPPP</i> i the product id and <i>N</i> is a sequencal number if more than one device of the same type are found.
+<li>Parameters: None</li>
+<li>Return value: List - List of String containing the USB device names found in the format <i>VVVV:PPPP[:N]</i> where <i>VVVV</i> is the vendor id, <i>PPPP</i> i the product id and <i>N</i> is a sequencal number if more than one device of the same type are found.</li>
+</td>
 </td></tr>
 <tr><td><b>QString USBDevice_manufacturer(const QString &devname)</b></td></tr>
 <tr><td>
 Returns the manufacturer (vendor) of the USB device.<br><br>
-Parameter: <i><b>devname</b></i>: String - Device name of the USB device<br>
-Return value: String - Manufacturer if found, blank if not found or on error
+<ul>
+<li>Parameter: <i><b>devname</b></i>: String - Device name of the USB device</li>
+<li>Return value: String - Manufacturer if found, blank if not found or on error</li>
+</ul>
 </td></tr>
 <tr><td><b>int USBDevice_open(const QString &devname)</b></td></tr>
 <tr><td>
 Open a USB device.<br><br>
-Parameter: <i><b>devname</b></i>: String - Device name of the USB device<br>
-Return value: Integer - New handle id for the USB device. Returns -1 on error
+<ul>
+<li>Parameter: <i><b>devname</b></i>: String - Device name of the USB device</li>
+<li>Return value: Integer - New handle id for the USB device. Returns -1 on error</li>
+</ul>
 </td></tr>
 <tr><td><b>QString USBDevice_serialNumber(const QString &devname)</b></td></tr>
 <tr><td>
 Return the serial number of the USB device.<br><br>
-Parameter: <i><b>devname</b></i>: String - Device name of the USB device<br>
-Return value: String - Serial number if found, blank if not found or on error
+<ul>
+<li>Parameter: <i><b>devname</b></i>: String - Device name of the USB device</li>
+<li>Return value: String - Serial number if found, blank if not found or on error</li>
+</ul>
 </td></tr>
 <tr><td><b>bool USBDevice_test(const QString &devname)</b></td></tr>
 <tr><td>
 Test if a USB device can be used. This function tries to open and close the USB device.<br><br>
-Parameter: <i><b>devname</b></i>: String - Device name of the USB device<br>
-Return value: Boolean - True on success, false otherwise
+<ul>
+<li>Parameter: <i><b>devname</b></i>: String - Device name of the USB device</li>
+<li>Return value: Boolean - True on success, false otherwise</li>
+</ul>
 </td></tr>
 <tr><td><b>SIGNAL - USB_Data(const int usbhandleid, QByteArrayView data)</b></td></tr>
 <tr><td>
 Triggered when there is data available from a USB device.<br><br>
-Parameter: <i><b>usbhandleid</b></i>: Integer - Handle id of the USB device<br>
-Parameter: <i><b>data</b></i>: Binary - Data received<br>
+<ul>
+<li>Parameter: <i><b>usbhandleid</b></i>: Integer - Handle id of the USB device</li>
+<li>Parameter: <i><b>data</b></i>: Binary - Data received</li>
+</ul>
 </td></tr>
 <tr><td><b>SIGNAL - USB_Error(const int usbhandleid)</b></td></tr>
 <tr><td>
 Triggered when an error accurred in the USB device.<br><br>
-Parameter: <i><b>usbhandleid</b></i>: Integer - Handle id of the USB device<br>
+<ul>
+<li>Parameter: <i><b>usbhandleid</b></i>: Integer - Handle id of the USB device</li>
+</ul>
 </td></tr>
 </table>
 
