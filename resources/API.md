@@ -21,6 +21,7 @@
   - [SDR subsystem](#sdr-subsystem)
   - [File subsystem](#file-subsystem)
   - [HTTP subsystem](#http-subsystem)
+  - [Other functions](#other-functions)
 
 ## QML controls
 These controls extend the functionality of the standard QtQuick controls to make them adjust to the theme selected in the core application. The purpose is to provide a consistent look and feel between the core application and the modules.  
@@ -1232,6 +1233,7 @@ Subsystems:
 - [SDR subsystem](#sdr-subsystem)
 - [File subsystem](#file-subsystem)
 - [HTTP subsystem](#http-subsystem)
+- [Other functions](#other-functions)
 
 ### Audio subsystem
 The *Audio* subsystem handles the audio devices.
@@ -2569,6 +2571,48 @@ Send a POST request to the server including a data payload.<br><br>
 <li>Parameter: <i><b>command</b></i>: String - Command to be sent to the given url</li>
 <li>Parameter: <i><b>data</b></i>: String - Data payload</li>
 <li>Return value: String - Response to the request</li>
+</ul>
+</td></tr>
+</table>
+
+### Other functions
+The *Box API* also provides some general purpose functions which are listed here.
+
+<table><tr></tr>
+<tr><td><b>QByteArrayView bytesToFloat(QByteArrayView input, const int inputbits, const float scale = 1.0)</b></td></tr>
+<tr><td>
+Convert a Binary value from a series of Integer (8 or 16 bit) to a series of Real (32 bit). As an option, the function can apply a factor of scale to the resulting values.<br><br>
+<ul>
+<li>Parameter: <i><b>input</b></i>: Binary - Series of integers in 8-bit or 16-bit format</li>
+<li>Parameter: <i><b>inputbits</b></i>: Integer - Size of the values in the input. It can be 8 or 16</li>
+<li>Parameter: <i><b>scale</b></i>: Real - Scale to apply to the result</li>
+<li>Return value: Binary - Series of values converted to 32-bit Real</li>
+</ul>
+</td></tr>
+<tr><td><b>QByteArrayView floatToBytes(QByteArrayView input, const int outputbits, const float scale = 1.0)</b></td></tr>
+<tr><td>
+Convert a Binary value from a series of 32-bit Real values into a series of Integer (8 or 16 bit). As an option, the function can apply a factor of scale to the resulting values.<br><br>
+<ul>
+<li>Parameter: <i><b>input</b></i>: Binary - Series of 32-bit Real values</li>
+<li>Parameter: <i><b>outputbits</b></i>: Integer - Size of the values in the output. It can be 8 or 16</li>
+<li>Parameter: <i><b>scale</b></i>: Real - Scale to apply to the result</li>
+<li>Return value: Binary - Series of values converted to 8 or 16 bit Integer</li>
+</ul>
+</td></tr>
+<tr><td><b>QString escape(const QString &data)</b></td></tr>
+<tr><td>
+Remove the characters ".", "=" and "\n" from a string replacing them by escape sequences. This is needed to ensure that the values stored in configuration files don't contain these special characters.<br><br>
+<ul>
+<li>Parameter: <i><b>data</b></i>: String - Original string</li>
+<li>Return value: String - Escaped string</li>
+</ul>
+</td></tr>
+<tr><td><b>QString unescape(const QString &data)</b></td></tr>
+<tr><td>
+Restores a previously escaped string.<br><br>
+<ul>
+<li>Parameter: <i><b>data</b></i>: String - Escaped string</li>
+<li>Return value: String - Unescaped string</li>
 </ul>
 </td></tr>
 </table>
