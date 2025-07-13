@@ -2344,4 +2344,30 @@ Set the sample rate of the input series of I/Q complex values.<br><br>
 <li>Return value: None</li>
 </ul>
 </td></tr>
+<tr><td><b>void SDR_setUnfiltered(const int sdrid, const bool unfiltered)</b></td></tr>
+<tr><td>
+Set wether the audio output is filtered. By default, the audio output is filtered. Using untiltered audio can be useful when decoding digital modes.<br><br>
+<ul>
+<li>Parameter: <i><b>sdrid</b></i>: Integer - SDR id</li>
+<li>Parameter: <i><b>unfiltered</b></i>: Boolean - True to set unfiltered audio output</li>
+<li>Return value: None</li>
+</ul>
+</td></tr>
+<tr><td><b>void SDR_setVolume(const int sdrid, const float volume)</b></td></tr>
+<tr><td>
+Set the volume for the audio output. This is equivalent to the hardware audio input in a physical audio device.<br><br>
+<ul>
+<li>Parameter: <i><b>sdrid</b></i>: Integer - SDR id</li>
+<li>Parameter: <i><b>volume</b></i>: Real - Volume multiplier. Typical values are between 0.0 and 1.0 but any value is accepted</li>
+<li>Return value: None</li>
+</ul>
+</td></tr>
+<tr><td><b>int SDR_signalLevel(const int sdrid)</b></td></tr>
+<tr><td>
+Retrieve the signal level received at the tuned frequency.<br><br>
+<ul>
+<li>Parameter: <i><b>sdrid</b></i>: Integer - SDR id</li>
+<li>Return value: Integer - Signal level value between 0 and 100</li>
+</ul>
+</td></tr>
 </table>
