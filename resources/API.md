@@ -1380,7 +1380,7 @@ Reset the audio device. Reinitializes the underlaying hardware and clear all buf
 Set or unset the device to busy state. If state is busy, no read or write will be performed until it is unset. Used for data contention.<br><br>
 <ul>
 <li>Parameter: <i><b>devid</b></i>: Integer - Device id of the audio device</li>
-<li>Parameter: <i><b>busy</b></i>: Boolean - Specifies if the audio device must be set or unset to busy state.</li>
+<li>Parameter: <i><b>busy</b></i>: Boolean - Specifies wether the audio device must be set or unset to busy state.</li>
 <li>Return value: None</li>
 </ul>
 </td></tr>
@@ -1896,7 +1896,7 @@ Wrapper for <a href=https://libusb.sourceforge.io/api-1.0/group__libusb__dev.htm
 Set or unset the device to busy state. If state is busy, no read or write will be performed until it is unset. Used for data contention.<br><br>
 <ul>
 <li>Parameter: <i><b>usbhandleid</b></i>: Integer - Handle id of the USB device obtained when it was opened</li>
-<li>Parameter: <i><b>busy</b></i>: Boolean - Specifies if the USB device must be set or unset to busy state.</li>
+<li>Parameter: <i><b>busy</b></i>: Boolean - Specifies wether the USB device must be set or unset to busy state.</li>
 <li>Return value: None</li>
 </ul>
 </td></tr>
@@ -2313,7 +2313,7 @@ Set the demodulation type.<br><br>
 Set or unset the SDR object to busy state. If state is busy, no processing will be performed until it is unset. Used for data contention.<br><br>
 <ul>
 <li>Parameter: <i><b>sdrid</b></i>: Integer - SDR id</li>
-<li>Parameter: <i><b>busy</b></i>: Boolean - Specifies if the SDR object must be set or unset to busy state.</li>
+<li>Parameter: <i><b>busy</b></i>: Boolean - Specifies wether the SDR object must be set or unset to busy state.</li>
 <li>Return value: None</li>
 </ul>
 </td></tr>
