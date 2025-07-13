@@ -1244,8 +1244,9 @@ An audio device can be a physical device but also a virtual input audio device. 
 <tr><td><b>void audioDevice_close(const int devid)</b></td></tr>
 <tr><td>
 Close an audio device.<br><br>
-Parameter: <i><b>devid</b></i>: Integer - Device id of the audio device obtained when it was opened.<br>
-Return value: None
+<ul>
+<li>Parameter: <i><b>devid</b></i>: Integer - Device id of the audio device obtained when it was opened.</li>
+<li>Return value: None</li>
 </td></tr>
 <tr><td><b>QString audioDevice_defaultInput()</b></td></tr>
 <tr><td>
