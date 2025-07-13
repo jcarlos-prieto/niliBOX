@@ -2659,4 +2659,44 @@ Convert a Binary value into a Javascript ArrayBuffer value.<br><br>
 <li>Return value: ArrayBuffer - Output value</li>
 </ul>
 </td></tr>
+<tr><td><b>QString localFilePath()</b></td></tr>
+<tr><td>
+Return the absolute path where the local setings are stored. The path does nont include a slash at the end.<br><br>
+<ul>
+<li>Parameter: None</li>
+<li>Return value: String - Local path</li>
+</ul>
+</td></tr>
+<tr><td><b>QString os()</b></td></tr>
+<tr><td>
+Return the name os the operating system where the object Box is running. Notice that in the case that the Box object was created with <code>b_getbox("REMOTE")</code>, the operating system provided is the one at the remote side.<br><br>
+<ul>
+<li>Parameter: None</li>
+<li>Return value: String - Operating system name: <i>windows</i>, <i>linux</i>, <i>macos</i>, <i>android</i> or <i>ios</i></li>
+</ul>
+</td></tr>
+<tr><td><b>QString param(const QString &param)</b></td></tr>
+<tr><td>
+Return the value of a global configuration parameter.<br><br>
+<ul>
+<li>Parameter: String - Parameter name</li>
+<li>Return value: String - Value of the configuration parameter</li>
+</ul>
+</td></tr>
+<tr><td><b>void sleep(int ms)</b></td></tr>
+<tr><td>
+Halt the execution for a period of <i>ms</i> miliseconds.<br><br>
+<ul>
+<li>Parameter: Integer - Number of miliseconds to stop execution</li>
+<li>Return value: None</li>
+</ul>
+</td></tr>
+<tr><td><b>QObject *timer()</b></td></tr>
+<tr><td>
+Return an object of type QTimer which provides Timer capabilties. This type of object is required in Javascript which doesn't offer this functionality. The primitives available for this object are described <a href=https://doc.qt.io/archives/qt-6.7/qtimer.html>here</a><br><br>
+<ul>
+<li>Parameter: None</li>
+<li>Return value: Object</li>
+</ul>
+</td></tr>
 </table>
