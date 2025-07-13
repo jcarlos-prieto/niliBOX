@@ -18,6 +18,7 @@
   - [Serial subsystem](#serial-subsystem)
   - [USB subsystem](#usb-subsystem)
   - [DSP subsystem](#dsp-subsystem)
+  - [SDR subsystem](#sdr-subsystem)
 
 ## QML controls
 These controls extend the functionality of the standard QtQuick controls to make them adjust to the theme selected in the core application. The purpose is to provide a consistent look and feel between the core application and the modules.  
@@ -1225,6 +1226,7 @@ Subsystems:
 - [Serial subsystem](#serial-subsystem)
 - [USB subsystem](#usb-subsystem)
 - [DSP subsystem](#dsp-subsystem)
+- [SDR subsystem](#sdr-subsystem)
 
 ### Audio subsystem
 The *Audio* subsystem handles the audio devices.
@@ -2246,6 +2248,73 @@ Uncompress a previously compressed series of real values. The parameter <i>cbits
 <li>Parameter: <i><b>input</b></i>: Binary - Compresed series of values</li>
 <li>Parameter: <i><b>cbits</b></i>: Integer - This value can be 8 or 16</li>
 <li>Return value: Binary - Uncompressed series</li>
+</ul>
+</td></tr>
+</table>
+
+### SDR subsystem
+The *SDR* subsystem provides functions to handle SDR receivers. An *SDR* object is fed with a series of complex I/Q values and it generates an output series of real values containing the demodulated and processed audio. The audio output behaves as an input audio device.
+
+<table><tr></tr>
+<tr><td><b>int SDR_create()</b></td></tr>
+<tr><td>
+Returns a reference to a newly created <i>SDR</i> object.<br><br>
+<ul>
+<li>Parameter: None</li>
+<li>Return value: Integer - Identifier of the new <i>SDR</i> object</li>
+</ul>
+</td></tr>
+<tr><td><b>void SDR_feed(const int sdrid, QByteArrayView input)</b></td></tr>
+<tr><td>
+Provide input data to the SDR object.<br><br>
+<ul>
+<li>Parameter: <i><b>sdrid</b></i>: Integer - SDR id</li>
+<li>Parameter: <i><b>input</b></i>: Binary - Input series of complex I/Q values</li>
+<li>Return value: None</li>
+</ul>
+</td></tr>
+<tr><td><b>void SDR_release(const int dspid)</b></td></tr>
+<tr><td>
+Destroy the <i>SDR</i> object given by the parameter <i>sdrid</i>.<br><br>
+<ul>
+<li>Parameter: <i><b>sdrid</b></i>: Integer - SDR id</li>
+<li>Return value: None</li>
+</ul>
+</td></tr>
+<tr><td><b>void SDR_setAFAGC(const int sdrid, const bool agc)</b></td></tr>
+<tr><td>
+Activate or deactivate AGC (automatic gain control) in audio output of the <i>SDR</i> object.<br><br>
+<ul>
+<li>Parameter: <i><b>sdrid</b></i>: Integer - SDR id</li>
+<li>Parameter: <i><b>agc</b></i>: Boolean - A value of true will activate AGC. False will decativate it</li>
+<li>Return value: None</li>
+</ul>
+</td></tr>
+<tr><td><b>void SDR_setAudioMode(const int sdrid, const QString &mode)</b></td></tr>
+<tr><td>
+Set the audio mode for the audio output. The audio mode is equal to the one used for audio devices. It is composed by a list of values separated by commas in the format <i>"samplerate,samplingbits,compressedbits". Refer to [Audio subsystem](#audio-subsystem) for additional information.</i><br><br>
+<ul>
+<li>Parameter: <i><b>sdrid</b></i>: Integer - SDR id</li>
+<li>Parameter: <i><b>mode</b></i>: String - Audio mode to be used to open. It is composed by a list of values separated by commas in the format <i>"samplerate,samplingbits,compressedbits"</i></li>
+<li>Return value: None</li>
+</ul>
+</td></tr>
+<tr><td><b>void SDR_setBand(const int sdrid, const QString &band)</b></td></tr>
+<tr><td>
+Set the demodulation type.<br><br>
+<ul>
+<li>Parameter: <i><b>sdrid</b></i>: Integer - SDR id</li>
+<li>Parameter: <i><b>band</b></i>: String - Any of the following values: <i>"AM"</i>, <i>"FM"</i>, <i>"WFM"</i>, <i>"LSB"</i>, <i>"USB"</i>, <i>"DSB"</i>, </li>
+<li>Return value: None</li>
+</ul>
+</td></tr>
+<tr><td><b>void SDR_setBusy(const int sdrid, const bool busy)</b></td></tr>
+<tr><td>
+Set or unset the device to busy state. If state is busy, no processing will be performed until it is unset. Used for data contention.<br><br>
+<ul>
+<li>Parameter: <i><b>sdrid</b></i>: Integer - SDR id</li>
+<li>Parameter: <i><b>busy</b></i>: Boolean - Specifies if the SDR object must be set or unset to busy state.</li>
+<li>Return value: None</li>
 </ul>
 </td></tr>
 </table>
