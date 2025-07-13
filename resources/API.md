@@ -2519,4 +2519,12 @@ Write data to a file open in write mode.<br><br>
 <li>Return value: None</li>
 </ul>
 </td></tr>
+<tr><td><b>SIGNAL - file_playData(const int fileid, QByteArrayView data)</b></td></tr>
+<tr><td>
+Triggered when there is data available from a file that is playing.<br><br>
+<ul>
+<li>Parameter: <i><b>fileid</b></i>: Integer - File id</li>
+<li>Parameter: <i><b>data</b></i>: Binary - Data read from the file</li>
+</ul>
+</td></tr>
 </table>
