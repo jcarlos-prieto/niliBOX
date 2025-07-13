@@ -1180,6 +1180,7 @@ All these functions, constants and signals are decribed below for each subsystem
 <tr><td>bool</td><td>Boolean</td></tr>
 <tr><td>QString</td><td>String</td></tr>
 <tr><td>QList</td><td>List</td></tr>
+<tr><td>QByteArray</td><td>ArrayBuffer</td></tr>
 <tr><td>QByteArrayView</td><td>Binary</td></tr>
 </table>
 
