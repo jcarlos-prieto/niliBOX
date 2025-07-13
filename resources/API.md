@@ -2273,7 +2273,7 @@ Provide input data to the SDR object.<br><br>
 <li>Return value: None</li>
 </ul>
 </td></tr>
-<tr><td><b>void SDR_release(const int dspid)</b></td></tr>
+<tr><td><b>void SDR_release(const int sdrid)</b></td></tr>
 <tr><td>
 Destroy the <i>SDR</i> object given by the parameter <i>sdrid</i>.<br><br>
 <ul>
