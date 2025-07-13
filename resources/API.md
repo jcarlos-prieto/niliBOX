@@ -19,6 +19,7 @@
   - [USB subsystem](#usb-subsystem)
   - [DSP subsystem](#dsp-subsystem)
   - [SDR subsystem](#sdr-subsystem)
+  - [File subsystem](#file-subsystem)
 
 ## QML controls
 These controls extend the functionality of the standard QtQuick controls to make them adjust to the theme selected in the core application. The purpose is to provide a consistent look and feel between the core application and the modules.  
@@ -1227,6 +1228,7 @@ Subsystems:
 - [USB subsystem](#usb-subsystem)
 - [DSP subsystem](#dsp-subsystem)
 - [SDR subsystem](#sdr-subsystem)
+- [File subsystem](#file-subsystem)
 
 ### Audio subsystem
 The *Audio* subsystem handles the audio devices.
@@ -2371,3 +2373,16 @@ Retrieve the signal level received at the tuned frequency.<br><br>
 </ul>
 </td></tr>
 </table>
+
+### File subsystem
+The *File* subsystem provides functions to handle files. There are functions for standard handling (open, close, read, write) and also other functions focused on handling audio files (play, stop, etc.).
+
+When a file is open, the *File* subsystem provides a File id which is used to perform the rest of operations.
+
+<table><tr></tr>
+<tr><td><b>ENUM: PlayMode</b></td></tr>
+<tr><td>
+PM_DEFAULT<br>
+PM_MONO<br>
+PM_STEREO
+</td></tr>
