@@ -1617,6 +1617,14 @@ Return wether a specific serial port device is open.<br><br>
 <li>Return value: Boolean - True if the serial port device is open, false otherwise</li>
 </ul>
 </td></tr>
+<tr><td><b>QList&lt;QString&gt; serialPort_list()</b></td></tr>
+<tr><td>
+Return a list of device names of the available serial port devices.<br><br>
+<ul>
+<li>Parameter: None</li>
+<li>Return value: List - A list of String containing the device names of the available serial port devices</li>
+</ul>
+</td></tr>
 <tr><td><b>QString serialPort_manufacturer(const QString &devname)</b></td></tr>
 <tr><td>
 Return the manufacturer of the serial port device.<br><br>
@@ -1833,6 +1841,7 @@ Wrapper for <a href=https://libusb.sourceforge.io/api-1.0/group__libusb__desc.ht
 <tr><td>
 Wrapper for <a href=https://libusb.sourceforge.io/api-1.0/group__libusb__dev.html#gac0fe4b65914c5ed036e6cbec61cb0b97>libusb_get_device_list()</a>. Returns a list of USB device id corresponding to all the USB devices present in the system. The order is guaranteed to be always the same.<br><br>
 <ul>
+<li>Parameter: None</li>
 <li>Return value: List - List of integers</li>
 </ul>
 </td></tr>
@@ -1926,7 +1935,7 @@ Return the description (product) of the USB device.<br><br>
 <tr><td><b>QList&lt;QString&gt; USBDevice_list()</b></td></tr>
 <tr><td>
 Provide a list of the USB device names of the USB devices currently available in the system.<br><br>
-<li>Parameters: None</li>
+<li>Parameter: None</li>
 <li>Return value: List - List of String containing the USB device names found in the format <i>VVVV:PPPP[:N]</i> where <i>VVVV</i> is the vendor id, <i>PPPP</i> is the product id and <i>N</i> is a sequencial number if more than one device of the same type are found</li>
 </td>
 </td></tr>
@@ -2021,176 +2030,222 @@ MF_504
 <tr><td><b>float DSP_avg(QByteArrayView input)</b></td></tr>
 <tr><td>
 Return the average of all values in the input series.<br><br>
-Parameter: <i><b>input</b></i>: Binary - Series of real values<br>
-Return value: Real - Result of the average
+<ul>
+<li>Parameter: <i><b>input</b></i>: Binary - Series of real values</li>
+<li>Return value: Real - Result of the average</li>
+</ul>
 </td></tr>
 <tr><td><b>QByteArrayView DSP_compress(QByteArrayView input, const int cbits)</b></td></tr>
 <tr><td>
 Compress the input 32-bit float series of values to a series of 8 or 16 bit values. The resulting series contains an additional 8 byte header to be able to decompress the series. The purpose of this function is to cmpress audio.<br><br>
-Parameter: <i><b>input</b></i>: Binary - Series of real values<br>
-Parameter: <i><b>cbits</b></i>: Integer - This value can be 8 or 16<br>
-Return value: Binary - Compressed series. The length of the resulting series is half (for 16 bit) or a quarter (for 8 bit) of the input series plus 8 additional header bytes
+<ul>
+<li>Parameter: <i><b>input</b></i>: Binary - Series of real values</li>
+<li>Parameter: <i><b>cbits</b></i>: Integer - This value can be 8 or 16</li>
+<li>Return value: Binary - Compressed series. The length of the resulting series is half (for 16 bit) or a quarter (for 8 bit) of the input series plus 8 additional header bytes</li>
+</ul>
 </td></tr>
 <tr><td><b>int DSP_create()</b></td></tr>
 <tr><td>
 Returns a reference to a newly created <i>DSP</i> object.<br><br>
-Return value: Integer - Identifier of the new <i>DSP</i> object
+<ul>
+<li>Parameter: None</li>
+<li>Return value: Integer - Identifier of the new <i>DSP</i> object</li>
+</ul>
 </td></tr>
 <tr><td><b>QByteArrayView DSP_demodulate(const int dspid, QByteArrayView input, const int fs, const Box::Band band)</b></td></tr>
 <tr><td>
 Demodulates a complex I/Q series of values to audio.<br><br>
-Parameter: <i><b>dspid</b></i>: Integer - DSP id<br>
-Parameter: <i><b>input</b></i>: Binary Complex - Input complex series. This series comes usually from a SDR radio receiver<br>
-Parameter: <i><b>fs</b></i>: Integer - Sampling frequency of the input series<br>
-Parameter: <i><b>band</b></i>: Band - One value from the *Band* enum specifying the demodulation type (AM, FM, etc.). For instance, *Box.BAND_WFM* for wide FM.<br>
-Return value: Binary - Demodulated signal.
+<ul>
+<li>Parameter: <i><b>dspid</b></i>: Integer - DSP id</li>
+<li>Parameter: <i><b>input</b></i>: Binary Complex - Input complex series. This series comes usually from a SDR radio receiver</li>
+<li>Parameter: <i><b>fs</b></i>: Integer - Sampling frequency of the input series</li>
+<li>Parameter: <i><b>band</b></i>: Band - One value from the *Band* enum specifying the demodulation type (AM, FM, etc.). For instance, *Box.BAND_WFM* for wide FM</li>
+<li>Return value: Binary - Demodulated signal</li>
+</ul>
 </td></tr>
 <tr><td><b>void DSP_dump(QByteArrayView input, const QString &filename, const bool append = false)</b></td></tr>
 <tr><td>
 Dump the content of the series of real values to a file in readable format. For debug purposes.<br><br>
-Parameter: <i><b>input</b></i>: Binary - Series of values<br>
-Parameter: <i><b>filename</b></i>: String - File name to write the output<br>
-Parameter: <i><b>append</b></i>: Boolean - Specifies wether the values are appended to the file or it is ovewritten at each call. The default is not to append<br>
-Return value: None
+<ul>
+<li>Parameter: <i><b>input</b></i>: Binary - Series of values</li>
+<li>Parameter: <i><b>filename</b></i>: String - File name to write the output</li>
+<li>Parameter: <i><b>append</b></i>: Boolean - Specifies wether the values are appended to the file or it is ovewritten at each call. The default is not to append</li>
+<li>Return value: None</li>
+</ul>
 </td></tr>
 <tr><td><b>void DSP_dump_c(QByteArrayView input, const QString &filename, const bool append = false)</b></td></tr>
 <tr><td>
 Dump the content of the series of complex values to a file in readable format. For debug purposes.<br><br>
-Parameter: <i><b>input</b></i>: Binary Complex - Series of complex values<br>
-Parameter: <i><b>filename</b></i>: String - File name to write the output<br>
-Parameter: <i><b>append</b></i>: Boolean - Specifies wether the values are appended to the file or it is ovewritten at each call. The default is not to append<br>
-Return value: None
+<ul>
+<li>Parameter: <i><b>input</b></i>: Binary Complex - Series of complex values</li>
+<li>Parameter: <i><b>filename</b></i>: String - File name to write the output</li>
+<li>Parameter: <i><b>append</b></i>: Boolean - Specifies wether the values are appended to the file or it is ovewritten at each call. The default is not to append</li>
+<li>Return value: None</li>
+</ul>
 </td></tr>
 <tr><td><b>QByteArrayView DSP_FFT(const int dspid, QByteArrayView input, const int width = -1, const Box::FFTWindow window_type = FFTW_BLACKMAN_HARRIS_4)</b></td></tr>
 <tr><td>
 Calculate the FFT of a series of real values. The length of the input is truncated to the nearest power of 2 value. For instance, if the series contains 1000 values, only 512 will be used. If the series contains 1030, then 1024 values will be used.<br><br>
-Parameter: <i><b>dspid</b></i>: Integer - DSP id<br>
-Parameter: <i><b>input</b></i>: Binary - Input series of real values in time domain<br>
-Parameter: <i><b>width</b></i>: Integer - If specified, the resulting series of values in the frequency domain will be resampled to this width<br>
-Parameter: <i><b>window_type</b></i>: FFTWindow - The FFT window to be applied to the input series. The defualt is Blackman-Harris-4. Check <a href=https://en.wikipedia.org/wiki/Window_function>here</a> for additonal information<br>
-Return value: Binary - Series of values in the frequrncy domain. As the input is a series of real values, the output series in the frequency will be always symmetric and only the positive half will be included in the resulting series
+<ul>
+<li>Parameter: <i><b>dspid</b></i>: Integer - DSP id</li>
+<li>Parameter: <i><b>input</b></i>: Binary - Input series of real values in time domain</li>
+<li>Parameter: <i><b>width</b></i>: Integer - If specified, the resulting series of values in the frequency domain will be resampled to this width</li>
+<li>Parameter: <i><b>window_type</b></i>: FFTWindow - The FFT window to be applied to the input series. The defualt is Blackman-Harris-4. Check <a href=https://en.wikipedia.org/wiki/Window_function>here</a> for additonal information</li>
+<li>Return value: Binary - Series of values in the frequrncy domain. As the input is a series of real values, the output series in the frequency will be always symmetric and only the positive half will be included in the resulting series</li>
+</ul>
 </td></tr>
 <tr><td><b>QByteArrayView DSP_FFT_c(const int dspid, QByteArrayView input, const int width = -1, const Box::FFTWindow window_type = FFTW_BLACKMAN_HARRIS_4)</b></td></tr>
 <tr><td>
 Calculate the FFT of a series of complex values. The length of the input is truncated to the double of the nearest power of 2 value. For instance, if the series contains 1000 values (500 complex samples) , only 256 will be used. If the series contains 1030 (515 complex value), then 512 values will be used.<br><br>
-Parameter: <i><b>dspid</b></i>: Integer - DSP id<br>
-Parameter: <i><b>input</b></i>: Binary - Input series of complex values in time domain<br>
-Parameter: <i><b>width</b></i>: Integer - If specified, the resulting series of values in the frequency domain will be resampled to this width<br>
-Parameter: <i><b>window_type</b></i>: FFTWindow - The FFT window to be applied to the input series. The defualt is Blackman-Harris-4. Check <a href=https://en.wikipedia.org/wiki/Window_function>here</a> for additonal information<br>
-Return value: Binary - Series of values in the frequrncy domain. As the input is a series of complex values, the output series in the frequency domain will not be be always symmetric and the full spectrum will be provided
+<ul>
+<li>Parameter: <i><b>dspid</b></i>: Integer - DSP id</li>
+<li>Parameter: <i><b>input</b></i>: Binary - Input series of complex values in time domain</li>
+<li>Parameter: <i><b>width</b></i>: Integer - If specified, the resulting series of values in the frequency domain will be resampled to this width</li>
+<li>Parameter: <i><b>window_type</b></i>: FFTWindow - The FFT window to be applied to the input series. The defualt is Blackman-Harris-4. Check <a href=https://en.wikipedia.org/wiki/Window_function>here</a> for additonal information</li>
+<li>Return value: Binary - Series of values in the frequrncy domain. As the input is a series of complex values, the output series in the frequency domain will not be be always symmetric and the full spectrum will be provided</li>
+</ul>
 </td></tr>
 <tr><td><b>QByteArrayView DSP_filter(const int dspid, QByteArrayView input)</b></td></tr>
 <tr><td>
 Filter a series of real values. Please note that the filter coeficients must be calculated before calling this function using <i>DSP_setFilterParams</i><br><br>
-Parameter: <i><b>dspid</b></i>: Integer - DSP id<br>
-Parameter: <i><b>input</b></i>: Binary - Input series of real values<br>
-Return value: Binary - Filtered series of real values. The length of the resulting series is equal to the input
+<ul>
+<li>Parameter: <i><b>dspid</b></i>: Integer - DSP id</li>
+<li>Parameter: <i><b>input</b></i>: Binary - Input series of real values</li>
+<li>Return value: Binary - Filtered series of real values. The length of the resulting series is equal to the input</li>
+</ul>
 </td></tr>
 <tr><td><b>QByteArrayView DSP_filter_c(const int dspid, QByteArrayView input)</b></td></tr>
 <tr><td>
 Filter a series of complex values. Please note that the filter coeficients must be calculated before calling this function using <i>DSP_setFilterParams</i><br><br>
-Parameter: <i><b>dspid</b></i>: Integer - DSP id<br>
-Parameter: <i><b>input</b></i>: Binary - Input series of complex values<br>
-Return value: Binary - Filtered series of real values. The length of the resulting series is equal to the input
+<ul>
+<li>Parameter: <i><b>dspid</b></i>: Integer - DSP id</li>
+<li>Parameter: <i><b>input</b></i>: Binary - Input series of complex values</li>
+<li>Return value: Binary - Filtered series of real values. The length of the resulting series is equal to the input</li>
+</ul>
 </td></tr>
 <tr><td><b>float DSP_max(QByteArrayView input)</b></td></tr>
 <tr><td>
 Return the maximum value in the input series.<br><br>
-Parameter: <i><b>input</b></i>: Binary - Series of real values<br>
-Return value: Real - Maximum value
+<ul>
+<li>Parameter: <i><b>input</b></i>: Binary - Series of real values</li>
+<li>Return value: Real - Maximum value</li>
+</ul>
 <tr><td><b>QByteArrayView DSP_mirics_convert(QByteArrayView input, Box::MiricsFormat format, const int rate)</b></td></tr>
 <tr><td>
 The Mirics chipset for SDR devices outputs the data in a special format which must be preprocessed in order to get a raw I/Q complex values series. The purpose of this function is to perform that conversion. There are 4 subformats: <i>252</i>, <i>336</i>, <i>384</i> and <i>504</i><br><br>
-Parameter: <i><b>input</b></i>: Binary - Input series in Mirics format<br>
-Parameter: <i><b>format</b></i>: MiricsFormat - Check the definition of this enum above<br>
-Parameter: <i><b>rate</b></i>: Integer - Sample rate<br>
-Return value: Binary - Series of complex I/Q values
+<ul>
+<li>Parameter: <i><b>input</b></i>: Binary - Input series in Mirics format</li>
+<li>Parameter: <i><b>format</b></i>: MiricsFormat - Check the definition of this enum above</li>
+<li>Parameter: <i><b>rate</b></i>: Integer - Sample rate</li>
+<li>Return value: Binary - Series of complex I/Q values</li>
+</ul>
 <tr><td><b>float DSP_min(QByteArrayView input)</b></td></tr>
 <tr><td>
 Return the minimum value in the input series.<br><br>
-Parameter: <i><b>input</b></i>: Binary - Series of real values<br>
-Return value: Real - Minimum value
+<ul>
+<li>Parameter: <i><b>input</b></i>: Binary - Series of real values</li>
+<li>Return value: Real - Minimum value</li>
+</ul>
 </td></tr>
 <tr><td><b>QByteArrayView DSP_normalize(const int dspid, QByteArrayView input)</b></td></tr>
 <tr><td>
 Normalizes a series of real values. The process of normalization consists on removing the DC component of a signal by forcing the average value of the signal to be null.<br><br>
-Parameter: <i><b>dspid</b></i>: Integer - DSP id<br>
-Parameter: <i><b>input</b></i>: Binary - Input series of real values<br>
-Return value: Binary - Normalized series of real values. The length of the resulting series is equal to the input
+<ul>
+<li>Parameter: <i><b>dspid</b></i>: Integer - DSP id</li>
+<li>Parameter: <i><b>input</b></i>: Binary - Input series of real values</li>
+<li>Return value: Binary - Normalized series of real values. The length of the resulting series is equal to the input</li>
+</ul>
 </td></tr>
 <tr><td><b>QByteArrayView DSP_normalize_c(const int dspid, QByteArrayView input)</b></td></tr>
 <tr><td>
-Normalizes a series of complex values. The process of normalization consists on removing the DC component of a signal by forcing the average value of the signal to be null.<br><br>
-Parameter: <i><b>dspid</b></i>: Integer - DSP id<br>
-Parameter: <i><b>input</b></i>: Binary - Input series of complex values<br>
-Return value: Binary - Normalized series of complex values. The length of the resulting series is equal to the input
+Normalizes a series of complex values. The process of normalization consists on removing the DC component of a signal by forcing the average value of the signal to be null. The normalization is made indepently for the real and imaginary values<br><br>
+<ul>
+<li>Parameter: <i><b>dspid</b></i>: Integer - DSP id</li>
+<li>Parameter: <i><b>input</b></i>: Binary - Input series of complex values</li>
+<li>Return value: Binary - Normalized series of complex values. The length of the resulting series is equal to the input</li>
+</ul>
 </td></tr>
 <tr><td><b>QByteArrayView DSP_NR(const int dspid, QByteArrayView input, const float ratio)</b></td></tr>
 <tr><td>
 Apply a basic algorithm to reduce white noise in an audio signal. The amount of noise reduced is given by the parameter <i>ratio</i>.<br><br>
-Parameter: <i><b>dspid</b></i>: Integer - DSP id<br>
-Parameter: <i><b>input</b></i>: Binary - Input series of real values<br>
-Parameter: <i><b>ratio</b></i>: Real - Reduction ratio between 0.0 and 1.0<br>
-Return value: Binary - Processed audio signal. The length of the resulting series is equal to the input
+<ul>
+<li>Parameter: <i><b>dspid</b></i>: Integer - DSP id</li>
+<li>Parameter: <i><b>input</b></i>: Binary - Input series of real values</li>
+<li>Parameter: <i><b>ratio</b></i>: Real - Reduction ratio between 0.0 and 1.0</li>
+<li>Return value: Binary - Processed audio signal. The length of the resulting series is equal to the input</li>
+</ul>
 </td></tr>
 <tr><td><b>void DSP_release(const int dspid)</b></td></tr>
 <tr><td>
 Destroy the <i>DSP</i> object given by the parameter <i>dspid</i>.<br><br>
-Parameter: <i><b>dspid</b></i>: Integer - DSP id<br>
-Return value: None
+<ul>
+<li>Parameter: <i><b>dspid</b></i>: Integer - DSP id</li>
+<li>Return value: None</li>
+</ul>
 </td></tr>
 <tr><td><b>QByteArrayView DSP_resample(const int dspid, QByteArrayView input, const int outputsize)</b></td></tr>
 <tr><td>
 Resample a real values series to make the length fit to <i>outputsize</i>.<br><br>
-Parameter: <i><b>dspid</b></i>: Integer - DSP id<br>
-Parameter: <i><b>input</b></i>: Binary - Input series of real values<br>
-Parameter: <i><b>outputsize</b></i>: Integer - New size<br>
-Return value: Binary - Resized real values series
+<ul>
+<li>Parameter: <i><b>dspid</b></i>: Integer - DSP id</li>
+<li>Parameter: <i><b>input</b></i>: Binary - Input series of real values</li>
+<li>Parameter: <i><b>outputsize</b></i>: Integer - New size</li>
+<li>Return value: Binary - Resized real values series</li>
+</ul>
 </td></tr>
 <tr><td><b>QByteArrayView DSP_resample_c(const int dspid, QByteArrayView input, const int outputsize)</b></td></tr>
 <tr><td>
 Resample a complex values series to make the length fit to <i>outputsize</i>. Note that this parameter is the number of complex pairs of values. So, the total number of values in the resulting series is double than <i>outputsize</i><br><br>
-Parameter: <i><b>dspid</b></i>: Integer - DSP id<br>
-Parameter: <i><b>input</b></i>: Binary - Input series of real values<br>
-Parameter: <i><b>outputsize</b></i>: Integer - New size<br>
-Return value: Binary - Resized complex values series
+<ul>
+<li>Parameter: <i><b>dspid</b></i>: Integer - DSP id</li>
+<li>Parameter: <i><b>input</b></i>: Binary - Input series of real values</li>
+<li>Parameter: <i><b>outputsize</b></i>: Integer - New size</li>
+<li>Return value: Binary - Resized complex values series</li>
+</ul>
 </td></tr>
 <tr><td><b>void DSP_resetFilter(const int dspid)</b></td></tr>
 <tr><td>
 Reset the filter parameters in the <i>DSP</i> object. The filtering will be disabled until new parameters are calculated.<br><br>
-Parameter: <i><b>dspid</b></i>: Integer - DSP id<br>
-Return value: None
+<ul>
+<li>Parameter: <i><b>dspid</b></i>: Integer - DSP id</li>
+<li>Return value: None</li>
 </td></tr>
 <tr><td><b>QByteArrayView DSP_scale(const int dspid, QByteArrayView input, const float scale)</b></td></tr>
 <tr><td>
 Multiplies all values in the series by a factor given by <i>scale</i>. This function can be applied to both real and complex series.<br><br>
-Parameter: <i><b>dspid</b></i>: Integer - DSP id<br>
-Parameter: <i><b>input</b></i>: Binary - Input series of values<br>
-Parameter: <i><b>scale</b></i>: Real - Multiplying factor<br>
-Return value: Binary - New scaled values series
+<ul>
+<li>Parameter: <i><b>dspid</b></i>: Integer - DSP id</li>
+<li>Parameter: <i><b>input</b></i>: Binary - Input series of values</li>
+<li>Parameter: <i><b>scale</b></i>: Real - Multiplying factor</li>
+<li>Return value: Binary - New scaled values series</li>
+</ul>
 </td></tr>
 <tr><td><b>void DSP_setFilterParams(const int dspid, const int fs, const int f1, const int f2, const int order, const Box::FilterType type, const Box::FilterType algorithm = FT_IIR)</b></td></tr>
 <tr><td>
 Set the filter parameters in the <i>DSP</i> object based on the parameters provided. The filter types are <i>pass band</i> and <i>reject band</i>. For low pass filters, set f1 = 0. For high pass filter, set f2 = fs / 2.<br><br>
-Parameter: <i><b>dspid</b></i>: Integer - DSP id<br>
-Parameter: <i><b>fs</b></i>: Integer - Sampling frequency<br>
-Parameter: <i><b>f1</b></i>: Integer - Low cut frequency<br>
-Parameter: <i><b>f2</b></i>: Integer - High cut frequency<br>
-Parameter: <i><b>order</b></i>: Integer - Filter order. This value depends on the filter algorithm<br>
-Parameter: <i><b>type</b></i>: FilterType - This parameter can be either <i>Box.FT_PASSBAND</i> or <i>Box.FT_REJECTBAND</i><br>
-Parameter: <i><b>algorithm</b></i>: FilterType - This parameter can be one of the following:
+<ul>
+<li>Parameter: <i><b>dspid</b></i>: Integer - DSP id</li>
+<li>Parameter: <i><b>fs</b></i>: Integer - Sampling frequency</li>
+<li>Parameter: <i><b>f1</b></i>: Integer - Low cut frequency</li>
+<li>Parameter: <i><b>f2</b></i>: Integer - High cut frequency</li>
+<li>Parameter: <i><b>order</b></i>: Integer - Filter order. This value depends on the filter algorithm</li>
+<li>Parameter: <i><b>type</b></i>: FilterType - This parameter can be either <i>Box.FT_PASSBAND</i> or <i>Box.FT_REJECTBAND</i></li>
+<li>Parameter: <i><b>algorithm</b></i>: FilterType - This parameter can be one of the following:
 <ul>
 <li><i>Box.FT_FIR</i>: Finite impulse response filter with Hamming window</li>
 <li><i>Box.FT_IFIR</i>: Interpolated finite impulse response filter with Hamming window</li>
 <li><i>Box.FT_IIR</i>: Chebyshev type II infinite impulse response filter</li>
 </ul>
-Return value: None
+<li>Return value: None</li>
+</ul>
 </td></tr>
 <tr><td><b>QByteArrayView DSP_uncompress(QByteArrayView input, const int cbits)</b></td></tr>
 <tr><td>
 Uncompress a previously compressed series value. The parameter <i>cbits</i> (compressed bits) must be the same used when it was compressed.<br><br>
-Parameter: <i><b>input</b></i>: Binary - Compresed series of values<br>
-Parameter: <i><b>cbits</b></i>: Integer - This value can be 8 or 16<br>
-Return value: Binary - Uncompressed series
+<ul>
+<li>Parameter: <i><b>input</b></i>: Binary - Compresed series of values</li>
+<li>Parameter: <i><b>cbits</b></i>: Integer - This value can be 8 or 16</li>
+<li>Return value: Binary - Uncompressed series</li>
+</ul>
 </td></tr>
 </table>
