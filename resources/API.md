@@ -1447,7 +1447,7 @@ When an video device is open, a parameter <i>mode</i> must be provided. The <i>m
 <table><tr></tr>
 <tr><td><b>void videoDevice_close(const int devid)</b></td></tr>
 <tr><td>
-Close a video device.
+Close a video device.<br>
 <ul>
 <li>Parameter: <i><b>devid</b></i>: Integer - Device id of the video device obtained when it was opened.</li>
 <li>Return value: None</li>
