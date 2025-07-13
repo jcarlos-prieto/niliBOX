@@ -20,6 +20,7 @@
   - [DSP subsystem](#dsp-subsystem)
   - [SDR subsystem](#sdr-subsystem)
   - [File subsystem](#file-subsystem)
+  - [HTTP subsystem](#http-subsystem)
 
 ## QML controls
 These controls extend the functionality of the standard QtQuick controls to make them adjust to the theme selected in the core application. The purpose is to provide a consistent look and feel between the core application and the modules.  
@@ -1229,6 +1230,7 @@ Subsystems:
 - [DSP subsystem](#dsp-subsystem)
 - [SDR subsystem](#sdr-subsystem)
 - [File subsystem](#file-subsystem)
+- [HTTP subsystem](#http-subsystem)
 
 ### Audio subsystem
 The *Audio* subsystem handles the audio devices.
@@ -2525,6 +2527,47 @@ Triggered when there is data available from a file that is playing.<br><br>
 <ul>
 <li>Parameter: <i><b>fileid</b></i>: Integer - File id</li>
 <li>Parameter: <i><b>data</b></i>: Binary - Data read from the file</li>
+</ul>
+</td></tr>
+</table>
+
+### HTTP subsystem
+The *HTTP* subsystem provides basic functions to interact with a web server. It supports both http and https protocols.
+
+<table><tr></tr>
+<tr><td><b>QByteArray HTTP_download(const QString &url)</b></td></tr>
+<tr><td>
+Download a file from the given url.<br><br>
+<ul>
+<li>Parameter: <i><b>url</b></i>: String - Full url for the file, including protocol, server name, subdirectories and file name</li>
+<li>Return value: String - Contents of the file downloaded</li>
+</ul>
+</td></tr>
+<tr><td><b>QString HTTP_get(const QString &url)</b></td></tr>
+<tr><td>
+Send a GET request to the server.<br><br>
+<ul>
+<li>Parameter: <i><b>url</b></i>: String - Full url for the GET request, including protocol, server name, subdirectories and commands</li>
+<li>Return value: String - Response to the request</li>
+</ul>
+</td></tr>
+<tr><td><b>QString HTTP_post(const QString &url, const QString &command)</b></td></tr>
+<tr><td>
+Send a POST request to the server.<br><br>
+<ul>
+<li>Parameter: <i><b>url</b></i>: String - Full url for the POST request, including protocol, server name and subdirectories</li>
+<li>Parameter: <i><b>command</b></i>: String - Command to be sent to the given url</li>
+<li>Return value: String - Response to the request</li>
+</ul>
+</td></tr>
+<tr><td><b>QString HTTP_postData(const QString &url, const QString &command, const QByteArray &data)</b></td></tr>
+<tr><td>
+Send a POST request to the server including a data payload.<br><br>
+<ul>
+<li>Parameter: <i><b>url</b></i>: String - Full url for the POST request, including protocol, server name and subdirectories</li>
+<li>Parameter: <i><b>command</b></i>: String - Command to be sent to the given url</li>
+<li>Parameter: <i><b>data</b></i>: String - Data payload</li>
+<li>Return value: String - Response to the request</li>
 </ul>
 </td></tr>
 </table>
