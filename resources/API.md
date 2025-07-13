@@ -2377,6 +2377,8 @@ Retrieve the signal level received at the tuned frequency.<br><br>
 ### File subsystem
 The *File* subsystem provides functions to handle files. There are functions for standard handling (open, close, read, write) and also other functions focused on handling audio files (play, stop, etc.).
 
+The files handled by this subsystem must be stored in the special location for data.
+
 When a file is open, the *File* subsystem provides a File id which is used to perform the rest of operations.
 
 <table><tr></tr>
@@ -2386,3 +2388,29 @@ PM_DEFAULT<br>
 PM_MONO<br>
 PM_STEREO
 </td></tr>
+<tr><td><b>int file_channels(const int fileid, const int newval = -1)</b></td></tr>
+<tr><td>
+Retrieve and/or set the number of channels in the file if it is in WAV format.<br><br>
+<ul>
+<li>Parameter: <i><b>fileid</b></i>: Integer - File id</li>
+<li>Parameter: <i><b>newval</b></i>: Integer - If a value is provided, the file is assumed to contain the provided number of channels. Allowed values are 1 or 2</li>
+<li>Return value: Integer - Number of channels in the file if it is a WAV file. If a <i>newval</i> is provided, the same value will be returned</li>
+</ul>
+</td></tr>
+<tr><td><b>void file_close(const int fileid)</b></td></tr>
+<tr><td>
+Close a file previously opened.<br><br>
+<ul>
+<li>Parameter: <i><b>fileid</b></i>: Integer - File id</li>
+<li>Return value: None</li>
+</ul>
+</td></tr>
+<tr><td><b>bool file_delete(const QString filename)</b></td></tr>
+<tr><td>
+Delete the file <i>filename</i> from the file system.<br><br>
+<ul>
+<li>Parameter: <i><b>filename</b></i>: String - Name of the file to be deleted</li>
+<li>Return value: Boolean - True if the file could be deleted, false otherwise</li>
+</ul>
+</td></tr>
+</table>
