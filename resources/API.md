@@ -900,7 +900,7 @@ A list of selectable items.<br><br>
 <tr>
 <td>TPane</td><br><br>
 <td>
-The most basic object. A rectangular panel with a border
+The most basic object. A rectangular panel with a border.<br><br>
 <ul>
 <li>Theme properties: <i><b>background-color foreground-color border-width border-color radius radius-topleft radius-topright radius-bottomleft radius-bottomright margin-top margin-bottom margin-left margin-right spacing image angle</b></i></li>
 </ul>
