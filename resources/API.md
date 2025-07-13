@@ -2416,4 +2416,37 @@ Delete the file <i>filename</i> from the file system.<br><br>
 <li>Return value: Boolean - True if the file could be deleted, false otherwise</li>
 </ul>
 </td></tr>
+<tr><td><b>QList&lt;QString&gt; file_list(const QString &mask)</b></td></tr>
+<tr><td>
+Retrieve a list of files from the <i>data</i> directory with a certain mask. The mask is a wildcard expression like <i>"*.wav"</i> or <i>"a??.txt"</i>.<br><br>
+<ul>
+<li>Parameter: <i><b>mask</b></i>: String - Mask used to filter files</li>
+<li>Return value: List - List of String containing the name of the files that match the mask provided</li>
+</ul>
+</td></tr>
+<tr><td><b>int file_openRead(const QString &filename)</b></td></tr>
+<tr><td>
+Open a file for read operations.<br><br>
+<ul>
+<li>Parameter: <i><b>filename</b></i>: String - Name of the file to be opened</li>
+<li>Return value: Integer - File id to be used to operate with the file. This value is -1 if the file could not be opened</li>
+</ul>
+</td></tr>
+<tr><td><b>int file_openWrite(const QString &filename)</b></td></tr>
+<tr><td>
+Open a file for write operations.<br><br>
+<ul>
+<li>Parameter: <i><b>filename</b></i>: String - Name of the file to be opened</li>
+<li>Return value: Integer - File id to be used to operate with the file. This value is -1 if the file could not be opened</li>
+</ul>
+</td></tr>
+<tr><td><b>void file_play(const int fileid, const Box::PlayMode playmode = PM_DEFAULT)</b></td></tr>
+<tr><td>
+Start playing the file specified by the file id which has been opened for read operations before. The file is interpreted as a WAV file. The data read from the file is provided through the signal file_playData (described below).<br><br>
+<ul>
+<li>Parameter: <i><b>fileid</b></i>: Integer - File id</li>
+<li>Parameter: <i><b>playmode</b></i>: PlayMode - If the file doesn't contain a WAV header, it will be interpreted as mono or stereo based on this parameter. If the file has a WAV header, the file will be interpreted as described in the header and converted to mono or stereo if needed. Available values: <i>Box.PM_DEFAULT</i>, <i>Box.PM_MONO</i> and <i>Box.PM_STEREO</i></li>
+<li>Return value: None</li>
+</ul>
+</td></tr>
 </table>
