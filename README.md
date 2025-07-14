@@ -33,14 +33,14 @@ The official distribution has been compiled using Qt 6.7.3. It can be compiled w
 ## Structure
 ***niliBOX*** is structured in two well differentiated parts:
 - A core application developed in C++ which handles the graphical interface and the communications
-- A series of resources that are loaded in runtime. These resources are packed as Qt resource files (.rcc).
+- A series of resources that are loaded at runtime. These resources are packed as Qt resource files (.rcc).
 
 There are three type of resources:  
 - Drivers: Executable resources developed in QML and Javascript which implement the different functional modules
 - Languages: Files of type .qm containing the translation of the core application and drivers into different languages
 - Themes: Files of proprietary format (.set) describing the appearance of the core application and modules.
 
-This is a general description of each file and directory n the source code provided:
+This is a general description of each file and directory in the source code provided:
 - *source:* The source code of the core application. This directory also contains the source code of the third party libraries used: libusb, Oboe and USB Serial for Android.
 - *resources:* The source code of the resources (drivers, languages and themes), QML components used by the modules, resource configuration files (.set) and some additional files needed. The scripts contained in this directory are used for the precompilation of the resources and they are explained in the [Compilation](#compilation) section.
 - *platforms:* Specific files for the distribution on the different platforms supported. The directories for Android and iOS also include some specific source files which are included in the main project.
