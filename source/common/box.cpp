@@ -218,9 +218,9 @@ QString Box::audioDevice_description(const QString &devname)
 
 #if defined OS_ANDROID
     if (devname.startsWith("I:") || devname.startsWith("O:"))
-        return id.mid(2);
+        return devname.mid(2);
     else
-        return id;
+        return devname;
 #else
     QAudioDevice dev = audioDevice_fromName(devname);
     if (dev.isNull())
@@ -1068,7 +1068,7 @@ QString Box::serialPort_description(const QString &devname)
     return QSerialPortInfo(devname).description().trimmed();
 
 #elif defined OS_ANDROID
-    return QString(alibserial_description(id.toUtf8().data()));
+    return QString(alibserial_description(devname.toUtf8().data()));
 
 #else
     return QString();
@@ -1121,7 +1121,7 @@ bool Box::serialPort_isOpen(const QString &devname)
     return false;
 
 #elif defined OS_ANDROID
-    return alibserial_isopen(id.toUtf8().data()) != 0;
+    return alibserial_isopen(devname.toUtf8().data()) != 0;
 
 #else
     return false;
@@ -1171,7 +1171,7 @@ QString Box::serialPort_manufacturer(const QString &devname)
     return QSerialPortInfo(devname).manufacturer();
 
 #elif defined OS_ANDROID
-    return QString(alibserial_manufacturer(id.toUtf8().data()));
+    return QString(alibserial_manufacturer(devname.toUtf8().data()));
 
 #else
     return QString();
@@ -5783,48 +5783,48 @@ void usb_process(struct libusb_transfer *xfr)
     USBWorker *worker = static_cast<USBWorker *>(xfr->user_data);
 
     switch (xfr->status) {
-        case LIBUSB_TRANSFER_CANCELLED:
-            break;
+    case LIBUSB_TRANSFER_CANCELLED:
+        break;
 
-        case LIBUSB_TRANSFER_STALL:
+    case LIBUSB_TRANSFER_STALL:
+        libusb_submit_transfer(xfr);
+        return;
+
+    case LIBUSB_TRANSFER_ERROR:
+    case LIBUSB_TRANSFER_NO_DEVICE:
+    case LIBUSB_TRANSFER_TIMED_OUT:
+    case LIBUSB_TRANSFER_OVERFLOW:
+        emit worker->error();
+        break;
+
+    case LIBUSB_TRANSFER_COMPLETED: {
+        if (xfr->type == LIBUSB_TRANSFER_TYPE_BULK)
+            worker->chunk((char *)xfr->buffer, xfr->actual_length);
+
+        else if (xfr->type == LIBUSB_TRANSFER_TYPE_ISOCHRONOUS) {
+            int plen = xfr->iso_packet_desc[0].length;
+            unsigned char *offsets = xfr->buffer;
+            unsigned char *offsetd = xfr->buffer;
+
+            for (int i = 0; i < xfr->num_iso_packets; ++i) {
+                if (xfr->iso_packet_desc[i].actual_length > 0) {
+                    if (offsets != offsetd)
+                        memcpy(offsetd, offsets, plen);
+                    offsetd += plen;
+                }
+                offsets += plen;
+            }
+
+            worker->chunk((char *)xfr->buffer, static_cast<int>(offsetd - xfr->buffer));
+        }
+
+        if (worker->m_running) {
             libusb_submit_transfer(xfr);
             return;
-
-        case LIBUSB_TRANSFER_ERROR:
-        case LIBUSB_TRANSFER_NO_DEVICE:
-        case LIBUSB_TRANSFER_TIMED_OUT:
-        case LIBUSB_TRANSFER_OVERFLOW:
-            emit worker->error();
-            break;
-
-        case LIBUSB_TRANSFER_COMPLETED: {
-            if (xfr->type == LIBUSB_TRANSFER_TYPE_BULK)
-                worker->chunk((char *)xfr->buffer, xfr->actual_length);
-
-            else if (xfr->type == LIBUSB_TRANSFER_TYPE_ISOCHRONOUS) {
-                int plen = xfr->iso_packet_desc[0].length;
-                unsigned char *offsets = xfr->buffer;
-                unsigned char *offsetd = xfr->buffer;
-
-                for (int i = 0; i < xfr->num_iso_packets; ++i) {
-                    if (xfr->iso_packet_desc[i].actual_length > 0) {
-                        if (offsets != offsetd)
-                            memcpy(offsetd, offsets, plen);
-                        offsetd += plen;
-                    }
-                    offsets += plen;
-                }
-
-                worker->chunk((char *)xfr->buffer, static_cast<int>(offsetd - xfr->buffer));
-            }
-
-            if (worker->m_running) {
-                libusb_submit_transfer(xfr);
-                return;
-            }
-
-            break;
         }
+
+        break;
+    }
     }
 
     libusb_free_transfer(xfr);
