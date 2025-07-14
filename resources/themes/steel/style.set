@@ -1,0 +1,166 @@
+# STEEL
+
+TPane =                                  spacing:1.5
+
+TFrame =                                 border-color:#A0A0A0; border-width:0.25; radius:1.5; padding:1.5; spacing:1.5
+
+TLabel =                                 text-color:#404040; link-color:#4040FF; text-align:vcenter; padding:1.5
+
+TLineEdit =                              foreground-color:#F8F8F8; text-color:#404040; text-align:vcenter; border-color:#A0A0A0; border-width:0.25; radius:1.5; padding-left:1.5; padding-right:1.5
+TLineEdit:!enabled =                     foreground-color:#D0D0D0
+TLineEdit:enabled:hover =                border-color:#808080
+
+TTextEdit =                              foreground-color:#F8F8F8; text-color:#404040; border-color:#A0A0A0; border-width:0.25; radius:1.5; padding-left:1.5; padding-right:1.5
+TTextEdit:!enabled =                     foreground-color:#D0D0D0
+TTextEdit:enabled:hover =                border-color:#808080
+
+TButton =                                text-color:#404040; border-color:#A0A0A0; border-width:0.25; text-align:center; cursor:pointer; radius:1.5; padding:1.5
+TButton:!enabled =                       text-color:#808080; border-color:#C0C0C0; cursor:normal
+TButton:enabled:hover =                  border-color:#808080; padding:2
+TButton:enabled:pressed =                foreground-color:#D0D0D0
+
+TCheck =                                 border-color:#A0A0A0; foreground-color:#F8F8F8; border-width:0.25; cursor:pointer; radius:1.5; padding:1.5
+TCheck:!enabled =                        foreground-color:transparent; text-color:#808080; border-color:#A0A0A0
+TCheck:enabled:hover:!pressed =          image:none; border-color:#808080
+TCheck:enabled:!hover:pressed =          image:accept.png
+TCheck:enabled:hover:pressed =           image:accept.png; border-color:#808080
+
+TbButton =                               foreground-color:#606060; text-color:#F0F0F0; text-align:center; cursor:pointer; radius:1.5
+TbButton:!enabled =                      foreground-color:transparent; text-color:#606060; border-color:#606060; border-width:0.25
+TbButton:active =                        text-weight:bold
+TbButton:enabled:hover =                 foreground-color:#808080
+TbButton.blind1 =                        foreground-color:#D0D0D0; radius-topright:1.5; radius-bottomright:1.5; padding:2
+TbButton.blind2 =                        foreground-color:#C0C0C0; padding:2
+
+TComboBox =                              foreground-color:#F8F8F8; text-color:#404040; border-color:#A0A0A0; border-width:0.25; radius:1.5; padding:1.5; cursor:pointer
+TComboBox:active =                       foreground-color:#B0B0B0
+TComboBox:!enabled =                     foreground-color:#D0D0D0
+TComboBox:enabled:hover =                border-color:#808080
+TComboBox.arrow =                        image:arrow.png; angle:90; padding:0.05
+
+TList =                                  foreground-color:#F8F8F8; text-color:#404040; border-color:#A0A0A0; border-width:0.25; radius:1.5; padding:1.5
+TList:active =                           foreground-color:#B0B0B0
+
+TcFrame =                                spacing:0
+TcFrame.header =                         foreground-color:#606060; cursor:pointer; padding:1.5
+TcFrame.header:!active =                 radius:1.5
+TcFrame.header:active =                  radius-topleft:1.5; radius-topright:1.5; radius-bottomleft:0; radius-bottomright:0
+TcFrame.header.title =                   text-color:#F0F0F0; text-align:vcenter
+TcFrame.header.arrow =                   image:arrow2.png
+TcFrame.body =                           border-color:#606060; border-width:0.25; radius:0; radius-bottomleft:1.5; radius-bottomright:1.5; padding:1.5; margin-top:-0.5
+
+TPopup =                                 foreground-color:#80000000
+TPopup.box =                             foreground-color: #F0F0F0; padding:1.5; radius:1.5
+TPopup.icon.info =                       image:msgbox-information.png; padding:1.5
+TPopup.icon.ques =                       image:msgbox-question.png; padding:1.5
+TPopup.icon.warn =                       image:msgbox-warning.png; padding:1.5
+TPopup.icon.crit =                       image:msgbox-critical.png; padding:1.5
+TPopup.text =                            margin-left:10
+
+TGraph =                                 background-color:#404040; axiscolor:#A0A0A0; signalfillcolor1:#F00000; signalfillcolor2:#00F000; signalfillcolor3:#0000F0
+
+###################################################################################################################################################
+
+main =                                   background-color:#F0F0F0
+main.logo =                              image:logo.png
+main.loading =                           margin-bottom:5
+main.loading:active =                    image:loading.gif 
+left =                                   foreground-color:#E0E0E0; padding:1.5
+left.buttons =                           foreground-color:#E0E0E0
+left.button.blind1 =                     image:close.png
+left.options =                           foreground-color:#E0E0E0
+left.options.devices =                   image:devices.png
+left.options.devices:!hover =            border-color:transparent
+left.options.settings =                  image:config.png
+left.options.settings:!hover =           border-color:transparent
+left.options.info =                      image:info.png
+left.options.info:!hover =               border-color:transparent
+slider =                                 foreground-color:#D0D0D0; cursor:pointer; padding:1
+slider.button =                          border-width:0
+slider.button:pressed =                  foreground-color:#D0D0D0
+slider.arrow =                           image:arrow.png; border-width:0; padding:0.25
+slider.arrow:pressed =                   foreground-color:#D0D0D0
+slider.pin =                             image:pin.png
+slider.pin:!hover =                      border-color:transparent
+slider.pin:pressed =                     foreground-color:#B0B0B0
+
+devices =                                background-color:#F0F0F0; padding:1.5
+devices.header.refresh =                 image:refresh.png
+devices.header.refresh:!hover =          border-color:transparent
+devices.header.close =                   image:close.png
+devices.header.close:!hover =            border-color:transparent
+devices.iconfavorites =                  image:favorites.png
+devices.favorites.new.header =           image:add.png; foreground-color:transparent; border-color:#A0A0A0; border-width:0.25
+devices.favorites.new.header.arrow =     image:none
+devices.favorites.new.body =             border-color:#A0A0A0; radius:0; radius-bottomleft:1.5; radius-bottomright:1.5
+devices.favorites.new.info =             image:info.png
+devices.favorites.new.accept =           image:accept.png
+devices.favorites.new.cancel =           image:close.png
+devices.favorites.buttons =              foreground-color:#F0F0F0
+devices.favorites.button.blind1 =        image:close.png
+devices.favorites.button.blind2 =        image:default.png
+devices.iconlocal =                      image:local.png
+devices.local.filter.header =            image:filter.png; foreground-color:transparent; border-color:#A0A0A0; border-width:0.25
+devices.local.filter.header.arrow =      image:none
+devices.local.filter.body =              border-color:#A0A0A0; radius:0; radius-bottomleft:1.5; radius-bottomright:1.5
+devices.local.buttons =                  foreground-color:#F0F0F0
+devices.local.button.blind1 =            image:infodriver.png
+devices.local.button.blind2 =            image:favorites.png
+devices.iconglobal =                     image:global.png; border-width:0; foreground-color:transparent
+devices.global.filter.header =           image:filter.png; foreground-color:transparent; border-color:#A0A0A0; border-width:0.25
+devices.global.filter.header.arrow =     image:none
+devices.global.filter.body =             border-color:#A0A0A0; radius:0; radius-bottomleft:1.5; radius-bottomright:1.5
+devices.global.buttons =                 foreground-color:#F0F0F0
+devices.global.button.blind1 =           image:info.png
+devices.global.button.blind2 =           image:favorites.png
+
+settings =                               background-color:#F0F0F0; padding:1.5
+settings.header.refresh =                image:refresh.png
+settings.header.refresh:!hover =         border-color:transparent
+settings.header.save =                   image:save.png
+settings.header.save:!hover =            border-color:transparent
+settings.header.close =                  image:close.png
+settings.header.close:!hover =           border-color:transparent
+settings.body =                          foreground-color:#F0F0F0
+settings.body.site.datapath.button =     image:refresh.png
+settings.body.devices.new.header =       image:add.png; foreground-color:transparent; radius-bottomleft:1.5; radius-bottomright:1.5
+settings.body.devices.new.header.arrow = image:none
+settings.body.devices.new.header:hover = border-color:#A0A0A0; border-width:0.25
+settings.body.devices.new.body =         border-width:0
+settings.body.devices.new.accept =       image:accept.png
+settings.body.devices.new.cancel =       image:close.png
+settings.body.devices.device =           foreground-color:#A0A0A0
+settings.body.devices.device.blind1 =    image:close.png
+settings.body.devices.device:hover =     foreground-color:#808080
+settings.body.security.groups.label =    text-align:center
+settings.body.security.groups.add =      image:add.png
+settings.body.security.groups.delete =   image:remove.png
+settings.body.security.members.label =   text-align:center
+settings.body.security.members.add =     image:add.png
+settings.body.security.members.delete =  image:remove.png
+
+info =                                   background-color:#F0F0F0; padding:1.5
+info.header.refresh =                    image:refresh.png
+info.header.refresh:!hover =             border-color:transparent
+info.header.close =                      image:close.png
+info.header.close:!hover =               border-color:transparent
+info.body.about.logo =                   image:logo.png; cursor:pointer
+info.body.about.version =                text-align:vcenter
+info.body.debug.buttons.copy =           image:copy.png
+info.body.debug.buttons.verbose =        image:verbose.png
+info.body.debug.buttons.debug =          image:debug.png
+info.body.debug.log =                    foreground-color:#F0F0F0
+info.body.license.text =                 foreground-color:#F0F0F0
+
+app =                                    background-color:#F0F0F0; padding:1.5
+app.header.caption2 =                    margin-right:1.5
+app.header.close =                       image:close.png
+app.header.close:!hover =                border-color:transparent
+app.container =                          background-color:#F0F0F0
+
+config =                                 foreground-color:#E0E0E0; padding:1.5; border-color:#A0A0A0; border-width:0.25; radius:1.5
+config.header.close =                    image:close.png
+config.header.close:!hover =             border-color:transparent
+config.container =                       background-color:#E0E0E0
+
+tooltip =                                background-color:#FFFFDC; text-color:#000000; border-width:0.25; border-color:#000000; padding-bottom:0.8

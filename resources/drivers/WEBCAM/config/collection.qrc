@@ -1,0 +1,19 @@
+<!DOCTYPE RCC>
+<RCC version="1.0">
+    <qresource>
+        <file>main.qml</file>
+
+        <file>webcam.png</file>
+
+        <file>languages/es/trans.qm</file>
+        <file>languages/fr/trans.qm</file>     
+        <file>languages/it/trans.qm</file>
+        <file>languages/nl/trans.qm</file>
+        <file>languages/de/trans.qm</file>
+
+        <file>themes/colors/style.set</file>
+        <file>themes/dark/style.set</file>
+        <file>themes/ocean/style.set</file>
+        <file>themes/steel/style.set</file>
+    </qresource>
+</RCC>

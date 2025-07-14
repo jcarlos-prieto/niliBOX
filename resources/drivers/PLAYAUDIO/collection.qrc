@@ -1,0 +1,8 @@
+<!DOCTYPE RCC>
+<RCC version="1.0">
+    <qresource>
+        <file>config.rcc</file>
+        <file>server.rcc</file>
+        <file>client.rcc</file>
+    </qresource>
+</RCC>

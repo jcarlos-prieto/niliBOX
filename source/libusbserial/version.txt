@@ -1,0 +1,3 @@
+https://github.com/mik3y/usb-serial-for-android
+
+version 3.9.0

@@ -1,0 +1,36 @@
+# DIGIMODES - CLIENT - STEEL
+
+audiosettingsbutton =        image:set.png
+audiosettingsbutton:!hover = border-width:0
+audiosettings =              foreground-color:#E0E0E0
+settingsbutton =             image:set.png
+settingsbutton:!hover =      border-width:0
+timebutton =                 image:time.png
+timebutton:!hover =          border-width:0
+freqbutton =                 image:freq.png
+freqbutton:!hover =          border-width:0
+textbutton =                 image:text.png
+textbutton:!hover =          border-width:0
+toolsbutton =                image:tools.png
+toolsbutton:!hover =         border-width:0
+playbutton =                 padding:2.5
+playbutton:hover =           padding:3
+playbutton:!pressed =        image:play.png
+playbutton:pressed =         image:stop.png
+buttonup =                   padding:3; image:play.png; angle:-90
+buttondown =                 padding:3; image:play.png; angle:90
+recordstopbutton =           image:record.png; padding:1.5
+recordstopbutton:hover =     padding:1.8
+recordstopbutton:pressed =   image:stop.png
+pausebutton =                image:pause.png; padding:1.5
+pausebutton:hover =          padding:1.8
+pausebutton:pressed =        image:pause2.png
+clearbutton =                image:clear.png; padding:2
+clearbutton:hover =          padding:2.3
+copybutton =                 image:copy.png; padding:2
+copybutton:hover =           padding:2.3
+savebutton =                 image:save.png; padding:1
+savebutton:hover =           padding:1.3
+deletebutton =               image:clear.png; padding:1
+deletebutton:hover =         padding:1.3
+tooltip =                    foreground-color:#FFFFDC; text-color:#000000; border-width:0.25; border-color:#000000; padding:1

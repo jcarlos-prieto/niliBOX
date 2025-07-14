@@ -1,0 +1,47 @@
+© 2022-#YEAR# - nilibox.com. All rights reserved.<br>
+
+<div>
+Redistribution and use in source and binary forms, with or without<br>
+modification, are permitted provided that the following conditions are met:
+<ol>
+<li>Redistributions of source code must retain the above copyright notice,<br>
+this list of conditions and the following disclaimer.</li>
+<li>Redistributions in binary form must reproduce the above copyright<br>
+notice, this list of conditions and the following disclaimer in the<br>
+documentation and/or other materials provided with the distribution.</li>
+<li>Neither the name of the copyright holder nor the names of its<br>
+contributors may be used to endorse or promote products derived<br>
+from this software without specific prior written permission.</li>
+</ol>
+</div>
+
+<div>
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND<br>
+CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,<br>
+INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES<br>
+OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE<br>
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR<br>
+CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,<br>
+SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT<br>
+NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR<br>
+SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS<br>
+INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,<br>
+WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING<br>
+NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE<br>
+USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF<br>
+SUCH DAMAGE.<br><br>
+
+This software is mainly developed using the <a href=https://www.qt.io/product/framework>Qt framework</a> under the LGPL<br>
+v3 license. You may check the details about this license model <a href=https://www.qt.io/licensing/open-source-lgpl-obligations#lgpl>here</a>.<br><br>
+
+To fulfill the requirements of LGPL v3, a re-linking mechanism must be<br>
+provided. This mechanism is described <a href=https://nilibox.com/RELINK>here</a>.<br><br>
+
+This software contains embedded the following third party libraries:<br>
+
+- <a href=https://github.com/libusb/libusb>libusb</a>: A library to handle USB devices<br>
+- <a href=https://github.com/google/oboe>Oboe</a>: A library to handle audio on Android<br>
+- <a href=https://github.com/mik3y/usb-serial-for-android>USB Serial for Android</a>: A java library to handle USB Serial devices on Android.<br><br>
+
+<a href=https://nilibox.com/PRIVACY>Privacy policy</a><br><br>
+</div>
