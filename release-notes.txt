@@ -1,4 +1,4 @@
-1.2.0 - 2025.06.24
+1.2.0 - 2025.07.14
     Upgraded Qt framework to 6.7.3
     Removed dependency from external libraries
     Changed all internal calculations to floating point
