@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>niliBOX</title>
+  <style>
+     body {
+      margin: 0;
+      background-color: #f0f0f0;
+      font-family: sans-serif;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .header {
+      background-color: #DCC5ED;
+      padding: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .header img {
+      height: 128px;
+      object-fit: contain;
+    }
+
+    .menu {
+      display: flex;
+      gap: 20px;
+    }
+
+    .menu a {
+      color: #9F5FCF;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .menu a:hover {
+      color: white;
+    }
+
+    .welcome-section {
+      display: flex;
+      gap: 16px;
+      background-color: #303030;
+    }
+
+    .column {
+      flex: 1;
+      color: #E0E0E0;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    
+    .column a {
+      color: #8080F0;
+      text-decoration: none;
+    }
+
+    .text-section {
+      background-color: #B0B0B0;
+      padding: 16px;
+      font-size: 24px;
+      color: white;
+    }
+
+    .text-section a {
+      color: #4040F0;
+      text-decoration: none;
+    }
+
+    @media (max-width: 600px) {
+      .header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+
+      .menu {
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .welcome-section {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header class="header">
+      <a href="https://nilibox.com"><img src="logo.png" alt="Logo"></a>
+      <nav class="menu">
+        <a href="#"><b>Home</b></a>
+        <a href="#">Modules</a>
+        <a href="#">Tutorials</a>
+        <a href="#">Downloads</a>
+        <a href="#">Contact</a>
+      </nav>
+    </header>
+  </div>
+  
+  <div class="container">
+    <section class="welcome-section">
+      <div class="column">
+        <img src="image.png" style="width: 100%; height: auto;">
+      </div>
+      <div class="column">
+        <p style="font-size:36px; font-weight: bold">Discover <span style="color:#DCC5ED">niliBOX</span></p>
+        <p style="font-size:18px">nilum, nili [n.] - latin: nothing, nothingness, which does not exist.</p>
+        <p style="font-size:24px">A software to manage external devices connected locally or remotely.</p>
+        <p style="font-size:24px"><b>niliBOX</b> is the evolution of <a href="https://nilibox.com/PCRAnyWhere">PCR AnyWhere</a>, a well known software to control Icom radio scanners.</p>
+        <p style="font-size:24px"><b>niliBOX</b> has been enhanced with new devices, a brand new interface and support for mobiles devices.</p>
+      </div>
+    </section>
+  </div>
+
+  <div class="container">
+    <section class="text-section">
+      <p><b>niliBOX</b> is at version 1.2.0 (build 2025.07.14). <a href="https://nilibox.com/DOWNLOADS">Download</a> it now!</p>
+      <p>It has been fully refurbushied and optimized, specially the graphics, remote access and multi-instance. It is also available for mobile devices (Android and iOS).</p>
+      <p>Check the <a href="https://github.com/jcarlos-prieto/niliBOX/blob/main/release-notes.txt">release notes</a> and the <a href="https://nilibox.com/TUTORIALS">video tutorials</a> for more information.
+      <p>And <b>niliBOX</b> is now Open Source!. Check the <a href="https://github.com/jcarlos-prieto/niliBOX" target="_blank">repository</a>.
+    </section>
+  </div>
+
+</body>
+</html>
