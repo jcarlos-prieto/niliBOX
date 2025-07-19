@@ -4,10 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>niliBOX</title>
+  <link rel="icon" href="logo.ico" type="image/x-icon">
   <style>
      body {
       margin: 0;
-      background-color: #f0f0f0;
+      background-color: #FOFOFO;
       font-family: sans-serif;
     }
 
@@ -46,7 +47,7 @@
       color: white;
     }
 
-    .welcome-section {
+    .welcome {
       display: flex;
       gap: 16px;
       background-color: #303030;
@@ -78,6 +79,36 @@
       text-decoration: none;
     }
 
+    .buttons {
+      display: flex;
+      gap: 16px;
+      background-color: #B0B0B0;
+    }
+    
+    .buttons a {
+      transition: transform 0.5s;
+    }
+
+    .buttons a:hover {
+      transform: translateY(-10px);
+    }
+
+    .button {
+      flex: 1;
+      color: white;
+      font-size: 24px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+    }
+    
+    .footer {
+      background-color: #DCC5ED;
+      color: #9F5FCF;
+      padding: 8px;
+    }
+
     @media (max-width: 600px) {
       .header {
         flex-direction: column;
@@ -90,7 +121,13 @@
         gap: 10px;
       }
 
-      .welcome-section {
+      .welcome {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+
+      .buttons {
         flex-direction: column;
         align-items: flex-start;
         gap: 10px;
@@ -114,9 +151,9 @@
   </div>
   
   <div class="container">
-    <section class="welcome-section">
+    <section class="welcome">
       <div class="column">
-        <img src="image.png" style="width: 100%; height: auto;">
+        <img src="image.png" alt="Picture" style="width: 100%; height: auto;">
       </div>
       <div class="column">
         <p style="font-size:36px; font-weight: bold">Discover <span style="color:#DCC5ED">niliBOX</span></p>
@@ -131,11 +168,45 @@
   <div class="container">
     <section class="text-section">
       <p><b>niliBOX</b> is at version 1.2.0 (build 2025.07.14). <a href="https://nilibox.com/DOWNLOADS">Download</a> it now!</p>
-      <p>It has been fully refurbushied and optimized, specially the graphics, remote access and multi-instance. It is also available for mobile devices (Android and iOS).</p>
-      <p>Check the <a href="https://github.com/jcarlos-prieto/niliBOX/blob/main/release-notes.txt">release notes</a> and the <a href="https://nilibox.com/TUTORIALS">video tutorials</a> for more information.
+      <p>It has been fully refurbished and optimized, specially the graphics, remote access and multi-instance. It is also available for mobile devices (Android and iOS).</p>
+      <p>For more information, check the <a href="https://github.com/jcarlos-prieto/niliBOX/blob/main/release-notes.txt">release notes</a> and the <a href="https://nilibox.com/TUTORIALS">video tutorials</a>.
       <p>And <b>niliBOX</b> is now Open Source!. Check the <a href="https://github.com/jcarlos-prieto/niliBOX" target="_blank">repository</a>.
     </section>
   </div>
 
+  <div class="container">
+    <section class="buttons">
+      <div class="button">
+        <table>
+          <tr><a href="https://nilibox.com/MODULES"><img src="modules.jpg" style="width: 100%; height: auto;"></a></tr>
+          <tr>Modules</tr>
+        </table>
+      </div>
+      <div class="button">
+        <table>
+          <tr><a href="https://nilibox.com/TUTORIALS"><img src="tutorials.jpg" style="width: 100%; height: auto;"></a></tr>
+          <tr>Tutorials</tr>
+        </table>
+      </div>
+      <div class="button">
+        <table>
+          <tr><a href="https://nilibox.com/DOWNLOADS"><img src="downloads.jpg" style="width: 100%; height: auto;"></a></tr>
+          <tr>Downloads</tr>
+      </table>
+      </div>
+      <div class="button">
+        <table>
+          <tr><a href="https://nilibox.com/CONTACT"><img src="contact.jpg" style="width: 100%; height: auto;"></a></tr>
+          <tr>Contact</tr>
+        </table>
+      </div>
+    </section>
+  </div>
+
+  <div class="container">
+    <header class="footer">
+       <br><br>© 2025 - nilibox.com<br><br><br>
+    </footer>
+  </div>
 </body>
 </html>
