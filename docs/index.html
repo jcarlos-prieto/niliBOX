@@ -68,14 +68,14 @@
       text-decoration: none;
     }
 
-    .text-section {
+    .introduction {
       background-color: #B0B0B0;
       padding: 20px;
       font-size: 24px;
       color: white;
     }
 
-    .text-section a {
+    .introduction a {
       color: #4040F0;
       text-decoration: none;
     }
@@ -110,6 +110,39 @@
       padding: 10px;
     }
 
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    .modal-content {
+      margin: 5% auto;
+      display: block;
+      max-width: 90%;
+      max-height: 80%;
+    }
+
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 35px;
+      font-size: 40px;
+      font-weight: bold;
+      color: white;
+      cursor: pointer;
+    }
+
+    .close:hover {
+      color: #ccc;
+    }
+
     @media (max-width: 600px) {
       .header {
         flex-direction: column;
@@ -142,11 +175,11 @@
     <header class="header">
       <a href="https://nilibox.com"><img src="logo.png" alt="Logo"></a>
       <nav class="menu">
-        <a href="#"><b>Home</b></a>
-        <a href="#">Modules</a>
-        <a href="#">Tutorials</a>
-        <a href="#">Downloads</a>
-        <a href="#">Contact</a>
+        <a href="https://nilibox.com"><b>Home</b></a>
+        <a href="https://nilibox.com/modules">Modules</a>
+        <a href="https://nilibox.com/tutorials">Tutorials</a>
+        <a href="https://nilibox.com/downloads">Downloads</a>
+        <a href="https://nilibox.com/contact">Contact</a>
       </nav>
     </header>
   </div>
@@ -154,7 +187,7 @@
   <div class="container">
     <section class="welcome">
       <div class="column">
-        <img src="image.png" alt="Picture" style="width: 100%; height: auto;">
+        <img src="image.png" alt="Picture" style="width: 100%; height: auto; cursor: pointer;" onclick="openModal('image.png')">
       </div>
       <div class="column">
         <p style="font-size:36px; font-weight: bold">Discover <span style="color:#DCC5ED">niliBOX</span></p>
@@ -167,7 +200,7 @@
   </div>
 
   <div class="container">
-    <section class="text-section">
+    <section class="introduction">
       <p><b>niliBOX</b> is at version 1.2.0 (build 2025.07.14). <a href="https://nilibox.com/DOWNLOADS">Download</a> it now!</p>
       <p>It has been fully refurbished and optimized, specially the graphics, remote access and multi-instance. It is also available for mobile devices (Android and iOS).</p>
       <p>For more information, check the <a href="https://github.com/jcarlos-prieto/niliBOX/blob/main/release-notes.txt">release notes</a> and the <a href="https://nilibox.com/TUTORIALS">video tutorials</a>.
@@ -179,25 +212,25 @@
     <section class="buttons">
       <div class="button">
         <table>
-          <tr><a href="https://nilibox.com/MODULES"><img src="modules.jpg" style="width: 100%; height: auto;"></a></tr>
+          <tr><a href="https://nilibox.com/modules"><img src="modules.jpg" style="width: 100%; height: auto;"></a></tr>
           <tr>Modules</tr>
         </table>
       </div>
       <div class="button">
         <table>
-          <tr><a href="https://nilibox.com/TUTORIALS"><img src="tutorials.jpg" style="width: 100%; height: auto;"></a></tr>
+          <tr><a href="https://nilibox.com/tutorials"><img src="tutorials.jpg" style="width: 100%; height: auto;"></a></tr>
           <tr>Tutorials</tr>
         </table>
       </div>
       <div class="button">
         <table>
-          <tr><a href="https://nilibox.com/DOWNLOADS"><img src="downloads.jpg" style="width: 100%; height: auto;"></a></tr>
+          <tr><a href="https://nilibox.com/downloads"><img src="downloads.jpg" style="width: 100%; height: auto;"></a></tr>
           <tr>Downloads</tr>
       </table>
       </div>
       <div class="button">
         <table>
-          <tr><a href="https://nilibox.com/CONTACT"><img src="contact.jpg" style="width: 100%; height: auto;"></a></tr>
+          <tr><a href="https://nilibox.com/contact"><img src="contact.jpg" style="width: 100%; height: auto;"></a></tr>
           <tr>Contact</tr>
         </table>
       </div>
@@ -209,6 +242,29 @@
        <br><br>© 2025 - nilibox.com<br><br><br>
     </footer>
   </div>
+
+  <div id="imageModal" class="modal" onclick="closeModal()">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="modalImage">
+  </div>
+
+  <script>
+    function openModal(src) {
+      document.getElementById('modalImage').src = src;
+      document.getElementById('imageModal').style.display = "block";
+    }
+
+    function closeModal() {
+      document.getElementById('imageModal').style.display = "none";
+    }
+
+    // Optional: close on ESC key
+    document.addEventListener('keydown', function(event) {
+      if (event.key === "Escape") {
+        closeModal();
+      }
+    });
+  </script>
 </body>
 
 </html>

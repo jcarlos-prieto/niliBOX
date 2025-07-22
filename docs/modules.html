@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>niliBOX :: Modules</title>
+  <link rel="icon" href="logo.ico" type="image/x-icon">
+  <style>
+     body {
+      margin: 0;
+      background-color: #FOFOFO;
+      font-family: sans-serif;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .header {
+      background-color: #DCC5ED;
+      padding: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .header img {
+      height: 130px;
+      object-fit: contain;
+    }
+
+    .menu {
+      display: flex;
+      gap: 20px;
+      padding-right: 10px;
+    }
+
+    .menu a {
+      color: #9F5FCF;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .menu a:hover {
+      color: white;
+    }
+
+    .introduction {
+      background-color: #303030;
+      padding: 20px;
+      font-size: 24px;
+      color: white;
+    }
+
+    .introduction a {
+      color: #8080F0;
+      text-decoration: none;
+    }
+
+    .family {
+      background-color: #B0B0B0;
+      padding: 10px;
+      margin-top: 10px;
+      font-size: 36px;
+      font-weight: bold;
+      color: white;
+    }
+
+    .module {
+      display: flex;
+      gap: 10px;
+      background-color: #606060;
+      margin-top: 10px;
+    }
+
+    .module-main {
+      flex: 1;
+      color: #E0E0E0;
+      padding: 10px;
+      display: flex;
+      font-size: 36px;
+      flex-direction: column;
+      justify-content: center;
+    }
+    
+    .module-desc {
+      flex: 1;
+      color: #E0E0E0;
+      padding: 10px;
+      display: flex;
+      font-size: 20px;
+      flex-direction: column;
+      justify-content: center;
+    }
+    
+    .module-desc ul {
+      padding-left: 0px;
+      margin-left: 0px;
+    }
+    
+    .module-desc li:not(:last-child) {
+       margin-bottom: 10px;
+    }
+    
+    .footer {
+      background-color: #DCC5ED;
+      color: #9F5FCF;
+      padding: 10px;
+      margin-top: 10px;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    .modal-content {
+      margin: 5% auto;
+      display: block;
+      max-width: 90%;
+      max-height: 80%;
+    }
+
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 35px;
+      font-size: 40px;
+      font-weight: bold;
+      color: white;
+      cursor: pointer;
+    }
+
+    .close:hover {
+      color: #ccc;
+    }
+
+    @media (max-width: 600px) {
+      .header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+
+      .menu {
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .module {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <header class="header">
+      <a href="https://nilibox.com"><img src="logo.png" alt="Logo"></a>
+      <nav class="menu">
+        <a href="https://nilibox.com">Home</a>
+        <a href="https://nilibox.com/modules"><b>Modules</b></a>
+        <a href="https://nilibox.com/tutorials">Tutorials</a>
+        <a href="https://nilibox.com/downloads">Downloads</a>
+        <a href="https://nilibox.com/contact">Contact</a>
+      </nav>
+    </header>
+  </div>
+  
+  <div class="container">
+    <section class="introduction">
+      <p>This is the list of modules available at the moment. This list can be extended in the future.</p>
+      <p>Remember that you can run any module locally on your computer or from another niliBOX installation available in your network or via Internet.</p>
+      <p>If you are interested on creating your own modules, check the <a href="https://github.com/jcarlos-prieto/niliBOX/blob/main/resources/DEVELOPMENT.md" target="_blank"">Development Reference</a>.</p>
+    </section>
+  </div>
+
+  <div class="container">
+    <section class="family">
+      Radio
+    </section>
+  </div>
+
+  <div class="container">
+    <section class="module">
+      <div class="module-main">
+        <table>
+          <tr><td>
+            <b>Icom IC-PCR100</b>
+          </td></tr>
+          <tr><td>
+            <img src="PCR100.png" style="width: 50%; height: auto; cursor: pointer;" onclick="openModal('PCR100.png')">
+          </td></tr>
+        </table>
+      </div>
+      <div class="module-desc">
+        <ul>
+          <li>Control of an Icom IC-PCR100 receiver via serial port (local or remote)</li>
+          <li>Includes the main functionalities of the receiver</li>
+          <li>1 million station memories in 1000 banks</li>
+          <li>Visualization of bandscope and band spectrogram</li>
+          <li>Visualization of audio in time, frequency and spectrogram</li>
+          <li>Filtering of audio output</li>
+          <li>TSQL, scan and audio recording functions</li>
+        </ul>
+      </div>
+    </section>
+  </div>
+
+  <div class="container">
+    <section class="module">
+      <div class="module-main">
+        <table>
+          <tr><td>
+            <b>Icom IC-PCR1000</b>
+          </td></tr>
+          <tr><td>
+            <img src="PCR1000.png" style="width: 50%; height: auto; cursor: pointer;" onclick="openModal('PCR1000.png')">
+          </td></tr>
+        </table>
+      </div>
+      <div class="module-desc">
+        <ul>
+          <li>Control of an Icom IC-PCR1000 receiver via serial port (local or remote)</li>
+          <li>Includes the main functionalities of the receiver</li>
+          <li>1 million station memories in 1000 banks</li>
+          <li>Visualization of bandscope and band spectrogram</li>
+          <li>Visualization of audio in time, frequency and spectrogram</li>
+          <li>Filtering of audio output</li>
+          <li>TSQL, scan and audio recording functions</li>
+        </ul>
+      </div>
+    </section>
+  </div>
+
+  <div class="container">
+    <section class="module">
+      <div class="module-main">
+        <table>
+          <tr><td>
+            <b>Icom IC-PCR1500</b>
+          </td></tr>
+          <tr><td>
+            <img src="PCR1500.png" style="width: 50%; height: auto; cursor: pointer;" onclick="openModal('PCR1500.png')">
+          </td></tr>
+        </table>
+      </div>
+      <div class="module-desc">
+        <ul>
+          <li>Control of an Icom IC-PCR1500 or IC-R1500 receiver via USB port (local or remote)</li>
+          <li>Includes the main functionalities of the receiver</li>
+          <li>1 million station memories in 1000 banks</li>
+          <li>Visualization of bandscope and band spectrogram</li>
+          <li>Visualization of audio in time, frequency and spectrogram</li>
+          <li>Filtering of audio output</li>
+          <li>DSP, TSQL, DTCS, scan and audio recording functions</li>
+        </ul>
+      </div>
+    </section>
+  </div>
+
+  <div class="container">
+    <section class="module">
+      <div class="module-main">
+        <table>
+          <tr><td>
+            <b>SDRplay RSP1A</b>
+          </td></tr>
+          <tr><td>
+            <img src="RSP1A.png" style="width: 100%; height: auto; cursor: pointer;" onclick="openModal('RSP1A.png')">
+          </td></tr>
+        </table>
+      </div>
+      <div class="module-desc">
+        <ul>
+          <li>Control of a SDRplay SDR radio receiver RSP1A. Other models partially supported</li>
+          <li>Sampling frequency up to 12MHz</li>
+          <li>Continuous tuning from 1kHZ to 2GHz</li>
+          <li>RSP AGC and audio AGC functions</li>
+          <li>Other RSP functionalities: bandwidth control, Bias-T, etc.</li>
+          <li>1 million station memories in 1000 banks</li>
+          <li>Visualization of bandscope and band spectrogram</li>
+          <li>Visualization of audio in time, frequency and spectrogram</li>
+          <li>Filtering of audio output</li>
+          <li>Deemphasis filter, noise reduction, and record functions (audio and raw)</li>
+          <li>No SDRplay drivers needed</li>
+        </ul>
+      </div>
+    </section>
+  </div>
+
+  <div class="container">
+    <section class="module">
+      <div class="module-main">
+        <table>
+          <tr><td>
+            <b>RTL2832U SDR</b>
+          </td></tr>
+          <tr><td>
+            <img src="RTL-SDR.png" style="width: 100%; height: auto; cursor: pointer;" onclick="openModal('RTL-SDR.png')">
+          </td></tr>
+        </table>
+      </div>
+      <div class="module-desc">
+        <ul>
+          <li>Control of a RTL2832U SDR dongle (local or remote)</li>
+          <li>Compatible with Rafael Micro, Elonics E4000 and Fitipower tuners</li>
+          <li>Control of sampling frequency, IF filter and RF gain</li>
+          <li>RTL AGC and audio AGC functions</li>
+          <li>1 million station memories in 1000 banks</li>
+          <li>Visualization of bandscope and band spectrogram</li>
+          <li>Visualization of audio in time, frequency and spectrogram</li>
+          <li>Filtering of audio output</li>
+          <li>Deemphasis filter, noise reduction, and record functions (audio and raw)</li>
+        </ul>
+      </div>
+    </section>
+  </div>
+
+  <div class="container">
+    <section class="module">
+      <div class="module-main">
+        <table>
+          <tr><td>
+            <b>Digital modes</b>
+          </td></tr>
+          <tr><td>
+            <img src="DIGIMODES.png" style="width: 50%; height: auto; cursor: pointer;" onclick="openModal('DIGIMODES.png')">
+          </td></tr>
+        </table>
+      </div>
+      <div class="module-desc">
+        <ul>
+          <li>Decodes most digital modes from audio source</li>
+          <li>Can be chained to another receiver running in niliBOX as audio source</li>
+          <li>Compatible with AMBE3000 devices and sofwtare emulation (testing purposes only)</li>
+          <li>Filtering of audio output</li>
+          <li>Audio recording function</li>
+        </ul>
+      </div>
+    </section>
+  </div>
+
+  <div class="container">
+    <section class="family">
+      Audio
+    </section>
+  </div>
+
+  <div class="container">
+    <section class="module">
+      <div class="module-main">
+        <table>
+          <tr><td>
+            <b>Audio Player</b>
+          </td></tr>
+          <tr><td>
+            <img src="PLAYAUDIO.png" style="width: 50%; height: auto; cursor: pointer;" onclick="openModal('PLAYAUDIO.png')">
+          </td></tr>
+        </table>
+      </div>
+      <div class="module-desc">
+        <ul>
+          <li>Basic audio player of wav files</li>
+          <li>Usuful to send audio output to other modules</li>
+          <li>Filtering of audio output</li>
+        </ul>
+      </div>
+    </section>
+  </div>
+
+  <div class="container">
+    <section class="module">
+      <div class="module-main">
+        <table>
+          <tr><td>
+            <b>Remote audio</b>
+          </td></tr>
+          <tr><td>
+            <img src="REMOTEAUDIO.png" style="width: 50%; height: auto; cursor: pointer;" onclick="openModal('REMOTEAUDIO.png')">
+          </td></tr>
+        </table>
+      </div>
+      <div class="module-desc">
+        <ul>
+          <li>Transfer of audio from remote to local and vice versa</li>
+          <li>Filtering of audio output</li>
+        </ul>
+      </div>
+    </section>
+  </div>
+
+  <div class="container">
+    <section class="family">
+      Video
+    </section>
+  </div>
+
+  <div class="container">
+    <section class="module">
+      <div class="module-main">
+        <table>
+          <tr><td>
+            <b>Webcam</b>
+          </td></tr>
+          <tr><td>
+            <img src="WEBCAM.png" style="width: 50%; height: auto; cursor: pointer;" onclick="openModal('WEBCAM.png')">
+          </td></tr>
+        </table>
+      </div>
+      <div class="module-desc">
+        <ul>
+          <li>Visualization of webcam devices (local or remote)</li>
+          <li>Screenshot and recording functions</li>
+        </ul>
+      </div>
+    </section>
+  </div>
+
+  <div class="container">
+    <section class="family">
+      Automation
+    </section>
+  </div>
+
+  <div class="container">
+    <section class="module">
+      <div class="module-main">
+        <table>
+          <tr><td>
+            <b>Relays</b>
+          </td></tr>
+          <tr><td>
+            <img src="RELAY.png" style="width: 50%; height: auto; cursor: pointer;" onclick="openModal('RELAY.png')">
+          </td></tr>
+        </table>
+      </div>
+      <div class="module-desc">
+        <ul>
+          <li>Control of relays connected via USB or serial port (local or remote)</li>
+          <li>Big flexibility to compose commands for ON and OFF</li>
+          <li>Capable to read relay status if the functionality is available on the device</li>
+        </ul>
+      </div>
+    </section>
+  </div>
+
+  <div class="container">
+    <section class="family">
+      Test
+    </section>
+  </div>
+
+  <div class="container">
+    <section class="module">
+      <div class="module-main">
+        <table>
+          <tr><td>
+            <b>Driver test</b>
+          </td></tr>
+          <tr><td>
+            <img src="DRIVERTEST.png" style="width: 50%; height: auto; cursor: pointer;" onclick="openModal('DRIVERTEST.png')">
+          </td></tr>
+        </table>
+      </div>
+      <div class="module-desc">
+        <ul>
+          <li>Module to test hardware capabilities</li>
+          <li>Hardware scanning</li>
+          <li>Test of graphics</li>
+          <li>Test of audio</li>
+          <li>Test of communications</li>
+        </ul>
+      </div>
+    </section>
+  </div>
+
+  <div class="container">
+    <header class="footer">
+       <br><br>© 2025 - nilibox.com<br><br><br>
+    </footer>
+  </div>
+
+  <div id="imageModal" class="modal" onclick="closeModal()">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="modalImage">
+  </div>
+
+  <script>
+    function openModal(src) {
+      document.getElementById('modalImage').src = src;
+      document.getElementById('imageModal').style.display = "block";
+    }
+
+    function closeModal() {
+      document.getElementById('imageModal').style.display = "none";
+    }
+
+    // Optional: close on ESC key
+    document.addEventListener('keydown', function(event) {
+      if (event.key === "Escape") {
+        closeModal();
+      }
+    });
+  </script>
+</body>
+
+</html>
