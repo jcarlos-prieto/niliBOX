@@ -4222,7 +4222,7 @@ QList<QString> Box::file_list(const QString &mask)
         if (ret.isEmpty())
             return QList<QString>();
         else
-            return ret.split(";");
+            return ret.split("\n");
     }
 
     QDir dir(G_LOCALSETTINGS.localFilePath() + "/data");
