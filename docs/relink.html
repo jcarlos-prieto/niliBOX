@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>niliBOX :: Relink</title>
+  <link rel="icon" href="logo.ico" type="image/x-icon">
+  <style>
+     body {
+      margin: 0;
+      background-color: #FOFOFO;
+      font-family: sans-serif;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .header {
+      background-color: #DCC5ED;
+      padding: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .header img {
+      height: 130px;
+      object-fit: contain;
+    }
+
+    .introduction {
+      background-color: #303030;
+      padding: 10px;
+      font-size: 48px;
+      font-weight: bold;
+      color: #808080;
+      text-align: center;
+    }
+
+    .relink {
+      background-color: #E0E0E0;
+      color: #404040;
+      padding: 10px;
+      font-size: 14px;
+      line-height: 1.2;
+    }
+    
+    .relink a {
+      color: #4040F0;
+      text-decoration: none;
+    }
+
+    .footer {
+      background-color: #DCC5ED;
+      color: #9F5FCF;
+      padding: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <header class="header">
+      <a href="https://nilibox.com"><img src="logo.png" alt="Logo"></a>
+    </header>
+  </div>
+  
+  <div class="container">
+    <section class="introduction">
+      RE-LINKING MECHANISM
+    </section>
+  </div>
+
+  <div class="container">
+    <section class="relink">
+      Re-linking mechanism for <b>niliBOX</b><br><br>
+      <b>niliBOX</b> uses the Qt framework as the main development platform. The current version is compiled using Qt 6.7.3 version.<br><br>
+      To fullfill the requirements of the GNU Lesser General Public License v. 3 (“LGPL”), you must be able to re-link this application to your own Qt libraries. This page describes how to accomplish this for each operating system supported.<br><br>
+      <b>Windows</b>: The application uses dynamic linking to the Qt libraries. Therefore, you are free to replace any Qt library provided together with the application (Qt6*.dll files) by your own version, given that your library is compatible with the original library of version 6.7.3. There is no need to recompile niliBOX.<br><br>
+      <b>Linux:</b> The application uses dynamic linking to the Qt libraries. Therefore, you are free to replace any Qt library provided together with the application (Qt6*.so.6 files) by your own version, given that your library is compatible with the original library of version 6.7.3. There is no need to recompile niliBOX.<br><br>
+      <b>macOS:</b> The application uses dynamic linking to the Qt libraries. Therefore, you are free to replace any Qt library provided together with the application (Qt*.framework directories) by your own version, given that your library is compatible with the original library of version 6.7.3. There is no need to recompile niliBOX.<br><br>
+      <b>Android:</b> The Qt libraries are included in the APK file available in the download page. You have two options:
+      <ul>
+        <li>Decompile, change and resign the APK file (not straight forward):</li>
+        <ol>
+          <li>Decompile the APK using tools like APKTool to decompile the APK for resource and manifest editing.</li>
+          <li>Replace or modify the library replacing the .so file with your modified version.</li>
+          <li>After making changes, recompile the APK using APKTool or other similar tools.</li>
+          <li>Sign the APK with your own key using tools like jarsigner or apksigner.</li>
+          <li>Install the APK on a device or emulator to verify that the modifications work as intended.</li>
+        </ol>
+        <li>Recompile the entire application. The source code of the application can be found <a href="https://github.com/jcarlos-prieto/niliBOX" target="_blank">here</a>. Extract the project contents to a destination of your preference, open the project file CMakeLists.txt with Qt and compile it for Android using your own Qt libraries.</li>
+      </ul>
+      <b>iOS:</b> An iOS app typically uses static library linking and this is the case of niliBOX. Therefore, in order to replace the libraries linked to the application you must recompile the entire project. The source code of the application can be found <a href="https://github.com/jcarlos-prieto/niliBOX" target="_blank">here</a>. Extract the project contents to a destination of your preference, open the project file CMakeLists.txt with Qt and compile it for iOS using your own Qt libraries.<br><br>
+      If you have any questions or requests concerning this re-linking mechanism, you may submit your queries at <a href="mailto:nilibox@nilibox.com">nilibox@nilibox.com</a>.
+    </section>
+  </div>
+
+  <div class="container">
+    <header class="footer">
+       <br><br>© 2025 - nilibox.com<br><br><br>
+    </footer>
+  </div>
+</body>
+
+</html>
