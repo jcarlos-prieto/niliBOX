@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>niliBOX :: Tutorials</title>
+  <link rel="icon" href="logo.ico" type="image/x-icon">
+  <style>
+     body {
+      margin: 0;
+      background-color: #FOFOFO;
+      font-family: sans-serif;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .header {
+      background-color: #DCC5ED;
+      padding: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .header img {
+      height: 130px;
+      object-fit: contain;
+    }
+
+    .menu {
+      display: flex;
+      gap: 20px;
+      padding-right: 10px;
+    }
+
+    .menu a {
+      color: #9F5FCF;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .menu a:hover {
+      color: white;
+    }
+
+    .introduction {
+      background-color: #303030;
+      padding: 20px;
+      font-size: 24px;
+      color: white;
+    }
+
+    .introduction a {
+      color: #8080F0;
+      text-decoration: none;
+    }
+
+    .tutorial {
+      display: flex;
+      gap: 10px;
+      background-color: #606060;
+      margin-top: 10px;
+    }
+
+    .tutorial-main {
+      flex: 1;
+      color: #E0E0E0;
+      padding: 20px;
+      display: flex;
+      font-size: 36px;
+      flex-direction: column;
+      justify-content: center;
+    }
+    
+    .tutorial-desc {
+      flex: 1;
+      color: #E0E0E0;
+      padding: 20px;
+      display: flex;
+      font-size: 20px;
+      flex-direction: column;
+    }
+    
+    .footer {
+      background-color: #DCC5ED;
+      color: #9F5FCF;
+      padding: 10px;
+      margin-top: 10px;
+    }
+
+    @media (max-width: 768px) {
+      .header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+
+      .menu {
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .tutorial {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <header class="header">
+      <a href="https://nilibox.com"><img src="logo.png" alt="Logo"></a>
+      <nav class="menu">
+        <a href="https://nilibox.com">Home</a>
+        <a href="https://nilibox.com/modules">Modules</a>
+        <a href="https://nilibox.com/tutorials"><b>Tutorials</b></a>
+        <a href="https://nilibox.com/downloads">Downloads</a>
+        <a href="https://nilibox.com/contact">Contact</a>
+      </nav>
+    </header>
+  </div>
+  
+  <div class="container">
+    <section class="introduction">
+      <p>This page provides access to the video tutorials. It is recommended to follow them in order to get the best understanding of how <b>niliBOX</b> works and to get the maximum benefits of it.</p>
+      <p>I hope you will enjoy it. Don't hesitate to leave any comments in the videos.</p>
+    </section>
+  </div>
+
+  <div class="container">
+    <section class="tutorial">
+      <div class="tutorial-main">
+        <iframe width="560" height="315"
+          src="https://www.youtube.com/embed/zBqa8mWbpFQ"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
+      <div class="tutorial-desc">
+        <h1>Installing niliBOX</h1>
+        Detailed description of the process to install niliBOX.<br><br>
+        This video covers all the operating systems supported. Check the description to find your operating system.<br><br>
+      </div>
+    </section>
+  </div>
+
+  <div class="container">
+    <section class="tutorial">
+      <div class="tutorial-main">
+        <iframe width="560" height="315"
+          src="https://www.youtube.com/embed/zBqa8mWbpFQ"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
+      <div class="tutorial-desc">
+        <h1>First steps with niliBOX</h1>
+        Basic configuration and operation.<br><br>
+      </div>
+    </section>
+  </div>
+
+  <div class="container">
+    <section class="tutorial">
+      <div class="tutorial-main">
+        <iframe width="560" height="315"
+          src="https://www.youtube.com/embed/zBqa8mWbpFQ"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
+      <div class="tutorial-desc">
+        <h1>Using SDR receivers with niliBOX</h1>
+        This video describes the full functionality of the modules to operate the SDR receivers supported:
+        <ul>
+          <li>RTL SDR dongles</li>
+          <li>SDRplay RSP1A</li>
+        </ul>
+      </div>
+    </section>
+  </div>
+
+  <div class="container">
+    <section class="tutorial">
+      <div class="tutorial-main">
+        <iframe width="560" height="315"
+          src="https://www.youtube.com/embed/zBqa8mWbpFQ"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
+      <div class="tutorial-desc">
+        <h1>Using Icom PCR receivers with niliBOX</h1>
+        This video describes the full functionality of the modules to operate the Icom receivers supported
+        <ul>
+          <li>Icom IC-PCR100</li>
+          <li>Icom IC-PCR1000</li>
+          <li>Icom IC-PCR1500</li>
+          <li>Icom IC-PCR2500 (single receiver)</li>
+        </ul>
+      </div>
+    </section>
+  </div>
+
+  <div class="container">
+    <section class="tutorial">
+      <div class="tutorial-main">
+        <iframe width="560" height="315"
+          src="https://www.youtube.com/embed/zBqa8mWbpFQ"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
+      <div class="tutorial-desc">
+        <h1>Using multi-instance and server mode</h1>
+        In this video, we demostrate the capabilties to open several instances of niliBOX as well as how to run it in server mode.<br><br>
+        This video covers all the operating systems supported. Check the description to find your operating system.<br><br>
+      </div>
+    </section>
+  </div>
+
+  <div class="container">
+    <section class="tutorial">
+      <div class="tutorial-main">
+        <iframe width="560" height="315"
+          src="https://www.youtube.com/embed/zBqa8mWbpFQ"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
+      <div class="tutorial-desc">
+        <h1>Remote control with niliBOX</h1>
+        In this video, we demostrate how to use remote instances of niliBOX, on the same local network or remote.<br><br>
+      </div>
+    </section>
+  </div>
+
+  <div class="container">
+    <section class="tutorial">
+      <div class="tutorial-main">
+        <iframe width="560" height="315"
+          src="https://www.youtube.com/embed/zBqa8mWbpFQ"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
+      <div class="tutorial-desc">
+        <h1>What can be done with niliBOX on mobile devices</h1>
+        This video covers the capabilities of niliBOX running on Android and iOS.<br><br>
+      </div>
+    </section>
+  </div>
+
+  <div class="container">
+    <section class="tutorial">
+      <div class="tutorial-main">
+        <iframe width="560" height="315"
+          src="https://www.youtube.com/embed/zBqa8mWbpFQ"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
+      <div class="tutorial-desc">
+        <h1>How to chain audio between modules</h1>
+        In this video, it s shown how to use the audio output of a module as input for another one.<br><br>
+      </div>
+    </section>
+  </div>
+
+  <div class="container">
+    <header class="footer">
+       <br><br>© 2025 - nilibox.com<br><br><br>
+    </footer>
+  </div>
+</body>
+
+</html>
