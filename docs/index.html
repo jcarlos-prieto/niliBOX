@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>niliBOX</title>
+  <meta name="description" content="A software to manage external devices connected locally or remotely. Compatible with RTL-SDR, SDRplay and Icom PCR radio receivers">
   <link rel="icon" href="logo.ico" type="image/x-icon">
   <style>
      body {
@@ -53,6 +54,12 @@
       gap: 20px;
       background-color: #303030;
     }
+    
+    .welcome img {
+      width: 100%;
+      height: auto;
+      cursor: pointer;
+    }
 
     .column {
       flex: 1;
@@ -84,6 +91,11 @@
       display: flex;
       gap: 20px;
       background-color: #B0B0B0;
+    }
+    
+    .button img {
+      width: 100%;
+      height: auto;
     }
     
     .buttons a {
@@ -187,7 +199,7 @@
   <div class="container">
     <section class="welcome">
       <div class="column">
-        <img src="image.png" style="width: 100%; height: auto; cursor: pointer;" onclick="openModal('image.png')">
+        <img src="image.png" onclick="openModal('image.png')">
       </div>
       <div class="column">
         <p style="font-size:36px; font-weight: bold">Discover <span style="color:#DCC5ED">niliBOX</span></p>
@@ -212,25 +224,25 @@
     <section class="buttons">
       <div class="button">
         <table>
-          <tr><a href="https://nilibox.com/modules"><img src="modules.jpg" style="width: 100%; height: auto;"></a></tr>
+          <tr><a href="https://nilibox.com/modules"><img src="modules.jpg" alt="niliBOX modules"></a></tr>
           <tr>Modules</tr>
         </table>
       </div>
       <div class="button">
         <table>
-          <tr><a href="https://nilibox.com/tutorials"><img src="tutorials.jpg" style="width: 100%; height: auto;"></a></tr>
+          <tr><a href="https://nilibox.com/tutorials"><img src="tutorials.jpg" alt="niliBOX tutorials"></a></tr>
           <tr>Tutorials</tr>
         </table>
       </div>
       <div class="button">
         <table>
-          <tr><a href="https://nilibox.com/downloads"><img src="downloads.jpg" style="width: 100%; height: auto;"></a></tr>
+          <tr><a href="https://nilibox.com/downloads"><img src="downloads.jpg" alt="niliBOX doenloads"></a></tr>
           <tr>Downloads</tr>
       </table>
       </div>
       <div class="button">
         <table>
-          <tr><a href="https://nilibox.com/contact"><img src="contact.jpg" style="width: 100%; height: auto;"></a></tr>
+          <tr><a href="https://nilibox.com/contact"><img src="contact.jpg" alt="niliBOX contact"></a></tr>
           <tr>Contact</tr>
         </table>
       </div>
