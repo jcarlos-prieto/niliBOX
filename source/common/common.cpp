@@ -44,6 +44,7 @@
 #endif
 
 #if defined OS_IOS
+extern "C" bool isRunningOniPhone();
 extern "C" NSString *getIdentifierForVendor();
 #endif
 
@@ -328,7 +329,13 @@ bool init()
             qInfo() << qPrintable("    " + setting);
     }
 
-    qInfo() << qPrintable("Running on " + QSysInfo::prettyProductName() + " - " + QSysInfo::currentCpuArchitecture());
+    QString arch = QSysInfo::prettyProductName() + " - " + QSysInfo::currentCpuArchitecture();
+
+#if defined OS_IOS
+    arch.append(isRunningOniPhone() ? " (iPhone)" : " (iPad)");
+#endif
+
+    qInfo() << qPrintable("Running on " + arch);
     qInfo() << qPrintable("Application path: " + qApp->applicationFilePath());
     qInfo() << qPrintable("Home data path:   " + G_LOCALSETTINGS.localFilePath());
 
