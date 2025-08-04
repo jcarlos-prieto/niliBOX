@@ -320,7 +320,7 @@ if(CMAKE_SYSTEM_NAME STREQUAL "iOS")
     )
 
     target_sources(${PROJECT_NAME} PUBLIC
-        ${CMAKE_CURRENT_SOURCE_DIR}/platforms/ios/iosid.mm
+        ${CMAKE_CURRENT_SOURCE_DIR}/platforms/ios/ilib.mm
     )
 
     set_source_files_properties(${CMAKE_CURRENT_SOURCE_DIR}/platforms/ios/iosid.mm PROPERTIES

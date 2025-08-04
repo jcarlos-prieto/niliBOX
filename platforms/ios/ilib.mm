@@ -15,10 +15,13 @@
  * along with this program. If not, see <https://www.gnu.org/licenses>.
  */
 
+#import <AVFoundation/AVFoundation.h>
 #import <Foundation/Foundation.h>
 #import <Security/Security.h>
+#import <UIKit/UIKit.h>
 
-extern "C" NSString* getIdentifierForVendor() {
+extern "C" NSString* getIdentifierForVendor()
+{
     NSString *key = @"com.niliBOX.siteID";
 
     NSDictionary *query = @{
@@ -31,7 +34,7 @@ extern "C" NSString* getIdentifierForVendor() {
     CFTypeRef result = NULL;
     OSStatus status = SecItemCopyMatching((__bridge CFDictionaryRef)query, &result);
     if (status == errSecSuccess && result) {
-        NSData *data = (__bridge_transfer NSData *)result;
+        NSData *data = ( NSData *)result;
         NSString *savedID = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
         return savedID;
     }
@@ -47,4 +50,52 @@ extern "C" NSString* getIdentifierForVendor() {
 
     SecItemAdd((__bridge CFDictionaryRef)addQuery, NULL);
     return newID;
+}
+
+
+extern "C" bool isRunningOniPhone()
+{
+    return UIDevice.currentDevice.userInterfaceIdiom == UIUserInterfaceIdiomPhone;
+}
+
+
+extern "C" void forceiPhoneSpeaker() {
+    AVAudioSession *session = [AVAudioSession sharedInstance];
+    NSError *error = nil;
+
+    BOOL ok = [session setCategory:AVAudioSessionCategoryPlayAndRecord
+                       withOptions:(AVAudioSessionCategoryOptionDefaultToSpeaker |
+                                    AVAudioSessionCategoryOptionAllowBluetooth )
+                       error:&error];
+
+    if (!ok || error)
+        return;
+
+    ok = [session setActive:YES error:&error];
+
+    if (!ok || error)
+        return;
+
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)),
+                   dispatch_get_main_queue(), ^{
+        AVAudioSessionRouteDescription *route = [session currentRoute];
+        BOOL externaloutput = false;
+
+        for (AVAudioSessionPortDescription *output in route.outputs) {
+            NSString *portType = output.portType;
+
+            if ([portType isEqualToString:AVAudioSessionPortHeadphones] ||
+                [portType isEqualToString:AVAudioSessionPortBluetoothA2DP] ||
+                [portType isEqualToString:AVAudioSessionPortBluetoothLE] ||
+                [portType isEqualToString:AVAudioSessionPortBluetoothHFP]) {
+                externaloutput = true;
+                break;
+            }
+        }
+
+        if (!externaloutput) {
+            NSError *error = nil;
+            [session overrideOutputAudioPort:AVAudioSessionPortOverrideSpeaker error:&error];
+        }
+    });
 }

@@ -40,6 +40,11 @@
 #include "alib.h"
 #endif
 
+#if defined OS_IOS
+extern "C" bool isRunningOniPhone();
+extern "C" void forceiPhoneSpeaker();
+#endif
+
 #if !defined NOGUI
 #include <QFileDialog>
 #endif
@@ -170,6 +175,8 @@ void Box::audioDevice_close(const int devid)
         if (device->devname != "O:null" && device->audiooutput) {
             QObject::disconnect(device->audiooutput, &QAudioSink::stateChanged, this, &Box::audioDeviceOutputStateChanged);
             device->audiooutput->deleteLater();
+            if (device->audioinput)
+                device->audioinput->deleteLater();
         }
 #endif
     } else if (device->i_o == 'V')
@@ -365,6 +372,8 @@ int Box::audioDevice_open(const QString &devname, const QString &mode, const boo
     audiodevice->dspid = DSP_create();
     audiodevice->mute = false;
     audiodevice->busy = false;
+    audiodevice->audioinput = nullptr;
+    audiodevice->audiooutput = nullptr;
 
     if (G_VERBOSE) qInfo() << qPrintable("BOX: Opening audio device " + audioDevice_description(devname) + " (" + mode + ")");
 
@@ -454,6 +463,12 @@ int Box::audioDevice_open(const QString &devname, const QString &mode, const boo
                 delete audiodevice;
                 return -1;
             }
+
+#if defined OS_IOS
+            if (isRunningOniPhone())
+                forceiPhoneSpeaker();
+#endif
+
 #endif
         }
 
