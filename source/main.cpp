@@ -158,6 +158,7 @@ int main(int argc, char *argv[])
     QObject::connect(ui, &UI::messageOut, client, &Client::messageIn);
     QObject::connect(client, &Client::messageOut, ui, &UI::messageIn);
 
+#if !defined OS_ANDROID && !defined OS_IOS
     QObject::connect(app, &QCoreApplication::aboutToQuit, app, [&]() {
         QObject::connect(client, &Client::destroyed, clientthread, &QThread::quit);
         QObject::connect(clientthread, &QThread::finished, clientthread, &QThread::deleteLater);
@@ -169,6 +170,7 @@ int main(int argc, char *argv[])
         loop->exec();
         delete loop;
     });
+#endif
 
     return app->exec();
 }
