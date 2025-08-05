@@ -32,7 +32,7 @@ QThread          *serverthread;
 void signalHandler(int signal)
 {
     if (signal == SIGINT) {
-        printf("SIGINT\n");
+        printf(" SIGINT\n");
         QMetaObject::invokeMethod(app, "quit", Qt::QueuedConnection);
     }
 }
@@ -101,7 +101,7 @@ UI               *ui;
 void signalHandler(int signal)
 {
     if (signal == SIGINT) {
-        printf("SIGINT\n");
+        printf(" SIGINT\n");
         QMetaObject::invokeMethod(app, "quit", Qt::QueuedConnection);
     }
 }
