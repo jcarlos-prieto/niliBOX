@@ -314,11 +314,11 @@ void Server::serverSessionClosed(ServerSession *serversession)
     ActiveSession actsession = m_sessions.value(sessionid);
 
     if (actsession.isNull()) {
-        qInfo() << qPrintable("SERVER: Could not close the server session " + sessionid);
+        if (G_VERBOSE) qInfo() << qPrintable("SERVER: Could not close the server session " + sessionid);
         return;
     }
 
-    qInfo() << qPrintable("SERVER: Closing server session " + sessionid);
+    if (G_VERBOSE) qInfo() << qPrintable("SERVER: Closing server session " + sessionid);
 
     Message message(Message::C_CLOSESESSION);
     message.setSequence(actsession.sequence);
