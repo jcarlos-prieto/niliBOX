@@ -1,7 +1,7 @@
 <img src="./resources/themes/steel/logo.png" width="50%"/>
 
 ***niliBOX*** is a software to manage external devices connected locally or remotely, specially radio receivers.  
-***niliBOX*** is the evolution of [PCR AnyWhere](https://www.nilibox.com/PCRAnyWhere), a well known software to control Icom radio scanners.  
+***niliBOX*** is the evolution of [PCR AnyWhere](https://pcranywhere.com), a well known software to control Icom radio scanners.  
 It has been enhanced with new devices, a brand new interface and support for mobiles devices.  
 
 If you are looking for the web page, please follow this link: [https://nilibox.com](https://nilibox.com)
