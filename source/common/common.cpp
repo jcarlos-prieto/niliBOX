@@ -234,9 +234,15 @@ bool init()
     qmlRegisterType<VideoFrame>("niliBOX.VideoFrame", 1, 0, "VideoFrame");
 #endif
 
+    QString arch = QSysInfo::prettyProductName() + " - " + QSysInfo::currentCpuArchitecture();
+
+#if defined OS_IOS
+    arch.append(isRunningOniPhone() ? " (iPhone)" : " (iPad)");
+#endif
+
     // (times in ms)
     G_LOCALSETTINGS.init("site.id", siteID());                                        // Site ID
-    G_LOCALSETTINGS.set("site.os", QSysInfo::prettyProductName());                    // Name of the operating system
+    G_LOCALSETTINGS.set("site.os", arch);                                             // Name of the operating system
     G_LOCALSETTINGS.init("site.remotesetup", "1");                                    // Setup mode
     G_LOCALSETTINGS.init("system.appwatchdog", "2000");                               // Watchdog timer between app server and client
     G_LOCALSETTINGS.init("system.clientupdate", "1000");                              // Period to update site configuration at UI from client
@@ -328,12 +334,6 @@ bool init()
         for (QString &setting : lsettings)
             qInfo() << qPrintable("    " + setting);
     }
-
-    QString arch = QSysInfo::prettyProductName() + " - " + QSysInfo::currentCpuArchitecture();
-
-#if defined OS_IOS
-    arch.append(isRunningOniPhone() ? " (iPhone)" : " (iPad)");
-#endif
 
     qInfo() << qPrintable("Running on " + arch);
     qInfo() << qPrintable("Application path: " + qApp->applicationFilePath());
