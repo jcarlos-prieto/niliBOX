@@ -41,8 +41,6 @@
    <array>
       <string>fetch</string>
       <string>audio</string>
-      <string>voip</string>
-      <string>bluetooth-central</string>
    </array>
 </dict>
 </plist>

@@ -59,21 +59,21 @@ extern "C" bool isRunningOniPhone()
 }
 
 
-extern "C" void forceiPhoneSpeaker() {
+extern "C" void forceiOSSpeaker() {
     AVAudioSession *session = [AVAudioSession sharedInstance];
     NSError *error = nil;
 
-    BOOL ok = [session setCategory:AVAudioSessionCategoryPlayAndRecord
-                       withOptions:(AVAudioSessionCategoryOptionDefaultToSpeaker |
-                                    AVAudioSessionCategoryOptionAllowBluetooth )
-                       error:&error];
+    [session setCategory:AVAudioSessionCategoryPlayAndRecord
+             withOptions:(AVAudioSessionCategoryOptionDefaultToSpeaker |
+                          AVAudioSessionCategoryOptionAllowBluetooth )
+             error:&error];
 
-    if (!ok || error)
+    if (error)
         return;
 
-    ok = [session setActive:YES error:&error];
+    [session setActive:YES error:&error];
 
-    if (!ok || error)
+    if (error)
         return;
 
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)),

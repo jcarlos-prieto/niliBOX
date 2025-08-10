@@ -28,10 +28,6 @@
 #include <QTimer>
 #include <QVariantAnimation>
 
-#if defined OS_IOS
-#include "common/box.h"
-#endif
-
 
 ConfigSession::ConfigSession(QString id, QWidget *parent) : TPane("config", parent)
 {

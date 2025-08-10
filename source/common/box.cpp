@@ -41,8 +41,7 @@
 #endif
 
 #if defined OS_IOS
-extern "C" bool isRunningOniPhone();
-extern "C" void forceiPhoneSpeaker();
+extern "C" void forceiOSSpeaker();
 #endif
 
 #if !defined NOGUI
@@ -465,8 +464,7 @@ int Box::audioDevice_open(const QString &devname, const QString &mode, const boo
             }
 
 #if defined OS_IOS
-            if (isRunningOniPhone())
-                forceiPhoneSpeaker();
+            forceiOSSpeaker();
 #endif
 
 #endif
@@ -613,14 +611,24 @@ void Box::audioDevice_reset(const int devid)
     if (!device)
         return;
 
-    if (device->audioinput)
-        device->audioinput->reset();
+    if (device->audioinput) {
+        device->audioinput->stop();
+        device->iodevice = device->audioinput->start();
+        device->iodevice->setObjectName(QString::number(devid));
+        connect(device->iodevice, &QIODevice::readyRead, this, &Box::audioDeviceReadyRead);
+    }
 
-    if (device->audiooutput)
-        device->audiooutput->reset();
+    if (device->audiooutput) {
+        device->audiooutput->stop();
+        device->iodevice =  device->audiooutput->start();
+    }
 
     device->buffer = QByteArray();
     device->buffering = true;
+
+#if defined OS_IOS
+    forceiOSSpeaker();
+#endif
 }
 
 

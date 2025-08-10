@@ -16,6 +16,7 @@
  */
 
 #include "client/app.h"
+#include "common/box.h"
 #include "client/clientsession.h"
 #include "common/common.h"
 #include "ui/tbutton.h"
@@ -264,8 +265,14 @@ void ClientSession::appInstalled()
 void ClientSession::applicationStatusChanged(Qt::ApplicationState state)
 {
 #if defined OS_IOS || defined OS_ANDROID
-    if (state == Qt::ApplicationActive)
+    if (state == Qt::ApplicationActive) {
         m_watchdog = QDateTime::currentMSecsSinceEpoch();
+
+        QList<int> keys = G_BOX->audioDevices()->keys();
+        for (int &i : keys)
+            G_BOX->audioDevice_reset(i);
+    } else
+        m_watchdog = 0;
 #else
     Q_UNUSED(state)
 #endif
