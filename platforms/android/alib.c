@@ -454,7 +454,7 @@ void alibusb_close(libusb_device_handle *dev_handle)
 }
 
 
-void API_EXPORTED alibserial_init()
+void alibserial_init()
 {
     if (!jni_serial_init)
         return;
@@ -474,7 +474,7 @@ void API_EXPORTED alibserial_init()
 }
 
 
-ssize_t API_EXPORTED alibserial_get_device_list(char ***list)
+ssize_t alibserial_get_device_list(char ***list)
 {
     if (!jni_serial_getDeviceList)
         return 0;
@@ -530,7 +530,7 @@ ssize_t API_EXPORTED alibserial_get_device_list(char ***list)
 }
 
 
-const char * API_EXPORTED alibserial_description(char *id)
+const char * alibserial_description(char *id)
 {
     if (!jni_serial_getDescription)
         return NULL;
@@ -562,7 +562,7 @@ const char * API_EXPORTED alibserial_description(char *id)
 }
 
 
-const char * API_EXPORTED alibserial_manufacturer(char *id)
+const char * alibserial_manufacturer(char *id)
 {
     if (!jni_serial_getManufacturer)
         return NULL;
@@ -594,7 +594,7 @@ const char * API_EXPORTED alibserial_manufacturer(char *id)
 }
 
 
-const char * API_EXPORTED alibserial_serialnumber(char *id)
+const char * alibserial_serialnumber(char *id)
 {
     if (!jni_serial_getSerialNumber)
         return NULL;
@@ -626,7 +626,7 @@ const char * API_EXPORTED alibserial_serialnumber(char *id)
 }
 
 
-const char * API_EXPORTED alibserial_systemlocation(char *id)
+const char * alibserial_systemlocation(char *id)
 {
     if (!jni_serial_getSystemLocation)
         return NULL;
@@ -658,7 +658,7 @@ const char * API_EXPORTED alibserial_systemlocation(char *id)
 }
 
 
-int API_EXPORTED alibserial_isopen(char *id)
+int alibserial_isopen(char *id)
 {
     if (!jni_serial_isOpen)
         return 1;
@@ -682,7 +682,7 @@ int API_EXPORTED alibserial_isopen(char *id)
 }
 
 
-int API_EXPORTED alibserial_dtr(char *id, int dtr)
+int alibserial_dtr(char *id, int dtr)
 {
     if (!jni_serial_getDTR)
         return -1;
@@ -706,7 +706,7 @@ int API_EXPORTED alibserial_dtr(char *id, int dtr)
 }
 
 
-int API_EXPORTED alibserial_rts(char *id, int rts)
+int alibserial_rts(char *id, int rts)
 {
     if (!jni_serial_getRTS)
         return -1;
@@ -730,7 +730,7 @@ int API_EXPORTED alibserial_rts(char *id, int rts)
 }
 
 
-int API_EXPORTED alibserial_open(char *id, char *mode)
+int alibserial_open(char *id, char *mode)
 {
     if (!jni_serial_open)
         return -1;
@@ -755,7 +755,7 @@ int API_EXPORTED alibserial_open(char *id, char *mode)
 }
 
 
-int API_EXPORTED alibserial_close(char *id)
+int alibserial_close(char *id)
 {
     if (!jni_serial_close)
         return 0;
@@ -779,7 +779,7 @@ int API_EXPORTED alibserial_close(char *id)
 }
 
 
-int API_EXPORTED alibserial_read(char *id, char *data, int buffersize, int timeout)
+int alibserial_read(char *id, char *data, int buffersize, int timeout)
 {
     if (!jni_serial_read)
         return -1;
@@ -820,7 +820,7 @@ int API_EXPORTED alibserial_read(char *id, char *data, int buffersize, int timeo
 }
 
 
-int API_EXPORTED alibserial_write(char *id, char *data)
+int alibserial_write(char *id, char *data)
 {
     if (!jni_serial_write)
         return -1;
@@ -851,7 +851,7 @@ int API_EXPORTED alibserial_write(char *id, char *data)
 }
 
 
-ssize_t LIBUSB_CALL alibaudio_get_device_list(char *mode, char ***list)
+ssize_t alibaudio_get_device_list(char *mode, char ***list)
 {
     if (!jni_audio_getDeviceList)
         return -1;
@@ -907,7 +907,7 @@ ssize_t LIBUSB_CALL alibaudio_get_device_list(char *mode, char ***list)
 }
 
 
-int LIBUSB_CALL alibaudio_get_device_id(char *mode, char *name)
+int alibaudio_get_device_id(char *mode, char *name)
 {
     if (!jni_audio_getDeviceId)
         return -1;
@@ -932,7 +932,7 @@ int LIBUSB_CALL alibaudio_get_device_id(char *mode, char *name)
 }
 
 
-ssize_t LIBUSB_CALL alibaudio_get_device_encodings(char *mode, char *name, int **list)
+ssize_t alibaudio_get_device_encodings(char *mode, char *name, int **list)
 {
     if (!jni_audio_getDeviceList)
         return -1;
@@ -976,7 +976,7 @@ ssize_t LIBUSB_CALL alibaudio_get_device_encodings(char *mode, char *name, int *
 }
 
 
-ssize_t LIBUSB_CALL alibaudio_get_device_samplerates(char *mode, char *name, int **list)
+ssize_t alibaudio_get_device_samplerates(char *mode, char *name, int **list)
 {
     if (!jni_audio_getDeviceList)
         return -1;

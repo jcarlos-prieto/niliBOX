@@ -32,24 +32,24 @@ int alibusb_get_string_descriptor(libusb_device_handle *dev_handle, uint8_t desc
 int alibusb_open(libusb_device *dev, libusb_device_handle **dev_handle);
 void alibusb_close(libusb_device_handle *dev_handle);
 
-void LIBUSB_CALL alibserial_init(void);
-ssize_t LIBUSB_CALL alibserial_get_device_list(char ***list);
-const char * LIBUSB_CALL alibserial_description(char *id);
-const char * LIBUSB_CALL alibserial_manufacturer(char *id);
-const char * LIBUSB_CALL alibserial_serialnumber(char *id);
-const char * LIBUSB_CALL alibserial_systemlocation(char *id);
-int LIBUSB_CALL alibserial_isopen(char *id);
-int LIBUSB_CALL alibserial_dtr(char *id, int dtr);
-int LIBUSB_CALL alibserial_rts(char *id, int rts);
-int LIBUSB_CALL alibserial_open(char *id, char *mode);
-int LIBUSB_CALL alibserial_close(char *id);
-int LIBUSB_CALL alibserial_read(char *id, char *data, int buffersize, int timeout);
-int LIBUSB_CALL alibserial_write(char *id, char *data);
+void alibserial_init(void);
+ssize_t alibserial_get_device_list(char ***list);
+const char * alibserial_description(char *id);
+const char * alibserial_manufacturer(char *id);
+const char * alibserial_serialnumber(char *id);
+const char * alibserial_systemlocation(char *id);
+int alibserial_isopen(char *id);
+int alibserial_dtr(char *id, int dtr);
+int alibserial_rts(char *id, int rts);
+int alibserial_open(char *id, char *mode);
+int alibserial_close(char *id);
+int alibserial_read(char *id, char *data, int buffersize, int timeout);
+int alibserial_write(char *id, char *data);
 
-ssize_t LIBUSB_CALL alibaudio_get_device_list(char *mode, char ***list);
-int LIBUSB_CALL alibaudio_get_device_id(char *mode, char *name);
-ssize_t LIBUSB_CALL alibaudio_get_device_encodings(char *mode, char *name, int **list);
-ssize_t LIBUSB_CALL alibaudio_get_device_samplerates(char *mode, char *name, int **list);
+ssize_t alibaudio_get_device_list(char *mode, char ***list);
+int alibaudio_get_device_id(char *mode, char *name);
+ssize_t alibaudio_get_device_encodings(char *mode, char *name, int **list);
+ssize_t alibaudio_get_device_samplerates(char *mode, char *name, int **list);
 
 #if defined(__cplusplus)
 }
