@@ -70,14 +70,11 @@ Box::Box(QObject *parent, bool remote) : QObject(parent)
         m_hotplugworker = nullptr;
         connect(G_BOX, &Box::hotPlug, this, &Box::hotPlug);
     } else {
-        QEventLoop loop;
         QThread *thread = new QThread(this);
         m_hotplugworker = new HotPlugWorker(this);
         m_hotplugworker->moveToThread(thread);
         connect(thread, &QThread::started, m_hotplugworker, &HotPlugWorker::start);
-        connect(m_hotplugworker, &HotPlugWorker::started, &loop, &QEventLoop::quit);
         thread->start();
-        loop.exec();
     }
 }
 
@@ -128,12 +125,10 @@ Box::~Box()
         m_rtstimer->deleteLater();
 
     if (m_hotplugworker) {
-        QEventLoop loop;
         QThread *thread = m_hotplugworker->thread();
-        connect(m_hotplugworker, &HotPlugWorker::stopped, thread, &QThread::quit);
-        connect(thread, &QThread::finished, &loop, &QEventLoop::quit);
         m_hotplugworker->stop();
-        loop.exec();
+        thread->quit();
+        thread->wait();
         thread->deleteLater();
         m_hotplugworker->deleteLater();
     }
@@ -165,8 +160,15 @@ void Box::audioDevice_close(const int devid)
 #endif
 
     } else if (device->i_o == 'O') {
-        device->processing = false;
-        device->future.waitForFinished();
+        if (device->worker) {
+            QThread *thread = device->worker->thread();
+            device->worker->stop();
+            thread->quit();
+            thread->wait();
+            thread->deleteLater();
+            device->worker->deleteLater();
+            device->worker = nullptr;
+        }
 
 #if defined OS_ANDROID
         android_audioDeviceClose(device);
@@ -174,8 +176,6 @@ void Box::audioDevice_close(const int devid)
         if (device->devname != "O:null" && device->audiooutput) {
             QObject::disconnect(device->audiooutput, &QAudioSink::stateChanged, this, &Box::audioDeviceOutputStateChanged);
             device->audiooutput->deleteLater();
-            if (device->audioinput)
-                device->audioinput->deleteLater();
         }
 #endif
     } else if (device->i_o == 'V')
@@ -470,7 +470,11 @@ int Box::audioDevice_open(const QString &devname, const QString &mode, const boo
 #endif
         }
 
-        audiodevice->future = QtConcurrent::run(audio_process, this, audiodevice);
+        QThread *thread = new QThread(this);
+        audiodevice->worker = new AudioWorker(this, audiodevice);
+        audiodevice->worker->moveToThread(thread);
+        connect(thread, &QThread::started, audiodevice->worker, &AudioWorker::start);
+        thread->start();
 
         G_BOX->audioDevices()->insert(deviceid, audiodevice);
         return deviceid;
@@ -5028,22 +5032,6 @@ void Box::audioDeviceReadyRead()
 }
 
 
-void Box::audioDevicetTimerTimeout()
-{
-    if (!sender())
-        return;
-
-    int audiodeviceid = static_cast<QTimer *>(sender())->objectName().toInt();
-
-    AudioDevice *device = G_BOX->audioDevices()->value(audiodeviceid);
-
-    if (!device)
-        return;
-
-    device->future = QtConcurrent::run(audio_process, this, device);
-}
-
-
 void Box::FFTUpdateWindow(Dsp *dsp, FFTWindow fft_window_type, const int N)
 {
     if (fft_window_type == dsp->fft_window_type && N == dsp->fft_N)
@@ -5359,6 +5347,105 @@ void Box::videoDeviceReadyRead(const QVideoFrame &frame)
 }
 
 
+AudioWorker::AudioWorker(Box *box, Box::AudioDevice *dev)
+{
+    m_box = box;
+    m_dev = dev;
+    m_running = false;
+}
+
+
+AudioWorker::~AudioWorker()
+{
+    m_running = false;
+}
+
+
+void AudioWorker::start()
+{
+    if (m_running) {
+        QTimer::singleShot(0, this, &AudioWorker::started);
+        return;
+    }
+
+    m_running = true;
+
+    QTimer::singleShot(0, this, &AudioWorker::worker);
+}
+
+
+void AudioWorker::stop()
+{
+    if (!m_running) {
+        QTimer::singleShot(0, this, &AudioWorker::stopped);
+        return;
+    }
+
+    emit m_stop();
+    m_running = false;
+}
+
+
+void AudioWorker::worker()
+{
+    qint64 msecs;
+    int emitsize;
+    int period = 1000 / G_LOCALSETTINGS.get("system.refreshrate", "10").toInt();
+    QEventLoop loop;
+
+    connect(this, &AudioWorker::m_stop, &loop, &QEventLoop::quit);
+
+    emit started();
+
+    while (m_running) {
+        msecs = QDateTime::currentMSecsSinceEpoch();
+        emitsize = qMax(static_cast<int>((msecs - m_dev->msecs) * m_dev->samplerate / 250) & ~(SF - 1), 0);
+        m_dev->msecs = msecs;
+
+        if (m_dev->buffering) {
+            if (m_dev->buffer.size() > 8 * m_dev->processsize)
+                m_dev->buffering = false;
+        }
+
+        if (!m_dev->buffering && m_dev->buffer.size() >= emitsize) {
+            QByteArrayView buffer = G_BOX->mem()->alloc(m_dev->buffer.first(emitsize));
+            m_dev->buffer.remove(0, emitsize);
+            if (!m_dev->busy)
+                emit m_box->audioDevice_Processing(m_dev->id, buffer);
+
+            if (m_dev->recording && !m_dev->recordpause && m_dev->wav.isOpen()) {
+                if (m_dev->samplingbits == 32)
+                    m_box->audioDevice_recordWrite(m_dev->id, buffer);
+                else
+                    m_box->audioDevice_recordWrite(m_dev->id, m_box->floatToBytes(buffer, m_dev->samplingbits));
+            }
+
+            if (m_dev->devname != "O:null") {
+#if defined OS_ANDROID
+                if (!m_dev->mute && m_dev->oboestream->getAvailableFrames().value() * m_dev->oboestream->getBytesPerFrame() < emitsize) {
+                    m_box->android_audioWrite(m_dev, buffer);
+#else
+                if (m_dev->iodevice) {
+                    if (m_dev->samplingbits == 32)
+                        m_dev->iodevice->write(buffer.data(), buffer.size());
+                    else {
+                        QByteArrayView sbuffer = m_box->floatToBytes(buffer, m_dev->samplingbits);
+                        m_dev->iodevice->write(sbuffer.data(), sbuffer.size());
+                    }
+#endif
+                }
+            }
+        } else
+            emit m_box->audioDevice_Processing(m_dev->id, QByteArrayView());
+
+        QTimer::singleShot(qMax(10, period - QDateTime::currentMSecsSinceEpoch() + msecs), &loop, &QEventLoop::quit);
+        loop.exec();
+    }
+
+    emit stopped();
+}
+
+
 HotPlugWorker::HotPlugWorker(Box *box)
 {
     m_box = box;
@@ -5393,7 +5480,6 @@ void HotPlugWorker::stop()
     }
 
     emit m_stop();
-
     m_running = false;
 }
 
@@ -5610,60 +5696,6 @@ void USBWorker::worker()
 
     emit stopped();
 #endif
-}
-
-
-void audio_process(Box *box, Box::AudioDevice *dev)
-{
-    qint64 msecs;
-    int emitsize;
-    int period = 1000 / G_LOCALSETTINGS.get("system.refreshrate", "10").toInt();
-
-    dev->processing = true;
-
-    while (dev->processing) {
-        msecs = QDateTime::currentMSecsSinceEpoch();
-        emitsize = qMax(static_cast<int>((msecs - dev->msecs) * dev->samplerate / 250) & ~(SF - 1), 0);
-        dev->msecs = msecs;
-
-        if (dev->buffering) {
-            if (dev->buffer.size() > 8 * dev->processsize)
-                dev->buffering = false;
-        }
-
-        if (!dev->buffering && dev->buffer.size() >= emitsize) {
-            QByteArrayView buffer = G_BOX->mem()->alloc(dev->buffer.first(emitsize));
-            dev->buffer.remove(0, emitsize);
-            if (!dev->busy)
-                emit box->audioDevice_Processing(dev->id, buffer);
-
-            if (dev->recording && !dev->recordpause && dev->wav.isOpen()) {
-                if (dev->samplingbits == 32)
-                    box->audioDevice_recordWrite(dev->id, buffer);
-                else
-                    box->audioDevice_recordWrite(dev->id, box->floatToBytes(buffer, dev->samplingbits));
-            }
-
-            if (dev->devname != "O:null") {
-#if defined OS_ANDROID
-                if (!dev->mute && dev->oboestream->getAvailableFrames().value() * dev->oboestream->getBytesPerFrame() < emitsize) {
-                    box->android_audioWrite(dev, buffer);
-#else
-                if (dev->iodevice) {
-                    if (dev->samplingbits == 32)
-                        dev->iodevice->write(buffer.data(), buffer.size());
-                    else {
-                        QByteArrayView sbuffer = box->floatToBytes(buffer, dev->samplingbits);
-                        dev->iodevice->write(sbuffer.data(), sbuffer.size());
-                    }
-#endif
-                }
-            }
-        } else
-            emit box->audioDevice_Processing(dev->id, QByteArrayView());
-
-        QThread::msleep(qMax(10, period - QDateTime::currentMSecsSinceEpoch() + msecs));
-    }
 }
 
 

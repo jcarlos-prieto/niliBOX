@@ -38,7 +38,7 @@ class OboeInputCallBack;
 class OboeErrorCallBack;
 #endif
 
-class Data;
+class AudioWorker;
 class HotPlugWorker;
 class QAudioSink;
 class QAudioSource;
@@ -144,7 +144,6 @@ public:
         QIODevice                          *iodevice;
         void                               *parent;
         QTimer                             *timer;
-        QFuture<void>                       future;
         QFile                               raw;
         QFile                               wav;
         QByteArray                          buffer;
@@ -164,10 +163,10 @@ public:
         bool                                busy;
         bool                                direct;
         bool                                mute;
-        bool                                processing;
         bool                                recording;
         bool                                recordpause;
         char                                i_o;
+        AudioWorker                        *worker;
 
         AudioDevice(void *parent = nullptr)
         {
@@ -493,7 +492,6 @@ private:
     void                                   audioDeviceInputStateChanged(QAudio::State state);
     void                                   audioDeviceOutputStateChanged(QAudio::State state);
     void                                   audioDeviceReadyRead();
-    void                                   audioDevicetTimerTimeout();
     void                                   FFTUpdateWindow(Dsp *dsp, Box::FFTWindow fft_window_type, const int N);
     void                                   filePlayChunk();
     Q_INVOKABLE bool                       getPermission(const QString &permission);
@@ -554,6 +552,31 @@ signals:
     void                                   USB_Error(const int usbhandleid);
     void                                   videoDevice_Data(const int devid, QByteArrayView data);
     void                                   videoDevice_Error(const int devid);
+};
+
+
+class AudioWorker : public QObject
+{
+    Q_OBJECT
+
+public:
+    explicit                               AudioWorker(Box *box, Box::AudioDevice *dev);
+    virtual                               ~AudioWorker();
+
+    void                                   start();
+    void                                   stop();
+
+private:
+    Box                                   *m_box;
+    Box::AudioDevice                      *m_dev;
+    bool                                   m_running;
+
+    void                                   worker();
+
+signals:
+    void                                   m_stop();
+    void                                   started();
+    void                                   stopped();
 };
 
 
@@ -677,7 +700,6 @@ private:
 
 #endif
 
-void                                      audio_process(Box *box, Box::AudioDevice *dev);
 void                                      fft(COMPLEX *x, COMPLEX *y, const int N, COMPLEX *twiddles, const int n = 0, const int m = 1);
 void                                      fft_params(Box::Dsp *dsp, Box::FFTWindow fft_window_type, const int N);
 void                                      hotplug(Box *box);
