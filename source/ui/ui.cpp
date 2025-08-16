@@ -327,6 +327,10 @@ void UI::start()
     m_animation4->setDuration(m_animationdelay);
     connect(m_animation4, &QPropertyAnimation::finished, this, &UI::animation4Finished);
 
+#if defined OS_ANDROID
+    setContentDescription();
+#endif
+
     m_frame1->show();
     m_frame2->show();
     stopSplash();
@@ -1181,3 +1185,52 @@ void UI::stopSplash()
     });
     httpsession->post(m_masterserver, "command=getnotice");
 }
+
+
+#if defined OS_ANDROID
+
+void UI::setContentDescription()
+{
+    QJniObject root = getQtRootView();
+    if (!root.isValid())
+        return;
+
+    setContentDescriptionRecursive(root);
+}
+
+
+void UI::setContentDescriptionRecursive(const QJniObject &view)
+{
+    if (!view.isValid())
+        return;
+
+    QJniObject javaDesc = QJniObject::fromString(view.className());
+    view.callMethod<void>("setContentDescription", "(Ljava/lang/CharSequence;)V", javaDesc.object<jstring>());
+
+    int count = view.callMethod<jint>("getChildCount");
+    for (int i = 0; i < count; ++i) {
+        QJniObject child = view.callObjectMethod("getChildAt", "(I)Landroid/view/View;", i);
+        setContentDescriptionRecursive(child);
+    }
+}
+
+
+QJniObject UI::getQtRootView()
+{
+    QJniObject activity = QNativeInterface::QAndroidApplication::context();
+    if (!activity.isValid())
+        return {};
+
+    const int android_R_id_content = 0x01020002;
+    QJniObject window = activity.callObjectMethod("getWindow", "()Landroid/view/Window;");
+    if (!window.isValid())
+        return {};
+
+    QJniObject decorView = window.callObjectMethod("getDecorView", "()Landroid/view/View;");
+    if (!decorView.isValid())
+        return {};
+
+    return decorView.callObjectMethod("findViewById", "(I)Landroid/view/View;", android_R_id_content);
+}
+
+#endif

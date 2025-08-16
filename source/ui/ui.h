@@ -21,6 +21,10 @@
 #include "common/message.h"
 #include <QWidget>
 
+#if defined OS_ANDROID
+#include <QJniObject>
+#endif
+
 class ClientSession;
 class ConfigSession;
 class QHBoxLayout;
@@ -79,6 +83,12 @@ private:
     void                 settingsButtonClicked();
     void                 settingsPanelClosed();
     void                 stopSplash();
+
+#if defined OS_ANDROID
+    void                 setContentDescription();
+    void                 setContentDescriptionRecursive(const QJniObject &view);
+    QJniObject           getQtRootView();
+#endif
 
     QPropertyAnimation  *m_animation0;
     QPropertyAnimation  *m_animation1;
