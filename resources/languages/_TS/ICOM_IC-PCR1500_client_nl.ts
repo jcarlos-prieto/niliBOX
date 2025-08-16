@@ -17,7 +17,7 @@
     </message>
     <message>
         <source>GAIN</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">VERST.</translation>
     </message>
 </context>
 <context>
@@ -60,7 +60,7 @@
     </message>
     <message>
         <source>AF GAIN</source>
-        <translation>AF VEST.</translation>
+        <translation>AF VERST.</translation>
     </message>
     <message>
         <source>Mute</source>

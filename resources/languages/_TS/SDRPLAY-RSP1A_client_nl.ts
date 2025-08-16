@@ -17,7 +17,7 @@
     </message>
     <message>
         <source>GAIN</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">VERST.</translation>
     </message>
 </context>
 <context>
@@ -79,7 +79,7 @@
     </message>
     <message>
         <source>AF GAIN</source>
-        <translation>AF VEST.</translation>
+        <translation>AF VERST.</translation>
     </message>
     <message>
         <source>Mute</source>
@@ -159,7 +159,7 @@
     </message>
     <message>
         <source>RF GAIN</source>
-        <translation>RF VEST.</translation>
+        <translation>RF VERST.</translation>
     </message>
     <message>
         <source>AGC</source>

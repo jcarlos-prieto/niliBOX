@@ -17,7 +17,7 @@
     </message>
     <message>
         <source>GAIN</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">VERS.</translation>
     </message>
 </context>
 <context>
