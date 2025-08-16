@@ -1,4 +1,4 @@
-1.2.0 - 2025.07.14
+1.2.0 - 2025.08.16
     Upgraded Qt framework to 6.7.3
     Removed dependency from external libraries
     Changed all internal calculations to floating point
@@ -44,6 +44,7 @@
 
     Known bugs:  Occasional core dumps when finishing the application on Linux. No impact
                  Several RSP1A devices connected through a USB hub may fail on Windows and Android
+                 Android stops audio when app is minimized
                   
 
 1.1.1 - 2023.03.06
