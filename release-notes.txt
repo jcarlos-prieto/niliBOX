@@ -1,5 +1,5 @@
-1.2.0 - 2025.08.16
-    Upgraded Qt framework to 6.7.3
+1.2.0 - 2025.08.18
+    Upgraded Qt framework to 6.7.3 (6.8.3 for Android)
     Removed dependency from external libraries
     Changed all internal calculations to floating point
     Optimized consumption of CPU, memory and bandwidth
