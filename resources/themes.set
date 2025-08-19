@@ -1,12 +1,12 @@
 ﻿colors.displayname=Colors
 colors.location=themes/colors.rcc
-colors.version=2025.08.18
+colors.version=2025.08.20
 dark.displayname=Dark
 dark.location=themes/dark.rcc
-dark.version=2025.08.18
+dark.version=2025.08.20
 ocean.displayname=Ocean
 ocean.location=themes/ocean.rcc
-ocean.version=2025.08.18
+ocean.version=2025.08.20
 steel.displayname=Steel
 steel.location=themes/steel.rcc
-steel.version=2025.08.18
+steel.version=2025.08.20
