@@ -301,14 +301,13 @@ if(CMAKE_SYSTEM_NAME STREQUAL "Android")
 
     add_jar(libusbserial
         ${LIBUSBSERIAL_JAVA}
-        INCLUDE_JARS "source/libusbserial/annotation-1.3.0.jar"
-        OUTPUT_DIR "${CMAKE_CURRENT_BINARY_DIR}/android-build/libs"
+        OUTPUT_DIR "${CMAKE_CURRENT_BINARY_DIR}/android-build-${PROJECT_NAME}/libs"
     )
 
     add_jar(alib
         platforms/android/alib.java
-        INCLUDE_JARS "${CMAKE_CURRENT_BINARY_DIR}/android-build/libs/libusbserial.jar"
-        OUTPUT_DIR "${CMAKE_CURRENT_BINARY_DIR}/android-build/libs"
+        INCLUDE_JARS "${CMAKE_CURRENT_BINARY_DIR}/android-build-${PROJECT_NAME}/libs/libusbserial.jar"
+        OUTPUT_DIR "${CMAKE_CURRENT_BINARY_DIR}/android-build-${PROJECT_NAME}/libs"
     )
 
 endif()
