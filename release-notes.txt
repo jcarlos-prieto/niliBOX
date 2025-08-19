@@ -1,4 +1,4 @@
-1.2.0 - 2025.08.18
+1.2.0 - 2025.08.20
     Upgraded Qt framework to 6.7.3 (6.8.3 for Android)
     Removed dependency from external libraries
     Changed all internal calculations to floating point
@@ -41,6 +41,7 @@
     iOS: Supported
     iOS: Fixed focus issue with text fields
     iOS: Fixed behaviour when app is suspended
+    iOS: Enabled audio while minimized
 
     Known bugs:  Occasional core dumps when finishing the application on Linux. No impact
                  Several RSP1A devices connected through a USB hub may fail on Windows and Android
