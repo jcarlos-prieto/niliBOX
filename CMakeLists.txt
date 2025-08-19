@@ -301,13 +301,14 @@ if(CMAKE_SYSTEM_NAME STREQUAL "Android")
 
     add_jar(libusbserial
         ${LIBUSBSERIAL_JAVA}
-        OUTPUT_DIR "${CMAKE_CURRENT_BINARY_DIR}/android-build-${PROJECT_NAME}/libs"
+        INCLUDE_JARS "source/libusbserial/annotation-1.3.0.jar"
+        OUTPUT_DIR "${CMAKE_CURRENT_BINARY_DIR}/android-build/libs"
     )
 
     add_jar(alib
         platforms/android/alib.java
-        INCLUDE_JARS "${CMAKE_CURRENT_BINARY_DIR}/android-build-${PROJECT_NAME}/libs/libusbserial.jar"
-        OUTPUT_DIR "${CMAKE_CURRENT_BINARY_DIR}/android-build-${PROJECT_NAME}/libs"
+        INCLUDE_JARS "${CMAKE_CURRENT_BINARY_DIR}/android-build/libs/libusbserial.jar"
+        OUTPUT_DIR "${CMAKE_CURRENT_BINARY_DIR}/android-build/libs"
     )
 
 endif()
@@ -333,6 +334,8 @@ if(CMAKE_SYSTEM_NAME STREQUAL "iOS")
     set(f "${CMAKE_CURRENT_SOURCE_DIR}/resources/icon.png")
     target_sources(${PROJECT_NAME} PRIVATE ${f})
     set_source_files_properties(${f} PROPERTIES MACOSX_PACKAGE_LOCATION "")
+
+    set(CURRENT_PROJECT_VERSION "${YEAR}${MONTH}${DAY}")
 
     set_target_properties(${PROJECT_NAME} PROPERTIES
         MACOSX_BUNDLE TRUE
