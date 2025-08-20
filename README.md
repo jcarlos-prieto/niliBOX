@@ -114,7 +114,7 @@ Are you interested in developing your own drivers, languages or themes? Then ple
 ## Notice about licenses
 This software is mainly developed using the [Qt Framework](https://www.qt.io/product/framework) under the LGPL v3 license. You may check the details about this license model [here](https://www.qt.io/licensing/open-source-lgpl-obligations#lgpl).  
 
-To fulfill the requirements of LGPL v3, a re-linking mechanism must be provided. This mechanism is described [here](https://nilibox.com/RELINK).  
+To fulfill the requirements of LGPL v3, a re-linking mechanism must be provided. This mechanism is described [here](https://nilibox.com/relink).  
 
 This software contains embedded the following third party libraries:
 - [libusb](https://github.com/libusb/libusb): A library to handle USB devices
