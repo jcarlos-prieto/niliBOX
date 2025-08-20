@@ -35,7 +35,7 @@ This software is mainly developed using the <a href=https://www.qt.io/product/fr
 v3 license. You may check the details about this license model <a href=https://www.qt.io/licensing/open-source-lgpl-obligations#lgpl>here</a>.<br><br>
 
 To fulfill the requirements of LGPL v3, a re-linking mechanism must be<br>
-provided. This mechanism is described <a href=https://nilibox.com/RELINK>here</a>.<br><br>
+provided. This mechanism is described <a href=https://nilibox.com/relink>here</a>.<br><br>
 
 This software contains embedded the following third party libraries:<br>
 
@@ -43,5 +43,5 @@ This software contains embedded the following third party libraries:<br>
 - <a href=https://github.com/google/oboe>Oboe</a>: A library to handle audio on Android<br>
 - <a href=https://github.com/mik3y/usb-serial-for-android>USB Serial for Android</a>: A java library to handle USB Serial devices on Android.<br><br>
 
-<a href=https://nilibox.com/PRIVACY>Privacy policy</a><br><br>
+<a href=https://nilibox.com/privacy>Privacy policy</a><br><br>
 </div>
