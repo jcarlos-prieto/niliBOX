@@ -121,6 +121,6 @@ This software contains embedded the following third party libraries:
 - [Oboe](https://github.com/google/oboe): A library to handle audio on Android
 - [USB Serial for Android](https://github.com/mik3y/usb-serial-for-android): A java library to handle USB Serial devices on Android.
 
-[Privacy policy](https://nilibox.com/PRIVACY)
+[Privacy policy](https://nilibox.com/privacy)
 
 [Release notes](./release-notes.txt)
