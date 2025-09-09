@@ -829,7 +829,7 @@ void UI::notice(const QByteArray notice)
     QString text = "";
 
     if (verToInt(ver) > verToInt(APP_VERSION))
-        text += tr("New version") + " " + ver + " --- <a href=\"https://nilibox.com/DOWNLOADS\" style=\"text-decoration:none\">" + tr("Download here!") + "</a>";
+        text += tr("New version") + " " + ver + " --- <a href=\"https://nilibox.com/downloads\" style=\"text-decoration:none\">" + tr("Download here!") + "</a>";
 
     if (!mes.isEmpty() && ver != APP_VERSION)
         text += "<br><br>";

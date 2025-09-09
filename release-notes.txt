@@ -1,3 +1,6 @@
+1.2.1 - XXXX.XX.XX
+    Fixed links to downloads, privacy and relink
+
 1.2.0 - 2025.08.20
     Upgraded Qt framework to 6.7.3 (6.8.3 for Android)
     Removed dependency from external libraries
@@ -47,7 +50,6 @@
                  Several RSP1A devices connected through a USB hub may fail on Windows and Android
                  Android stops audio when app is minimized
                   
-
 1.1.1 - 2023.03.06
     Removed dependency with OpenGL graphics library for better compatibility
     Upgraded Qt framework from 6.3.2 to 6.4.2 (to allow change above)
