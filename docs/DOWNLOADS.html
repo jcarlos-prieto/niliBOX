@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>niliBOX :: Downloads</title>
+  <meta name="description" content="Downloads of niliBOX for Windows, Linux, macOS, Android and iOS">
+  <link rel="icon" href="logo.ico" type="image/x-icon">
+  <style>
+     body {
+      margin: 0;
+      background-color: #FOFOFO;
+      font-family: sans-serif;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .header {
+      background-color: #DCC5ED;
+      padding: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .header img {
+      height: 130px;
+      object-fit: contain;
+    }
+
+    .menu {
+      display: flex;
+      gap: 20px;
+      padding-right: 10px;
+    }
+
+    .menu a {
+      color: #9F5FCF;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .menu a:hover {
+      color: white;
+    }
+
+    .introduction {
+      background-color: #303030;
+      padding: 20px;
+      font-size: 24px;
+      color: white;
+    }
+
+    .introduction a {
+      color: #8080F0;
+      text-decoration: none;
+    }
+
+    .download {
+      display: flex;
+      gap: 10px;
+      background-color: #606060;
+      margin-top: 10px;
+    }
+
+    .download-main {
+      flex: 1;
+      color: #E0E0E0;
+      padding: 20px;
+      display: flex;
+      font-size: 36px;
+      flex-direction: column;
+      justify-content: center;
+    }
+    
+    .download-main immg {
+      width: 100%;
+      height: auto;
+    }
+    
+    .download-desc {
+      flex: 4;
+      color: #E0E0E0;
+      padding: 10px;
+      display: flex;
+      font-size: 20px;
+      flex-direction: column;
+      justify-content: center;
+    }
+    
+    button {
+      padding: 20px 50px;
+      background-color: #DCC5ED;
+      color: #9F5FCF;
+      border: none;
+      border-radius: 100px;
+      cursor: pointer;
+      font-size: 20px;
+    }
+
+    button:hover {
+      background-color: #9F5FCF;
+      color: white;
+    }
+
+    .footer {
+      background-color: #DCC5ED;
+      color: #9F5FCF;
+      padding: 10px;
+      margin-top: 10px;
+    }
+
+    @media (max-width: 768px) {
+      .header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+
+      .menu {
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .download {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container header">
+    <a href="https://nilibox.com"><img src="logo.png" alt="Logo"></a>
+    <nav class="menu">
+      <a href="https://nilibox.com">Home</a>
+      <a href="https://nilibox.com/modules">Modules</a>
+      <a href="https://nilibox.com/tutorials">Tutorials</a>
+      <a href="https://nilibox.com/downloads"><b>Downloads</b></a>
+      <a href="https://nilibox.com/contact">Contact</a>
+    </nav>
+  </div>
+  
+  <div class="container introduction">
+    <p><b>niliBOX</b> is now on version 1.2.0 which is a major relase with many new functionalities.</p>
+    <p>Here you can find the download for the different operating systems supported.</p>
+  </div>
+
+  <div class="container download">
+    <div class="download-main">
+      <table>
+        <tr><td style="text-align:center;">
+          <b>Windows</b>
+        </td></tr>
+        <tr><td>
+          <img src="windows.png" alt="niliBOX for Windows">
+        </td></tr>
+      </table>
+    </div>
+    <div class="download-desc">
+      <table>
+        <tr><td>
+          Compatible with Windows 10 (1809 or later) & 11 64 bits.<br><br>
+          No installation needed! The installer is a zip file that you may unzip and place at any location in your computer. Just run the executable 'niliBOX.exe'.<br><br>
+        </td></tr>
+        <tr><td style="text-align:center;">
+          <a href="https://github.com/jcarlos-prieto/niliBOX/releases/download/v1.2.0/niliBOX-windows.zip"><button>Download</button></a>
+        </td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="container download">
+    <div class="download-main">
+      <table>
+        <tr><td style="text-align:center;">
+          <b>Linux</b>
+        </td></tr>
+        <tr><td>
+          <img src="linux.png" alt="niliBOX for Linux">
+        </td></tr>
+      </table>
+    </div>
+    <div class="download-desc">
+      <table>
+        <tr><td>
+          Compatible with any Linux distribution using GLIBC 2.28 or higher.<br><br>
+          Tested on CentOS Stream 8, Debian 11.6, Fedora 24, Mint 21, OpenSUSE 15.5, Red Hat 8.6, Ubuntu 22.04 and later versions of each distribution.<br><br>
+          No installation needed! The installer is a tar.gz file that you may uncompress and place at any location in your computer. Make sure to run the script ./init.sh included in the distribution before running 'niliBOX'.<br><br>
+          Available in 2 versions:
+          <ul>
+            <li>Standard: With graphical interface</li>
+            <li>Headless: Server mode. Accessible from another niliBOX on the same network</li>
+          </ul>
+        </td></tr>
+        <tr><td style="text-align:center;">
+            <a href="https://github.com/jcarlos-prieto/niliBOX/releases/download/v1.2.0/niliBOX-linux.tar.gz"><button style="margin:5px;">Download Standard</button></a>
+            <a href="https://github.com/jcarlos-prieto/niliBOX/releases/download/v1.2.0/niliBOX-linux-hl.tar.gz"><button style="margin:5px;">Download Headless</button></a>
+        </td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="container download">
+    <div class="download-main">
+      <table>
+        <tr><td style="text-align:center;">
+          <b>macOS</b>
+        </td></tr>
+        <tr><td>
+          <img src="macos.png" alt="niliBOX for macOS">
+        </td></tr>
+      </table>
+    </div>
+    <div class="download-desc">
+      <table>
+        <tr><td>
+          Compatible with macOS 12 and later. Apple Silicon (arm architecture) supported<br><br>
+          No installation needed! The installer is a dmg file which contains the niliBOX package. Copy it to any place on your Mac and run it.<br><br>
+        </td></tr>
+        <tr><td style="text-align:center;">
+          <a href="https://github.com/jcarlos-prieto/niliBOX/releases/download/v1.2.0/niliBOX-macos.dmg"><button>Download</button></a>
+        </td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="container download">
+    <div class="download-main">
+      <table>
+        <tr><td style="text-align:center;">
+          <b>Android</b>
+        </td></tr>
+        <tr><td>
+          <img src="android.png" alt="niliBOX for Android">
+        </td></tr>
+      </table>
+    </div>
+    <div class="download-desc">
+      <table>
+        <tr><td>
+          Compatible with Android 9 (API 28) and later.<br><br>
+          Supports direct connection to USB devices, including USB serial ports.<br><br>
+          It can be installed from Google Play or directly from the APK file provided.<br><br>
+        </td></tr>
+        <tr><td style="text-align:center;">
+          <a href="https://play.google.com/store/apps/details?id=com.nilibox.niliBOX"><img src="google-play.png" style="cursor: pointer; vertical-align: middle;"></a>
+          <a href="https://github.com/jcarlos-prieto/niliBOX/releases/download/v1.2.0/niliBOX-android.apk"><button style="margin:5px; vertical-align: middle;">Download APK</button></a>
+        </td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="container download">
+    <div class="download-main">
+      <table>
+        <tr><td style="text-align:center;">
+          <b>iOS</b>
+        </td></tr>
+        <tr><td>
+          <img src="ios.png" alt="niliBOX for iOS (iPhone and iPad)">
+        </td></tr>
+      </table>
+    </div>
+    <div class="download-desc">
+      <table>
+        <tr><td>
+          Compatible with iOS 16 and later.<br><br>
+          Does not support direct connection to USB devices. Recommended for remote control of other niliBOX installations.<br><br>
+        </td></tr>
+        <tr><td style="text-align:center;">
+          <a href="https://apps.apple.com/us/app/nilibox/id6740749067"><img src="apple-store.png" style="cursor: pointer;"></a>
+        </td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="container download">
+    <div class="download-main">
+      <table>
+        <tr><td style="text-align:center;">
+          <b>Release notes</b>
+        </td></tr>
+        <tr><td>
+          <img src="release-notes.png" alt="niliBOX release notes">
+        </td></tr>
+      </table>
+    </div>
+    <div class="download-desc">
+      <table>
+        <tr><td style="text-align:center;">
+          <a href="https://raw.githubusercontent.com/jcarlos-prieto/niliBOX/main/release-notes.txt" target="_blank"><button>View</button></a>
+        </td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="container footer">
+    <br><br>© 2025 - nilibox.com<br><br><br>
+  </div>
+</body>
+
+</html>
