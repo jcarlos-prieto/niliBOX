@@ -8,3 +8,4 @@ CMakeLists.txt.user
 /distrib/macos
 /distrib/windows
 platforms/android/android_release.keystore
+distrib/notarize-macos
