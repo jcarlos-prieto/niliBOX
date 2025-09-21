@@ -151,12 +151,13 @@ int main(int argc, char *argv[])
     clientthread->start();
     loop->exec();
 
+    QObject::connect(ui, &UI::messageOut, client, &Client::messageIn);
+    QObject::connect(client, &Client::messageOut, ui, &UI::messageIn);
+
     ui->start();
 
     std::signal(SIGINT, signalHandler);
 
-    QObject::connect(ui, &UI::messageOut, client, &Client::messageIn);
-    QObject::connect(client, &Client::messageOut, ui, &UI::messageIn);
 
 #if !defined OS_ANDROID && !defined OS_IOS
     QObject::connect(app, &QCoreApplication::aboutToQuit, app, [&]() {
