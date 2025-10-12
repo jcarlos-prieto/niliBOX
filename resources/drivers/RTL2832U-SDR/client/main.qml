@@ -629,7 +629,7 @@ Item {
                                             height: b_unit
                                             anchors.horizontalCenter: parent.horizontalCenter
                                             min: 0
-                                            max: 25
+                                            max: steps.length - 1
                                             step: 1
                                             anglestep: 20
                                             value: -1
