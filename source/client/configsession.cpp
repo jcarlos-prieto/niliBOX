@@ -303,6 +303,7 @@ bool ConfigSession::eventFilter(QObject *obj, QEvent *event)
 
     QRect ignorelist = QRect(m_allowedlist->mapToGlobal(QPoint(0, 0)), m_allowedlist->size());
     QRect ignorebutton = QRect(m_allowed->mapToGlobal(QPoint(0, 0)), m_allowed->size());
+
     if (ignorelist.contains(globalpos) || ignorebutton.contains(globalpos))
         return false;
 
