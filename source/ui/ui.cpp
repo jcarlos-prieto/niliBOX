@@ -356,6 +356,12 @@ void UI::animation2Finished()
 
     m_openingapp = false;
 
+    if (G_LOCALSETTINGS.get("ui.pinned") == "true") {
+        m_pinned = true;
+        m_pinbutton->setPressed(true);
+        openCloseButtonClicked();
+    }
+
     if (!m_pendingapps.isEmpty()) {
         appOpen(m_pendingapps.first());
         m_pendingapps.removeFirst();
@@ -606,6 +612,8 @@ void UI::closeEvent(QCloseEvent *event)
                                                + "," + QString::number(y())
                                                + "," + QString::number(width())
                                                + "," + QString::number(height()));
+
+    G_LOCALSETTINGS.set("ui.pinned", m_pinned ? "true" : "false");
 
     deleteLater();
 }
