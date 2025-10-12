@@ -1164,8 +1164,7 @@ QList<QString> Box::serialPort_list()
     QList<QString> list;
 #if defined SERIAL
     for (QSerialPortInfo &device : QSerialPortInfo::availablePorts())
-        if (device.productIdentifier() > 0)
-            list << device.portName();
+        list << device.portName();
 
 #elif defined OS_ANDROID
     char **list_dev;
