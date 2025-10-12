@@ -3,6 +3,7 @@
     Fixed module autostart
     Pin button status saved between sessions
     Fixed squelch cursor in SDR modules
+    Fixed step knob behavior after changing steps
 
 1.2.0 - 2025.08.20
     Upgraded Qt framework to 6.7.3 (6.8.3 for Android)
