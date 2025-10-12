@@ -391,11 +391,11 @@ Item {
                                             height: 0.2 * b_unit
                                             color: "transparent"
                                             Image {
-                                                x: kSquelch.value < 128 ? 0 : (kSquelch.value - 128) / 128 * 8.8 * b_unit - width / 2
+                                                x: kSquelch.value < 50 ? 0 : (kSquelch.value - 50) / 50 * 8.8 * b_unit - width / 2
                                                 width: 0.2 * b_unit
                                                 height: width
                                                 mipmap: true
-                                                visible: kSquelch.value > 127 && !bMonitor.checked
+                                                visible: kSquelch.value > 49 && !bMonitor.checked
                                                 source: "triangle.png"
                                             }
                                         }
