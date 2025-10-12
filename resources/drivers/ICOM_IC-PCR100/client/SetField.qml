@@ -26,6 +26,8 @@ TGroupBox {
     signal setText
     signal deleteText
     signal thirdButton
+    
+    onHeightChanged: if (height === 0) bSet.forceActiveFocus();
 
     id: setfield
     clip: true
