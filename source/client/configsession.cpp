@@ -114,6 +114,8 @@ ConfigSession::ConfigSession(QString id, QWidget *parent) : TPane("config", pare
     m_animation->setEndValue(1.0);
     connect(m_animation, &QVariantAnimation::valueChanged, this, &ConfigSession::redraw);
 
+    installEventFilter(this);
+
     reload();
 
     connect(m_app, &App::installed, this, &ConfigSession::appInstalled);
@@ -213,6 +215,16 @@ void ConfigSession::allowedListClicked()
 }
 
 
+void ConfigSession::allowedHide()
+{
+    if (!m_allowed->isPressed())
+        return;
+
+    m_allowed->setPressed(false);
+    allowedClicked();
+}
+
+
 void ConfigSession::appError()
 {
     m_error = "ERRORCLIENT";
@@ -275,6 +287,36 @@ void ConfigSession::changedName()
 void ConfigSession::closeButtonClicked()
 {
     emit closed(this);
+}
+
+
+bool ConfigSession::eventFilter(QObject *obj, QEvent *event)
+{
+    if (event->type() != QEvent::MouseButtonPress)
+        return false;
+
+    if (obj == m_allowed)
+        return false;
+
+    QMouseEvent *mouseEvent = static_cast<QMouseEvent*>(event);
+    QPoint globalpos = mouseEvent->globalPosition().toPoint();
+
+    QRect ignorelist = QRect(m_allowedlist->mapToGlobal(QPoint(0, 0)), m_allowedlist->size());
+    QRect ignorebutton = QRect(m_allowed->mapToGlobal(QPoint(0, 0)), m_allowed->size());
+    if (ignorelist.contains(globalpos) || ignorebutton.contains(globalpos))
+        return false;
+
+    allowedHide();
+
+    return false;
+}
+
+
+void ConfigSession::installEventFilter(QObject *obj)
+{
+    obj->installEventFilter(this);
+    for (QObject *child : obj->children())
+        installEventFilter(child);
 }
 
 

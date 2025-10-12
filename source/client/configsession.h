@@ -53,6 +53,7 @@ public:
 private:
     void                 allowedClicked();
     void                 allowedListClicked();
+    void                 allowedHide();
     void                 appError();
     void                 appInstalled();
     void                 changeEvent(QEvent *event) override;
@@ -60,6 +61,8 @@ private:
     void                 changedMode();
     void                 changedName();
     void                 closeButtonClicked();
+    bool                 eventFilter(QObject *obj, QEvent *event) override;
+    void                 installEventFilter(QObject *obj);
     void                 loadAllowed();
     void                 popupOptionSelected();
     void                 redraw();

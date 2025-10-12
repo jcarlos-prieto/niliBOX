@@ -8,6 +8,7 @@
     Added platform in About panel
     Fixed focus after memory, bank or step are set
     Fixed blocking of remote config when set to Local
+    Fixed hiding Allowed button in device config
 
 1.2.0 - 2025.08.20
     Upgraded Qt framework to 6.7.3 (6.8.3 for Android)
