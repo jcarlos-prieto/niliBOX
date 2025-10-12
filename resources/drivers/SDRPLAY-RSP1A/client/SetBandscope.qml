@@ -48,8 +48,8 @@ TGroupBox {
                 height: b_unit
                 width: height
                 anchors.horizontalCenter: parent.horizontalCenter
-                min: 90
-                max: 180
+                min: 0
+                max: 200
                 step: 10
                 anglestep: 20
                 value: -1
@@ -80,7 +80,7 @@ TGroupBox {
                 width: height
                 anchors.horizontalCenter: parent.horizontalCenter
                 min: 0
-                max: 80
+                max: 100
                 step: 10
                 anglestep: 20
                 value: -1
