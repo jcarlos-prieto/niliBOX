@@ -91,8 +91,9 @@ InfoPanel::InfoPanel(QWidget *parent) : TPane("info", parent)
     connect(m_logo, &TPane::pressed, this, &InfoPanel::logoButtonClicked);
 
     QString version;
-    version += "Version " + QString(APP_VERSION) + "<br>";
-    version += "Build " + QString(APP_BUILD) + "<br>";
+    version += "Version: " + QString(APP_VERSION) + "<br>";
+    version += "Build: " + QString(APP_BUILD) + "<br>";
+    version += "Platform: " + QSysInfo::prettyProductName() + " - " + QSysInfo::currentCpuArchitecture() + "<br>";
     version += "<a href=https://www.nilibox.com>https://www.nilibox.com</a>";
     m_version->setText(version);
     m_layout10->addWidget(m_version);
