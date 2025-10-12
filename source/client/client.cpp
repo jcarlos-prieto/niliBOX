@@ -215,7 +215,7 @@ void Client::processMessageIn(const Message &message)
                 Settings siteinfo;
                 siteinfo.loadSettings(site.config().getSettings("site"));
                 QString siteid = siteinfo.get("site.id");
-                if ((siteid == G_SITEID || siteinfo.get("site.remotesetup") != "0") && QDateTime::currentMSecsSinceEpoch() < site.lastseen()) {
+                if (QDateTime::currentMSecsSinceEpoch() < site.lastseen()) {
                     allsites.loadSettings(siteinfo, siteid);
                     siteinfo.clear();
                     siteinfo.loadSettings(site.devices());
