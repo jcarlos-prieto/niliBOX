@@ -21,7 +21,7 @@ string(TIMESTAMP DAY "%d")
 
 project(
     niliBOX
-    VERSION 1.2.0
+    VERSION 1.2.1
     DESCRIPTION ${YEAR}.${MONTH}.${DAY}
 )
 
