@@ -10,6 +10,12 @@
     Fixed blocking of remote config when set to Local
     Fixed hiding Allowed button in device config
     Fixed physical serial ports not detected
+    Fixed version number on Driver Test module
+
+    Known bugs:  Occasional core dumps when finishing the application on Linux. No impact
+                 Several RSP1A devices connected through a USB hub may fail on Windows and Android
+                 Android stops audio when app is minimized
+                 macOS 26.0 not supported due to several crashes
 
 1.2.0 - 2025.08.20
     Upgraded Qt framework to 6.7.3 (6.8.3 for Android)

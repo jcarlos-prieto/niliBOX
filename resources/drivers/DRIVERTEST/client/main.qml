@@ -397,7 +397,7 @@ Item {
         b_send("init");
         b_send("increment");
 
-        version.text = box.HTTP_post(b_param("system.protocol") + b_param("system.masterserver") + b_param("system.masterserverport"), "command=getnotice");
+        version.text = box.HTTP_post(b_param("system.protocol") + b_param("system.masterserver") + b_param("system.masterserverport"), "command=getnotice").split('\n')[0];
         
         refreshDevices();
     }
