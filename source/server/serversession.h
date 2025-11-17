@@ -57,6 +57,7 @@ private:
     void                 receivebin(const QByteArray &data);
     QByteArray           wrapQml(const QByteArray &data) const;
 
+    QString              m_app;
     QString              m_appname;
     int                  m_appwatchdog;
     int                  m_appwatchdog2;

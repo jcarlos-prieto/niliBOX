@@ -318,8 +318,6 @@ void Server::serverSessionClosed(ServerSession *serversession)
         return;
     }
 
-    if (G_VERBOSE) qInfo() << qPrintable("SERVER: Closing server session " + sessionid);
-
     Message message(Message::C_CLOSESESSION);
     message.setSequence(actsession.sequence);
     message.setSiteID(serversession->siteID());

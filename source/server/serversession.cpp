@@ -41,6 +41,8 @@ ServerSession::ServerSession(const QString &siteid, const QString &deviceid, QOb
 
 ServerSession::~ServerSession()
 {
+    qInfo() << qPrintable("SERVERSESSION: Unloading " + m_app);
+
     if (m_timer)
         m_timer->deleteLater();
 
@@ -147,6 +149,7 @@ void ServerSession::messageIn(const Message &message)
                 if (driver.isEmpty()) {
                     if (G_VERBOSE) qInfo() << qPrintable("SERVERSESSION: Error retrieving information for the device.");
                 } else {
+                    m_app = settings.get(m_deviceid + ".driver");
                     m_appname = G_LOCALSETTINGS.get("site.name") + " :: " + settings.get(m_deviceid + ".name");
                     Message lmessage(message);
                     lmessage.setMessage(Message::C_GETDRIVERSERVER, driver);
