@@ -1168,17 +1168,8 @@ QList<QString> Box::serialPort_list()
 
     for (QSerialPortInfo &device : QSerialPortInfo::availablePorts()) {
         portname = device.portName();
-        if (portname.contains("ttyS")) {
-            if (!serialPort_isOpen(portname)) {
-                devid = serialPort_open(portname, "9600,N,8,1,NO");
-                if (devid < 0)
-                    continue;
-                else
-                    serialPort_close(devid);
-            }
-        }
-
-        list << device.portName();
+        if (!portname.contains("ttyS"))
+            list << portname;
     }
 
 #elif defined OS_ANDROID
