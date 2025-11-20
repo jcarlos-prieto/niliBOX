@@ -1164,7 +1164,6 @@ QList<QString> Box::serialPort_list()
     QList<QString> list;
 #if defined SERIAL
     QString portname;
-    int devid;
 
     for (QSerialPortInfo &device : QSerialPortInfo::availablePorts()) {
         portname = device.portName();
