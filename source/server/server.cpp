@@ -318,6 +318,8 @@ void Server::serverSessionClosed(ServerSession *serversession)
         return;
     }
 
+    qInfo() << qPrintable("SERVER: Closing server session " + sessionid);
+
     Message message(Message::C_CLOSESESSION);
     message.setSequence(actsession.sequence);
     message.setSiteID(serversession->siteID());
@@ -326,13 +328,13 @@ void Server::serverSessionClosed(ServerSession *serversession)
     bool locked = actsession.locked;
     m_sessions.remove(sessionid);
 
+    if (locked)
+        heartbeat1();
+
     QThread *thread = serversession->thread();
     connect(serversession, &ServerSession::destroyed, thread, &QThread::quit);
     connect(thread, &QThread::finished, thread, &QThread::deleteLater);
     serversession->deleteLater();
-
-    if (locked)
-        heartbeat1();
 }
 
 
@@ -340,19 +342,29 @@ void Server::serverSessionError(ServerSession *serversession)
 {
     QString sessionid = serversession->sessionID();
 
-    ActiveSession asession = m_sessions.value(sessionid);
+    ActiveSession actsession = m_sessions.value(sessionid);
 
-    if (asession.isNull())
+    if (actsession.isNull()) {
+        if (G_VERBOSE) qInfo() << qPrintable("SERVER: Could not close the server session " + sessionid);
         return;
+    }
 
     qInfo() << qPrintable("SERVER: Error opening server session " + sessionid);
 
     Message message(Message::C_OPENSESSION, QByteArray("ERRORSERVER"));
-    message.setSequence(asession.sequence);
+    message.setSequence(actsession.sequence);
     message.setSiteID(serversession->siteID());
-    Address address(asession.address);
+    Address address(actsession.address);
     m_socket->send(message);
+    bool locked = actsession.locked;
     m_sessions.remove(sessionid);
+
+    if (locked)
+        heartbeat1();
+
+    QThread *thread = serversession->thread();
+    connect(serversession, &ServerSession::destroyed, thread, &QThread::quit);
+    connect(thread, &QThread::finished, thread, &QThread::deleteLater);
     serversession->deleteLater();
 }
 
@@ -586,13 +598,13 @@ void Server::socketMessageReceived(const Message &message, const Address &addres
 
         if (G_VERBOSE) qInfo() << qPrintable("SERVER: Opening server session " + serversession->sessionID());
 
-        ActiveSession asession;
-        asession.address = address;
-        asession.serversession = serversession;
-        asession.sequence = lmessage.sequence();
-        asession.locked = (driverconfig.get("multiuser") != "true");
+        ActiveSession actsession;
+        actsession.address = address;
+        actsession.serversession = serversession;
+        actsession.sequence = lmessage.sequence();
+        actsession.locked = (driverconfig.get("multiuser") != "true");
 
-        m_sessions.insert(serversession->sessionID(), asession);
+        m_sessions.insert(serversession->sessionID(), actsession);
 
         connect(serversession, &ServerSession::started, this, &Server::serverSessionInstalled);
         connect(serversession, &ServerSession::error, this, &Server::serverSessionError);
@@ -602,7 +614,7 @@ void Server::socketMessageReceived(const Message &message, const Address &addres
 
         serversession->start();
 
-        if (asession.locked)
+        if (actsession.locked)
             heartbeat1();
 
         return;
