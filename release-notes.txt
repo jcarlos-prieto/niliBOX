@@ -11,6 +11,7 @@
     Fixed hiding Allowed button in device config
     Fixed physical serial ports not detected
     Fixed version number on Driver Test module
+    Fixed core dump on Ubuntu Linux
 
     Known bugs:  Several RSP1A devices connected through a USB hub may fail on Windows and Android
                  Android stops audio when app is minimized
