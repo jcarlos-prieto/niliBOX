@@ -17,14 +17,14 @@
 
 #if defined NOGUI
 
+#include "common/box.h"
 #include "common/common.h"
 #include "server/server.h"
 #include <QThread>
 #include <csignal>
 
 
-QCoreApplication *app;
-QEventLoop       *loop;
+QCoreApplication *papp;
 Server           *server;
 QThread          *serverthread;
 
@@ -33,54 +33,58 @@ void signalHandler(int signal)
 {
     if (signal == SIGINT) {
         printf(" SIGINT\n");
-        QMetaObject::invokeMethod(app, "quit", Qt::QueuedConnection);
+        QMetaObject::invokeMethod(papp, &QCoreApplication::quit, Qt::QueuedConnection);
     }
 }
 
 
 int main(int argc, char *argv[])
 {
-    app = new QCoreApplication(argc, argv);
-    loop = new QEventLoop();
+    QCoreApplication app(argc, argv);
+
+    papp = &app;
 
     if (!init())
         return 0;
+
+    QEventLoop loop;
 
     serverthread = new QThread();
     server = new Server();
     server->moveToThread(serverthread);
     QObject::connect(serverthread, &QThread::started, server, &Server::start);
-    QObject::connect(server, &Server::started, loop, &QEventLoop::quit);
+    QObject::connect(server, &Server::started, &loop, &QEventLoop::quit);
     serverthread->start();
-    loop->exec();
+    loop.exec();
 
     if (!server->running()) {
         QObject::connect(server, &Server::destroyed, serverthread, &QThread::quit);
         QObject::connect(serverthread, &QThread::finished, serverthread, &QThread::deleteLater);
-        QObject::connect(serverthread, &QThread::destroyed, loop, &QEventLoop::quit);
+        QObject::connect(serverthread, &QThread::destroyed, &loop, &QEventLoop::quit);
         server->deleteLater();
-        loop->exec();
-        delete loop;
-        delete app;
+        loop.exec();
         return 1;
     }
 
+    G_BOX = new Box();
+
     std::signal(SIGINT, signalHandler);
 
-    QObject::connect(app, &QCoreApplication::aboutToQuit, app, [&]() {
+    QObject::connect(&app, &QCoreApplication::aboutToQuit, &app, [&]() {
+        G_BOX->deleteLater();
         QObject::connect(server, &Server::destroyed, serverthread, &QThread::quit);
         QObject::connect(serverthread, &QThread::finished, serverthread, &QThread::deleteLater);
-        QObject::connect(serverthread, &QThread::destroyed, loop, &QEventLoop::quit);
+        QObject::connect(serverthread, &QThread::destroyed, &loop, &QEventLoop::quit);
         server->deleteLater();
-        loop->exec();
-        delete loop;
+        loop.exec();
     });
 
-    return app->exec();
+    return app.exec();
 }
 
 #else
 
+#include "common/box.h"
 #include "client/client.h"
 #include "common/common.h"
 #include "server/server.h"
@@ -89,10 +93,9 @@ int main(int argc, char *argv[])
 #include <csignal>
 
 
-QApplication     *app;
+QApplication     *papp;
 Client           *client;
 QThread          *clientthread;
-QEventLoop       *loop;
 Server           *server;
 QThread          *serverthread;
 UI               *ui;
@@ -102,7 +105,7 @@ void signalHandler(int signal)
 {
     if (signal == SIGINT) {
         printf(" SIGINT\n");
-        QMetaObject::invokeMethod(app, "quit", Qt::QueuedConnection);
+        QMetaObject::invokeMethod(papp, &QApplication::quit, Qt::QueuedConnection);
     }
 }
 
@@ -112,68 +115,68 @@ int main(int argc, char *argv[])
     if (!isGraphicsAvailable()) {
         qInfo() << qPrintable("\nERROR: No graphic environment available");
         qInfo() << qPrintable("Use the headless version instead\n");
-        return 0;
+        return 1;
     }
 
-    app = new QApplication(argc, argv);
-    loop = new QEventLoop();
+    QApplication app(argc, argv);
+
+    papp = &app;
 
     if (!init())
         return 0;
 
-    ui = new UI();
+    QEventLoop loop;
 
     serverthread = new QThread();
     server = new Server();
     server->moveToThread(serverthread);
     QObject::connect(serverthread, &QThread::started, server, &Server::start);
-    QObject::connect(server, &Server::started, loop, &QEventLoop::quit);
+    QObject::connect(server, &Server::started, &loop, &QEventLoop::quit);
     serverthread->start();
-    loop->exec();
+    loop.exec();
 
     if (!server->running()) {
         QObject::connect(server, &Server::destroyed, serverthread, &QThread::quit);
         QObject::connect(serverthread, &QThread::finished, serverthread, &QThread::deleteLater);
-        QObject::connect(serverthread, &QThread::destroyed, loop, &QEventLoop::quit);
+        QObject::connect(serverthread, &QThread::destroyed, &loop, &QEventLoop::quit);
         server->deleteLater();
-        loop->exec();
-        delete ui;
-        delete loop;
-        delete app;
+        loop.exec();
         return 1;
     }
+
+    G_BOX = new Box();
 
     clientthread = new QThread();
     client = new Client();
     client->moveToThread(clientthread);
     QObject::connect(clientthread, &QThread::started, client, &Client::start);
-    QObject::connect(client, &Client::started, loop, &QEventLoop::quit);
+    QObject::connect(client, &Client::started, &loop, &QEventLoop::quit);
     clientthread->start();
-    loop->exec();
+    loop.exec();
+
+    ui = new UI();
+    ui->start();
 
     QObject::connect(ui, &UI::messageOut, client, &Client::messageIn);
     QObject::connect(client, &Client::messageOut, ui, &UI::messageIn);
 
-    ui->start();
-
     std::signal(SIGINT, signalHandler);
 
-
 #if !defined OS_ANDROID && !defined OS_IOS
-    QObject::connect(app, &QCoreApplication::aboutToQuit, app, [&]() {
+    QObject::connect(&app, &QCoreApplication::aboutToQuit, &app, [&]() {
+        G_BOX->deleteLater();
         QObject::connect(client, &Client::destroyed, clientthread, &QThread::quit);
         QObject::connect(clientthread, &QThread::finished, clientthread, &QThread::deleteLater);
         QObject::connect(clientthread, &QThread::destroyed, server, &Server::deleteLater);
         QObject::connect(server, &Server::destroyed, serverthread, &QThread::quit);
         QObject::connect(serverthread, &QThread::finished, serverthread, &QThread::deleteLater);
-        QObject::connect(serverthread, &QThread::destroyed, loop, &QEventLoop::quit);
+        QObject::connect(serverthread, &QThread::destroyed, &loop, &QEventLoop::quit);
         client->deleteLater();
-        loop->exec();
-        delete loop;
+        loop.exec();
     });
 #endif
 
-    return app->exec();
+    return app.exec();
 }
 
 #endif

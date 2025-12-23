@@ -19,7 +19,7 @@
 set QTDIR=C:\Qt\6.7.3\mingw_64
 
 :: Path to the generated release
-set RLDIR=D:\DEVELOPMENT\niliBOX\niliBOX\build\Desktop-Release
+set RLDIR=C:\DEVELOPMENT\niliBOX\niliBOX\build\Desktop-Release
 
 :: Path to zip utility
 set ZIP="C:\Program Files\7-Zip\7z.exe"

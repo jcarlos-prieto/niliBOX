@@ -81,6 +81,9 @@ Box::Box(QObject *parent, bool remote) : QObject(parent)
 
 Box::~Box()
 {
+    if (m_hotplugworker)
+        m_hotplugworker->stop();
+
     QList<int> keys;
 
     keys = G_BOX->audioDevices()->keys();
@@ -5526,7 +5529,6 @@ void HotPlugWorker::worker()
     }
 
     disconnect(this, &HotPlugWorker::m_stop, &loop, &QEventLoop::quit);
-
     emit stopped();
 }
 

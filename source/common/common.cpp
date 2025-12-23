@@ -344,8 +344,6 @@ bool init()
 
     QThreadPool::globalInstance()->setMaxThreadCount(256);
 
-    G_BOX = new Box();
-
     return true;
 }
 
