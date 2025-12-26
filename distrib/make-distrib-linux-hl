@@ -79,12 +79,11 @@ walkchrpath() {
 }
 walkchrpath "niliBOX" ""
 
-cp -r $PJDIR/platforms/linux/* niliBOX
-
 chmod 755 niliBOX/niliBOX \
-      niliBOX/lrelease \
-      niliBOX/rcc
-        
+          niliBOX/lrelease \
+          niliBOX/rcc \
+		  niliBOX/init.sh
+
 tar -czf niliBOX-linux-hl.tar.gz niliBOX
 
 cd - > /dev/null
