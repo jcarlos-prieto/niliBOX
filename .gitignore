@@ -2,6 +2,8 @@ CMakeLists.txt.user
 /build
 /distrib/_downloads
 /distrib/android
+/distrib/armlinux
+/distrib/armlinux-hl
 /distrib/ios
 /distrib/linux-hl
 /distrib/linux
