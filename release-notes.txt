@@ -17,6 +17,7 @@
     Known bugs:  Several RSP1A devices connected through a USB hub may fail on Windows and Android
                  Android stops audio when app is minimized
                  macOS 26.0 not supported yet
+                 Webcam may not be recognized on Linux headless, depending on the computer hardware
 
 1.2.0 - 2025.08.20
     Upgraded Qt framework to 6.7.3 (6.8.3 for Android)
