@@ -37,6 +37,43 @@ echo "    echo" >> "$REM"
 echo "    exit 1" >> "$REM"
 echo "fi" >> "$REM"
 
+RESTART=false
+if ! command -v pipewire >/dev/null 2>&1; then
+    echo "PipeWire Framework is not installed."
+    read -rp "Do you want to install PipeWire? [Y/n] " answer
+	answer=${answer:-Y}
+    case "$answer" in
+        [yY]|[yY][eE][sS])
+			echo
+		    if command -v apt >/dev/null 2>&1; then
+                sudo apt update
+                sudo apt install -y pipewire
+                echo "PipeWire installed."
+                RESTART=true
+            elif command -v dnf >/dev/null 2>&1; then
+                sudo dnf install -y pipewire
+                echo "PipeWire installed."
+                RESTART=true
+            elif command -v pacman >/dev/null 2>&1; then
+                sudo pacman -Sy --noconfirm pipewire
+                echo "PipeWire installed."
+                RESTART=true
+            elif command -v zypper >/dev/null 2>&1; then
+                sudo zypper install -y pipewire
+                echo "PipeWire installed."
+                RESTART=true
+            else
+                echo "Unsupported distribution. Please install PipeWire manually."
+            fi
+			echo
+		;;
+        *)
+            echo "Skipping PipeWire installation. Sound subsystem may not work."
+			echo
+        ;;
+    esac
+fi
+
 echo "Finding missing libraries..."
 while true; do
     IFS=$'\n'
@@ -76,7 +113,7 @@ else
     for MISS in $LIBS; do
         echo "  $MISS"
     done
-    echo "It is recommened to install them manually"
+    echo "It is recommended to install them manually"
 fi
 echo "rm -r /home/$SUDO_USER/.config/nilibox" >> "$REM"
 echo "rm -r \"$DIR\"" >> "$REM"
@@ -245,7 +282,12 @@ chown $SUDO_USER:$(id -gn "$SUDO_USER") /home/$SUDO_USER/.config/nilibox/niliBOX
 chown $SUDO_USER:$(id -gn "$SUDO_USER") /home/$SUDO_USER/.config/nilibox/niliBOX/init
 
 echo
-echo PLEASE LOG OFF AND LOG ON TO ACTIVATE THE CHANGES
+if $RESTART; then
+    echo PLEASE RESTART TO ACTIVATE THE CHANGES
+else
+    echo PLEASE LOG OFF AND LOG ON TO ACTIVATE THE CHANGES
+fi
+
 echo
 echo To start the application: nilibox
 if [ -f "$DIR/libQt6QuickWidgets.so.6" ]; then
