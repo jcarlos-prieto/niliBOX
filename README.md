@@ -132,4 +132,4 @@ This software contains embedded the following third party libraries:
 
 [Privacy policy](https://nilibox.com/privacy)
 
-[Release notes](./release-notes.txt)
+[Release notes](https://raw.githubusercontent.com/jcarlos-prieto/niliBOX/main/release-notes.txt)
