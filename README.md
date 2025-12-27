@@ -15,6 +15,7 @@ In this repository you can find the source code of the entire application.
 - [Compilation](#compilation)
   - [Windows](#windows--windows-distribution)
   - [Linux](#linux--linux-linux-headless-and-android-distributions)
+  - [ARM Linux](#arm-linux--arm-linux-and-arm-linux-headless-distributions)
   - [macOS](#macos--macos-and-ios-distributions)
   - [Resources](#resources)
 - [Distribution](#distribution)
@@ -26,6 +27,7 @@ In this repository you can find the source code of the entire application.
 ***niliBOX*** can be compiled for the following platforms:
 - Windows (Windows 10 1809 or higher)
 - Linux (in general, any distribution using glibc 2.28 or higher)
+- ARM Linux (in general, any modern 64-bit distribution based on Debian)
 - macOS (version 12 or higher)
 - Android (version 9, API 28 or higher)
 - iOS (version 16 or higher)
@@ -68,6 +70,11 @@ Depending on the operating system, different options can be chosen. This is a de
 - To generate the Linux headless version, add the variable `-DNOGUI:BOOL=TRUE` in the CMake Configuration option in Qt Creator.
 - To generate the Android version, make sure that you sign your package with an application signature.
 
+### ARM Linux => ARM Linux and ARM Linux headless distributions
+- Raspberry Pi OS (64-bit) on a Raspberry Pi 5 4GB
+- Qt Framework for Desktop using the Qt Maintenance tool (plus the additional libraries mentioned above).
+- To generate the Linux headless version, add the variable `-DNOGUI:BOOL=TRUE` in the CMake Configuration option in Qt Creator.
+
 ### macOS => macOS and iOS distributions
 - macOS Ventura 13.7
 - Xcode 15.2
@@ -102,6 +109,8 @@ After the core application is compiled and an executable has been generated, you
 - `distrib/make-distrib-windows.bat` to generate a Windows distribution from Windows
 - `distrib/make-distrib-linux` to generate a Linux distribution from Linux
 - `distrib/make-distrib-linux-hl` to generate a Linux headless (text mode) distribution from Linux
+- `distrib/make-distrib-armlinux` to generate an ARM Linux distribution from ARM Linux
+- `distrib/make-distrib-armlinux-hl` to generate an ARM Linux headless (text mode) distribution from ARM Linux
 - `distrib/make-distrib-android` to generate an Android distribution from Linux
 - `distrib/make-distrib-macos` to generate a macOS distribution from macOS
 - `distrib/make-distrib-ios` to generate an iOS distribution from macOS
