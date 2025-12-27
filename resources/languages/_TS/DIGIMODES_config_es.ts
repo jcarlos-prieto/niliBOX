@@ -5,15 +5,15 @@
     <name>main</name>
     <message>
         <source>AMBE3000 device:</source>
-        <translation>Dispositivo AMBE3000:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Software emulation</source>
-        <translation>Emulación de software</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Testing purposes only</source>
-        <translation>Solo para fines de prueba</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

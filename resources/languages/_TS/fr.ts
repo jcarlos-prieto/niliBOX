@@ -71,53 +71,6 @@
     </message>
 </context>
 <context>
-    <name>DeviceConfigPanel</name>
-    <message>
-        <source>Remove device</source>
-        <translation>Supprimer l&apos;appareil</translation>
-    </message>
-    <message>
-        <source>ID:</source>
-        <translation>ID:</translation>
-    </message>
-    <message>
-        <source>Name:</source>
-        <translation>Nom:</translation>
-    </message>
-    <message>
-        <source>Description:</source>
-        <translation>Description:</translation>
-    </message>
-    <message>
-        <source>Driver:</source>
-        <translation>Pilote:</translation>
-    </message>
-    <message>
-        <source>Mode:</source>
-        <translation>Mode:</translation>
-    </message>
-    <message>
-        <source>0 - Local</source>
-        <translation>0 - Local</translation>
-    </message>
-    <message>
-        <source>1 - Near</source>
-        <translation>1 - Proche</translation>
-    </message>
-    <message>
-        <source>2 - Remote</source>
-        <translation>2 - À distance</translation>
-    </message>
-    <message>
-        <source>3 - Public</source>
-        <translation>3 - Public</translation>
-    </message>
-    <message>
-        <source>Allowed</source>
-        <translation>Autorisé</translation>
-    </message>
-</context>
-<context>
     <name>DevicesPanel</name>
     <message>
         <source>Info</source>

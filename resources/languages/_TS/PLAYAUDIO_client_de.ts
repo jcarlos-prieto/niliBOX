@@ -5,86 +5,86 @@
     <name>SetAudioSettings</name>
     <message>
         <source>FREQ.</source>
-        <translation>FREQ.</translation>
-    </message>
-    <message>
-        <source>BITS</source>
-        <translation>BITS</translation>
-    </message>
-    <message>
-        <source>COMP.</source>
-        <translation>COMP.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>GAIN</source>
-        <translation type="unfinished">GAIN</translation>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>BITS</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>COMP.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>main</name>
     <message>
         <source>Start / Stop</source>
-        <translation>Start / Stopp</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Audio settings</source>
-        <translation>Audioeinstellungen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Time graph</source>
-        <translation>Zeitgraph</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Frequency graph</source>
-        <translation>Frequenzgraph</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>FILES</source>
-        <translation>DATEIEN</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>GAIN</source>
-        <translation>GAIN</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>IN</source>
-        <translation>EINGANG</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>OUT</source>
-        <translation>AUSGANG</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>TIME</source>
-        <translation>ZEIT</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>FREQUENCY</source>
-        <translation>FREQUENZ</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>FILTER</source>
-        <translation>FILTER</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>PASS</source>
-        <translation>PASS.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>REJECT</source>
-        <translation>ABWEIS.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>FORMAT</source>
-        <translation>FORMAT</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Unknown</source>
-        <translation>Unbekannt</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Using</source>
-        <translation>Verwenden</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

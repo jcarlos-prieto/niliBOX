@@ -5,74 +5,74 @@
     <name>SetAudioSettings</name>
     <message>
         <source>FREQ.</source>
-        <translation>FRÉQ.</translation>
-    </message>
-    <message>
-        <source>BITS</source>
-        <translation>BITS</translation>
-    </message>
-    <message>
-        <source>COMP.</source>
-        <translation>COMP.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>GAIN</source>
-        <translation type="unfinished">GAIN</translation>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>BITS</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>COMP.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>main</name>
     <message>
         <source>Version:</source>
-        <translation>Version:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Connection:</source>
-        <translation>Connexion:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>COUNT</source>
-        <translation>COMPTER</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Audio Settings</source>
-        <translation>Paramètres Audio</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Frequency multiplier</source>
-        <translation>Multiplicateur de Fréquence</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Frequency</source>
-        <translation>Fréquence</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Sine</source>
-        <translation>Sinus</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Square</source>
-        <translation>Carré</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Triangle</source>
-        <translation>Triangle</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Noise</source>
-        <translation>Bruit</translation>
-    </message>
-    <message>
-        <source>Volume</source>
-        <translation>Volume</translation>
-    </message>
-    <message>
-        <source>Scanning hardware...</source>
-        <translation>Scannant le matériel...</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Start / Stop</source>
-        <translation>Démarrer / Arrêter</translation>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Volume</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Scanning hardware...</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

@@ -71,53 +71,6 @@
     </message>
 </context>
 <context>
-    <name>DeviceConfigPanel</name>
-    <message>
-        <source>Remove device</source>
-        <translation>Apparaat verwijderen</translation>
-    </message>
-    <message>
-        <source>ID:</source>
-        <translation>ID:</translation>
-    </message>
-    <message>
-        <source>Name:</source>
-        <translation>Naam:</translation>
-    </message>
-    <message>
-        <source>Description:</source>
-        <translation>Beschrijving:</translation>
-    </message>
-    <message>
-        <source>Driver:</source>
-        <translation>Stuurprogramma:</translation>
-    </message>
-    <message>
-        <source>Mode:</source>
-        <translation>Modus:</translation>
-    </message>
-    <message>
-        <source>0 - Local</source>
-        <translation>0 - Lokaal</translation>
-    </message>
-    <message>
-        <source>1 - Near</source>
-        <translation>1 - Dichtbij</translation>
-    </message>
-    <message>
-        <source>2 - Remote</source>
-        <translation>2 - Afstand</translation>
-    </message>
-    <message>
-        <source>3 - Public</source>
-        <translation>3 - Publiek</translation>
-    </message>
-    <message>
-        <source>Allowed</source>
-        <translation>Toegestaan</translation>
-    </message>
-</context>
-<context>
     <name>DevicesPanel</name>
     <message>
         <source>Info</source>

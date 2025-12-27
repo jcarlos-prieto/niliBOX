@@ -5,334 +5,334 @@
     <name>SetAudioSettings</name>
     <message>
         <source>FREQ.</source>
-        <translation>FRÉQ.</translation>
-    </message>
-    <message>
-        <source>BITS</source>
-        <translation>BITS</translation>
-    </message>
-    <message>
-        <source>COMP.</source>
-        <translation>COMP.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>GAIN</source>
-        <translation type="unfinished">GAIN</translation>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>BITS</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>COMP.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>main</name>
     <message>
         <source>Power on/off</source>
-        <translation>Allumer / Éteindre</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Audio settings</source>
-        <translation>Paramètres audio</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Bandscope</source>
-        <translation>Spectre de bande</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Band Spectrogram</source>
-        <translation>Spectrogramme de bande</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Time graph</source>
-        <translation>Graphique temporel</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Frequency graph</source>
-        <translation>Graphique de fréquence</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Spectrogram</source>
-        <translation>Spectrogramme</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Tools</source>
-        <translation>Outils</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>BUSY</source>
-        <translation>OCCUPÉ</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>AF GAIN</source>
-        <translation>GAIN AF</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Mute</source>
-        <translation>Muet</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>SQL</source>
-        <translation>SQL</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Squelch</source>
-        <translation>Silencieux</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Monitor</source>
-        <translation>Moniteur</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>IF SHIFT</source>
-        <translation>DÉCALAGE IF</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Center</source>
-        <translation>Centre</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>STEP</source>
-        <translation>PAS</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Configure steps</source>
-        <translation>Configurer les pas</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>BANK</source>
-        <translation>BANQUE</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Set bank</source>
-        <translation>Définir la banque</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>MEM</source>
-        <translation>MÉM</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Set memory</source>
-        <translation>Définir la mémoire</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>ERASE&lt;br&gt;MEMORIES</source>
-        <translation>EFFACER&lt;br&gt;MÉMOIRES</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>AM</source>
-        <translation>AM</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>LSB</source>
-        <translation>LSB</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>USB</source>
-        <translation>USB</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>CW</source>
-        <translation>CW</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>FM</source>
-        <translation>FM</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>WFM</source>
-        <translation>WFM</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>2.8 kHz</source>
-        <translation>2,8 kHz</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>6 kHz</source>
-        <translation>6 kHz</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>15 kHz</source>
-        <translation>15 kHz</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>50 kHz</source>
-        <translation>50 kHz</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>230 kHz</source>
-        <translation>230 kHz</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>VSC</source>
-        <translation>VSC</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>AFC</source>
-        <translation>AFC</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>NB</source>
-        <translation>NB</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>ATT</source>
-        <translation>ATT</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>AGC</source>
-        <translation>AGC</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>BANDSCOPE</source>
-        <translation>SPECTRE DE BANDE</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>SPAN</source>
-        <translation>ÉTENDUE</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>BAND SPECTROGRAM</source>
-        <translation>SPECTROG. DE BANDE</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>DELAY</source>
-        <translation>DÉLAI</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>TIME</source>
-        <translation>TEMPS</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>FREQUENCY</source>
-        <translation>FRÉQUENCE</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>FILTER</source>
-        <translation>FILTRE</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>PASS</source>
-        <translation>PASS</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>REJECT</source>
-        <translation>COUPE</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>SPECTROGRAM</source>
-        <translation>SPECTROGRAMME</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>TOOLS</source>
-        <translation>OUTILS</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>DSP</source>
-        <translation>DSP</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Digital signal processor</source>
-        <translation>Processeur de signal numérique</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>ANF</source>
-        <translation>ANF</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Adaptive notch filter</source>
-        <translation>Filtre en créneau adaptatif</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>NR</source>
-        <translation>NR</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Noise reduction</source>
-        <translation>Réduction de bruit</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>TSQL</source>
-        <translation>TSQL</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Tone SQL</source>
-        <translation>SQL de tonalité</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>TSQL frequency</source>
-        <translation>Fréquence TSQL</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>DTCS</source>
-        <translation>DTCS</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Digital Tone Coded Squelch</source>
-        <translation>Silencieux codé en tonalité numérique</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>DTCS code</source>
-        <translation>Code DTCS</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>REV. ACTION</source>
-        <translation>ACTION REV.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>REV. POLARITY</source>
-        <translation>POLARITÉ REV.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>SCAN</source>
-        <translation>BALAYER</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Start / Stop</source>
-        <translation>Démarrer / Arrêter</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Pause</source>
-        <translation>Pause</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>FREQ.</source>
-        <translation>FRÉQ.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>EDGE</source>
-        <translation>BORD</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>LEVEL</source>
-        <translation>NIVEAU</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>FROM</source>
-        <translation>DE</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>TO</source>
-        <translation>À</translation>
-    </message>
-    <message>
-        <source>FILES</source>
-        <translation>FICHIERS</translation>
-    </message>
-    <message>
-        <source>Bank</source>
-        <translation>Banque</translation>
-    </message>
-    <message>
-        <source>Record / Stop</source>
-        <translation>Enregistrer / Arrêter</translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation>Enregistrer</translation>
-    </message>
-    <message>
-        <source>Delete</source>
-        <translation>Supprimer</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>RECORD</source>
-        <translation>ENREGISTRER</translation>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Record / Stop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>FILES</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bank</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

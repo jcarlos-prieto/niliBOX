@@ -4,36 +4,36 @@
 <context>
     <name>main</name>
     <message>
-        <source>MIRROR</source>
-        <translation>MIROIR</translation>
-    </message>
-    <message>
         <source>Start / Stop</source>
-        <translation>Démarrer / Arrêter</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Take picture</source>
-        <translation>Prendre photo</translation>
-    </message>
-    <message>
-        <source>FILES</source>
-        <translation>FICHIERS</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>QUALITY</source>
-        <translation>QUALITÉ</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>RATE</source>
-        <translation>TAUX</translation>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>MIRROR</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>FILES</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Save</source>
-        <translation>Enregistrer</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation>Supprimer</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

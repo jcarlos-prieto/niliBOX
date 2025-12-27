@@ -5,174 +5,174 @@
     <name>SetAudioSettings</name>
     <message>
         <source>FREQ.</source>
-        <translation>FREQ.</translation>
-    </message>
-    <message>
-        <source>BITS</source>
-        <translation>BITS</translation>
-    </message>
-    <message>
-        <source>COMP.</source>
-        <translation>COMP.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>GAIN</source>
-        <translation type="unfinished">VERST.</translation>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>BITS</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>COMP.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>main</name>
     <message>
+        <source>Start / Stop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Settings</source>
-        <translation>Instellingen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Time graph</source>
-        <translation>Tijddiagram</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Frequency graph</source>
-        <translation>Frequentiediagram</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Text</source>
-        <translation>Tekst</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Tools</source>
-        <translation>Hulpmiddelen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>GAIN</source>
-        <translation>VERST.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>INPUT</source>
-        <translation>INGANG</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>OUTPUT</source>
-        <translation>UITGANG</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Audio settings</source>
-        <translation>Audio-instellingen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Mode:</source>
-        <translation>Modus:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Matched filter:</source>
-        <translation>Passend filter:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Bauds:</source>
-        <translation>Bauds:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>High-pass filter:</source>
-        <translation>Hoogdoorlaatfilter:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>TDMA slot:</source>
-        <translation>TDMA-slot:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Symbol PLL lock:</source>
-        <translation>Symbool PLL:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>DMR key:</source>
-        <translation>DMR-sleutel:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Up</source>
-        <translation>Omhoog</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Down</source>
-        <translation>Omlaag</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Speech quality:</source>
-        <translation>Spraakkwaliteit:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>TIME</source>
-        <translation>TIJD</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>FREQUENCY</source>
-        <translation>FREQUENTIE</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>FILTER</source>
-        <translation>FILTER</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>PASS</source>
-        <translation>DOOR.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>REJECT</source>
-        <translation>AFWIJS</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Copy to clipboard</source>
-        <translation>Kopiëren naar klembord</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Clear</source>
-        <translation>Wissen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>TOOLS</source>
-        <translation>HULPMIDDELEN</translation>
-    </message>
-    <message>
-        <source>Pause</source>
-        <translation>Pauze</translation>
-    </message>
-    <message>
-        <source>SQL</source>
-        <translation>SQL</translation>
-    </message>
-    <message>
-        <source>Squelch</source>
-        <translation>Squelch</translation>
-    </message>
-    <message>
-        <source>FILES</source>
-        <translation>BESTANDEN</translation>
-    </message>
-    <message>
-        <source>Software emulation - Testing purposes only</source>
-        <translation>Software-emulatie - Alleen voor testdoeleinden</translation>
-    </message>
-    <message>
-        <source>Device: </source>
-        <translation>Apparaat: </translation>
-    </message>
-    <message>
-        <source>Start / Stop</source>
-        <translation>Starten / Stoppen</translation>
-    </message>
-    <message>
-        <source>Record / Stop</source>
-        <translation>Opnemen / Stoppen</translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation>Opslaan</translation>
-    </message>
-    <message>
-        <source>Delete</source>
-        <translation>Verwijderen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>RECORD</source>
-        <translation>OPNEMEN</translation>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Record / Stop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pause</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>SQL</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Squelch</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>FILES</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Software emulation - Testing purposes only</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Device: </source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

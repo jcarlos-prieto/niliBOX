@@ -5,174 +5,174 @@
     <name>SetAudioSettings</name>
     <message>
         <source>FREQ.</source>
-        <translation>FREQ.</translation>
-    </message>
-    <message>
-        <source>BITS</source>
-        <translation>BITS</translation>
-    </message>
-    <message>
-        <source>COMP.</source>
-        <translation>COMP.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>GAIN</source>
-        <translation type="unfinished">GAIN</translation>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>BITS</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>COMP.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>main</name>
     <message>
         <source>Start / Stop</source>
-        <translation>Start / Stopp</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation>Einstellungen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Time graph</source>
-        <translation>Zeitgraph</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Frequency graph</source>
-        <translation>Frequenzgraph</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Text</source>
-        <translation>Text</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Tools</source>
-        <translation>Werkzeuge</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>GAIN</source>
-        <translation>GAIN</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>INPUT</source>
-        <translation>EINGANG</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>OUTPUT</source>
-        <translation>AUSGANG</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Audio settings</source>
-        <translation>Audioeinstellungen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Mode:</source>
-        <translation>Modus:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Matched filter:</source>
-        <translation>Abgestimmter Filter:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Bauds:</source>
-        <translation>Baudraten:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>High-pass filter:</source>
-        <translation>Hochpassfilter:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>TDMA slot:</source>
-        <translation>TDMA-Slot:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Symbol PLL lock:</source>
-        <translation>Symbol-PLL-Sperre:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>DMR key:</source>
-        <translation>DMR-Schlüssel:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Up</source>
-        <translation>Hoch</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Down</source>
-        <translation>Runter</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Speech quality:</source>
-        <translation>Sprachqualität:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>TIME</source>
-        <translation>ZEIT</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>FREQUENCY</source>
-        <translation>FREQUENZ</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>FILTER</source>
-        <translation>FILTER</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>PASS</source>
-        <translation>PASS</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>REJECT</source>
-        <translation>ABWEIS.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Copy to clipboard</source>
-        <translation>In Zwischenablage kopieren</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Clear</source>
-        <translation>Löschen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>TOOLS</source>
-        <translation>WERKZEUGE</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>RECORD</source>
-        <translation>AUFNEHMEN</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Record / Stop</source>
-        <translation>Aufnehmen / Stoppen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Pause</source>
-        <translation>Pause</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>SQL</source>
-        <translation>SQL</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Squelch</source>
-        <translation>Squelch</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>FILES</source>
-        <translation>DATEIEN</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Save</source>
-        <translation>Speichern</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation>Löschen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Software emulation - Testing purposes only</source>
-        <translation>Software-Emulation - Nur zu Testzwecken</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Device: </source>
-        <translation>Gerät: </translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>
