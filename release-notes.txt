@@ -1,4 +1,5 @@
 1.2.1 - 2025.12.27
+    ARM Linux is now supported
     Fixed links to downloads, privacy and relink
     Fixed module autostart
     Pin button status saved between sessions
