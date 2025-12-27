@@ -76,8 +76,8 @@ Depending on the operating system, different options can be chosen. This is a de
 - To generate the Linux headless version, add the variable `-DNOGUI:BOOL=TRUE` in the CMake Configuration option in Qt Creator.
 
 ### macOS => macOS and iOS distributions
-- macOS Ventura 13.7
-- Xcode 15.2
+- macOS Sequoia 15.5
+- Xcode 16.4
 - Qt Framework for Desktop and iOS using the Qt Maintenance tool (plus the additional libraries mentioned above).
 
 ### Resources
