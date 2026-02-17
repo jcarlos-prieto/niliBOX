@@ -389,7 +389,7 @@ void messageOutput(QtMsgType type, const QMessageLogContext &, const QString &ms
     if (!G_LOGFILE.isOpen()) {
         QString filename = G_LOCALSETTINGS.localFilePath() + "/_Log_" + QDateTime::currentDateTime().toString("yyyyMMddhhmmss") + ".log";
         G_LOGFILE.setFileName(filename);
-        G_LOGFILE.open(QIODevice::WriteOnly | QIODevice::Text);
+        (void)G_LOGFILE.open(QIODevice::WriteOnly | QIODevice::Text);
 
         QDir *dir = new QDir(G_LOCALSETTINGS.localFilePath());
         bool cont = true;
@@ -410,7 +410,7 @@ void messageOutput(QtMsgType type, const QMessageLogContext &, const QString &ms
 
     if (!G_SERVERONLY)
         if (!G_CONSOLE.isOpen()) {
-            G_CONSOLE.open(stdout, QIODevice::WriteOnly | QIODevice::Text);
+            (void)G_CONSOLE.open(stdout, QIODevice::WriteOnly | QIODevice::Text);
             G_CONSOLE.write("\n");
         }
 

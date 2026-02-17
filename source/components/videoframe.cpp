@@ -81,7 +81,7 @@ QSGNode *VideoFrame::updatePaintNode(QSGNode *oldNode, UpdatePaintNodeData *)
     } else {
         image = QImage::fromData(m_data);
         if (m_mirror)
-            image = image.mirrored(false, true);
+            image = image.flipped(Qt::Vertical);
     }
 
     nodei->setTexture(window()->createTextureFromImage(image));

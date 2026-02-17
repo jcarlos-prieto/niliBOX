@@ -161,8 +161,8 @@ QByteArray Server::getDriverApp(const QString &drivername, const QString &app) c
     if (!QDir(driverapplocation).exists())
         driverapplocation = ":/" + drivername + "/" + app + ".rcc";
 
-    //** Compiles the resources if needed.
     if (!driverapplocation.isEmpty()) {
+        //** Compiles the resources if needed.
         if (!driverapplocation.endsWith(".rcc")) {
             compileRCC(driverapplocation);
             driverapplocation.append(".rcc");

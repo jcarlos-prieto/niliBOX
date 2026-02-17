@@ -21,7 +21,7 @@ string(TIMESTAMP DAY "%d")
 
 project(
     niliBOX
-    VERSION 1.2.1
+    VERSION 1.2.2
     DESCRIPTION ${YEAR}.${MONTH}.${DAY}
 )
 
@@ -30,7 +30,7 @@ set(CMAKE_AUTOMOC ON)
 
 if(CMAKE_SYSTEM_NAME STREQUAL "Darwin")
     set(CMAKE_OSX_ARCHITECTURES "x86_64;arm64")
-    set(CMAKE_OSX_DEPLOYMENT_TARGET "12.0")
+    set(CMAKE_OSX_DEPLOYMENT_TARGET "13.0")
 endif()
 
 find_package(QT NAMES Qt6 REQUIRED COMPONENTS Core QUIET)

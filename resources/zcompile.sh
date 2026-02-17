@@ -15,7 +15,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <https://www.gnu.org/licenses>.
 
-QTDIR="$HOME/Qt/6.7.3/gcc_64"
+QTDIR="$HOME/Qt/6.10.2/gcc_64"
 
 DRIVERS=(DIGIMODES DRIVERTEST ICOM_IC-PCR100 ICOM_IC-PCR1000 ICOM_IC-PCR1500 PLAYAUDIO RELAY REMOTEAUDIO RTL2832U-SDR SDRPLAY-RSP1A WEBCAM)
 LANGS=(en es fr nl it de)

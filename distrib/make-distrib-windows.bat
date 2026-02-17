@@ -16,7 +16,7 @@
 @echo off
 
 :: Path to the Qt location
-set QTDIR=C:\Qt\6.7.3\mingw_64
+set QTDIR=C:\Qt\6.10.2\mingw_64
 
 :: Path to the generated release
 set RLDIR=C:\DEVELOPMENT\niliBOX\niliBOX\build\Desktop-Release
