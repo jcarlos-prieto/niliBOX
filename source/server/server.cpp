@@ -328,13 +328,13 @@ void Server::serverSessionClosed(ServerSession *serversession)
     bool locked = actsession.locked;
     m_sessions.remove(sessionid);
 
-    if (locked)
-        heartbeat1();
-
     QThread *thread = serversession->thread();
     connect(serversession, &ServerSession::destroyed, thread, &QThread::quit);
     connect(thread, &QThread::finished, thread, &QThread::deleteLater);
     serversession->deleteLater();
+
+    if (locked)
+        heartbeat1();
 }
 
 
@@ -356,15 +356,7 @@ void Server::serverSessionError(ServerSession *serversession)
     message.setSiteID(serversession->siteID());
     Address address(actsession.address);
     m_socket->send(message);
-    bool locked = actsession.locked;
     m_sessions.remove(sessionid);
-
-    if (locked)
-        heartbeat1();
-
-    QThread *thread = serversession->thread();
-    connect(serversession, &ServerSession::destroyed, thread, &QThread::quit);
-    connect(thread, &QThread::finished, thread, &QThread::deleteLater);
     serversession->deleteLater();
 }
 
