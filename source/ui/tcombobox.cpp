@@ -149,6 +149,12 @@ bool TComboBox::eventFilter(QObject *obj, QEvent *event)
             m_click = clickpos;
             if (!m_combobox->view()->isVisible())
                 m_combobox->showPopup();
+
+            QWidget *popup = m_combobox->view()->window();
+            if (popup) {
+                QPoint globalPos = m_combobox->mapToGlobal(QPoint(0, m_combobox->height()));
+                popup->move(globalPos);
+            }
         }
 
         if (obj == m_combobox->view()->viewport() && event->type() == QEvent::MouseButtonRelease) {
@@ -162,10 +168,12 @@ bool TComboBox::eventFilter(QObject *obj, QEvent *event)
         else
             viewpos = QPoint(0, 0);
 
-        QModelIndex index = m_combobox->view()->indexAt(clickpos - viewpos);
-        if (index.isValid())
-            m_combobox->view()->setCurrentIndex(index);
-        m_combobox->view()->update();
+        if (event->type() == QEvent::MouseMove) {
+            QModelIndex index = m_combobox->view()->indexAt(clickpos - viewpos);
+            if (index.isValid())
+                m_combobox->view()->setCurrentIndex(index);
+            m_combobox->view()->update();
+        }
 
         if (event->type() == QEvent::MouseButtonRelease && m_click == clickpos)
             m_combobox->hidePopup();
