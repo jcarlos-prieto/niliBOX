@@ -316,6 +316,8 @@ endif()
 
 if(CMAKE_SYSTEM_NAME STREQUAL "iOS")
 
+    qt_add_ios_ffmpeg_libraries(${PROJECT_NAME})
+
     target_compile_definitions(${PROJECT_NAME} PRIVATE
         OS_IOS
     )

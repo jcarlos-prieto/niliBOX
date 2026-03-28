@@ -38,38 +38,44 @@ echo "    exit 1" >> "$REM"
 echo "fi" >> "$REM"
 
 RESTART=false
-if ! command -v pipewire >/dev/null 2>&1; then
+if ! command -v pipewire >/dev/null 2>&1 \
+    || ! command -v pipewire-pulse >/dev/null 2>&1 \
+    || ! command -v wireplumber >/dev/null 2>&1; then
     echo "PipeWire Framework is not installed."
     read -rp "Do you want to install PipeWire? [Y/n] " answer
-	answer=${answer:-Y}
+    answer=${answer:-Y}
     case "$answer" in
         [yY]|[yY][eE][sS])
-			echo
-		    if command -v apt >/dev/null 2>&1; then
+            echo
+            if command -v apt >/dev/null 2>&1; then
                 sudo apt update
-                sudo apt install -y pipewire
+                sudo apt install -y pipewire pipewire-pulse wireplumber
+                systemctl --user restart pipewire pipewire-pulse wireplumber
                 echo "PipeWire installed."
                 RESTART=true
             elif command -v dnf >/dev/null 2>&1; then
-                sudo dnf install -y pipewire
+                sudo dnf install -y pipewire pipewire-pulseaudio wireplumber
+                systemctl --user restart pipewire pipewire-pulseaudio wireplumber
                 echo "PipeWire installed."
                 RESTART=true
             elif command -v pacman >/dev/null 2>&1; then
-                sudo pacman -Sy --noconfirm pipewire
+                sudo pacman -Sy --noconfirm pipewire pipewire-pulse wireplumber
+                systemctl --user restart pipewire pipewire-pulse wireplumber
                 echo "PipeWire installed."
                 RESTART=true
             elif command -v zypper >/dev/null 2>&1; then
-                sudo zypper install -y pipewire
+                sudo zypper install -y pipewire pipewire-pulseaudio wireplumber
+                systemctl --user restart pipewire pipewire-pulseaudio wireplumber
                 echo "PipeWire installed."
                 RESTART=true
             else
                 echo "Unsupported distribution. Please install PipeWire manually."
             fi
-			echo
-		;;
+            echo
+        ;;
         *)
             echo "Skipping PipeWire installation. Sound subsystem may not work."
-			echo
+            echo
         ;;
     esac
 fi

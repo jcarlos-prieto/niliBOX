@@ -45,23 +45,17 @@ echo Generating linux distribution
 cd /tmp
 rm -rf niliBOX
 mkdir niliBOX
-mkdir niliBOX/QtQml
 mkdir niliBOX/QtQuick
 cp -r $PJDIR/platforms/linux/* niliBOX
 cp $PJDIR/resources/icon.png niliBOX
 cp $RLDIR/output/niliBOX niliBOX
 cp $QTDIR/bin/lrelease niliBOX
 cp $QTDIR/libexec/rcc niliBOX
-cp -r $QTDIR/plugins/egldeviceintegrations niliBOX
 cp -r $QTDIR/plugins/imageformats niliBOX
 cp -r $QTDIR/plugins/multimedia niliBOX
 cp -r $QTDIR/plugins/platforms niliBOX
 cp -r $QTDIR/plugins/tls niliBOX
-cp -r $QTDIR/plugins/wayland-decoration-client niliBOX
-cp -r $QTDIR/plugins/wayland-graphics-integration-client niliBOX
-cp -r $QTDIR/plugins/wayland-shell-integration niliBOX
 cp -r $QTDIR/plugins/xcbglintegrations niliBOX
-cp -r $QTDIR/qml/QtQml/* niliBOX/QtQml
 cp -r $QTDIR/qml/QtQuick/* niliBOX/QtQuick
 
 while true; do

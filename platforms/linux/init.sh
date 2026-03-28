@@ -22,6 +22,14 @@ if [ $EUID -ne 0 ]; then
     exit 1
 fi
 
+required="2.34"
+glibc_version=$(ldd --version | head -n1 | grep -oE '[0-9]+\.[0-9]+' | head -n1)
+if [ "$(printf '%s\n' "$required" "$glibc_version" | sort -V | head -n1)" != "$required" ]; then
+    echo "GLIBC $required or newer is required. Found $glibc_version."
+    echo
+    exit 1
+fi
+
 DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 REM="$DIR/remove.sh"
@@ -38,38 +46,44 @@ echo "    exit 1" >> "$REM"
 echo "fi" >> "$REM"
 
 RESTART=false
-if ! command -v pipewire >/dev/null 2>&1; then
+if ! command -v pipewire >/dev/null 2>&1 \
+    || ! command -v pipewire-pulse >/dev/null 2>&1 \
+    || ! command -v wireplumber >/dev/null 2>&1; then
     echo "PipeWire Framework is not installed."
     read -rp "Do you want to install PipeWire? [Y/n] " answer
-	answer=${answer:-Y}
+    answer=${answer:-Y}
     case "$answer" in
         [yY]|[yY][eE][sS])
-			echo
-		    if command -v apt >/dev/null 2>&1; then
+            echo
+            if command -v apt >/dev/null 2>&1; then
                 sudo apt update
-                sudo apt install -y pipewire
+                sudo apt install -y pipewire pipewire-pulse wireplumber
+                systemctl --user restart pipewire pipewire-pulse wireplumber
                 echo "PipeWire installed."
                 RESTART=true
             elif command -v dnf >/dev/null 2>&1; then
-                sudo dnf install -y pipewire
+                sudo dnf install -y pipewire pipewire-pulseaudio wireplumber
+                systemctl --user restart pipewire pipewire-pulseaudio wireplumber
                 echo "PipeWire installed."
                 RESTART=true
             elif command -v pacman >/dev/null 2>&1; then
-                sudo pacman -Sy --noconfirm pipewire
+                sudo pacman -Sy --noconfirm pipewire pipewire-pulse wireplumber
+                systemctl --user restart pipewire pipewire-pulse wireplumber
                 echo "PipeWire installed."
                 RESTART=true
             elif command -v zypper >/dev/null 2>&1; then
-                sudo zypper install -y pipewire
+                sudo zypper install -y pipewire pipewire-pulseaudio wireplumber
+                systemctl --user restart pipewire pipewire-pulseaudio wireplumber
                 echo "PipeWire installed."
                 RESTART=true
             else
                 echo "Unsupported distribution. Please install PipeWire manually."
             fi
-			echo
-		;;
+            echo
+        ;;
         *)
             echo "Skipping PipeWire installation. Sound subsystem may not work."
-			echo
+            echo
         ;;
     esac
 fi
