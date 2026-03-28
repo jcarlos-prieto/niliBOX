@@ -44,6 +44,7 @@ private:
         bool           locked;
         int            sequence;
         ServerSession *serversession;
+        qint64         timestamp;
 
         ActiveSession()
         {
@@ -58,6 +59,7 @@ private:
 
     QString                       checkSettings(const Settings &settings) const;
     void                          cleanKnownSites();
+    void                          closeServerSession(ActiveSession actsession);
     QByteArray                    getDriverApp(const QString &drivername, const QString &app) const;
     void                          heartbeat1();
     void                          heartbeat2();
@@ -69,6 +71,8 @@ private:
     void                          socketMessageReceived(const Message &message, const Address &address);
     void                          worker();
 
+    int                           m_appwatchdog;
+    int                           m_appwatchdog2;
     QHash<QString, SiteInfo>      m_knownsites;
     int                           m_localdiscovery;
     int                           m_localdiscovery2;

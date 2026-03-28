@@ -54,6 +54,8 @@ Server::Server(QObject *parent) : QObject(parent)
 
     m_localdiscovery = G_LOCALSETTINGS.get("system.localdiscovery").toInt();
     m_localdiscovery2 = 2 * m_localdiscovery;
+    m_appwatchdog = G_LOCALSETTINGS.get("system.appwatchdog").toInt();
+    m_appwatchdog2 = 2 * m_appwatchdog;
     m_masterserver = G_LOCALSETTINGS.get("system.protocol") + G_LOCALSETTINGS.get("system.masterserver") + G_LOCALSETTINGS.get("system.masterserverport");
 
     QThreadPool::globalInstance()->setThreadPriority(QThread::TimeCriticalPriority);
@@ -120,12 +122,33 @@ void Server::cleanKnownSites()
             m_socket->removeSession(siteid);
             m_knownsites.remove(siteid);
             qInfo() << qPrintable("SERVER: Lost site " + siteid);
-            QList<ActiveSession> sessions = m_sessions.values();
-            for (ActiveSession &s : sessions)
-                if (s.serversession->siteID() == siteid)
-                    serverSessionClosed(s.serversession);
         }
     }
+
+    QList<ActiveSession> sessions = m_sessions.values();
+    for (ActiveSession &s : sessions)
+        if (QDateTime::currentMSecsSinceEpoch() > s.timestamp)
+            closeServerSession(s);
+}
+
+
+void Server::closeServerSession(ActiveSession actsession)
+{
+    ServerSession *serversession = actsession.serversession;
+    m_sessions.remove(serversession->sessionID());
+
+    Message message(Message::C_CLOSESESSION);
+    message.setSequence(actsession.sequence);
+    message.setSiteID(serversession->siteID());
+    Address address(actsession.address);
+    m_socket->send(message);
+
+    QThread *thread = serversession->thread();
+    connect(serversession, &ServerSession::destroyed, thread, &QThread::quit);
+    connect(thread, &QThread::finished, thread, &QThread::deleteLater);
+    serversession->deleteLater();
+
+    heartbeat1();
 }
 
 
@@ -212,12 +235,12 @@ void Server::heartbeat1()
             }
         }
 
-    config.loadSettings(devices, "devices");
-
     QList<ActiveSession> lsessions = m_sessions.values();
     for (ActiveSession &session : lsessions)
         if (session.locked)
             devices.set(session.serversession->deviceID() + ".locked", "true");
+
+    config.loadSettings(devices, "devices");
 
     Settings drivers;
     drivers.loadFile(G_LOCALSETTINGS.localFilePath() + "/custom/drivers.set");
@@ -313,28 +336,12 @@ void Server::serverSessionClosed(ServerSession *serversession)
 
     ActiveSession actsession = m_sessions.value(sessionid);
 
-    if (actsession.isNull()) {
-        if (G_VERBOSE) qInfo() << qPrintable("SERVER: Could not close the server session " + sessionid);
+    if (actsession.isNull())
         return;
-    }
 
     qInfo() << qPrintable("SERVER: Closing server session " + sessionid);
 
-    Message message(Message::C_CLOSESESSION);
-    message.setSequence(actsession.sequence);
-    message.setSiteID(serversession->siteID());
-    Address address(actsession.address);
-    m_socket->send(message);
-    bool locked = actsession.locked;
-    m_sessions.remove(sessionid);
-
-    QThread *thread = serversession->thread();
-    connect(serversession, &ServerSession::destroyed, thread, &QThread::quit);
-    connect(thread, &QThread::finished, thread, &QThread::deleteLater);
-    serversession->deleteLater();
-
-    if (locked)
-        heartbeat1();
+    closeServerSession(actsession);
 }
 
 
@@ -344,20 +351,12 @@ void Server::serverSessionError(ServerSession *serversession)
 
     ActiveSession actsession = m_sessions.value(sessionid);
 
-    if (actsession.isNull()) {
-        if (G_VERBOSE) qInfo() << qPrintable("SERVER: Could not close the server session " + sessionid);
+    if (actsession.isNull())
         return;
-    }
 
     qInfo() << qPrintable("SERVER: Error opening server session " + sessionid);
 
-    Message message(Message::C_OPENSESSION, QByteArray("ERRORSERVER"));
-    message.setSequence(actsession.sequence);
-    message.setSiteID(serversession->siteID());
-    Address address(actsession.address);
-    m_socket->send(message);
-    m_sessions.remove(sessionid);
-    serversession->deleteLater();
+    closeServerSession(actsession);
 }
 
 
@@ -595,6 +594,7 @@ void Server::socketMessageReceived(const Message &message, const Address &addres
         actsession.serversession = serversession;
         actsession.sequence = lmessage.sequence();
         actsession.locked = (driverconfig.get("multiuser") != "true");
+        actsession.timestamp = QDateTime::currentMSecsSinceEpoch() + m_appwatchdog2;
 
         m_sessions.insert(serversession->sessionID(), actsession);
 
@@ -658,6 +658,11 @@ void Server::socketMessageReceived(const Message &message, const Address &addres
     //   when a APPDATA or APPDATABIN command is received.
     default: {
         emit messageOut(lmessage);
+
+        QByteArray sessionid = lmessage.data().first(G_IDSIZE);
+        if (m_sessions.contains(sessionid))
+            m_sessions[sessionid].timestamp = QDateTime::currentMSecsSinceEpoch() + m_appwatchdog2;
+
         return;
     }
     }
