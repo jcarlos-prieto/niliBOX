@@ -99,3 +99,33 @@ extern "C" void forceiOSSpeaker() {
         }
     });
 }
+
+extern "C" void ios_getSafeAreaInsets(int *top, int *left, int *bottom, int *right)
+{
+    if (!top || !left || !bottom || !right)
+        return;
+
+    *top = *left = *bottom = *right = 0;
+
+    if (@available(iOS 11.0, *)) {
+        UIWindow *window = UIApplication.sharedApplication.keyWindow;
+
+        if (!window) {
+            for (UIWindow *w in UIApplication.sharedApplication.windows) {
+                if (w.isKeyWindow) {
+                    window = w;
+                    break;
+                }
+            }
+        }
+
+        if (window) {
+            UIEdgeInsets insets = window.safeAreaInsets;
+
+            *top    = (int)insets.top;
+            *left   = (int)insets.left;
+            *bottom = (int)insets.bottom;
+            *right  = (int)insets.right;
+        }
+    }
+}
