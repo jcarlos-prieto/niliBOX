@@ -41,6 +41,10 @@
 #include <QTranslator>
 #include <QVBoxLayout>
 
+#if defined OS_IOS
+extern "C" void ios_getSafeAreaInsets(int *top, int *left, int *bottom, int *right);
+#endif
+
 
 UI::UI(QWidget *parent) : QWidget(parent)
 {
@@ -191,15 +195,6 @@ UI::UI(QWidget *parent) : QWidget(parent)
 
     connect(qApp, &QApplication::primaryScreenChanged, this, &UI::redraw);
 
-#if defined OS_IOS
-    m_topmargin = m_screen->geometry().y();
-#else
-    m_topmargin = 0;
-#endif
-
-    m_frame0->setGeometry(0, m_topmargin, width(), height() - m_topmargin);
-    m_frame1->setGeometry(0, 0, 0, 0);
-    m_frame2->setGeometry(0, 0, 0, 0);
     m_animation0->setTargetObject(m_frame0);
     m_animation0->setPropertyName("size");
     m_animation0->setEasingCurve(static_cast<QEasingCurve::Type>(G_LOCALSETTINGS.get("ui.animationtype").toInt()));
@@ -361,6 +356,8 @@ void UI::animation2Finished()
         m_pinbutton->setPressed(true);
         openCloseButtonClicked();
     }
+
+    devicesButtonClicked();
 
     if (!m_pendingapps.isEmpty()) {
         appOpen(m_pendingapps.first());
@@ -866,8 +863,8 @@ void UI::pinButtonClicked()
 {
     m_pinned = !m_pinned;
 
-    m_animation0->setStartValue(QSize(width() - m_frame2->width(), height()));
-    m_animation0->setEndValue(QSize(width() - m_frame1->width() - m_frame2->width(), height()));
+    m_animation0->setStartValue(QSize(width() - m_frame2->width() - m_l - m_r, height() - m_t - m_b));
+    m_animation0->setEndValue(QSize(width() - m_frame1->width() - m_frame2->width() - m_l - m_r, height() - m_t - m_b));
     m_animation0->setDuration(m_animationdelay);
     m_animation0->setDirection(m_pinned ? QAbstractAnimation::Forward : QAbstractAnimation::Backward);
     connect(m_animation0, &QPropertyAnimation::finished, this, &UI::redraw);
@@ -899,6 +896,16 @@ void UI::redraw()
     float lmin = m_UIminunit * dpi / 25.4;
     float lmax = m_UImaxunit * dpi / 25.4;
 
+    m_t=0, m_l=0, m_b=0, m_r = 0;
+
+#ifdef OS_IOS
+    ios_getSafeAreaInsets(&m_t, &m_l, &m_b, &m_r);
+    m_t = m_t > m_b ? m_t : m_b;
+    m_b = m_b > m_t ? m_b : m_t;
+    m_r = m_r > m_l ? m_r : m_l;
+    m_l = m_l > m_r ? m_l : m_r;
+#endif
+
     G_UNIT_L = qBound(lmin, m_UIratio * width(), lmax);
     G_UNIT_S = 0.10 * G_UNIT_L;
     G_UNIT_F = 0.45 * G_UNIT_L;
@@ -906,7 +913,7 @@ void UI::redraw()
     m_loading->setGeometry(G_UNIT_S, 0.85 * m_frame0->height(), m_frame0->width() - G_UNIT_S, 0.15 * m_frame0->height());
 
     if (m_splash) {
-        m_frame0->setGeometry(0, m_topmargin, width(), height() - m_topmargin);
+        m_frame0->setGeometry(m_l, m_t, width() - m_l - m_r, height() - m_t - m_b);
         m_logo->resize(qMin(m_logo->pixmap().width(), static_cast<int>(0.7 * m_frame0->width())), qMin(m_logo->pixmap().height(), static_cast<int>(0.7 * m_frame0->height())));
         m_logo->move((m_frame0->width() - m_logo->width()) / 2, (m_frame0->height() - m_logo->height()) / 2);
         return;
@@ -943,10 +950,10 @@ void UI::redraw()
 
     if (m_animation0->state() == QAbstractAnimation::Stopped) {
         if (m_pinned) {
-            width0 = width() - width1 - width2;
+            width0 = width() - width1 - width2 - m_l - m_r;
             m_openclose->setVisible(false);
         } else {
-            width0 = width() - width2;
+            width0 = width() - width2 - m_l - m_r;
             m_openclose->setVisible(true);
         }
     } else {
@@ -954,9 +961,9 @@ void UI::redraw()
         m_openclose->setVisible(true);
     }
 
-    m_frame0->setGeometry(width() - width0, m_topmargin, width0, height() - m_topmargin);
-    m_frame1->setGeometry(0, m_topmargin, width1, height() - m_topmargin);
-    m_frame2->setGeometry(width1, m_topmargin, width2, height() - m_topmargin);
+    m_frame0->setGeometry(width() - width0 - m_l, m_t, width0, height() - m_t - m_b);
+    m_frame1->setGeometry(m_l, m_t, width1, height() - m_t - m_b);
+    m_frame2->setGeometry(width1 + m_l, m_t, width2, height() - m_t - m_b);
     m_frame11->setHeight(1.5 * G_UNIT_L);
     m_pinbutton->setFixedHeight(w2);
     m_arrow->setGeometry(0, height() / 2 -  1.5 * width2, w2, w2);

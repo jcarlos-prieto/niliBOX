@@ -99,6 +99,7 @@ private:
     QVBoxLayout         *m_appbuttons;
     float                m_appPadding;
     TButton             *m_arrow;
+    int                  m_b;
     TbButton            *m_currapp;
     TButton             *m_devicesbutton;
     float                m_dpi;
@@ -109,6 +110,7 @@ private:
     TPane               *m_frame1;
     TPane               *m_frame2;
     TButton             *m_infobutton;
+    int                  m_l;
     QString              m_langname;
     QVBoxLayout         *m_layout1;
     QHBoxLayout         *m_layout11;
@@ -122,11 +124,12 @@ private:
     QList<QString>       m_pendingapps;
     TButton             *m_pinbutton;
     bool                 m_pinned;
+    int                  m_r;
     QScreen             *m_screen;
     TButton             *m_settingsbutton;
     bool                 m_splash;
+    int                  m_t;
     QString              m_themename;
-    float                m_topmargin;
     float                m_UIratio;
     float                m_UImaxunit;
     float                m_UIminunit;
