@@ -35,7 +35,10 @@
 
 DevicesPanel::DevicesPanel(QWidget *parent) : TPane("devices", parent)
 {
-    m_masterserver = G_LOCALSETTINGS.get("system.protocol") + G_LOCALSETTINGS.get("system.masterserver") + G_LOCALSETTINGS.get("system.masterserverport");
+    if (G_LOCALSETTINGS.get("system.masterserverport").isEmpty())
+        m_masterserver = G_LOCALSETTINGS.get("system.protocol") + G_LOCALSETTINGS.get("system.masterserver");
+    else
+        m_masterserver = G_LOCALSETTINGS.get("system.protocol") + G_LOCALSETTINGS.get("system.masterserver") + ":" + G_LOCALSETTINGS.get("system.masterserverport");
 
     m_frame0 = new TPane("devices.header", this);
     m_refreshbutton = new TButton("devices.header.refresh", this);

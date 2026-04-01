@@ -97,7 +97,10 @@ UI::UI(QWidget *parent) : QWidget(parent)
     if (G_TOUCH)
         m_UImaxunit *= 0.8;
 
-    m_masterserver = G_LOCALSETTINGS.get("system.protocol") + G_LOCALSETTINGS.get("system.masterserver") + G_LOCALSETTINGS.get("system.masterserverport");
+    if (G_LOCALSETTINGS.get("system.masterserverport").isEmpty())
+        m_masterserver = G_LOCALSETTINGS.get("system.protocol") + G_LOCALSETTINGS.get("system.masterserver");
+    else
+        m_masterserver = G_LOCALSETTINGS.get("system.protocol") + G_LOCALSETTINGS.get("system.masterserver") + ":" + G_LOCALSETTINGS.get("system.masterserverport");
 
     m_animation0 = new QPropertyAnimation(this);
     m_animation1 = new QPropertyAnimation(this);

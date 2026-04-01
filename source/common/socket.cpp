@@ -40,7 +40,6 @@ Socket::Socket(QObject *parent) : QObject(parent)
     m_active = false;
     m_tcpport = G_LOCALSETTINGS.get("system.tcpport").toInt();
     m_localhost = Address(G_LOCALHOST, 0);
-    m_masterserver = G_LOCALSETTINGS.get("system.protocol") + G_LOCALSETTINGS.get("system.masterserver") + G_LOCALSETTINGS.get("system.masterserverport");
     m_masteraddress = Address(G_LOCALSETTINGS.get("system.masterserver"), G_LOCALSETTINGS.get("system.masterservertcpport").toInt());
     m_localtimeout = G_LOCALSETTINGS.get("system.localtimeout").toInt();
     m_remotetimeout = G_LOCALSETTINGS.get("system.remotetimeout").toInt();
@@ -48,6 +47,12 @@ Socket::Socket(QObject *parent) : QObject(parent)
     m_httpsession = new HttpSession(this);
     m_httpsession2 = new HttpSession(this);
     m_httpsession2->setTimeout(G_LOCALSETTINGS.get("system.masterserverkeepalive").toUInt());
+
+    if (G_LOCALSETTINGS.get("system.masterserverport").isEmpty())
+        m_masterserver = G_LOCALSETTINGS.get("system.protocol") + G_LOCALSETTINGS.get("system.masterserver");
+    else
+        m_masterserver = G_LOCALSETTINGS.get("system.protocol") + G_LOCALSETTINGS.get("system.masterserver") + ":" + G_LOCALSETTINGS.get("system.masterserverport");
+
     connect(m_httpsession2, &HttpSession::finished, this, &Socket::serverKeepAliveHandle);
 }
 

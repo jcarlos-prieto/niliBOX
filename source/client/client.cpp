@@ -36,9 +36,13 @@ Client::Client(QObject *parent) : QObject(parent)
     m_localtimeout2 = 2 * m_localtimeout;
     m_remotetimeout = G_LOCALSETTINGS.get("system.remotediscovery").toInt();
     m_remotetimeout2 = 2 * m_remotetimeout;
-    m_masterserver = G_LOCALSETTINGS.get("system.protocol") + G_LOCALSETTINGS.get("system.masterserver") + G_LOCALSETTINGS.get("system.masterserverport");
     m_getpublicsites = false;
     m_openingapp = false;
+
+    if (G_LOCALSETTINGS.get("system.masterserverport").isEmpty())
+        m_masterserver = G_LOCALSETTINGS.get("system.protocol") + G_LOCALSETTINGS.get("system.masterserver");
+    else
+        m_masterserver = G_LOCALSETTINGS.get("system.protocol") + G_LOCALSETTINGS.get("system.masterserver") + ":" + G_LOCALSETTINGS.get("system.masterserverport");
 
     connect(this, &Client::messageIn, this, &Client::processMessageIn);
 }

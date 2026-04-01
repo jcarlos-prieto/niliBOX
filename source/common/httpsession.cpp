@@ -30,7 +30,14 @@ HttpSession::HttpSession(QObject *parent) : QObject(parent)
     m_siteid = G_LOCALSETTINGS.get("site.id");
     m_timeout = G_LOCALSETTINGS.get("system.remotetimeout").toUInt();
 
-    QNetworkProxyQuery npq(QUrl(G_LOCALSETTINGS.get("system.protocol") + G_LOCALSETTINGS.get("system.masterserver" + G_LOCALSETTINGS.get("system.masterserverport"))));
+    QString masterserver;
+
+    if (G_LOCALSETTINGS.get("system.masterserverport").isEmpty())
+        masterserver = G_LOCALSETTINGS.get("system.protocol") + G_LOCALSETTINGS.get("system.masterserver");
+    else
+        masterserver = G_LOCALSETTINGS.get("system.protocol") + G_LOCALSETTINGS.get("system.masterserver") + ":" + G_LOCALSETTINGS.get("system.masterserverport");
+
+    QNetworkProxyQuery npq((QUrl(masterserver)));
     QList<QNetworkProxy> proxies = QNetworkProxyFactory::systemProxyForQuery(npq);
     if (proxies.count() > 0)
         m_manager->setProxy(proxies.at(0));

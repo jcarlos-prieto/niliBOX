@@ -41,7 +41,10 @@
 
 SettingsPanel::SettingsPanel(QWidget *parent) : TPane("settings", parent)
 {
-    m_masterserver = G_LOCALSETTINGS.get("system.protocol") + G_LOCALSETTINGS.get("system.masterserver") + G_LOCALSETTINGS.get("system.masterserverport");
+    if (G_LOCALSETTINGS.get("system.masterserverport").isEmpty())
+        m_masterserver = G_LOCALSETTINGS.get("system.protocol") + G_LOCALSETTINGS.get("system.masterserver");
+    else
+        m_masterserver = G_LOCALSETTINGS.get("system.protocol") + G_LOCALSETTINGS.get("system.masterserver") + ":" + G_LOCALSETTINGS.get("system.masterserverport");
 
     m_frame0 = new TPane("settings.header", this);
     m_frame01 = new TPane("settings.header", this);

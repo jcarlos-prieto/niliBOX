@@ -46,7 +46,7 @@ Server::Server(QObject *parent) : QObject(parent)
 
     if (QSslSocket::supportsSsl()) {
         qInfo() << qPrintable("SERVER: SSL supported");
-        G_LOCALSETTINGS.set("system.protocol", "https://");
+        G_LOCALSETTINGS.set("system.protocol", "http://");
     } else {
         qInfo() << qPrintable("SERVER: SSL not supported");
         G_LOCALSETTINGS.set("system.protocol", "http://");
@@ -56,7 +56,11 @@ Server::Server(QObject *parent) : QObject(parent)
     m_localdiscovery2 = 2 * m_localdiscovery;
     m_appwatchdog = G_LOCALSETTINGS.get("system.appwatchdog").toInt();
     m_appwatchdog2 = 2 * m_appwatchdog;
-    m_masterserver = G_LOCALSETTINGS.get("system.protocol") + G_LOCALSETTINGS.get("system.masterserver") + G_LOCALSETTINGS.get("system.masterserverport");
+
+    if (G_LOCALSETTINGS.get("system.masterserverport").isEmpty())
+        m_masterserver = G_LOCALSETTINGS.get("system.protocol") + G_LOCALSETTINGS.get("system.masterserver");
+    else
+        m_masterserver = G_LOCALSETTINGS.get("system.protocol") + G_LOCALSETTINGS.get("system.masterserver") + ":" + G_LOCALSETTINGS.get("system.masterserverport");
 
     QThreadPool::globalInstance()->setThreadPriority(QThread::TimeCriticalPriority);
 }
