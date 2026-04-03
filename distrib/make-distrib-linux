@@ -15,7 +15,7 @@
 # along with this program. If not, see <https://www.gnu.org/licenses>.
 
 # Path to the Qt location
-QTDIR=~/Qt/6.10.2/gcc_64
+QTDIR=~/Qt/6.10.3/gcc_64
 
 # Path to the project directory
 PJDIR=~/niliBOX

@@ -15,7 +15,7 @@
 # along with this program. If not, see <https://www.gnu.org/licenses>.
 
 # Path to the Qt location
-QTDIR=~/Qt/6.10.2/macos
+QTDIR=~/Qt/6.10.3/macos
 
 # Path to the generated release
 RLDIR=~/niliBOX/build/Desktop-Release
