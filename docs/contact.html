@@ -123,6 +123,14 @@
       color: white;
     }
 
+	.ad-banner {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+	  background-color: black;
+	  line-height: 0;
+    }
+
     @media (max-width: 768px) {
       .header {
         flex-direction: column;
@@ -165,9 +173,47 @@
     </form>
   </div>
 
-  <div class="container footer">
-    <br><br>© 2025 - nilibox.com<br><br><br>
+  <div id="ad-android" class="container ad-banner">
+    <a href="https://play.google.com/store/apps/details?id=com.nilibox.starblocks" target="_blank">
+      <img src="ad-mobile.png" alt="Play Star Blocks!">
+    </a>
   </div>
+
+  <div id="ad-ios" class="container ad-banner">
+    <a href="https://apps.apple.com/us/app/star-blocks-3d-block-puzzle/id6758054519" target="_blank">
+      <img src="ad-mobile.png" alt="Play Star Blocks!">
+    </a>
+  </div>
+
+  <div id="ad-desktop" class="container ad-banner">
+    <table><tr>
+	  <td><img src="ad-desktop.png"></td>
+	  <td>
+        <table>
+	      <tr><td><a href="https://play.google.com/store/apps/details?id=com.nilibox.starblocks" target="_blank"><img src="ad-android.png"></a></td></tr>
+	      <tr><td><a href="https://apps.apple.com/us/app/star-blocks-3d-block-puzzle/id6758054519" target="_blank"><img src="ad-ios.png"></a></td></tr>
+	    </table>
+	  </td>
+	</tr></table>
+  </div>
+
+  <div class="container footer">
+    <br><br>© 2026 - nilibox.com<br><br><br>
+  </div>
+
+  <script>
+    let ua = navigator.userAgent || navigator.vendor || window.opera;
+    if (/android/i.test(ua)) {
+      document.getElementById("ad-ios").remove();
+      document.getElementById("ad-desktop").remove();
+    } else if (/iPad|iPhone|iPod/.test(ua) && !window.MSStream) {
+      document.getElementById("ad-android").remove();
+      document.getElementById("ad-desktop").remove();
+    } else {
+      document.getElementById("ad-android").remove();
+      document.getElementById("ad-ios").remove();
+	}
+  </script>
 </body>
 
 </html>
