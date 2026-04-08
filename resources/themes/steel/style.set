@@ -85,6 +85,8 @@ slider.pin:!hover =                      border-color:transparent
 slider.pin:pressed =                     foreground-color:#B0B0B0
 
 devices =                                background-color:#F0F0F0; padding:1.5
+devices.header.pin =                     image:pin.png; angle:-90; padding:2.5
+devices.header.pin:!hover =              border-color:transparent; padding:2
 devices.header.refresh =                 image:refresh.png
 devices.header.refresh:!hover =          border-color:transparent
 devices.header.close =                   image:close.png
