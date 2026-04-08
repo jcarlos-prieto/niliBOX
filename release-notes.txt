@@ -3,7 +3,7 @@
     Fixed unlock app when closed
     Fixed remote devices not shown as locked
     Fixed bugs in combo boxes
-    Showing devices screen at start
+    Option to show devices screen at start (pin to start)
 
     macOS: macOS Tahoe supported (tested with macOS 26.3)
 
