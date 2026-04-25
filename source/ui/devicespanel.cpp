@@ -41,6 +41,7 @@ DevicesPanel::DevicesPanel(QWidget *parent) : TPane("devices", parent)
         m_masterserver = G_LOCALSETTINGS.get("system.protocol") + G_LOCALSETTINGS.get("system.masterserver") + ":" + G_LOCALSETTINGS.get("system.masterserverport");
 
     m_frame0 = new TPane("devices.header", this);
+    m_pinbutton = new TButton("devices.header.pin", this);
     m_refreshbutton = new TButton("devices.header.refresh", this);
     m_closebutton = new TButton("devices.header.close", this);
     m_frame1 = new TPane("devices.body", this);
@@ -111,6 +112,10 @@ DevicesPanel::DevicesPanel(QWidget *parent) : TPane("devices", parent)
     m_layout0->setAlignment(Qt::AlignRight);
     m_layout0->setContentsMargins(0, 0, 0, 0);
     m_layout0->setSpacing(0);
+    m_layout0->addWidget(m_pinbutton);
+    connect(m_pinbutton, &TButton::clicked, this, &DevicesPanel::pinButtonClicked);
+    m_pinbutton->setToggle(true);
+    m_pinbutton->setPressed(G_LOCALSETTINGS.get("ui.devicespanelpined") == "true");
     m_layout0->addWidget(m_refreshbutton);
     connect(m_refreshbutton, &TButton::clicked, this, &DevicesPanel::refreshButtonClicked);
     m_layout0->addWidget(m_closebutton);
@@ -509,6 +514,7 @@ void DevicesPanel::changeEvent(QEvent *event)
 {
     if (event->type() == QEvent::LanguageChange) {
         m_closebutton->setToolTip(tr("Close"));
+        m_pinbutton->setToolTip(tr("Auto start"));
         m_refreshbutton->setToolTip(tr("Refresh"));
         m_iconfavorites->setToolTip(tr("Favorites"));
         m_iconlocal->setToolTip(tr("Local devices"));
@@ -938,8 +944,15 @@ void DevicesPanel::openAppTimeout()
 }
 
 
+void DevicesPanel::pinButtonClicked()
+{
+    G_LOCALSETTINGS.set("ui.devicespanelpined", m_pinbutton->isPressed() ? "true" : "false");
+}
+
+
 void DevicesPanel::redraw() const
 {
+    m_pinbutton->setSize(G_UNIT_L, G_UNIT_L);
     m_refreshbutton->setSize(G_UNIT_L, G_UNIT_L);
     m_closebutton->setSize(G_UNIT_L, G_UNIT_L);
 

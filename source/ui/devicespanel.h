@@ -71,6 +71,7 @@ private:
     void                 newFavoriteInfoButtonClicked() const;
     void                 openApp(const QString &id);
     void                 openAppTimeout();
+    void                 pinButtonClicked();
     void                 redraw() const;
     void                 refreshButtonClicked();
     void                 reorderGlobal() const;
@@ -142,6 +143,7 @@ private:
     TLineEdit           *m_newfavoriteid;
     TPane               *m_newfavoritepanel;
     QString              m_openingid;
+    TButton             *m_pinbutton;
     TPopup              *m_popup;
     QString              m_prevsites;
     TButton             *m_refreshbutton;

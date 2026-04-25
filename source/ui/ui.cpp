@@ -360,7 +360,8 @@ void UI::animation2Finished()
         openCloseButtonClicked();
     }
 
-    devicesButtonClicked();
+    if (G_LOCALSETTINGS.get("ui.devicespanelpined") == "true")
+        devicesButtonClicked();
 
     if (!m_pendingapps.isEmpty()) {
         appOpen(m_pendingapps.first());
