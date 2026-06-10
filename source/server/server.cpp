@@ -433,11 +433,9 @@ void Server::socketMessageReceived(const Message &message, const Address &addres
                 devices.set(session.serversession->deviceID() + ".locked", "true");
 
         QList<QString> devids = devices.rootkeys();
-        for (QString &devid : devids) {
-
+        for (QString &devid : devids)
             if (devices.get(devid + ".mode") == "0" && !address.isLocal())
                 devices.clear(devid);
-        }
 
         lmessage.setData(devices.getString());
         m_socket->send(lmessage);

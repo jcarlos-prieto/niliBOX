@@ -21,12 +21,11 @@
 #include "common/message.h"
 #include "common/settings.h"
 #include "ui/tpane.h"
+#include <QGridLayout>
 
 class HttpSession;
 class QFormLayout;
-class QGridLayout;
 class QHBoxLayout;
-class QPropertyAnimation;
 class QScrollArea;
 class QVBoxLayout;
 class TButton;
@@ -37,6 +36,25 @@ class TLineEdit;
 class TPopup;
 class TbButton;
 class TcFrame;
+
+
+class BGridLayout : public QGridLayout
+{
+public:
+    explicit             BGridLayout(QWidget *parent = nullptr);
+    virtual             ~BGridLayout();
+
+    void                 addWidget(QWidget *widget);
+    void                 clean(QObject *widget);
+    void                 insertWidget(const int pos, QWidget *widget);
+    QLayoutItem         *itemAt(const int pos);
+    int                  numColumns();
+    void                 setNumColumns(const int numcolumns);
+    QLayoutItem         *takeAt(const int pos);
+
+private:
+    int                  m_numcolumns;
+};
 
 
 class DevicesPanel : public TPane
@@ -56,14 +74,12 @@ private:
     void                 favoriteAdd(const QString &id, const bool active = false);
     void                 favoriteCreate(const QString &id, const QString &caption, const bool active = false);
     void                 favoriteDefault(const QString &id) const;
-    void                 favoriteDelete(const QString &id) const;
+    void                 favoriteDelete(const QString &id);
     void                 favoriteSave() const;
     void                 favoritesLoad();
-    void                 filterGlobal();
-    void                 filterLocal();
+    void                 filter();
     void                 getDevices();
     void                 httpSessionFinished(HttpSession *httpsession);
-    void                 iconGlobalClicked();
     void                 messageFwOut(const Message &message);
     void                 moveEvent(QMoveEvent *event) override;
     void                 newFavoriteAcceptButtonClicked();
@@ -74,18 +90,22 @@ private:
     void                 pinButtonClicked();
     void                 redraw() const;
     void                 refreshButtonClicked();
-    void                 reorderGlobal() const;
     void                 resizeEvent(QResizeEvent *event) override;
     void                 showInfo(const QString &id) const;
 
-    QPropertyAnimation  *m_animation;
-    QVBoxLayout         *m_appfavorites;
-    QGridLayout         *m_appglobal;
-    QVBoxLayout         *m_applocal;
+    BGridLayout         *m_appfavorites;
+    BGridLayout         *m_appglobal;
+    BGridLayout         *m_applocal;
+    BGridLayout         *m_appnear;
     QList<TbButton *>    m_buttons;
     TButton             *m_closebutton;
     bool                 m_favloaded;
+    TcFrame             *m_filter;
+    TComboBox           *m_filterdriver;
+    TComboBox           *m_filterfamily;
     bool                 m_filtering;
+    TPane               *m_filterpanel;
+    TLineEdit           *m_filtertext;
     TPane               *m_frame0;
     TPane               *m_frame1;
     TPane               *m_frame10;
@@ -93,48 +113,35 @@ private:
     TPane               *m_frame10101;
     TPane               *m_frame1011;
     QScrollArea         *m_frame1011_s;
+    TPane               *m_frame10110;
+    TPane               *m_frame10111;
+    TPane               *m_frame10112;
     TPane               *m_frame11;
     TFrame              *m_frame111;
     TPane               *m_frame1111;
     QScrollArea         *m_frame1111_s;
-    TPane               *m_frame2;
-    TFrame              *m_frame21;
-    TPane               *m_frame211;
-    QScrollArea         *m_frame211_s;
-    TcFrame             *m_globalfilter;
-    TComboBox           *m_globalfilterdriver;
-    TComboBox           *m_globalfilterfamily;
-    TPane               *m_globalfilterpanel;
-    TLineEdit           *m_globalfiltertext;
-    TPane               *m_iconfavorites;
-    TButton             *m_iconglobal;
+    TPane               *m_iconglobal;
     TPane               *m_iconlocal;
     Settings             m_knownsites;
+    TLabel              *m_labelfavorites;
+    TLabel              *m_labellocal;
+    TLabel              *m_labelnear;
+    TLabel              *m_labelglobal;
     QVBoxLayout         *m_layout;
     QHBoxLayout         *m_layout0;
     QHBoxLayout         *m_layout1;
     QVBoxLayout         *m_layout10;
     QVBoxLayout         *m_layout101;
     QFormLayout         *m_layout1010;
+    QVBoxLayout         *m_layout1011;
     QHBoxLayout         *m_layout10101;
     QVBoxLayout         *m_layout11;
     QVBoxLayout         *m_layout111;
     QFormLayout         *m_layout1110;
-    QVBoxLayout         *m_layout2;
-    QVBoxLayout         *m_layout21;
-    QFormLayout         *m_layout210;
-    TLabel              *m_lglobalfilterdriver;
-    TLabel              *m_lglobalfilterfamily;
-    TLabel              *m_lglobalfiltertext;
-    TLabel              *m_llocalfilterdriver;
-    TLabel              *m_llocalfilterfamily;
-    TLabel              *m_llocalfiltertext;
+    TLabel              *m_lfilterdriver;
+    TLabel              *m_lfilterfamily;
+    TLabel              *m_lfiltertext;
     TLabel              *m_lnewfavoriteid;
-    TcFrame             *m_localfilter;
-    TComboBox           *m_localfilterdriver;
-    TComboBox           *m_localfilterfamily;
-    TPane               *m_localfilterpanel;
-    TLineEdit           *m_localfiltertext;
     QString              m_masterserver;
     TcFrame             *m_newfavorite;
     TButton             *m_newfavoriteacceptbutton;
@@ -142,6 +149,7 @@ private:
     TButton             *m_newfavoriteinfobutton;
     TLineEdit           *m_newfavoriteid;
     TPane               *m_newfavoritepanel;
+    int                  m_numfavorites;
     QString              m_openingid;
     TButton             *m_pinbutton;
     TPopup              *m_popup;

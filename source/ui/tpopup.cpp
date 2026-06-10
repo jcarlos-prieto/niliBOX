@@ -38,6 +38,7 @@ TPopup::TPopup(QWidget *parent) : TPane("", parent)
     m_buttonsbox = new TPane("", this);
 
     m_textbox->setWordWrap(true);
+    m_textbox->setSelectable(true);
     setName("TPopup");
 
     m_layout = new QVBoxLayout(this);

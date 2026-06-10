@@ -146,19 +146,18 @@ int main(int argc, char *argv[])
 
     G_BOX = new Box();
 
+    ui = new UI();
+    ui->start();
+
     clientthread = new QThread();
     client = new Client();
     client->moveToThread(clientthread);
     QObject::connect(clientthread, &QThread::started, client, &Client::start);
     QObject::connect(client, &Client::started, &loop, &QEventLoop::quit);
-    clientthread->start();
-    loop.exec();
-
-    ui = new UI();
-    ui->start();
-
     QObject::connect(ui, &UI::messageOut, client, &Client::messageIn);
     QObject::connect(client, &Client::messageOut, ui, &UI::messageIn);
+    clientthread->start();
+    loop.exec();
 
     std::signal(SIGINT, signalHandler);
 

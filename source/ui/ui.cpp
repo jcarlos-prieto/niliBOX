@@ -354,14 +354,14 @@ void UI::animation2Finished()
 
     m_openingapp = false;
 
+    if (G_LOCALSETTINGS.get("ui.devicespanelpined") == "true")
+        devicesButtonClicked();
+
     if (G_LOCALSETTINGS.get("ui.pinned") == "true") {
         m_pinned = true;
         m_pinbutton->setPressed(true);
         openCloseButtonClicked();
     }
-
-    if (G_LOCALSETTINGS.get("ui.devicespanelpined") == "true")
-        devicesButtonClicked();
 
     if (!m_pendingapps.isEmpty()) {
         appOpen(m_pendingapps.first());
@@ -437,6 +437,11 @@ void UI::appButtonAdd(const QString &id, TPane *panel)
 
 void UI::appButtonDelete(const QString &id)
 {
+    if (m_animation3->state() == QAbstractAnimation::Running) {
+        QTimer::singleShot(m_animationdelay, this, [=]() {appShow(id);});
+        return;
+    }
+
     int n = m_appbuttons->count();
 
     for (int i = 0; i < n; ++i)
@@ -494,6 +499,11 @@ void UI::appOpen(const QString &id)
 
 void UI::appShow(const QString &id)
 {
+    if (m_animation3->state() == QAbstractAnimation::Running) {
+        QTimer::singleShot(m_animationdelay, this, [=]() {appShow(id);});
+        return;
+    }
+
     int n = m_appbuttons->count();
 
     for (int i = 0; i < n; ++i) {

@@ -69,7 +69,7 @@ void Client::cleanKnownSites()
             QString siteid = site.config().get("site.id");
             m_socket->removeSession(siteid);
             m_knownsites.remove(siteid);
-            if (site.config().get("site.islocal") == "true")
+            if (site.config().get("site.location") < "3")
                 qInfo() << qPrintable("CLIENT: Lost site " + siteid);
         }
 }
@@ -122,11 +122,12 @@ void Client::httpSessionFinished1(HttpSession *httpsession)
         bool update = true;
         SiteInfo site = m_knownsites.value(siteid);
         if (!site.isNull())
-            if (site.config().get("site.islocal") == "true")
+            if (site.config().get("site.location") < "3")
                 update = false;
 
         if (update) {
             Settings site = sites.extractSettings(siteid);
+            site.set("site.location", "3");
             siteinfo.setConfig(site.getSettings("site"));
             siteinfo.setDrivers(site.extractSettings("drivers"));
             siteinfo.setDevices(site.extractSettings("devices"));
@@ -201,7 +202,7 @@ void Client::processMessageIn(const Message &message)
                 Settings siteinfo;
                 siteinfo.loadSettings(site.config());
                 QString siteid = siteinfo.get("site.id");
-                if (siteid == G_SITEID || ((siteinfo.get("site.remotesetup") != "0" && siteinfo.get("site.islocal") == "true") && QDateTime::currentMSecsSinceEpoch() < site.lastseen()))
+                if (siteid == G_SITEID || ((siteinfo.get("site.remotesetup") != "0" && siteinfo.get("sitelocation") < "3") && QDateTime::currentMSecsSinceEpoch() < site.lastseen()))
                     nearsites.loadSettings(siteinfo, siteid);
             }
 
@@ -245,7 +246,6 @@ void Client::processMessageIn(const Message &message)
         //** message.data() => true | false
         case Message::C_PUBLICSITES: {
             m_getpublicsites = message.data() == "true";
-            heartbeat1();
             return;
         }
 
@@ -300,13 +300,16 @@ void Client::socketMessageReceived(const Message &message, const Address &addres
             bool newsite = true;
             SiteInfo site = m_knownsites.value(siteid);
             if (!site.isNull())
-                if (site.config().get("site.islocal") == "true")
+                if (site.config().get("site.location") < "3")
                     newsite = false;
 
             if (newsite)
                 qInfo() << qPrintable("CLIENT: Discovered site " + siteid);
 
-            info.set("site.islocal", "true");
+            if (address.isLocal())
+                info.set("site.location", "1");
+            else
+                info.set("site.location", "2");
 
             SiteInfo siteinfo = m_knownsites.value(siteid);
             siteinfo.setConfig(info);

@@ -113,13 +113,14 @@ devices.local.filter.body =                 border-color:#A0A0FF; radius:0; radi
 devices.local.buttons =                     foreground-color:#F0F0FF
 devices.local.button.blind1 =               image:infodriver.png
 devices.local.button.blind2 =               image:favorites.png
-devices.iconglobal =                        image:global.png; border-width:0; foreground-color:transparent
+devices.iconglobal =                        image:global.png; border-width:0; foreground-color:transparent; padding:1
+devices.local.label =                       margin-top:-3; margin-bottom:-3
 devices.global =                            radius-bottomleft:4; radius-bottomright:4
 devices.global.filter.header =              image:filter.png; foreground-color:transparent; border-color:#A0A0FF; border-width:0.5
 devices.global.filter.header.arrow =        image:none
 devices.global.filter.body =                border-color:#A0A0FF; radius:0; radius-bottomleft:5; radius-bottomright:5
 devices.global.buttons =                    foreground-color:#F0F0FF
-devices.global.button.blind1 =              image:info.png
+devices.global.button.blind1 =              image:infodriver.png
 devices.global.button.blind2 =              image:favorites.png
 
 settings =                                  background-color:#F0F0FF; padding:1.5
