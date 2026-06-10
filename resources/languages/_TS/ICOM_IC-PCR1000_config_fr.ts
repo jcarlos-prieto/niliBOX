@@ -5,15 +5,15 @@
     <name>main</name>
     <message>
         <source>Serial port:</source>
-        <translation type="unfinished"></translation>
+        <translation>Port série:</translation>
     </message>
     <message>
         <source>Audio device:</source>
-        <translation type="unfinished"></translation>
+        <translation>Dispositif audio:</translation>
     </message>
     <message>
         <source>Input gain:</source>
-        <translation type="unfinished"></translation>
+        <translation>Gain d&apos;entrée:</translation>
     </message>
 </context>
 </TS>

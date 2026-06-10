@@ -113,10 +113,6 @@
         <translation>Vernieuwen</translation>
     </message>
     <message>
-        <source>Favorites</source>
-        <translation>Favorieten</translation>
-    </message>
-    <message>
         <source>Local devices</source>
         <translation>Lokale apparaten</translation>
     </message>
@@ -153,6 +149,10 @@
         <translation>Stuurprogramma:</translation>
     </message>
     <message>
+        <source>REMOTE</source>
+        <translation>AFSTAND</translation>
+    </message>
+    <message>
         <source>Remove from favorites</source>
         <translation>Verwijderen uit favorieten</translation>
     </message>
@@ -175,6 +175,18 @@
     <message>
         <source>ID:</source>
         <translation>ID:</translation>
+    </message>
+    <message>
+        <source>FAVORITES</source>
+        <translation>FAVORIETEN</translation>
+    </message>
+    <message>
+        <source>LOCAL</source>
+        <translation>LOKAAL</translation>
+    </message>
+    <message>
+        <source>NEAR</source>
+        <translation>DICHTBIJ</translation>
     </message>
     <message>
         <source>Name:</source>

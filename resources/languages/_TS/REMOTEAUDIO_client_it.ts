@@ -5,78 +5,78 @@
     <name>SetAudioSettings</name>
     <message>
         <source>FREQ.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>GAIN</source>
-        <translation type="unfinished"></translation>
+        <translation>FREQ.</translation>
     </message>
     <message>
         <source>BITS</source>
-        <translation type="unfinished"></translation>
+        <translation>BIT</translation>
     </message>
     <message>
         <source>COMP.</source>
-        <translation type="unfinished"></translation>
+        <translation>COMP.</translation>
+    </message>
+    <message>
+        <source>GAIN</source>
+        <translation>GUADAGNO</translation>
     </message>
 </context>
 <context>
     <name>main</name>
     <message>
         <source>Start / Stop</source>
-        <translation type="unfinished"></translation>
+        <translation>Iniziare / Fermare</translation>
     </message>
     <message>
         <source>Time graph</source>
-        <translation type="unfinished"></translation>
+        <translation>Grafico di tempo</translation>
     </message>
     <message>
         <source>Frequency graph</source>
-        <translation type="unfinished"></translation>
+        <translation>Grafico di frequenza</translation>
     </message>
     <message>
         <source>REMOTE</source>
-        <translation type="unfinished"></translation>
+        <translation>REMOTO</translation>
     </message>
     <message>
         <source>GAIN</source>
-        <translation type="unfinished"></translation>
+        <translation>GUADAGNO</translation>
     </message>
     <message>
         <source>Remote to local</source>
-        <translation type="unfinished"></translation>
+        <translation>Da remoto a locale</translation>
     </message>
     <message>
         <source>Local to remote</source>
-        <translation type="unfinished"></translation>
+        <translation>Da locale a remoto</translation>
     </message>
     <message>
         <source>Audio settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Impostazioni audio</translation>
     </message>
     <message>
         <source>LOCAL</source>
-        <translation type="unfinished"></translation>
+        <translation>LOCALE</translation>
     </message>
     <message>
         <source>TIME</source>
-        <translation type="unfinished"></translation>
+        <translation>TEMPO</translation>
     </message>
     <message>
         <source>FREQUENCY</source>
-        <translation type="unfinished"></translation>
+        <translation>FREQUENZA</translation>
     </message>
     <message>
         <source>FILTER</source>
-        <translation type="unfinished"></translation>
+        <translation>FILTRO</translation>
     </message>
     <message>
         <source>PASS</source>
-        <translation type="unfinished"></translation>
+        <translation>PASSA</translation>
     </message>
     <message>
         <source>REJECT</source>
-        <translation type="unfinished"></translation>
+        <translation>TAGLIA</translation>
     </message>
 </context>
 </TS>

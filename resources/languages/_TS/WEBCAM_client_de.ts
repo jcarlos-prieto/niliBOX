@@ -5,35 +5,35 @@
     <name>main</name>
     <message>
         <source>Start / Stop</source>
-        <translation type="unfinished"></translation>
+        <translation>Starten / Stoppen</translation>
     </message>
     <message>
         <source>Take picture</source>
-        <translation type="unfinished"></translation>
+        <translation>Foto machen</translation>
     </message>
     <message>
         <source>QUALITY</source>
-        <translation type="unfinished"></translation>
+        <translation>QUALITÄT</translation>
     </message>
     <message>
         <source>RATE</source>
-        <translation type="unfinished"></translation>
+        <translation>BILDSCHIRM-TAKT</translation>
     </message>
     <message>
         <source>MIRROR</source>
-        <translation type="unfinished"></translation>
+        <translation>SPIEGEL</translation>
     </message>
     <message>
         <source>FILES</source>
-        <translation type="unfinished"></translation>
+        <translation>DATEIEN</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"></translation>
+        <translation>Speichern</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Löschen</translation>
     </message>
 </context>
 </TS>

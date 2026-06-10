@@ -5,86 +5,86 @@
     <name>SetAudioSettings</name>
     <message>
         <source>FREQ.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>GAIN</source>
-        <translation type="unfinished"></translation>
+        <translation>FREQ.</translation>
     </message>
     <message>
         <source>BITS</source>
-        <translation type="unfinished"></translation>
+        <translation>BITS</translation>
     </message>
     <message>
         <source>COMP.</source>
-        <translation type="unfinished"></translation>
+        <translation>COMP.</translation>
+    </message>
+    <message>
+        <source>GAIN</source>
+        <translation>GUADAGNO</translation>
     </message>
 </context>
 <context>
     <name>main</name>
     <message>
-        <source>Start / Stop</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Audio settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Impostazioni audio</translation>
     </message>
     <message>
         <source>Time graph</source>
-        <translation type="unfinished"></translation>
+        <translation>Grafico di tempo</translation>
     </message>
     <message>
         <source>Frequency graph</source>
-        <translation type="unfinished"></translation>
+        <translation>Grafico di frequenza</translation>
     </message>
     <message>
         <source>FILES</source>
-        <translation type="unfinished"></translation>
+        <translation>FILE</translation>
     </message>
     <message>
         <source>GAIN</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>IN</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>OUT</source>
-        <translation type="unfinished"></translation>
+        <translation>GUADAGNO</translation>
     </message>
     <message>
         <source>TIME</source>
-        <translation type="unfinished"></translation>
+        <translation>TEMPO</translation>
     </message>
     <message>
         <source>FREQUENCY</source>
-        <translation type="unfinished"></translation>
+        <translation>FREQUENZA</translation>
     </message>
     <message>
         <source>FILTER</source>
-        <translation type="unfinished"></translation>
+        <translation>FILTRO</translation>
     </message>
     <message>
         <source>PASS</source>
-        <translation type="unfinished"></translation>
+        <translation>PASSA</translation>
     </message>
     <message>
         <source>REJECT</source>
-        <translation type="unfinished"></translation>
+        <translation>TAGLIA</translation>
     </message>
     <message>
         <source>FORMAT</source>
-        <translation type="unfinished"></translation>
+        <translation>FORMATO</translation>
     </message>
     <message>
         <source>Unknown</source>
-        <translation type="unfinished"></translation>
+        <translation>Sconosciuto</translation>
+    </message>
+    <message>
+        <source>Start / Stop</source>
+        <translation>Iniziare / Fermare</translation>
+    </message>
+    <message>
+        <source>IN</source>
+        <translation>INGRESSO</translation>
+    </message>
+    <message>
+        <source>OUT</source>
+        <translation>USCITA</translation>
     </message>
     <message>
         <source>Using</source>
-        <translation type="unfinished"></translation>
+        <translation>Usando</translation>
     </message>
 </context>
 </TS>

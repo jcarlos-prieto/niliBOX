@@ -5,11 +5,11 @@
     <name>main</name>
     <message>
         <source>Device:</source>
-        <translation type="unfinished"></translation>
+        <translation>Apparaat:</translation>
     </message>
     <message>
         <source>If the hardware is not recognized, try installing the WinUSB driver. Use Zadig from: </source>
-        <translation type="unfinished"></translation>
+        <translation>Als de hardware niet wordt herkend, probeer dan de WinUSB-stuurprogramma te installeren. Gebruik Zadig via: </translation>
     </message>
 </context>
 </TS>

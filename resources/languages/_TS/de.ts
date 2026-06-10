@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+Favoriten<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
 <TS version="2.1" language="de">
 <context>
@@ -113,10 +113,6 @@
         <translation>Aktualisieren</translation>
     </message>
     <message>
-        <source>Favorites</source>
-        <translation>Favoriten</translation>
-    </message>
-    <message>
         <source>Local devices</source>
         <translation>Lokale Geräte</translation>
     </message>
@@ -175,6 +171,18 @@
     <message>
         <source>ID:</source>
         <translation>ID:</translation>
+    </message>
+    <message>
+        <source>FAVORITES</source>
+        <translation>FAVORITEN</translation>
+    </message>
+    <message>
+        <source>LOCAL</source>
+        <translation>LOKAL</translation>
+    </message>
+    <message>
+        <source>NEAR</source>
+        <translation>NAH</translation>
     </message>
     <message>
         <source>Name:</source>

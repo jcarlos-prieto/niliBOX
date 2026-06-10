@@ -5,163 +5,163 @@
     <name>main</name>
     <message>
         <source>Number of relays:</source>
-        <translation type="unfinished"></translation>
+        <translation>Número de relés:</translation>
     </message>
     <message>
         <source>Relay:</source>
-        <translation type="unfinished"></translation>
+        <translation>Relé:</translation>
     </message>
     <message>
         <source>Name:</source>
-        <translation type="unfinished"></translation>
+        <translation>Nombre:</translation>
     </message>
     <message>
         <source>Device:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Settings:</source>
-        <translation type="unfinished"></translation>
+        <translation>Dispositivo:</translation>
     </message>
     <message>
         <source>Information</source>
-        <translation type="unfinished"></translation>
+        <translation>Información</translation>
     </message>
     <message>
         <source>COMMANDS</source>
-        <translation type="unfinished"></translation>
+        <translation>COMANDOS</translation>
     </message>
     <message>
         <source>Initialization:</source>
-        <translation type="unfinished"></translation>
+        <translation>Inicialización:</translation>
     </message>
     <message>
         <source>Set ON:</source>
-        <translation type="unfinished"></translation>
+        <translation>Activar:</translation>
     </message>
     <message>
         <source>Set OFF:</source>
-        <translation type="unfinished"></translation>
+        <translation>Desactivar:</translation>
     </message>
     <message>
         <source>Status ON:</source>
-        <translation type="unfinished"></translation>
+        <translation>Estado Activado:</translation>
     </message>
     <message>
         <source>Status OFF:</source>
-        <translation type="unfinished"></translation>
+        <translation>Estado Desactivado:</translation>
     </message>
     <message>
         <source>COM Settings:</source>
-        <translation type="unfinished"></translation>
+        <translation>Configuraciones COM:</translation>
     </message>
     <message>
         <source>baudrate,parity,databits,stopbits,flowcontrol</source>
-        <translation type="unfinished"></translation>
+        <translation>baudrate,paridad,bits de datos,bits de parada,control de flujo</translation>
     </message>
     <message>
         <source>baudrate: number</source>
-        <translation type="unfinished"></translation>
+        <translation>baudrate: número</translation>
     </message>
     <message>
         <source>parity:</source>
-        <translation type="unfinished"></translation>
+        <translation>paridad:</translation>
     </message>
     <message>
         <source>databits:</source>
-        <translation type="unfinished"></translation>
+        <translation>bits de datos:</translation>
     </message>
     <message>
         <source>stopbits:</source>
-        <translation type="unfinished"></translation>
+        <translation>bits de parada:</translation>
     </message>
     <message>
         <source>flowcontrol:</source>
-        <translation type="unfinished"></translation>
+        <translation>control de flujo:</translation>
     </message>
     <message>
         <source>Example: 9600,N,8,1,NO</source>
-        <translation type="unfinished"></translation>
+        <translation>Ejemplo: 9600,N,8,1,NO</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>Cerrar</translation>
     </message>
     <message>
         <source>USB Settings:</source>
-        <translation type="unfinished"></translation>
+        <translation>Configuraciones USB:</translation>
     </message>
     <message>
         <source>&lt;b&gt;bulk&lt;/b&gt;,interface,endpoint</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;bulk&lt;/b&gt;,interfaz,endpoint</translation>
     </message>
     <message>
         <source>OR</source>
-        <translation type="unfinished"></translation>
+        <translation>O</translation>
     </message>
     <message>
         <source>&lt;b&gt;control&lt;/b&gt;,bmRequestType,bRequest,wValue,wIndex</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;control&lt;/b&gt;,bmRequestType,bRequest,wValue,wIndex</translation>
     </message>
     <message>
         <source>interface: number</source>
-        <translation type="unfinished"></translation>
+        <translation>interfaz: número</translation>
     </message>
     <message>
         <source>endpoint: number</source>
-        <translation type="unfinished"></translation>
+        <translation>endpoint: número</translation>
     </message>
     <message>
         <source>bmRequestType: number</source>
-        <translation type="unfinished"></translation>
+        <translation>bmRequestType: número</translation>
     </message>
     <message>
         <source>bRequest: number</source>
-        <translation type="unfinished"></translation>
+        <translation>bRequest: número</translation>
     </message>
     <message>
         <source>wValue: number</source>
-        <translation type="unfinished"></translation>
+        <translation>wValue: número</translation>
     </message>
     <message>
         <source>wIndex: number</source>
-        <translation type="unfinished"></translation>
+        <translation>wIndex: número</translation>
     </message>
     <message>
         <source>Example: bulk,3</source>
-        <translation type="unfinished"></translation>
+        <translation>Ejemplo: bulk,3</translation>
     </message>
     <message>
         <source>Example: control,3</source>
-        <translation type="unfinished"></translation>
+        <translation>Ejemplo: control,3</translation>
     </message>
     <message>
         <source>COMMANDS:</source>
-        <translation type="unfinished"></translation>
+        <translation>COMANDOS:</translation>
     </message>
     <message>
         <source>Hexadecimal number (2 digits)</source>
-        <translation type="unfinished"></translation>
+        <translation>Número hexadecimal (2 dígitos)</translation>
     </message>
     <message>
         <source>Binary number (8 digits)</source>
-        <translation type="unfinished"></translation>
+        <translation>Número binario (8 dígitos)</translation>
     </message>
     <message>
         <source>Wait NNNN msec (4 digits)</source>
-        <translation type="unfinished"></translation>
+        <translation>Esperar NNNN msec (4 dígitos)</translation>
     </message>
     <message>
         <source>If relay N is &apos;on&apos; then v1, otherwise v2</source>
-        <translation type="unfinished"></translation>
+        <translation>Si el relé N está &apos;activado&apos;, entonces v1, de lo contrario v2</translation>
     </message>
     <message>
         <source>Escape characters: </source>
-        <translation type="unfinished"></translation>
+        <translation>Caracteres de escape: </translation>
     </message>
     <message>
         <source>&apos;or&apos; separator (status only)</source>
-        <translation type="unfinished"></translation>
+        <translation>Separador &apos;o&apos; (solo estado)</translation>
+    </message>
+    <message>
+        <source>Settings:</source>
+        <translation>Configuración:</translation>
     </message>
 </context>
 </TS>

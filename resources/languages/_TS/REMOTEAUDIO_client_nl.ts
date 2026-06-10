@@ -5,78 +5,78 @@
     <name>SetAudioSettings</name>
     <message>
         <source>FREQ.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>GAIN</source>
-        <translation type="unfinished"></translation>
+        <translation>FREQ.</translation>
     </message>
     <message>
         <source>BITS</source>
-        <translation type="unfinished"></translation>
+        <translation>BITS</translation>
     </message>
     <message>
         <source>COMP.</source>
-        <translation type="unfinished"></translation>
+        <translation>COMP.</translation>
+    </message>
+    <message>
+        <source>GAIN</source>
+        <translation>VERSTERKING</translation>
     </message>
 </context>
 <context>
     <name>main</name>
     <message>
         <source>Start / Stop</source>
-        <translation type="unfinished"></translation>
+        <translation>Starten / Stoppen</translation>
     </message>
     <message>
         <source>Time graph</source>
-        <translation type="unfinished"></translation>
+        <translation>Tijngrafiek</translation>
     </message>
     <message>
         <source>Frequency graph</source>
-        <translation type="unfinished"></translation>
+        <translation>Frequentiegrafiek</translation>
     </message>
     <message>
         <source>REMOTE</source>
-        <translation type="unfinished"></translation>
+        <translation>AFSTAND</translation>
     </message>
     <message>
         <source>GAIN</source>
-        <translation type="unfinished"></translation>
+        <translation>VERSTERKING</translation>
     </message>
     <message>
         <source>Remote to local</source>
-        <translation type="unfinished"></translation>
+        <translation>Van afstand naar lokaal</translation>
     </message>
     <message>
         <source>Local to remote</source>
-        <translation type="unfinished"></translation>
+        <translation>Van lokaal naar afstand</translation>
     </message>
     <message>
         <source>Audio settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Audio-instellingen</translation>
     </message>
     <message>
         <source>LOCAL</source>
-        <translation type="unfinished"></translation>
+        <translation>LOKAAL</translation>
     </message>
     <message>
         <source>TIME</source>
-        <translation type="unfinished"></translation>
+        <translation>TIJD</translation>
     </message>
     <message>
         <source>FREQUENCY</source>
-        <translation type="unfinished"></translation>
+        <translation>FREQUENTIE</translation>
     </message>
     <message>
         <source>FILTER</source>
-        <translation type="unfinished"></translation>
+        <translation>FILTER</translation>
     </message>
     <message>
         <source>PASS</source>
-        <translation type="unfinished"></translation>
+        <translation>DOOR.</translation>
     </message>
     <message>
         <source>REJECT</source>
-        <translation type="unfinished"></translation>
+        <translation>AFWIJS</translation>
     </message>
 </context>
 </TS>

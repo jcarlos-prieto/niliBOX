@@ -113,10 +113,6 @@
         <translation>Rafraîchir</translation>
     </message>
     <message>
-        <source>Favorites</source>
-        <translation>Favoris</translation>
-    </message>
-    <message>
         <source>Local devices</source>
         <translation>Appareils locaux</translation>
     </message>
@@ -153,6 +149,10 @@
         <translation>Pilote:</translation>
     </message>
     <message>
+        <source>REMOTE</source>
+        <translation>DISTANT</translation>
+    </message>
+    <message>
         <source>Remove from favorites</source>
         <translation>Retirer des favoris</translation>
     </message>
@@ -175,6 +175,18 @@
     <message>
         <source>ID:</source>
         <translation>ID:</translation>
+    </message>
+    <message>
+        <source>FAVORITES</source>
+        <translation>FAVORIS</translation>
+    </message>
+    <message>
+        <source>LOCAL</source>
+        <translation>LOCAL</translation>
+    </message>
+    <message>
+        <source>NEAR</source>
+        <translation>PROCHE</translation>
     </message>
     <message>
         <source>Name:</source>

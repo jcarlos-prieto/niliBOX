@@ -5,7 +5,7 @@
     <name>main</name>
     <message>
         <source>Nothing to configure here</source>
-        <translation type="unfinished"></translation>
+        <translation>Nichts hier zu konfigurieren</translation>
     </message>
 </context>
 </TS>

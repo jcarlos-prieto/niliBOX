@@ -113,10 +113,6 @@
         <translation>Aggiorna</translation>
     </message>
     <message>
-        <source>Favorites</source>
-        <translation>Preferiti</translation>
-    </message>
-    <message>
         <source>Local devices</source>
         <translation>Dispositivi locali</translation>
     </message>
@@ -153,6 +149,10 @@
         <translation>Driver:</translation>
     </message>
     <message>
+        <source>REMOTE</source>
+        <translation>REMOTO</translation>
+    </message>
+    <message>
         <source>Remove from favorites</source>
         <translation>Rimuovi dai preferiti</translation>
     </message>
@@ -175,6 +175,18 @@
     <message>
         <source>ID:</source>
         <translation>ID:</translation>
+    </message>
+    <message>
+        <source>FAVORITES</source>
+        <translation>PREFERITI</translation>
+    </message>
+    <message>
+        <source>LOCAL</source>
+        <translation>LOCALI</translation>
+    </message>
+    <message>
+        <source>NEAR</source>
+        <translation>VICINI</translation>
     </message>
     <message>
         <source>Name:</source>

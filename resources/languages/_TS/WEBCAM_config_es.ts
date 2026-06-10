@@ -5,7 +5,7 @@
     <name>main</name>
     <message>
         <source>Camera:</source>
-        <translation type="unfinished"></translation>
+        <translation>Cámara:</translation>
     </message>
 </context>
 </TS>

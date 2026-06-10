@@ -113,10 +113,6 @@
         <translation>Actualizar</translation>
     </message>
     <message>
-        <source>Favorites</source>
-        <translation>Favoritos</translation>
-    </message>
-    <message>
         <source>Local devices</source>
         <translation>Dispositivos locales</translation>
     </message>
@@ -153,6 +149,10 @@
         <translation>Controlador:</translation>
     </message>
     <message>
+        <source>REMOTE</source>
+        <translation>REMOTO</translation>
+    </message>
+    <message>
         <source>Remove from favorites</source>
         <translation>Eliminar de favoritos</translation>
     </message>
@@ -175,6 +175,18 @@
     <message>
         <source>ID:</source>
         <translation>ID:</translation>
+    </message>
+    <message>
+        <source>FAVORITES</source>
+        <translation>FAVORITOS</translation>
+    </message>
+    <message>
+        <source>LOCAL</source>
+        <translation>LOCALES</translation>
+    </message>
+    <message>
+        <source>NEAR</source>
+        <translation>CERCANOS</translation>
     </message>
     <message>
         <source>Name:</source>
