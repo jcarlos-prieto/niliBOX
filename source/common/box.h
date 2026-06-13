@@ -159,7 +159,6 @@ public:
         int                                 samplerate;
         int                                 samplingbits;
         float                               volume;
-        bool                                buffering;
         bool                                busy;
         bool                                direct;
         bool                                mute;

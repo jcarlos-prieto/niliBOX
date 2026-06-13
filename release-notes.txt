@@ -5,6 +5,7 @@
     Fixed bugs in combo boxes
     Option to show devices screen at start (pin to start)
     Refurbished devices panel
+    Reduced audio buffer delay
 
     macOS: macOS Tahoe supported (tested with macOS 26.3)
 

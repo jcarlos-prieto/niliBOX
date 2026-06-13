@@ -455,7 +455,6 @@ int Box::audioDevice_open(const QString &devname, const QString &mode, const boo
             audiodevice->audiooutput->setBufferSize(4 * audiodevice->processsize);
             connect(audiodevice->audiooutput, &QAudioSink::stateChanged, this, &Box::audioDeviceOutputStateChanged);
 
-            audiodevice->buffering = true;
             audiodevice->iodevice = nullptr;
             audiodevice->iodevice = audiodevice->audiooutput->start();
 
@@ -631,7 +630,6 @@ void Box::audioDevice_reset(const int devid)
     }
 
     device->buffer = QByteArray();
-    device->buffering = true;
 
 #if defined OS_IOS
     forceiOSSpeaker();
@@ -707,9 +705,6 @@ void Box::audioDevice_write(const int devid, QByteArrayView data)
 
         return;
     }
-
-    if (device->buffer.size() < 4 * device->processsize)
-        device->buffering = true;
 
     device->buffer.append(data);
     emit audioDevice_Slave(device->samplerate, data);
@@ -5409,12 +5404,7 @@ void AudioWorker::worker()
         emitsize = qMax(static_cast<int>((msecs - m_dev->msecs) * m_dev->samplerate / 250) & ~(SF - 1), 0);
         m_dev->msecs = msecs;
 
-        if (m_dev->buffering) {
-            if (m_dev->buffer.size() > 8 * m_dev->processsize)
-                m_dev->buffering = false;
-        }
-
-        if (!m_dev->buffering && m_dev->buffer.size() >= emitsize) {
+        if (m_dev->buffer.size() >= emitsize) {
             QByteArrayView buffer = G_BOX->mem()->alloc(m_dev->buffer.first(emitsize));
             m_dev->buffer.remove(0, emitsize);
             if (!m_dev->busy)
